@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,247 +8,201 @@
 <link rel="icon" type="image/x-icon" href="favicon.ico">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
 <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&family=Noto+Sans+Arabic:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
   :root {
-    --green:       #2E7D32;
-    --green-light: #e8f5e9;
-    --green-mid:   #4CAF50;
-    --red:         #C62828;
-    --red-light:   #ffebee;
-    --gold:        #D4A017;
-    --gold-light:  #fff8e1;
-    --sand:        #FAF7F2;
-    --dark:        #1b2a1c;
-    --text:        #2c3a2e;
-    --muted:       #6b7a6d;
-    --white:       #ffffff;
-    --border:      #dce8dc;
+    --green:#2E7D32;--green-light:#e8f5e9;--green-mid:#4CAF50;
+    --red:#C62828;--red-light:#ffebee;--gold:#D4A017;--gold-light:#fff8e1;
+    --sand:#FAF7F2;--dark:#1b2a1c;--text:#2c3a2e;--muted:#6b7a6d;
+    --white:#ffffff;--border:#dce8dc;
   }
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  html { scroll-behavior: smooth; }
-  body {
-    font-family: 'DM Sans', sans-serif;
-    background: var(--sand);
-    color: var(--text);
-    line-height: 1.7;
-    overflow-x: hidden;
-  }
-  .moroccan-border {
-    height: 6px;
-    background: linear-gradient(90deg,
-      var(--red) 0%, var(--red) 33%,
-      var(--green) 33%, var(--green) 67%,
-      var(--gold) 67%, var(--gold) 100%);
-  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{font-family:'DM Sans',sans-serif;background:var(--sand);color:var(--text);line-height:1.7;overflow-x:hidden;}
+  html[lang="ar"] body{font-family:'Noto Sans Arabic','DM Sans',sans-serif;}
+
+  .moroccan-border{height:6px;background:linear-gradient(90deg,var(--red) 0%,var(--red) 33%,var(--green) 33%,var(--green) 67%,var(--gold) 67%,var(--gold) 100%);}
+
+  /* LANG BAR */
+  .lang-bar{background:var(--dark);padding:7px 48px;display:flex;justify-content:flex-end;align-items:center;gap:6px;}
+  html[dir="rtl"] .lang-bar{justify-content:flex-start;}
+  .lang-btn{background:transparent;border:1px solid rgba(255,255,255,0.2);color:rgba(255,255,255,0.6);font-size:12px;font-weight:500;padding:4px 13px;border-radius:20px;cursor:pointer;transition:all 0.2s;font-family:inherit;letter-spacing:0.5px;}
+  .lang-btn:hover{border-color:rgba(255,255,255,0.5);color:white;}
+  .lang-btn.active{background:var(--green);border-color:var(--green);color:white;}
 
   /* NAV */
-  nav {
-    background: var(--white);
-    border-bottom: 1px solid var(--border);
-    padding: 10px 48px;
-    display: flex; align-items: center; justify-content: space-between;
-    position: sticky; top: 0; z-index: 100;
-    box-shadow: 0 2px 16px rgba(0,0,0,0.06);
-  }
-  .nav-logo img { height: 60px; width: auto; display: block; }
-  nav ul { display: flex; list-style: none; gap: 28px; align-items: center; }
-  nav ul a { text-decoration: none; color: var(--muted); font-size: 14px; font-weight: 500; transition: color 0.2s; }
-  nav ul a:hover { color: var(--green); }
-  .nav-cta {
-    background: var(--red) !important; color: var(--white) !important;
-    padding: 9px 22px; border-radius: 30px; font-weight: 500 !important;
-    transition: background 0.2s, transform 0.15s !important;
-  }
-  .nav-cta:hover { background: #a31515 !important; transform: translateY(-1px); }
+  nav{background:var(--white);border-bottom:1px solid var(--border);padding:10px 48px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;box-shadow:0 2px 16px rgba(0,0,0,0.06);}
+  .nav-logo img{height:60px;width:auto;display:block;}
+  nav ul{display:flex;list-style:none;gap:24px;align-items:center;}
+  nav ul a{text-decoration:none;color:var(--muted);font-size:14px;font-weight:500;transition:color 0.2s;}
+  nav ul a:hover{color:var(--green);}
+  .nav-cta{background:var(--red)!important;color:var(--white)!important;padding:9px 22px;border-radius:30px;font-weight:500!important;transition:background 0.2s,transform 0.15s!important;}
+  .nav-cta:hover{background:#a31515!important;transform:translateY(-1px);}
 
   /* HERO */
-  .hero {
-    background: var(--green); position: relative; overflow: hidden;
-    padding: 88px 48px 100px; text-align: center;
-  }
-  .hero::before {
-    content: ''; position: absolute; inset: 0;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Cpolygon points='30,5 34,20 50,20 37,30 42,45 30,36 18,45 23,30 10,20 26,20' fill='white' opacity='0.04'/%3E%3C/svg%3E");
-  }
-  .hero::after {
-    content: ''; position: absolute; inset: 0;
-    background: radial-gradient(ellipse at 20% 60%, rgba(212,160,23,0.10) 0%, transparent 55%),
-                radial-gradient(ellipse at 80% 30%, rgba(198,40,40,0.08) 0%, transparent 50%);
-  }
-  .hero-inner { position: relative; z-index: 1; max-width: 740px; margin: 0 auto; animation: fadeUp 0.8s ease both; }
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(28px); }
-    to   { opacity: 1; transform: translateY(0); }
-  }
-  .hero-logo {
-    margin: 0 auto 32px; width: 168px; height: 168px;
-    border-radius: 50%; overflow: hidden; background: white;
-    display: flex; align-items: center; justify-content: center;
-    box-shadow: 0 8px 40px rgba(0,0,0,0.28); animation: fadeUp 0.6s ease both;
-  }
-  .hero-logo img { width: 148px; height: 148px; object-fit: contain; }
-  .hero-badge {
-    display: inline-block;
-    background: rgba(255,255,255,0.14); border: 1px solid rgba(255,255,255,0.28);
-    color: rgba(255,255,255,0.92); font-size: 11px; letter-spacing: 3px; font-weight: 500;
-    padding: 6px 18px; border-radius: 30px; margin-bottom: 22px; text-transform: uppercase;
-  }
-  .hero h1 {
-    font-family: 'Playfair Display', serif; font-size: clamp(34px, 5vw, 56px);
-    color: var(--white); line-height: 1.2; margin-bottom: 18px; font-weight: 400;
-  }
-  .hero h1 em { color: var(--gold); font-style: italic; }
-  .hero-tagline { font-size: 18px; color: rgba(255,255,255,0.9); max-width: 520px; margin: 0 auto 14px; line-height: 1.65; font-weight: 400; }
-  .hero-sub { font-size: 14.5px; color: rgba(255,255,255,0.6); max-width: 520px; margin: 0 auto 38px; line-height: 1.75; }
-  .hero-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; animation: fadeUp 0.8s 0.2s ease both; }
-  .btn-primary {
-    background: var(--red); color: var(--white); padding: 15px 38px; border-radius: 40px;
-    text-decoration: none; font-weight: 500; font-size: 16px;
-    transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
-    box-shadow: 0 4px 20px rgba(198,40,40,0.4);
-  }
-  .btn-primary:hover { background: #a31515; transform: translateY(-2px); box-shadow: 0 8px 28px rgba(198,40,40,0.45); }
-  .btn-outline {
-    background: transparent; color: var(--white); padding: 15px 38px; border-radius: 40px;
-    text-decoration: none; font-weight: 400; font-size: 16px;
-    border: 1.5px solid rgba(255,255,255,0.45); transition: border-color 0.2s, background 0.2s;
-  }
-  .btn-outline:hover { border-color: rgba(255,255,255,0.85); background: rgba(255,255,255,0.1); }
-
-  .wave-btm { display: block; background: var(--green); line-height: 0; }
-  .wave-btm svg { display: block; width: 100%; }
+  .hero{background:var(--green);position:relative;overflow:hidden;padding:88px 48px 100px;text-align:center;}
+  .hero::before{content:'';position:absolute;inset:0;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Cpolygon points='30,5 34,20 50,20 37,30 42,45 30,36 18,45 23,30 10,20 26,20' fill='white' opacity='0.04'/%3E%3C/svg%3E");}
+  .hero::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 20% 60%,rgba(212,160,23,0.10) 0%,transparent 55%),radial-gradient(ellipse at 80% 30%,rgba(198,40,40,0.08) 0%,transparent 50%);}
+  .hero-inner{position:relative;z-index:1;max-width:740px;margin:0 auto;animation:fadeUp 0.8s ease both;}
+  @keyframes fadeUp{from{opacity:0;transform:translateY(28px);}to{opacity:1;transform:translateY(0);}}
+  .hero-logo{margin:0 auto 32px;width:168px;height:168px;border-radius:50%;overflow:hidden;background:white;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 40px rgba(0,0,0,0.28);}
+  .hero-logo img{width:148px;height:148px;object-fit:contain;}
+  .hero-badge{display:inline-block;background:rgba(255,255,255,0.14);border:1px solid rgba(255,255,255,0.28);color:rgba(255,255,255,0.92);font-size:11px;letter-spacing:3px;font-weight:500;padding:6px 18px;border-radius:30px;margin-bottom:22px;text-transform:uppercase;}
+  .hero h1{font-family:'Playfair Display',serif;font-size:clamp(34px,5vw,56px);color:var(--white);line-height:1.2;margin-bottom:18px;font-weight:400;}
+  html[lang="ar"] .hero h1{font-family:'Noto Sans Arabic',sans-serif;font-weight:300;}
+  .hero h1 em{color:var(--gold);font-style:italic;}
+  html[lang="ar"] .hero h1 em{font-style:normal;}
+  .hero-tagline{font-size:18px;color:rgba(255,255,255,0.9);max-width:560px;margin:0 auto 14px;line-height:1.65;}
+  .hero-sub{font-size:14.5px;color:rgba(255,255,255,0.6);max-width:540px;margin:0 auto 38px;line-height:1.75;}
+  .hero-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;}
+  .btn-primary{background:var(--red);color:var(--white);padding:15px 38px;border-radius:40px;text-decoration:none;font-weight:500;font-size:16px;transition:background 0.2s,transform 0.15s,box-shadow 0.2s;box-shadow:0 4px 20px rgba(198,40,40,0.4);}
+  .btn-primary:hover{background:#a31515;transform:translateY(-2px);box-shadow:0 8px 28px rgba(198,40,40,0.45);}
+  .btn-outline{background:transparent;color:var(--white);padding:15px 38px;border-radius:40px;text-decoration:none;font-weight:400;font-size:16px;border:1.5px solid rgba(255,255,255,0.45);transition:border-color 0.2s,background 0.2s;}
+  .btn-outline:hover{border-color:rgba(255,255,255,0.85);background:rgba(255,255,255,0.1);}
+  .wave-btm{display:block;background:var(--green);line-height:0;}
+  .wave-btm svg{display:block;width:100%;}
 
   /* STATS */
-  .stats-bar { background: var(--white); border-bottom: 1px solid var(--border); padding: 32px 48px; }
-  .stats-inner { max-width: 960px; margin: 0 auto; display: flex; justify-content: center; gap: 64px; flex-wrap: wrap; }
-  .stat { text-align: center; }
-  .stat-num { font-family: 'Playfair Display', serif; font-size: 38px; color: var(--green); font-weight: 600; line-height: 1; margin-bottom: 4px; }
-  .stat-label { font-size: 13px; color: var(--muted); }
+  .stats-bar{background:var(--white);border-bottom:1px solid var(--border);padding:32px 48px;}
+  .stats-inner{max-width:960px;margin:0 auto;display:flex;justify-content:center;gap:64px;flex-wrap:wrap;}
+  .stat{text-align:center;}
+  .stat-num{font-family:'Playfair Display',serif;font-size:38px;color:var(--green);font-weight:600;line-height:1;margin-bottom:4px;}
+  .stat-label{font-size:13px;color:var(--muted);}
 
   /* SECTIONS */
-  section { padding: 72px 48px; }
-  .section-inner { max-width: 1040px; margin: 0 auto; }
-  .section-tag {
-    font-size: 11px; letter-spacing: 3px; font-weight: 500;
-    text-transform: uppercase; color: var(--red); margin-bottom: 10px;
-    display: flex; align-items: center; gap: 8px;
-  }
-  .section-tag::before { content: ''; display: inline-block; width: 20px; height: 2px; background: var(--gold); border-radius: 2px; }
-  .section-title { font-family: 'Playfair Display', serif; font-size: clamp(26px, 3.5vw, 38px); color: var(--dark); font-weight: 400; margin-bottom: 12px; line-height: 1.25; }
-  .section-sub { color: var(--muted); font-size: 15.5px; max-width: 580px; margin-bottom: 44px; }
+  section{padding:72px 48px;}
+  .section-inner{max-width:1040px;margin:0 auto;}
+  .section-tag{font-size:11px;letter-spacing:3px;font-weight:500;text-transform:uppercase;color:var(--red);margin-bottom:10px;display:flex;align-items:center;gap:8px;}
+  .section-tag::before{content:'';display:inline-block;width:20px;height:2px;background:var(--gold);border-radius:2px;}
+  .section-title{font-family:'Playfair Display',serif;font-size:clamp(26px,3.5vw,38px);color:var(--dark);font-weight:400;margin-bottom:12px;line-height:1.25;}
+  html[lang="ar"] .section-title{font-family:'Noto Sans Arabic',sans-serif;font-weight:500;}
+  .section-sub{color:var(--muted);font-size:15.5px;max-width:580px;margin-bottom:44px;}
 
   /* MISSION */
-  .mission { background: var(--sand); }
-  .mission-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 60px; align-items: center; }
-  .mission-text p { color: var(--muted); font-size: 15.5px; margin-bottom: 16px; line-height: 1.75; }
-  .mission-quote-box {
-    background: var(--green); border-radius: 20px; padding: 44px 36px;
-    text-align: center; position: relative; overflow: hidden;
-  }
-  .mission-quote-box::before {
-    content: '"'; position: absolute; top: -10px; left: 20px;
-    font-family: 'Playfair Display', serif; font-size: 120px;
-    color: rgba(255,255,255,0.08); line-height: 1;
-  }
-  .mission-quote { font-family: 'Playfair Display', serif; font-size: 19px; font-style: italic; color: rgba(255,255,255,0.95); line-height: 1.6; position: relative; z-index: 1; margin-bottom: 18px; }
-  .mission-quote-attr { font-size: 13px; color: var(--gold); font-weight: 500; position: relative; z-index: 1; }
+  .mission{background:var(--sand);}
+  .mission-grid{display:grid;grid-template-columns:1.1fr 0.9fr;gap:60px;align-items:center;}
+  .mission-text p{color:var(--muted);font-size:15.5px;margin-bottom:16px;line-height:1.75;}
+  .mission-quote-box{background:var(--green);border-radius:20px;padding:44px 36px;text-align:center;position:relative;overflow:hidden;}
+  .mission-quote-box::before{content:'"';position:absolute;top:-10px;left:20px;font-family:'Playfair Display',serif;font-size:120px;color:rgba(255,255,255,0.08);line-height:1;}
+  .mission-quote{font-family:'Playfair Display',serif;font-size:19px;font-style:italic;color:rgba(255,255,255,0.95);line-height:1.6;position:relative;z-index:1;margin-bottom:18px;}
+  html[lang="ar"] .mission-quote{font-family:'Noto Sans Arabic',sans-serif;font-style:normal;font-size:17px;}
+  .mission-quote-attr{font-size:13px;color:var(--gold);font-weight:500;position:relative;z-index:1;}
 
   /* WHO */
-  .who { background: var(--white); }
-  .children-tags { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 36px; }
-  .child-tag { background: var(--green-light); border: 1px solid #b2dfb4; color: var(--green); font-size: 13.5px; font-weight: 500; padding: 8px 18px; border-radius: 30px; display: flex; align-items: center; gap: 7px; }
+  .who{background:var(--white);}
+  .children-tags{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:36px;}
+  .child-tag{background:var(--green-light);border:1px solid #b2dfb4;color:var(--green);font-size:13.5px;font-weight:500;padding:8px 18px;border-radius:30px;display:flex;align-items:center;gap:7px;}
 
   /* NEEDS */
-  .needs { background: var(--sand); }
-  .needs-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: 16px; }
-  .need-card { background: var(--white); border: 1px solid var(--border); border-radius: 14px; padding: 24px 20px; transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s; }
-  .need-card:hover { border-color: var(--green-mid); transform: translateY(-3px); box-shadow: 0 8px 28px rgba(46,125,79,0.1); }
-  .need-icon { font-size: 30px; margin-bottom: 12px; line-height: 1; }
-  .need-title { font-weight: 500; font-size: 15px; color: var(--dark); margin-bottom: 5px; }
-  .need-desc { font-size: 13px; color: var(--muted); line-height: 1.5; }
-  .need-status { display: inline-block; margin-top: 10px; font-size: 11px; font-weight: 500; letter-spacing: 1px; text-transform: uppercase; padding: 3px 10px; border-radius: 20px; }
-  .status-active { background: var(--green-light); color: var(--green); }
-  .status-coming { background: var(--gold-light); color: #8a6500; }
+  .needs{background:var(--sand);}
+  .needs-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:16px;}
+  .need-card{background:var(--white);border:1px solid var(--border);border-radius:14px;padding:24px 20px;transition:border-color 0.2s,transform 0.2s,box-shadow 0.2s;}
+  .need-card:hover{border-color:var(--green-mid);transform:translateY(-3px);box-shadow:0 8px 28px rgba(46,125,79,0.1);}
+  .need-icon{font-size:30px;margin-bottom:12px;line-height:1;}
+  .need-title{font-weight:500;font-size:15px;color:var(--dark);margin-bottom:5px;}
+  .need-desc{font-size:13px;color:var(--muted);line-height:1.5;}
+  .need-status{display:inline-block;margin-top:10px;font-size:11px;font-weight:500;letter-spacing:1px;text-transform:uppercase;padding:3px 10px;border-radius:20px;}
+  .status-active{background:var(--green-light);color:var(--green);}
+  .status-coming{background:var(--gold-light);color:#8a6500;}
 
   /* DONATE */
-  .donate { background: var(--white); }
-  .donate-cards { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 24px; margin-bottom: 40px; }
-  .donate-card { background: var(--sand); border: 2px solid var(--border); border-radius: 18px; padding: 36px 28px; position: relative; transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s; }
-  .donate-card:hover { border-color: var(--green); box-shadow: 0 8px 36px rgba(46,125,79,0.12); transform: translateY(-3px); }
-  .donate-card.featured { border-color: var(--green); background: var(--white); box-shadow: 0 4px 28px rgba(46,125,79,0.14); }
-  .featured-badge { position: absolute; top: -13px; left: 50%; transform: translateX(-50%); background: var(--green); color: white; font-size: 11px; font-weight: 500; letter-spacing: 1px; text-transform: uppercase; padding: 4px 16px; border-radius: 20px; white-space: nowrap; }
-  .donate-amount { font-family: 'Playfair Display', serif; font-size: 52px; color: var(--green); line-height: 1; margin-bottom: 4px; }
-  .donate-amount sup { font-size: 22px; vertical-align: super; font-family: 'DM Sans', sans-serif; font-weight: 300; }
-  .donate-mad { font-size: 13px; color: var(--muted); margin-bottom: 20px; }
-  .donate-items { list-style: none; margin-bottom: 28px; border-top: 1px solid var(--border); padding-top: 18px; }
-  .donate-items li { font-size: 14px; color: var(--text); padding: 8px 0; border-bottom: 1px solid var(--border); display: flex; align-items: flex-start; gap: 10px; line-height: 1.45; }
-  .donate-items li:last-child { border-bottom: none; }
-  .check { color: var(--green); font-weight: 600; flex-shrink: 0; margin-top: 1px; }
-  .donate-link { display: block; background: var(--green); color: var(--white); text-align: center; padding: 13px 20px; border-radius: 30px; text-decoration: none; font-weight: 500; font-size: 15px; transition: background 0.2s, transform 0.15s; }
-  .donate-link:hover { background: #1b5e20; transform: translateY(-1px); }
-  .donate-card:not(.featured) .donate-link { background: transparent; border: 2px solid var(--green); color: var(--green); }
-  .donate-card:not(.featured) .donate-link:hover { background: var(--green); color: white; }
+  .donate{background:var(--white);}
+  .donate-cards{display:grid;grid-template-columns:1fr 1fr 1fr;gap:24px;margin-bottom:40px;}
+  .donate-card{background:var(--sand);border:2px solid var(--border);border-radius:18px;padding:36px 28px;position:relative;transition:border-color 0.2s,box-shadow 0.2s,transform 0.2s;}
+  .donate-card:hover{border-color:var(--green);box-shadow:0 8px 36px rgba(46,125,79,0.12);transform:translateY(-3px);}
+  .donate-card.featured{border-color:var(--green);background:var(--white);box-shadow:0 4px 28px rgba(46,125,79,0.14);}
+  .featured-badge{position:absolute;top:-13px;left:50%;transform:translateX(-50%);background:var(--green);color:white;font-size:11px;font-weight:500;letter-spacing:1px;text-transform:uppercase;padding:4px 16px;border-radius:20px;white-space:nowrap;}
+  .donate-amount{font-family:'Playfair Display',serif;font-size:52px;color:var(--green);line-height:1;margin-bottom:4px;}
+  .donate-amount sup{font-size:22px;vertical-align:super;font-family:'DM Sans',sans-serif;font-weight:300;}
+  .donate-mad{font-size:13px;color:var(--muted);margin-bottom:20px;}
+  .donate-items{list-style:none;margin-bottom:28px;border-top:1px solid var(--border);padding-top:18px;}
+  .donate-items li{font-size:14px;color:var(--text);padding:8px 0;border-bottom:1px solid var(--border);display:flex;align-items:flex-start;gap:10px;line-height:1.45;}
+  .donate-items li:last-child{border-bottom:none;}
+  .check{color:var(--green);font-weight:600;flex-shrink:0;margin-top:1px;}
+  .donate-link{display:block;background:var(--green);color:var(--white);text-align:center;padding:13px 20px;border-radius:30px;text-decoration:none;font-weight:500;font-size:15px;transition:background 0.2s,transform 0.15s;}
+  .donate-link:hover{background:#1b5e20;transform:translateY(-1px);}
+  .donate-card:not(.featured) .donate-link{background:transparent;border:2px solid var(--green);color:var(--green);}
+  .donate-card:not(.featured) .donate-link:hover{background:var(--green);color:white;}
 
   /* PAYMENT */
-  .payment { background: var(--green); padding: 64px 48px; }
-  .payment .section-tag { color: var(--gold); }
-  .payment .section-tag::before { background: var(--gold); }
-  .payment .section-title { color: var(--white); }
-  .payment .section-sub { color: rgba(255,255,255,0.72); }
-  .payment-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 16px; }
-  .payment-card { background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); border-radius: 14px; padding: 28px 20px; text-align: center; transition: background 0.2s, transform 0.2s; }
-  .payment-card:hover { background: rgba(255,255,255,0.18); transform: translateY(-2px); }
-  .payment-icon { font-size: 32px; margin-bottom: 12px; line-height: 1; }
-  .payment-name { font-weight: 500; font-size: 18px; color: white; margin-bottom: 4px; }
-  .payment-note { font-size: 13px; color: rgba(255,255,255,0.6); }
-  .payment-contact { margin-top: 36px; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); border-radius: 14px; padding: 28px 32px; display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
-  .payment-contact-icon { font-size: 28px; flex-shrink: 0; }
-  .payment-contact-text { color: rgba(255,255,255,0.85); font-size: 15px; line-height: 1.6; }
-  .payment-contact-text strong { color: white; }
+  .payment{background:var(--green);padding:64px 48px;}
+  .payment .section-tag{color:var(--gold);}
+  .payment .section-tag::before{background:var(--gold);}
+  .payment .section-title{color:var(--white);}
+  .payment .section-sub{color:rgba(255,255,255,0.72);}
+  .payment-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:16px;}
+  .payment-card{background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);border-radius:14px;padding:28px 20px;text-align:center;transition:background 0.2s,transform 0.2s;}
+  .payment-card:hover{background:rgba(255,255,255,0.18);transform:translateY(-2px);}
+  .payment-icon{font-size:32px;margin-bottom:12px;line-height:1;}
+  .payment-name{font-weight:500;font-size:18px;color:white;margin-bottom:4px;}
+  .payment-note{font-size:13px;color:rgba(255,255,255,0.6);}
+  .payment-contact{margin-top:36px;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);border-radius:14px;padding:28px 32px;display:flex;align-items:center;gap:16px;flex-wrap:wrap;}
+  .payment-contact-icon{font-size:28px;flex-shrink:0;}
+  .payment-contact-text{color:rgba(255,255,255,0.85);font-size:15px;line-height:1.6;}
+  .payment-contact-text strong{color:white;}
+
+  /* TEAM */
+  .team{background:var(--white);}
+  .team-grid{display:flex;flex-direction:column;gap:32px;}
+  .team-card{background:var(--sand);border:1px solid var(--border);border-radius:20px;overflow:hidden;display:grid;grid-template-columns:280px 1fr;transition:box-shadow 0.2s;}
+  .team-card:hover{box-shadow:0 8px 36px rgba(46,125,79,0.1);}
+  .team-photo-wrap{position:relative;}
+  .team-photo{width:100%;height:100%;object-fit:cover;object-position:center top;display:block;min-height:280px;}
+  .team-city-badge{position:absolute;bottom:14px;left:50%;transform:translateX(-50%);background:rgba(0,0,0,0.62);color:white;font-size:12px;font-weight:500;padding:5px 14px;border-radius:20px;white-space:nowrap;backdrop-filter:blur(4px);}
+  .team-info{padding:36px 40px;display:flex;flex-direction:column;justify-content:center;}
+  .team-role{font-size:11px;letter-spacing:3px;font-weight:500;text-transform:uppercase;color:var(--red);margin-bottom:8px;}
+  .team-name{font-family:'Playfair Display',serif;font-size:28px;font-weight:400;color:var(--dark);margin-bottom:16px;}
+  html[lang="ar"] .team-name{font-family:'Noto Sans Arabic',sans-serif;}
+  .team-bio{font-size:15px;color:var(--muted);line-height:1.75;margin-bottom:22px;}
+  .team-tags{display:flex;flex-wrap:wrap;gap:8px;}
+  .team-tag{background:var(--green-light);border:1px solid #b2dfb4;color:var(--green);font-size:12px;font-weight:500;padding:5px 12px;border-radius:20px;}
 
   /* GALLERY */
-  .gallery { background: var(--sand); }
-  .gallery-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 16px; }
-  .gallery-placeholder { aspect-ratio: 4/3; background: var(--white); border: 2px dashed var(--border); border-radius: 14px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; color: var(--muted); font-size: 13px; text-align: center; padding: 20px; transition: border-color 0.2s; }
-  .gallery-placeholder:hover { border-color: var(--green-mid); }
-  .gallery-ph-icon { font-size: 28px; opacity: 0.4; }
-  .gallery-note { background: var(--gold-light); border: 1px solid #f0d07a; border-radius: 10px; padding: 14px 20px; font-size: 14px; color: #6b4f00; margin-bottom: 28px; display: flex; align-items: flex-start; gap: 10px; }
+  .gallery{background:var(--sand);}
+  .gallery-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px;}
+  .gallery-placeholder{aspect-ratio:4/3;background:var(--white);border:2px dashed var(--border);border-radius:14px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;color:var(--muted);font-size:13px;text-align:center;padding:20px;transition:border-color 0.2s;}
+  .gallery-placeholder:hover{border-color:var(--green-mid);}
+  .gallery-ph-icon{font-size:28px;opacity:0.4;}
+  .gallery-note{background:var(--gold-light);border:1px solid #f0d07a;border-radius:10px;padding:14px 20px;font-size:14px;color:#6b4f00;margin-bottom:28px;display:flex;align-items:flex-start;gap:10px;}
 
   /* TRANSPARENCY */
-  .transparency { background: var(--white); }
-  .trans-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 20px; }
-  .trans-card { background: var(--sand); border: 1px solid var(--border); border-radius: 14px; padding: 28px 24px; }
-  .trans-icon-wrap { width: 44px; height: 44px; background: var(--green-light); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 22px; margin-bottom: 16px; }
-  .trans-title { font-weight: 500; font-size: 16px; color: var(--dark); margin-bottom: 6px; }
-  .trans-text { font-size: 14px; color: var(--muted); line-height: 1.6; }
-  .receipt-placeholder { background: var(--sand); border: 2px dashed var(--border); border-radius: 12px; padding: 36px; text-align: center; color: var(--muted); font-size: 14px; margin-top: 32px; }
+  .transparency{background:var(--white);}
+  .trans-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:20px;}
+  .trans-card{background:var(--sand);border:1px solid var(--border);border-radius:14px;padding:28px 24px;}
+  .trans-icon-wrap{width:44px;height:44px;background:var(--green-light);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:22px;margin-bottom:16px;}
+  .trans-title{font-weight:500;font-size:16px;color:var(--dark);margin-bottom:6px;}
+  .trans-text{font-size:14px;color:var(--muted);line-height:1.6;}
+  .receipt-placeholder{background:var(--sand);border:2px dashed var(--border);border-radius:12px;padding:36px;text-align:center;color:var(--muted);font-size:14px;margin-top:32px;}
 
   /* DUA */
-  .dua-section { background: var(--red-light); border-top: 4px solid var(--red); padding: 60px 48px; text-align: center; }
-  .dua-arabic { font-size: clamp(18px, 3vw, 28px); color: var(--green); font-family: 'Playfair Display', serif; margin-bottom: 14px; direction: rtl; line-height: 1.7; }
-  .dua-translation { font-style: italic; color: var(--muted); font-size: 15px; max-width: 540px; margin: 0 auto 8px; }
-  .dua-source { font-size: 13px; color: var(--red); font-weight: 500; }
+  .dua-section{background:var(--red-light);border-top:4px solid var(--red);padding:60px 48px;text-align:center;}
+  .dua-arabic{font-size:clamp(18px,3vw,28px);color:var(--green);font-family:'Noto Sans Arabic',serif;margin-bottom:14px;direction:rtl;line-height:1.7;}
+  .dua-translation{font-style:italic;color:var(--muted);font-size:15px;max-width:540px;margin:0 auto 8px;}
+  .dua-source{font-size:13px;color:var(--red);font-weight:500;}
 
   /* FOOTER */
-  footer { background: var(--dark); padding: 40px 48px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 20px; }
-  .footer-logo img { height: 52px; width: auto; filter: brightness(0) invert(1); opacity: 0.85; }
-  .footer-text { font-size: 13px; color: rgba(255,255,255,0.5); line-height: 1.6; }
-  .footer-text strong { color: rgba(255,255,255,0.9); font-weight: 500; }
-  .footer-links { display: flex; gap: 20px; flex-wrap: wrap; }
-  .footer-links a { font-size: 13px; color: rgba(255,255,255,0.55); text-decoration: none; }
-  .footer-links a:hover { color: white; }
+  footer{background:var(--dark);padding:40px 48px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:20px;}
+  .footer-logo img{height:52px;width:auto;filter:brightness(0) invert(1);opacity:0.85;}
+  .footer-text{font-size:13px;color:rgba(255,255,255,0.5);line-height:1.6;}
+  .footer-text strong{color:rgba(255,255,255,0.9);font-weight:500;}
+  .footer-links{display:flex;gap:20px;flex-wrap:wrap;}
+  .footer-links a{font-size:13px;color:rgba(255,255,255,0.55);text-decoration:none;}
+  .footer-links a:hover{color:white;}
 
   /* RESPONSIVE */
-  @media (max-width: 820px) {
-    nav { padding: 10px 20px; }
-    nav ul li:not(:last-child) { display: none; }
-    section, .payment, .dua-section { padding: 52px 20px; }
-    .stats-bar { padding: 28px 20px; }
-    .stats-inner { gap: 32px; }
-    .mission-grid { grid-template-columns: 1fr; gap: 36px; }
-    .donate-cards { grid-template-columns: 1fr; max-width: 420px; margin-left: auto; margin-right: auto; }
-    footer { padding: 32px 20px; flex-direction: column; align-items: flex-start; }
+  @media(max-width:820px){
+    .lang-bar{padding:6px 20px;}
+    nav{padding:10px 20px;}
+    nav ul li:not(:last-child){display:none;}
+    section,.payment,.dua-section{padding:52px 20px;}
+    .stats-bar{padding:28px 20px;}
+    .stats-inner{gap:32px;}
+    .mission-grid{grid-template-columns:1fr;gap:36px;}
+    .donate-cards{grid-template-columns:1fr;max-width:420px;margin-left:auto;margin-right:auto;}
+    .team-card{grid-template-columns:1fr;}
+    .team-photo{min-height:260px;}
+    .team-info{padding:28px 24px;}
+    footer{padding:32px 20px;flex-direction:column;align-items:flex-start;}
   }
 </style>
 </head>
@@ -256,49 +210,50 @@
 
 <div class="moroccan-border"></div>
 
+<!-- LANGUAGE BAR -->
+<div class="lang-bar">
+  <button class="lang-btn active" onclick="setLang('en')">EN</button>
+  <button class="lang-btn" onclick="setLang('fr')">FR</button>
+  <button class="lang-btn" onclick="setLang('ar')">عر</button>
+  <button class="lang-btn" onclick="setLang('es')">ES</button>
+</div>
+
 <!-- NAV -->
 <nav>
-  <a href="#" class="nav-logo">
-    <img src="SponsorKids212Logo.png" alt="Sponsor Kids 212 Logo">
-  </a>
+  <a href="#" class="nav-logo"><img src="SponsorKids212Logo.png" alt="Sponsor Kids 212"></a>
   <ul>
-    <li><a href="#mission">Mission</a></li>
-    <li><a href="#needs">Needs</a></li>
-    <li><a href="#gallery">Gallery</a></li>
-    <li><a href="#transparency">Receipts</a></li>
-    <li><a href="#donate" class="nav-cta">Donate Now</a></li>
+    <li><a href="#mission" data-i18n="nav.mission">Mission</a></li>
+    <li><a href="#needs" data-i18n="nav.needs">Needs</a></li>
+    <li><a href="#team" data-i18n="nav.team">Team</a></li>
+    <li><a href="#gallery" data-i18n="nav.gallery">Gallery</a></li>
+    <li><a href="#transparency" data-i18n="nav.receipts">Receipts</a></li>
+    <li><a href="#donate" class="nav-cta" data-i18n="nav.donate">Donate Now</a></li>
   </ul>
 </nav>
 
 <!-- HERO -->
 <section class="hero">
   <div class="hero-inner">
-    <div class="hero-logo">
-      <img src="SponsorKids212Logo.png" alt="Sponsor Kids 212">
-    </div>
-    <div class="hero-badge">🇲🇦 Giving to Your Younger Self</div>
-    <h1>Be the blessing<br>you once <em>needed.</em></h1>
-    <p class="hero-tagline">Every child deserves to experience joy — help us make it happen.</p>
-    <p class="hero-sub">Rooted in the spirit of sadaqah, Sponsor Kids 212 channels the generosity of our community to bring essential support and heartfelt joy to orphaned, disabled, and impoverished children across Morocco.</p>
+    <div class="hero-logo"><img src="SponsorKids212Logo.png" alt="Sponsor Kids 212"></div>
+    <div class="hero-badge" data-i18n="hero.badge">🇲🇦 Giving to Your Younger Self</div>
+    <h1 data-i18n="hero.h1">Be the blessing<br>you once <em>needed.</em></h1>
+    <p class="hero-tagline" data-i18n="hero.tagline">Every child deserves to experience joy — help us make it happen.</p>
+    <p class="hero-sub" data-i18n="hero.sub">Rooted in the spirit of sadaqah, Sponsor Kids 212 channels the generosity of our community to bring essential support and heartfelt joy to orphaned, disabled, and impoverished children across Morocco.</p>
     <div class="hero-btns">
-      <a href="#donate" class="btn-primary">Donate Now</a>
-      <a href="#mission" class="btn-outline">Our Story</a>
+      <a href="#donate" class="btn-primary" data-i18n="hero.btn1">Donate Now</a>
+      <a href="#mission" class="btn-outline" data-i18n="hero.btn2">Our Story</a>
     </div>
   </div>
 </section>
-<div class="wave-btm">
-  <svg viewBox="0 0 1440 52" preserveAspectRatio="none" height="52">
-    <path d="M0,52 C480,0 960,0 1440,52 L1440,0 L0,0 Z" fill="#2E7D32"/>
-  </svg>
-</div>
+<div class="wave-btm"><svg viewBox="0 0 1440 52" preserveAspectRatio="none" height="52"><path d="M0,52 C480,0 960,0 1440,52 L1440,0 L0,0 Z" fill="#2E7D32"/></svg></div>
 
 <!-- STATS -->
 <div class="stats-bar">
   <div class="stats-inner">
-    <div class="stat"><div class="stat-num">100%</div><div class="stat-label">goes directly to children</div></div>
-    <div class="stat"><div class="stat-num">$50</div><div class="stat-label">sponsors one child fully</div></div>
-    <div class="stat"><div class="stat-num">2×</div><div class="stat-label">per year goal</div></div>
-    <div class="stat"><div class="stat-num">+212</div><div class="stat-label">Morocco's calling code</div></div>
+    <div class="stat"><div class="stat-num">100%</div><div class="stat-label" data-i18n="stats.s1">goes directly to children</div></div>
+    <div class="stat"><div class="stat-num">$50</div><div class="stat-label" data-i18n="stats.s2">sponsors one child fully</div></div>
+    <div class="stat"><div class="stat-num">365</div><div class="stat-label" data-i18n="stats.s3">days a year we collect</div></div>
+    <div class="stat"><div class="stat-num" style="font-size:22px;padding-top:8px;line-height:1.4;">+212</div><div class="stat-label" data-i18n="stats.s4">our roots, our cause</div></div>
   </div>
 </div>
 
@@ -307,41 +262,42 @@
   <div class="section-inner">
     <div class="mission-grid">
       <div class="mission-text">
-        <div class="section-tag">Our Mission</div>
-        <h2 class="section-title">Bringing dignity and joy to vulnerable children</h2>
-        <p>We are a group of Moroccan friends living abroad who believe in giving back to the country and communities that shaped us.</p>
-        <p>We have identified children in Morocco who are orphaned, living with disabilities, have absent or disabled parents, or are in extreme poverty. We support them throughout the year with clothing, gifts, and essential items — starting with seasonal celebrations like Eid as an example of the joy we strive to bring them every chance we get.</p>
-        <p>Our long-term vision is to grow our support to cover school expenses, tutoring, medical care, field trips, food, and more. Each campaign is fully transparent: every dirham spent is documented with receipts.</p>
-        <p style="color: var(--green); font-weight: 500;">The children have been identified. The person receiving funds in Morocco is trusted. Your donation goes exactly where it should.</p>
+        <div class="section-tag" data-i18n="mission.tag">Our Mission</div>
+        <h2 class="section-title" data-i18n="mission.title">Bringing dignity and joy to vulnerable children</h2>
+        <p data-i18n="mission.p1">We are a group of Moroccan friends living abroad who believe in giving back to the country and communities that shaped us.</p>
+        <p data-i18n="mission.p2">We have identified children in Morocco who are orphaned, living with disabilities, have absent or disabled parents, or are in extreme poverty. We support them throughout the year with clothing, gifts, and essential items — starting with seasonal celebrations as an example of the joy we strive to bring them every chance we get.</p>
+        <p data-i18n="mission.p3">Our long-term vision is to grow our support to cover school expenses, tutoring, medical care, field trips, food, and more. Each campaign is fully transparent: every dirham spent is documented with receipts.</p>
+        <p style="color:var(--green);font-weight:500;" data-i18n="mission.p4">The children have been identified. The person receiving funds in Morocco is trusted. Your donation goes exactly where it should.</p>
       </div>
       <div class="mission-quote-box">
-        <div class="mission-quote">"The believer's shade on the Day of Resurrection will be their charity."</div>
-        <div class="mission-quote-attr">— Prophet Muhammad ﷺ</div>
-        <div style="margin-top: 32px; padding-top: 28px; border-top: 1px solid rgba(255,255,255,0.15);">
-          <div class="mission-quote" style="font-size:16px;">"Whoever relieves a believer's distress of the distressful aspects of this world, Allah will rescue him from a difficulty of the difficulties of the Hereafter."</div>
-          <div class="mission-quote-attr">— Sahih Muslim</div>
+        <div class="mission-quote" data-i18n="mission.quote1">"The believer's shade on the Day of Resurrection will be their charity."</div>
+        <div class="mission-quote-attr" data-i18n="mission.attr1">— Prophet Muhammad ﷺ</div>
+        <div style="margin-top:32px;padding-top:28px;border-top:1px solid rgba(255,255,255,0.15)">
+          <div class="mission-quote" style="font-size:16px" data-i18n="mission.quote2">"Whoever relieves a believer's distress of the distressful aspects of this world, Allah will rescue him from a difficulty of the difficulties of the Hereafter."</div>
+          <div class="mission-quote-attr" data-i18n="mission.attr2">— Sahih Muslim</div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- WHO WE HELP -->
+<!-- WHO -->
 <section class="who" id="who">
   <div class="section-inner">
-    <div class="section-tag">Who We Help</div>
-    <h2 class="section-title">Children who need us most</h2>
-    <p class="section-sub">Every child in our program has been individually identified by a trusted local coordinator in Morocco.</p>
+    <div class="section-tag" data-i18n="who.tag">Who We Help</div>
+    <h2 class="section-title" data-i18n="who.title">Children who need us most</h2>
+    <p class="section-sub" data-i18n="who.sub">Every child in our program has been individually identified by a trusted local coordinator in Morocco.</p>
     <div class="children-tags">
-      <div class="child-tag">🌿 Orphaned children</div>
-      <div class="child-tag">♿ Children with disabilities</div>
-      <div class="child-tag">👤 Children with absent parents</div>
-      <div class="child-tag">🤲 Children with disabled parents</div>
-      <div class="child-tag">🏚️ Children in extreme poverty</div>
+      <div class="child-tag" data-i18n="who.t1">🌿 Orphaned children</div>
+      <div class="child-tag" data-i18n="who.t2">♿ Children with disabilities</div>
+      <div class="child-tag" data-i18n="who.t3">👤 Children with absent parents</div>
+      <div class="child-tag" data-i18n="who.t4">🤲 Children with disabled parents</div>
+      <div class="child-tag" data-i18n="who.t5">🏚️ Children in extreme poverty</div>
     </div>
-    <div style="background: var(--green-light); border: 1px solid #b2dfb4; border-radius: 14px; padding: 28px 32px;">
-      <p style="font-size:15px; color: var(--text); line-height: 1.75;">
-        <strong style="color: var(--green);">Privacy first.</strong> Children's identities are protected. Photos are only shared with explicit permission from the child and their guardian. No child will ever feel reduced to a charity case — they are seen, respected, and celebrated.
+    <div style="background:var(--green-light);border:1px solid #b2dfb4;border-radius:14px;padding:28px 32px;">
+      <p style="font-size:15px;color:var(--text);line-height:1.75;">
+        <strong style="color:var(--green);" data-i18n="who.privacy_title">Privacy first.</strong>
+        <span data-i18n="who.privacy_text"> Children's identities are protected. Photos are only shared with explicit permission from the child and their guardian. No child will ever feel reduced to a charity case — they are seen, respected, and celebrated.</span>
       </p>
     </div>
   </div>
@@ -350,64 +306,19 @@
 <!-- NEEDS -->
 <section class="needs" id="needs">
   <div class="section-inner">
-    <div class="section-tag">Where Your Donation Goes</div>
-    <h2 class="section-title">Children's needs we fund</h2>
-    <p class="section-sub">We began with seasonal giving and are growing year-round. Here's everything your donation can support:</p>
+    <div class="section-tag" data-i18n="needs.tag">Where Your Donation Goes</div>
+    <h2 class="section-title" data-i18n="needs.title">Children's needs we fund</h2>
+    <p class="section-sub" data-i18n="needs.sub">We began with seasonal giving and are growing year-round. Here's everything your donation can support:</p>
     <div class="needs-grid">
-      <div class="need-card">
-        <div class="need-icon">👗</div>
-        <div class="need-title">Clothing</div>
-        <div class="need-desc">New outfits for seasonal celebrations and everyday wear</div>
-        <span class="need-status status-active">Active</span>
-      </div>
-      <div class="need-card">
-        <div class="need-icon">👟</div>
-        <div class="need-title">Shoes</div>
-        <div class="need-desc">New shoes so every child is fully and properly dressed</div>
-        <span class="need-status status-active">Active</span>
-      </div>
-      <div class="need-card">
-        <div class="need-icon">🧸</div>
-        <div class="need-title">Toys &amp; Gifts</div>
-        <div class="need-desc">Bringing real joy and play into a child's world</div>
-        <span class="need-status status-active">Active</span>
-      </div>
-      <div class="need-card">
-        <div class="need-icon">📚</div>
-        <div class="need-title">School Supplies</div>
-        <div class="need-desc">Backpacks, books, stationery, and school uniforms</div>
-        <span class="need-status status-coming">Coming Soon</span>
-      </div>
-      <div class="need-card">
-        <div class="need-icon">🧑‍🏫</div>
-        <div class="need-title">Tutoring</div>
-        <div class="need-desc">Academic support for children falling behind in school</div>
-        <span class="need-status status-coming">Coming Soon</span>
-      </div>
-      <div class="need-card">
-        <div class="need-icon">💊</div>
-        <div class="need-title">Medicine &amp; Healthcare</div>
-        <div class="need-desc">Medications, doctor visits, and medical supplies</div>
-        <span class="need-status status-coming">Coming Soon</span>
-      </div>
-      <div class="need-card">
-        <div class="need-icon">🍽️</div>
-        <div class="need-title">Food</div>
-        <div class="need-desc">Nutritious meals for children and families in hardship</div>
-        <span class="need-status status-coming">Coming Soon</span>
-      </div>
-      <div class="need-card">
-        <div class="need-icon">🚌</div>
-        <div class="need-title">Excursions</div>
-        <div class="need-desc">Field trips and experiences many kids have never had</div>
-        <span class="need-status status-coming">Coming Soon</span>
-      </div>
-      <div class="need-card">
-        <div class="need-icon">♿</div>
-        <div class="need-title">Disability Support</div>
-        <div class="need-desc">Equipment, therapy, and specialized care</div>
-        <span class="need-status status-coming">Coming Soon</span>
-      </div>
+      <div class="need-card"><div class="need-icon">👗</div><div class="need-title" data-i18n="needs.n1t">Clothing</div><div class="need-desc" data-i18n="needs.n1d">New outfits for seasonal celebrations and everyday wear</div><span class="need-status status-active" data-i18n="needs.active">Active</span></div>
+      <div class="need-card"><div class="need-icon">👟</div><div class="need-title" data-i18n="needs.n2t">Shoes</div><div class="need-desc" data-i18n="needs.n2d">New shoes so every child is fully and properly dressed</div><span class="need-status status-active" data-i18n="needs.active">Active</span></div>
+      <div class="need-card"><div class="need-icon">🧸</div><div class="need-title" data-i18n="needs.n3t">Toys &amp; Gifts</div><div class="need-desc" data-i18n="needs.n3d">Bringing real joy and play into a child's world</div><span class="need-status status-active" data-i18n="needs.active">Active</span></div>
+      <div class="need-card"><div class="need-icon">📚</div><div class="need-title" data-i18n="needs.n4t">School Supplies</div><div class="need-desc" data-i18n="needs.n4d">Backpacks, books, stationery, and school uniforms</div><span class="need-status status-coming" data-i18n="needs.coming">Coming Soon</span></div>
+      <div class="need-card"><div class="need-icon">🧑‍🏫</div><div class="need-title" data-i18n="needs.n5t">Tutoring</div><div class="need-desc" data-i18n="needs.n5d">Academic support for children falling behind in school</div><span class="need-status status-coming" data-i18n="needs.coming">Coming Soon</span></div>
+      <div class="need-card"><div class="need-icon">💊</div><div class="need-title" data-i18n="needs.n6t">Medicine &amp; Healthcare</div><div class="need-desc" data-i18n="needs.n6d">Medications, doctor visits, and medical supplies</div><span class="need-status status-coming" data-i18n="needs.coming">Coming Soon</span></div>
+      <div class="need-card"><div class="need-icon">🍽️</div><div class="need-title" data-i18n="needs.n7t">Food</div><div class="need-desc" data-i18n="needs.n7d">Nutritious meals for children and families in hardship</div><span class="need-status status-coming" data-i18n="needs.coming">Coming Soon</span></div>
+      <div class="need-card"><div class="need-icon">🚌</div><div class="need-title" data-i18n="needs.n8t">Excursions</div><div class="need-desc" data-i18n="needs.n8d">Field trips and experiences many kids have never had</div><span class="need-status status-coming" data-i18n="needs.coming">Coming Soon</span></div>
+      <div class="need-card"><div class="need-icon">♿</div><div class="need-title" data-i18n="needs.n9t">Disability Support</div><div class="need-desc" data-i18n="needs.n9d">Equipment, therapy, and specialized care</div><span class="need-status status-coming" data-i18n="needs.coming">Coming Soon</span></div>
     </div>
   </div>
 </section>
@@ -415,85 +326,102 @@
 <!-- DONATE -->
 <section class="donate" id="donate">
   <div class="section-inner">
-    <div class="section-tag">Make a Difference</div>
-    <h2 class="section-title">Choose your contribution</h2>
-    <p class="section-sub">$1 ≈ 10 Moroccan Dirhams (MAD). Every dollar is maximized at the source. Give what you can — no amount is too small.</p>
+    <div class="section-tag" data-i18n="donate.tag">Make a Difference</div>
+    <h2 class="section-title" data-i18n="donate.title">Choose your contribution</h2>
+    <p class="section-sub" data-i18n="donate.sub">$1 ≈ 10 Moroccan Dirhams (MAD). Every dollar is maximized at the source. Give what you can — no amount is too small.</p>
     <div class="donate-cards">
       <div class="donate-card">
         <div class="donate-amount"><sup>$</sup>50</div>
-        <div class="donate-mad">≈ 500 MAD · One full child sponsorship</div>
+        <div class="donate-mad" data-i18n="donate.c1sub">≈ 500 MAD · One full child sponsorship</div>
         <ul class="donate-items">
-          <li><span class="check">✓</span> A complete new outfit ~250–300 MAD</li>
-          <li><span class="check">✓</span> A new pair of shoes ~100–150 MAD</li>
-          <li><span class="check">✓</span> A toy or small gift ~50–100 MAD</li>
+          <li><span class="check">✓</span><span data-i18n="donate.c1i1">A complete new outfit ~250–300 MAD</span></li>
+          <li><span class="check">✓</span><span data-i18n="donate.c1i2">A new pair of shoes ~100–150 MAD</span></li>
+          <li><span class="check">✓</span><span data-i18n="donate.c1i3">A toy or small gift ~50–100 MAD</span></li>
         </ul>
-        <a href="#payment-methods" class="donate-link">Donate $50</a>
+        <a href="#payment-methods" class="donate-link" data-i18n="donate.c1btn">Donate $50</a>
       </div>
       <div class="donate-card featured">
-        <div class="featured-badge">Most Generous</div>
+        <div class="featured-badge" data-i18n="donate.featured">Most Generous</div>
         <div class="donate-amount"><sup>$</sup>100</div>
-        <div class="donate-mad">≈ 1,000 MAD · Premium sponsorship</div>
+        <div class="donate-mad" data-i18n="donate.c2sub">≈ 1,000 MAD · Premium sponsorship</div>
         <ul class="donate-items">
-          <li><span class="check">✓</span> A high-quality celebration outfit ~400–500 MAD</li>
-          <li><span class="check">✓</span> Quality shoes ~150–200 MAD</li>
-          <li><span class="check">✓</span> A meaningful toy or backpack ~150–200 MAD</li>
-          <li><span class="check">✓</span> Treats and seasonal sweets ~100 MAD</li>
+          <li><span class="check">✓</span><span data-i18n="donate.c2i1">A high-quality celebration outfit ~400–500 MAD</span></li>
+          <li><span class="check">✓</span><span data-i18n="donate.c2i2">Quality shoes ~150–200 MAD</span></li>
+          <li><span class="check">✓</span><span data-i18n="donate.c2i3">A meaningful toy or backpack ~150–200 MAD</span></li>
+          <li><span class="check">✓</span><span data-i18n="donate.c2i4">Treats and seasonal sweets ~100 MAD</span></li>
         </ul>
-        <a href="#payment-methods" class="donate-link">Donate $100</a>
+        <a href="#payment-methods" class="donate-link" data-i18n="donate.c2btn">Donate $100</a>
       </div>
       <div class="donate-card">
-        <div class="donate-amount" style="font-size:36px; padding-top:10px;">Give More</div>
-        <div class="donate-mad">$150+ · Sponsor multiple children</div>
+        <div class="donate-amount" style="font-size:36px;padding-top:10px;" data-i18n="donate.c3title">Give More</div>
+        <div class="donate-mad" data-i18n="donate.c3sub">$150+ · Sponsor multiple children</div>
         <ul class="donate-items">
-          <li><span class="check">✓</span> $150 sponsors 3 children at $50</li>
-          <li><span class="check">✓</span> $200 covers premium + school supplies</li>
-          <li><span class="check">✓</span> Any amount is welcome</li>
-          <li><span class="check">✓</span> Annual recurring donors especially valued</li>
+          <li><span class="check">✓</span><span data-i18n="donate.c3i1">$150 sponsors 3 children at $50</span></li>
+          <li><span class="check">✓</span><span data-i18n="donate.c3i2">$200 covers premium + school supplies</span></li>
+          <li><span class="check">✓</span><span data-i18n="donate.c3i3">Any amount is welcome</span></li>
+          <li><span class="check">✓</span><span data-i18n="donate.c3i4">Annual recurring donors especially valued</span></li>
         </ul>
-        <a href="#payment-methods" class="donate-link">Donate More</a>
+        <a href="#payment-methods" class="donate-link" data-i18n="donate.c3btn">Donate More</a>
       </div>
     </div>
-    <div style="background: var(--green-light); border: 1px solid #b2dfb4; border-radius: 16px; padding: 28px 36px;">
-      <div style="font-size:11px; letter-spacing:3px; font-weight:500; text-transform:uppercase; color: var(--red); margin-bottom: 6px;">How to Send</div>
-      <h3 style="font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 400; color: var(--dark); margin-bottom: 8px;">Contact us to get payment details</h3>
-      <p style="color: var(--muted); font-size: 14.5px;">Reach out to receive our Zelle, Venmo, or PayPal details — or give cash when we meet. Every donation is acknowledged and every purchase documented with a receipt.</p>
+    <div style="background:var(--green-light);border:1px solid #b2dfb4;border-radius:16px;padding:28px 36px;">
+      <div style="font-size:11px;letter-spacing:3px;font-weight:500;text-transform:uppercase;color:var(--red);margin-bottom:6px;" data-i18n="donate.how_tag">How to Send</div>
+      <h3 style="font-family:'Playfair Display',serif;font-size:20px;font-weight:400;color:var(--dark);margin-bottom:8px;" data-i18n="donate.how_title">Contact us to get payment details</h3>
+      <p style="color:var(--muted);font-size:14.5px;" data-i18n="donate.how_text">Reach out to receive our Zelle, Venmo, or PayPal details — or give cash when we meet. Every donation is acknowledged and every purchase documented with a receipt.</p>
     </div>
   </div>
 </section>
 
-<!-- PAYMENT METHODS -->
+<!-- PAYMENT -->
 <section class="payment" id="payment-methods">
   <div class="section-inner">
-    <div class="section-tag">Payment Options</div>
-    <h2 class="section-title">Easy ways to donate</h2>
-    <p class="section-sub">Send your donation through any of these convenient methods. Contact us directly for account details.</p>
+    <div class="section-tag" data-i18n="payment.tag">Payment Options</div>
+    <h2 class="section-title" data-i18n="payment.title">Easy ways to donate</h2>
+    <p class="section-sub" data-i18n="payment.sub">Send your donation through any of these convenient methods. Contact us directly for account details.</p>
     <div class="payment-grid">
-      <div class="payment-card">
-        <div class="payment-icon">💳</div>
-        <div class="payment-name">Zelle</div>
-        <div class="payment-note">Instant bank transfer — no fees</div>
-      </div>
-      <div class="payment-card">
-        <div class="payment-icon">📱</div>
-        <div class="payment-name">Venmo</div>
-        <div class="payment-note">Quick &amp; easy mobile payment</div>
-      </div>
-      <div class="payment-card">
-        <div class="payment-icon">🌐</div>
-        <div class="payment-name">PayPal</div>
-        <div class="payment-note">Secure online payment</div>
-      </div>
-      <div class="payment-card">
-        <div class="payment-icon">🤝</div>
-        <div class="payment-name">Cash</div>
-        <div class="payment-note">In person when we meet</div>
-      </div>
+      <div class="payment-card"><div class="payment-icon">💳</div><div class="payment-name">Zelle</div><div class="payment-note" data-i18n="payment.zelle">Instant bank transfer — no fees</div></div>
+      <div class="payment-card"><div class="payment-icon">📱</div><div class="payment-name">Venmo</div><div class="payment-note" data-i18n="payment.venmo">Quick &amp; easy mobile payment</div></div>
+      <div class="payment-card"><div class="payment-icon">🌐</div><div class="payment-name">PayPal</div><div class="payment-note" data-i18n="payment.paypal">Secure online payment</div></div>
+      <div class="payment-card"><div class="payment-icon">🤝</div><div class="payment-name" data-i18n="payment.cash_name">Cash</div><div class="payment-note" data-i18n="payment.cash_note">In person when we meet</div></div>
     </div>
     <div class="payment-contact">
       <div class="payment-contact-icon">📬</div>
       <div class="payment-contact-text">
-        <strong>Ready to donate?</strong> Reach out to get our payment details. We'll confirm receipt of every donation and share a full report — including photos (where permitted) and receipts — after each campaign.
+        <strong data-i18n="payment.cta_bold">Ready to donate?</strong>
+        <span data-i18n="payment.cta_text"> Reach out to get our payment details. We'll confirm receipt of every donation and share a full report — including photos (where permitted) and receipts — after each campaign.</span>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- TEAM -->
+<section class="team" id="team">
+  <div class="section-inner">
+    <div class="section-tag" data-i18n="team.tag">On the Ground</div>
+    <h2 class="section-title" data-i18n="team.title">Meet our coordinators</h2>
+    <p class="section-sub" data-i18n="team.sub">Our coordinators are the heart of Sponsor Kids 212 — trusted individuals embedded in their communities who identify the children, purchase the items, and ensure every donation reaches the right hands.</p>
+    <div class="team-grid">
+      <div class="team-card">
+        <div class="team-photo-wrap">
+          <img src="FatimaZahra.jpg" alt="Fatima Zahra" class="team-photo">
+          <div class="team-city-badge">📍 Casablanca</div>
+        </div>
+        <div class="team-info">
+          <div class="team-role" data-i18n="team.role">Local Coordinator</div>
+          <h3 class="team-name">Fatima Zahra</h3>
+          <p class="team-bio" data-i18n="team.fz_bio">Fatima Zahra is a wife, mother of a three-year-old girl, and a deeply compassionate community worker based in Casablanca. She works directly with vulnerable families and children, connecting them with the clothing, food, medical support, school resources, and disability assistance they need. Her hands-on presence and genuine care for those around her make her an invaluable bridge between our donors and the children we serve.</p>
+          <div class="team-tags">
+            <span class="team-tag" data-i18n="team.tag1">👨‍👩‍👧 Families</span>
+            <span class="team-tag" data-i18n="team.tag2">🧒 Children</span>
+            <span class="team-tag" data-i18n="team.tag3">💊 Medical</span>
+            <span class="team-tag" data-i18n="team.tag4">📚 School</span>
+            <span class="team-tag" data-i18n="team.tag5">♿ Disability</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div style="background:var(--green-light);border:1px solid #b2dfb4;border-radius:14px;padding:24px 32px;margin-top:36px;text-align:center;">
+      <p style="font-size:15px;color:var(--muted);" data-i18n="team.expand">We are looking to expand to other cities across Morocco. If you know a trusted individual who shares our values and would like to volunteer as a local coordinator, please reach out.</p>
     </div>
   </div>
 </section>
@@ -501,29 +429,14 @@
 <!-- GALLERY -->
 <section class="gallery" id="gallery">
   <div class="section-inner">
-    <div class="section-tag">Gallery</div>
-    <h2 class="section-title">Smiles made possible by your generosity</h2>
-    <div class="gallery-note">
-      <span>ℹ️</span>
-      <span>Photos are shared only with the explicit consent of the child and their guardian. Items purchased and campaign receipts will also appear here after each campaign.</span>
-    </div>
+    <div class="section-tag" data-i18n="gallery.tag">Gallery</div>
+    <h2 class="section-title" data-i18n="gallery.title">Smiles made possible by your generosity</h2>
+    <div class="gallery-note"><span>ℹ️</span><span data-i18n="gallery.note">Photos are shared only with the explicit consent of the child and their guardian. Items purchased and campaign receipts will also appear here after each campaign.</span></div>
     <div class="gallery-grid">
-      <div class="gallery-placeholder">
-        <div class="gallery-ph-icon">📷</div>
-        <div>Children's photos<br><span style="opacity:0.7">with consent only</span></div>
-      </div>
-      <div class="gallery-placeholder">
-        <div class="gallery-ph-icon">🎁</div>
-        <div>Gifts purchased<br><span style="opacity:0.7">will appear here</span></div>
-      </div>
-      <div class="gallery-placeholder">
-        <div class="gallery-ph-icon">🛍️</div>
-        <div>Shopping receipts<br><span style="opacity:0.7">will appear here</span></div>
-      </div>
-      <div class="gallery-placeholder">
-        <div class="gallery-ph-icon">✨</div>
-        <div>Special moments<br><span style="opacity:0.7">shared after each campaign</span></div>
-      </div>
+      <div class="gallery-placeholder"><div class="gallery-ph-icon">📷</div><div data-i18n="gallery.p1">Children's photos<br><span style="opacity:0.7">with consent only</span></div></div>
+      <div class="gallery-placeholder"><div class="gallery-ph-icon">🎁</div><div data-i18n="gallery.p2">Gifts purchased<br><span style="opacity:0.7">will appear here</span></div></div>
+      <div class="gallery-placeholder"><div class="gallery-ph-icon">🛍️</div><div data-i18n="gallery.p3">Shopping receipts<br><span style="opacity:0.7">will appear here</span></div></div>
+      <div class="gallery-placeholder"><div class="gallery-ph-icon">✨</div><div data-i18n="gallery.p4">Special moments<br><span style="opacity:0.7">shared after each campaign</span></div></div>
     </div>
   </div>
 </section>
@@ -531,35 +444,19 @@
 <!-- TRANSPARENCY -->
 <section class="transparency" id="transparency">
   <div class="section-inner">
-    <div class="section-tag">Full Transparency</div>
-    <h2 class="section-title">Your trust matters to us</h2>
-    <p class="section-sub">We are committed to total accountability. Here is how every dollar is tracked from your hands to the children.</p>
+    <div class="section-tag" data-i18n="trans.tag">Full Transparency</div>
+    <h2 class="section-title" data-i18n="trans.title">Your trust matters to us</h2>
+    <p class="section-sub" data-i18n="trans.sub">We are committed to total accountability. Here is how every dollar is tracked from your hands to the children.</p>
     <div class="trans-grid">
-      <div class="trans-card">
-        <div class="trans-icon-wrap">🧾</div>
-        <div class="trans-title">Receipts Published</div>
-        <div class="trans-text">Every purchase in Morocco is documented. Receipts are photographed and shared with all donors after each campaign.</div>
-      </div>
-      <div class="trans-card">
-        <div class="trans-icon-wrap">📋</div>
-        <div class="trans-title">Itemized Reports</div>
-        <div class="trans-text">A full breakdown of what was bought, for whom, and at what cost is shared after every collection cycle.</div>
-      </div>
-      <div class="trans-card">
-        <div class="trans-icon-wrap">🤝</div>
-        <div class="trans-title">Trusted Local Coordinator</div>
-        <div class="trans-text">The person receiving and spending funds in Morocco is personally known and trusted by our community.</div>
-      </div>
-      <div class="trans-card">
-        <div class="trans-icon-wrap">🔒</div>
-        <div class="trans-title">Zero Overhead</div>
-        <div class="trans-text">100% of every donation reaches the children. No admin fees, no platform cuts, no salaries.</div>
-      </div>
+      <div class="trans-card"><div class="trans-icon-wrap">🧾</div><div class="trans-title" data-i18n="trans.c1t">Receipts Published</div><div class="trans-text" data-i18n="trans.c1d">Every purchase in Morocco is documented. Receipts are photographed and shared with all donors after each campaign.</div></div>
+      <div class="trans-card"><div class="trans-icon-wrap">📋</div><div class="trans-title" data-i18n="trans.c2t">Itemized Reports</div><div class="trans-text" data-i18n="trans.c2d">A full breakdown of what was bought, for whom, and at what cost is shared after every collection cycle.</div></div>
+      <div class="trans-card"><div class="trans-icon-wrap">🤝</div><div class="trans-title" data-i18n="trans.c3t">Trusted Local Coordinator</div><div class="trans-text" data-i18n="trans.c3d">The person receiving and spending funds in Morocco is personally known and trusted by our community.</div></div>
+      <div class="trans-card"><div class="trans-icon-wrap">🔒</div><div class="trans-title" data-i18n="trans.c4t">Zero Overhead</div><div class="trans-text" data-i18n="trans.c4d">100% of every donation reaches the children. No admin fees, no platform cuts, no salaries.</div></div>
     </div>
     <div class="receipt-placeholder">
-      <div style="font-size: 36px; margin-bottom: 12px; opacity: 0.35;">📂</div>
-      <div style="font-weight: 500; color: var(--text); margin-bottom: 6px;">Receipts &amp; Campaign Reports</div>
-      <div>Purchase receipts and spending summaries will be posted here after each campaign.</div>
+      <div style="font-size:36px;margin-bottom:12px;opacity:0.35;">📂</div>
+      <div style="font-weight:500;color:var(--text);margin-bottom:6px;" data-i18n="trans.rp_title">Receipts &amp; Campaign Reports</div>
+      <div data-i18n="trans.rp_text">Purchase receipts and spending summaries will be posted here after each campaign.</div>
     </div>
   </div>
 </section>
@@ -567,27 +464,267 @@
 <!-- DUA -->
 <div class="dua-section">
   <div class="dua-arabic">مَن نَّفَّسَ عَن مُّؤْمِنٍ كُرْبَةً مِّن كُرَبِ الدُّنْيَا نَفَّسَ اللَّهُ عَنْهُ كُرْبَةً مِّن كُرَبِ يَوْمِ الْقِيَامَةِ</div>
-  <p class="dua-translation">"Whoever relieves a believer's distress of the distressful aspects of this world, Allah will rescue him from a difficulty of the difficulties of the Hereafter."</p>
-  <div class="dua-source">Sahih Muslim &nbsp;·&nbsp; May Allah reward you and your loved ones. Ameen. 🤲</div>
+  <p class="dua-translation" data-i18n="dua.translation">"Whoever relieves a believer's distress of the distressful aspects of this world, Allah will rescue him from a difficulty of the difficulties of the Hereafter."</p>
+  <div class="dua-source" data-i18n="dua.source">Sahih Muslim · May Allah reward you and your loved ones. Ameen. 🤲</div>
 </div>
 
 <!-- FOOTER -->
 <footer>
-  <div class="footer-logo">
-    <img src="SponsorKids212Logo.png" alt="Sponsor Kids 212">
-  </div>
+  <div class="footer-logo"><img src="SponsorKids212Logo.png" alt="Sponsor Kids 212"></div>
   <div class="footer-text">
-    <strong>Sponsor Kids 212</strong> · Helping Children in Morocco<br>
-    A community initiative by Moroccans abroad
+    <strong>Sponsor Kids 212</strong> · <span data-i18n="footer.tagline">Helping Children in Morocco</span><br>
+    <span data-i18n="footer.sub">A community initiative by Moroccans abroad</span>
   </div>
   <div class="footer-links">
-    <a href="#mission">Mission</a>
-    <a href="#needs">Needs</a>
-    <a href="#gallery">Gallery</a>
-    <a href="#transparency">Receipts</a>
-    <a href="#donate">Donate</a>
+    <a href="#mission" data-i18n="nav.mission">Mission</a>
+    <a href="#needs" data-i18n="nav.needs">Needs</a>
+    <a href="#team" data-i18n="nav.team">Team</a>
+    <a href="#gallery" data-i18n="nav.gallery">Gallery</a>
+    <a href="#transparency" data-i18n="nav.receipts">Receipts</a>
+    <a href="#donate" data-i18n="nav.donate">Donate Now</a>
   </div>
 </footer>
 
+<script>
+const T = {
+  en:{
+    "nav.mission":"Mission","nav.needs":"Needs","nav.team":"Team","nav.gallery":"Gallery","nav.receipts":"Receipts","nav.donate":"Donate Now",
+    "hero.badge":"🇲🇦 Giving to Your Younger Self","hero.h1":"Be the blessing<br>you once <em>needed.</em>",
+    "hero.tagline":"Every child deserves to experience joy — help us make it happen.",
+    "hero.sub":"Rooted in the spirit of sadaqah, Sponsor Kids 212 channels the generosity of our community to bring essential support and heartfelt joy to orphaned, disabled, and impoverished children across Morocco.",
+    "hero.btn1":"Donate Now","hero.btn2":"Our Story",
+    "stats.s1":"goes directly to children","stats.s2":"sponsors one child fully","stats.s3":"days a year we collect","stats.s4":"our roots, our cause",
+    "mission.tag":"Our Mission","mission.title":"Bringing dignity and joy to vulnerable children",
+    "mission.p1":"We are a group of Moroccan friends living abroad who believe in giving back to the country and communities that shaped us.",
+    "mission.p2":"We have identified children in Morocco who are orphaned, living with disabilities, have absent or disabled parents, or are in extreme poverty. We support them throughout the year with clothing, gifts, and essential items — starting with seasonal celebrations as an example of the joy we strive to bring them every chance we get.",
+    "mission.p3":"Our long-term vision is to grow our support to cover school expenses, tutoring, medical care, field trips, food, and more. Each campaign is fully transparent: every dirham spent is documented with receipts.",
+    "mission.p4":"The children have been identified. The person receiving funds in Morocco is trusted. Your donation goes exactly where it should.",
+    "mission.quote1":"\"The believer's shade on the Day of Resurrection will be their charity.\"","mission.attr1":"— Prophet Muhammad ﷺ",
+    "mission.quote2":"\"Whoever relieves a believer's distress of the distressful aspects of this world, Allah will rescue him from a difficulty of the difficulties of the Hereafter.\"","mission.attr2":"— Sahih Muslim",
+    "who.tag":"Who We Help","who.title":"Children who need us most","who.sub":"Every child in our program has been individually identified by a trusted local coordinator in Morocco.",
+    "who.t1":"🌿 Orphaned children","who.t2":"♿ Children with disabilities","who.t3":"👤 Children with absent parents","who.t4":"🤲 Children with disabled parents","who.t5":"🏚️ Children in extreme poverty",
+    "who.privacy_title":"Privacy first.","who.privacy_text":" Children's identities are protected. Photos are only shared with explicit permission from the child and their guardian. No child will ever feel reduced to a charity case — they are seen, respected, and celebrated.",
+    "needs.tag":"Where Your Donation Goes","needs.title":"Children's needs we fund","needs.sub":"We began with seasonal giving and are growing year-round. Here's everything your donation can support:",
+    "needs.n1t":"Clothing","needs.n1d":"New outfits for seasonal celebrations and everyday wear",
+    "needs.n2t":"Shoes","needs.n2d":"New shoes so every child is fully and properly dressed",
+    "needs.n3t":"Toys & Gifts","needs.n3d":"Bringing real joy and play into a child's world",
+    "needs.n4t":"School Supplies","needs.n4d":"Backpacks, books, stationery, and school uniforms",
+    "needs.n5t":"Tutoring","needs.n5d":"Academic support for children falling behind in school",
+    "needs.n6t":"Medicine & Healthcare","needs.n6d":"Medications, doctor visits, and medical supplies",
+    "needs.n7t":"Food","needs.n7d":"Nutritious meals for children and families in hardship",
+    "needs.n8t":"Excursions","needs.n8d":"Field trips and experiences many kids have never had",
+    "needs.n9t":"Disability Support","needs.n9d":"Equipment, therapy, and specialized care",
+    "needs.active":"Active","needs.coming":"Coming Soon",
+    "donate.tag":"Make a Difference","donate.title":"Choose your contribution","donate.sub":"$1 ≈ 10 Moroccan Dirhams (MAD). We collect year-round and distribute when it matters most — Eid al-Fitr, Eid al-Adha, back to school, or urgent needs like medical expenses. Give what you can — no amount is too small.",
+    "donate.c1sub":"≈ 500 MAD · One full child sponsorship","donate.c1i1":"A complete new outfit ~250–300 MAD","donate.c1i2":"A new pair of shoes ~100–150 MAD","donate.c1i3":"A toy or small gift ~50–100 MAD","donate.c1btn":"Donate $50",
+    "donate.featured":"Most Generous","donate.c2sub":"≈ 1,000 MAD · Premium sponsorship","donate.c2i1":"A high-quality celebration outfit ~400–500 MAD","donate.c2i2":"Quality shoes ~150–200 MAD","donate.c2i3":"A meaningful toy or backpack ~150–200 MAD","donate.c2i4":"Treats and seasonal sweets ~100 MAD","donate.c2btn":"Donate $100",
+    "donate.c3title":"Give More","donate.c3sub":"$150+ · Sponsor multiple children","donate.c3i1":"$150 sponsors 3 children at $50","donate.c3i2":"$200 covers premium + school supplies","donate.c3i3":"Any amount is welcome","donate.c3i4":"Annual recurring donors especially valued","donate.c3btn":"Donate More",
+    "donate.how_tag":"How to Send","donate.how_title":"Contact us to get payment details","donate.how_text":"Reach out to receive our Zelle, Venmo, or PayPal details — or give cash when we meet. Every donation is acknowledged and every purchase documented with a receipt.",
+    "payment.tag":"Payment Options","payment.title":"Easy ways to donate","payment.sub":"Send your donation through any of these convenient methods. Contact us directly for account details.",
+    "payment.zelle":"Instant bank transfer — no fees","payment.venmo":"Quick & easy mobile payment","payment.paypal":"Secure online payment","payment.cash_name":"Cash","payment.cash_note":"In person when we meet",
+    "payment.cta_bold":"Ready to donate?","payment.cta_text":" Reach out to get our payment details. We'll confirm receipt of every donation and share a full report after each campaign.",
+    "team.tag":"On the Ground","team.title":"Meet our coordinators","team.sub":"Our coordinators are the heart of Sponsor Kids 212 — trusted individuals embedded in their communities who identify the children and ensure every donation reaches the right hands.",
+    "team.role":"Local Coordinator","team.fz_bio":"Fatima Zahra is a wife, mother of a three-year-old girl, and a deeply compassionate community worker based in Casablanca. She works directly with vulnerable families and children, connecting them with the clothing, food, medical support, school resources, and disability assistance they need. Her hands-on presence and genuine care for those around her make her an invaluable bridge between our donors and the children we serve.",
+    "team.tag1":"👨‍👩‍👧 Families","team.tag2":"🧒 Children","team.tag3":"💊 Medical","team.tag4":"📚 School","team.tag5":"♿ Disability",
+    "team.expand":"We are looking to expand to other cities across Morocco. If you know a trusted individual who shares our values and would like to volunteer as a local coordinator, please reach out.",
+    "gallery.tag":"Gallery","gallery.title":"Smiles made possible by your generosity","gallery.note":"Photos are shared only with the explicit consent of the child and their guardian. Items purchased and campaign receipts will also appear here after each campaign.",
+    "gallery.p1":"Children's photos<br><span style='opacity:0.7'>with consent only</span>","gallery.p2":"Gifts purchased<br><span style='opacity:0.7'>will appear here</span>","gallery.p3":"Shopping receipts<br><span style='opacity:0.7'>will appear here</span>","gallery.p4":"Special moments<br><span style='opacity:0.7'>shared after each campaign</span>",
+    "trans.tag":"Full Transparency","trans.title":"Your trust matters to us","trans.sub":"We are committed to total accountability. Here is how every dollar is tracked from your hands to the children.",
+    "trans.c1t":"Receipts Published","trans.c1d":"Every purchase in Morocco is documented. Receipts are photographed and shared with all donors after each campaign.",
+    "trans.c2t":"Itemized Reports","trans.c2d":"A full breakdown of what was bought, for whom, and at what cost is shared after every collection cycle.",
+    "trans.c3t":"Trusted Local Coordinator","trans.c3d":"The person receiving and spending funds in Morocco is personally known and trusted by our community.",
+    "trans.c4t":"Zero Overhead","trans.c4d":"100% of every donation reaches the children. No admin fees, no platform cuts, no salaries.",
+    "trans.rp_title":"Receipts & Campaign Reports","trans.rp_text":"Purchase receipts and spending summaries will be posted here after each campaign.",
+    "dua.translation":"\"Whoever relieves a believer's distress of the distressful aspects of this world, Allah will rescue him from a difficulty of the difficulties of the Hereafter.\"",
+    "dua.source":"Sahih Muslim · May Allah reward you and your loved ones. Ameen. 🤲",
+    "footer.tagline":"Helping Children in Morocco","footer.sub":"A community initiative by Moroccans abroad"
+  },
+  fr:{
+    "nav.mission":"Mission","nav.needs":"Besoins","nav.team":"Équipe","nav.gallery":"Galerie","nav.receipts":"Reçus","nav.donate":"Faire un don",
+    "hero.badge":"🇲🇦 Donner à votre enfant intérieur","hero.h1":"Soyez la bénédiction<br>dont vous aviez <em>besoin.</em>",
+    "hero.tagline":"Chaque enfant mérite de vivre la joie — aidez-nous à y contribuer.",
+    "hero.sub":"Ancré dans l'esprit de la sadaqah, Sponsor Kids 212 canalise la générosité de notre communauté pour apporter soutien essentiel et joie sincère aux enfants orphelins, handicapés et démunis du Maroc.",
+    "hero.btn1":"Faire un don","hero.btn2":"Notre histoire",
+    "stats.s1":"va directement aux enfants","stats.s2":"parraine un enfant","stats.s3":"jours par an, nous collectons","stats.s4":"nos racines, notre cause",
+    "mission.tag":"Notre Mission","mission.title":"Apporter dignité et joie aux enfants vulnérables",
+    "mission.p1":"Nous sommes un groupe d'amis marocains vivant à l'étranger qui croient au devoir de redonner au pays et aux communautés qui nous ont façonnés.",
+    "mission.p2":"Nous avons identifié des enfants au Maroc qui sont orphelins, vivent avec un handicap, ont des parents absents ou handicapés, ou vivent dans une extrême pauvreté. Nous les soutenons tout au long de l'année avec des vêtements, des cadeaux et des articles essentiels.",
+    "mission.p3":"Notre vision à long terme est d'étendre notre soutien aux frais scolaires, au tutorat, aux soins médicaux, aux sorties, à la nourriture, et plus encore. Chaque campagne est entièrement transparente.",
+    "mission.p4":"Les enfants ont été identifiés. La personne qui reçoit les fonds au Maroc est de confiance. Votre don va exactement là où il le faut.",
+    "mission.quote1":"« L'ombre du croyant au Jour de la Résurrection sera sa charité. »","mission.attr1":"— Prophète Muhammad ﷺ",
+    "mission.quote2":"« Quiconque soulage la détresse d'un croyant dans ce monde, Allah le soulagera d'une difficulté au Jour du Jugement. »","mission.attr2":"— Sahih Muslim",
+    "who.tag":"Qui nous aidons","who.title":"Les enfants qui ont le plus besoin de nous","who.sub":"Chaque enfant dans notre programme a été individuellement identifié par un coordinateur local de confiance au Maroc.",
+    "who.t1":"🌿 Enfants orphelins","who.t2":"♿ Enfants handicapés","who.t3":"👤 Enfants avec parents absents","who.t4":"🤲 Enfants avec parents handicapés","who.t5":"🏚️ Enfants en extrême pauvreté",
+    "who.privacy_title":"La vie privée avant tout.","who.privacy_text":" Les identités des enfants sont protégées. Les photos ne sont partagées qu'avec la permission explicite de l'enfant et de son tuteur. Aucun enfant ne sera jamais réduit à un cas de charité — ils sont vus, respectés et célébrés.",
+    "needs.tag":"Où va votre don","needs.title":"Les besoins que nous finançons","needs.sub":"Nous avons commencé avec des dons saisonniers et grandissons toute l'année :",
+    "needs.n1t":"Vêtements","needs.n1d":"Nouvelles tenues pour les célébrations et le quotidien",
+    "needs.n2t":"Chaussures","needs.n2d":"De nouvelles chaussures pour que chaque enfant soit bien habillé",
+    "needs.n3t":"Jouets & Cadeaux","needs.n3d":"Apporter de la vraie joie et du jeu dans la vie d'un enfant",
+    "needs.n4t":"Fournitures scolaires","needs.n4d":"Sacs, livres, papeterie et uniformes scolaires",
+    "needs.n5t":"Tutorat","needs.n5d":"Soutien scolaire pour les enfants en difficulté",
+    "needs.n6t":"Médicaments & Santé","needs.n6d":"Médicaments, visites médicales et fournitures de santé",
+    "needs.n7t":"Alimentation","needs.n7d":"Repas nutritifs pour les enfants et familles dans le besoin",
+    "needs.n8t":"Excursions","needs.n8d":"Sorties et expériences que beaucoup d'enfants n'ont jamais vécues",
+    "needs.n9t":"Soutien handicap","needs.n9d":"Équipements, thérapie et soins spécialisés",
+    "needs.active":"Actif","needs.coming":"Bientôt disponible",
+    "donate.tag":"Faites la différence","donate.title":"Choisissez votre contribution","donate.sub":"1 $ ≈ 10 Dirhams marocains. Nous collectons toute l'année et distribuons au bon moment — Aïd el-Fitr, Aïd el-Adha, rentrée scolaire, ou besoins urgents comme les frais médicaux. Donnez ce que vous pouvez — aucun montant n'est trop petit.",
+    "donate.c1sub":"≈ 500 MAD · Parrainage complet d'un enfant","donate.c1i1":"Une tenue complète neuve ~250–300 MAD","donate.c1i2":"Une nouvelle paire de chaussures ~100–150 MAD","donate.c1i3":"Un jouet ou un petit cadeau ~50–100 MAD","donate.c1btn":"Donner 50 $",
+    "donate.featured":"Le plus généreux","donate.c2sub":"≈ 1 000 MAD · Parrainage premium","donate.c2i1":"Une tenue de fête de qualité ~400–500 MAD","donate.c2i2":"Chaussures de qualité ~150–200 MAD","donate.c2i3":"Un jouet ou sac à dos ~150–200 MAD","donate.c2i4":"Friandises et douceurs ~100 MAD","donate.c2btn":"Donner 100 $",
+    "donate.c3title":"Donner plus","donate.c3sub":"150 $+ · Parrainer plusieurs enfants","donate.c3i1":"150 $ parraine 3 enfants à 50 $ chacun","donate.c3i2":"200 $ couvre premium + fournitures scolaires","donate.c3i3":"Tout montant est le bienvenu","donate.c3i4":"Les donateurs réguliers sont particulièrement précieux","donate.c3btn":"Donner plus",
+    "donate.how_tag":"Comment envoyer","donate.how_title":"Contactez-nous pour obtenir les coordonnées de paiement","donate.how_text":"Contactez-nous pour recevoir nos coordonnées Zelle, Venmo ou PayPal — ou donnez en espèces lors de nos rencontres.",
+    "payment.tag":"Options de paiement","payment.title":"Moyens simples de faire un don","payment.sub":"Envoyez votre don via l'un de ces moyens pratiques. Contactez-nous directement pour les coordonnées.",
+    "payment.zelle":"Virement bancaire instantané — sans frais","payment.venmo":"Paiement mobile rapide et facile","payment.paypal":"Paiement en ligne sécurisé","payment.cash_name":"Espèces","payment.cash_note":"En personne lors de nos rencontres",
+    "payment.cta_bold":"Prêt à faire un don ?","payment.cta_text":" Contactez-nous pour obtenir nos coordonnées. Nous confirmerons chaque don et partagerons un rapport complet après chaque campagne.",
+    "team.tag":"Sur le terrain","team.title":"Rencontrez nos coordinateurs","team.sub":"Nos coordinateurs sont le cœur de Sponsor Kids 212 — des personnes de confiance intégrées dans leurs communautés qui identifient les enfants et s'assurent que chaque don arrive à bon port.",
+    "team.role":"Coordinatrice locale","team.fz_bio":"Fatima Zahra est une épouse, mère d'une petite fille de trois ans, et une travailleuse communautaire profondément dévouée basée à Casablanca. Elle travaille directement avec les familles et les enfants vulnérables, les aidant à accéder aux vêtements, à la nourriture, au soutien médical, aux ressources scolaires et à l'aide aux personnes handicapées.",
+    "team.tag1":"👨‍👩‍👧 Familles","team.tag2":"🧒 Enfants","team.tag3":"💊 Médical","team.tag4":"📚 École","team.tag5":"♿ Handicap",
+    "team.expand":"Nous cherchons à nous étendre à d'autres villes du Maroc. Si vous connaissez une personne de confiance souhaitant se porter volontaire, contactez-nous.",
+    "gallery.tag":"Galerie","gallery.title":"Des sourires rendus possibles par votre générosité","gallery.note":"Les photos ne sont partagées qu'avec le consentement explicite de l'enfant et de son tuteur.",
+    "gallery.p1":"Photos des enfants<br><span style='opacity:0.7'>avec consentement uniquement</span>","gallery.p2":"Cadeaux achetés<br><span style='opacity:0.7'>apparaîtront ici</span>","gallery.p3":"Reçus d'achat<br><span style='opacity:0.7'>apparaîtront ici</span>","gallery.p4":"Moments spéciaux<br><span style='opacity:0.7'>partagés après chaque campagne</span>",
+    "trans.tag":"Transparence totale","trans.title":"Votre confiance nous tient à cœur","trans.sub":"Nous nous engageons à une responsabilité totale. Voici comment chaque dollar est suivi.",
+    "trans.c1t":"Reçus publiés","trans.c1d":"Chaque achat au Maroc est documenté. Les reçus sont photographiés et partagés avec tous les donateurs.",
+    "trans.c2t":"Rapports détaillés","trans.c2d":"Un bilan complet de ce qui a été acheté, pour qui et à quel coût est partagé après chaque cycle.",
+    "trans.c3t":"Coordinateur local de confiance","trans.c3d":"La personne recevant et dépensant les fonds au Maroc est personnellement connue et approuvée par notre communauté.",
+    "trans.c4t":"Zéro frais généraux","trans.c4d":"100 % de chaque don parvient aux enfants. Aucun frais administratif, aucune commission.",
+    "trans.rp_title":"Reçus et rapports de campagne","trans.rp_text":"Les reçus et résumés de dépenses seront publiés ici après chaque campagne.",
+    "dua.translation":"« Quiconque soulage la détresse d'un croyant dans ce monde, Allah le soulagera d'une difficulté au Jour du Jugement. »",
+    "dua.source":"Sahih Muslim · Qu'Allah vous récompense, vous et vos proches. Ameen. 🤲",
+    "footer.tagline":"Aider les enfants au Maroc","footer.sub":"Une initiative communautaire de Marocains de l'étranger"
+  },
+  ar:{
+    "nav.mission":"مهمتنا","nav.needs":"الاحتياجات","nav.team":"الفريق","nav.gallery":"معرض","nav.receipts":"الإيصالات","nav.donate":"تبرع الآن",
+    "hero.badge":"🇲🇦 أعطِ لطفلك الذي كنتَه","hero.h1":"كن البركة<br>التي كنتَ <em>بحاجة إليها.</em>",
+    "hero.tagline":"كل طفل يستحق أن يعيش الفرح — ساعدنا على تحقيق ذلك.",
+    "hero.sub":"انطلاقاً من روح الصدقة، يوجّه Sponsor Kids 212 كرم مجتمعنا لتقديم الدعم الأساسي والفرح الحقيقي للأطفال اليتامى والمعاقين والمحرومين في المغرب.",
+    "hero.btn1":"تبرع الآن","hero.btn2":"قصتنا",
+    "stats.s1":"تذهب مباشرة للأطفال","stats.s2":"يكفل طفلاً واحداً","stats.s3":"يوماً في السنة نجمع التبرعات","stats.s4":"جذورنا وقضيتنا",
+    "mission.tag":"مهمتنا","mission.title":"إحضار الكرامة والفرح للأطفال الضعفاء",
+    "mission.p1":"نحن مجموعة من الأصدقاء المغاربة المقيمين في الخارج، نؤمن بضرورة رد الجميل للبلد والمجتمعات التي شكّلتنا.",
+    "mission.p2":"تعرّفنا على أطفال في المغرب يتامى أو يعانون من إعاقات أو لديهم آباء غائبون أو معاقون أو يعيشون في فقر مدقع. ندعمهم طوال العام بالملابس والهدايا والمستلزمات الأساسية.",
+    "mission.p3":"رؤيتنا على المدى البعيد هي توسيع دعمنا ليشمل المصاريف الدراسية والدروس الخصوصية والرعاية الطبية والرحلات والغذاء والمزيد.",
+    "mission.p4":"تم تحديد الأطفال. الشخص المستلم للأموال في المغرب موثوق به. تبرعك يصل بالضبط إلى حيث ينبغي.",
+    "mission.quote1":"«ظِلُّ المؤمن يوم القيامة صدقتُه»","mission.attr1":"— النبي محمد ﷺ",
+    "mission.quote2":"«من نفّس عن مؤمن كربةً من كرب الدنيا، نفّس الله عنه كربةً من كرب يوم القيامة»","mission.attr2":"— صحيح مسلم",
+    "who.tag":"من نساعد","who.title":"الأطفال الأكثر احتياجاً","who.sub":"تم تحديد كل طفل في برنامجنا بشكل فردي من قبل منسق محلي موثوق في المغرب.",
+    "who.t1":"🌿 الأطفال الأيتام","who.t2":"♿ الأطفال ذوو الإعاقة","who.t3":"👤 أطفال بآباء غائبين","who.t4":"🤲 أطفال بآباء معاقين","who.t5":"🏚️ أطفال في فقر مدقع",
+    "who.privacy_title":"الخصوصية أولاً.","who.privacy_text":" هويات الأطفال محمية. لا تُشارك الصور إلا بإذن صريح من الطفل ووليّه. لن يُختزل أي طفل في كونه حالة إعانة — إنهم مرئيون ومحترمون ومحتفى بهم.",
+    "needs.tag":"أين يذهب تبرعك","needs.title":"احتياجات الأطفال التي نموّلها","needs.sub":"بدأنا بالعطاء الموسمي ونتوسع طوال العام:",
+    "needs.n1t":"الملابس","needs.n1d":"أزياء جديدة للاحتفالات والاستخدام اليومي",
+    "needs.n2t":"الأحذية","needs.n2d":"أحذية جديدة لكل طفل يستحق اللباس الكامل",
+    "needs.n3t":"الألعاب والهدايا","needs.n3d":"إدخال الفرح الحقيقي واللعب إلى عالم الطفل",
+    "needs.n4t":"اللوازم المدرسية","needs.n4d":"حقائب وكتب وقرطاسية وزي مدرسي",
+    "needs.n5t":"الدروس الخصوصية","needs.n5d":"دعم أكاديمي للأطفال المتأخرين دراسياً",
+    "needs.n6t":"الدواء والرعاية الصحية","needs.n6d":"أدوية وزيارات طبية ومستلزمات صحية",
+    "needs.n7t":"الغذاء","needs.n7d":"وجبات مغذية للأطفال والأسر المحتاجة",
+    "needs.n8t":"الرحلات","needs.n8d":"تجارب وخبرات لم يحظَ بها كثير من الأطفال",
+    "needs.n9t":"دعم ذوي الإعاقة","needs.n9d":"معدات وعلاج ورعاية متخصصة",
+    "needs.active":"نشط","needs.coming":"قريباً",
+    "donate.tag":"أحدث فرقاً","donate.title":"اختر مساهمتك","donate.sub":"1 دولار ≈ 10 دراهم مغربية. نجمع التبرعات طوال العام ونوزعها في الوقت المناسب — عيد الفطر، عيد الأضحى، الدخول المدرسي، أو الاحتياجات العاجلة كالمصاريف الطبية. تبرع بما تستطيع — لا يوجد مبلغ صغير.",
+    "donate.c1sub":"≈ 500 درهم · كفالة كاملة لطفل واحد","donate.c1i1":"زي جديد كامل ~250-300 درهم","donate.c1i2":"زوج جديد من الأحذية ~100-150 درهم","donate.c1i3":"لعبة أو هدية صغيرة ~50-100 درهم","donate.c1btn":"تبرع بـ 50 $",
+    "donate.featured":"الأكثر سخاءً","donate.c2sub":"≈ 1,000 درهم · كفالة مميزة","donate.c2i1":"زي احتفالي راقي ~400-500 درهم","donate.c2i2":"أحذية جودة عالية ~150-200 درهم","donate.c2i3":"لعبة أو حقيبة مميزة ~150-200 درهم","donate.c2i4":"حلوى وأشياء موسمية ~100 درهم","donate.c2btn":"تبرع بـ 100 $",
+    "donate.c3title":"تبرع أكثر","donate.c3sub":"150 $+ · اكفل أطفالاً متعددين","donate.c3i1":"150 $ تكفل 3 أطفال بـ 50 $ لكل منهم","donate.c3i2":"200 $ تغطي الكفالة المميزة + اللوازم المدرسية","donate.c3i3":"أي مبلغ مرحب به","donate.c3i4":"المتبرعون المنتظمون ذوو قيمة خاصة","donate.c3btn":"تبرع بأكثر",
+    "donate.how_tag":"كيفية الإرسال","donate.how_title":"تواصل معنا للحصول على تفاصيل الدفع","donate.how_text":"تواصل معنا للحصول على بياناتنا عبر Zelle أو Venmo أو PayPal — أو أعطِ نقداً عند اللقاء.",
+    "payment.tag":"خيارات الدفع","payment.title":"طرق سهلة للتبرع","payment.sub":"أرسل تبرعك عبر أي من هذه الطرق المريحة. تواصل معنا مباشرة للحصول على التفاصيل.",
+    "payment.zelle":"تحويل بنكي فوري — بدون رسوم","payment.venmo":"دفع سريع وسهل عبر الهاتف","payment.paypal":"دفع آمن عبر الإنترنت","payment.cash_name":"نقداً","payment.cash_note":"شخصياً عند اللقاء",
+    "payment.cta_bold":"مستعد للتبرع؟","payment.cta_text":" تواصل معنا للحصول على بيانات الدفع. سنؤكد استلام كل تبرع ونشارك تقريراً كاملاً بعد كل حملة.",
+    "team.tag":"على أرض الواقع","team.title":"تعرّف على منسقينا","team.sub":"منسقونا هم قلب Sponsor Kids 212 — أشخاص موثوقون متجذّرون في مجتمعاتهم يتعرفون على الأطفال ويضمنون وصول كل تبرع إلى مكانه الصحيح.",
+    "team.role":"منسقة محلية","team.fz_bio":"فاطمة الزهراء زوجة وأم لطفلة تبلغ ثلاث سنوات، وعاملة اجتماعية متفانية في الدار البيضاء. تعمل مباشرة مع الأسر والأطفال الضعفاء، وتربطهم بالملابس والغذاء والدعم الطبي والموارد التعليمية ومساعدات ذوي الإعاقة التي يحتاجونها.",
+    "team.tag1":"👨‍👩‍👧 الأسر","team.tag2":"🧒 الأطفال","team.tag3":"💊 طبي","team.tag4":"📚 مدرسي","team.tag5":"♿ إعاقة",
+    "team.expand":"نسعى للتوسع إلى مدن أخرى في المغرب. إن كنت تعرف شخصاً موثوقاً يشاركنا قيمنا ويرغب في التطوع كمنسق محلي، فتواصل معنا.",
+    "gallery.tag":"معرض الصور","gallery.title":"ابتسامات أتاحتها كرمكم","gallery.note":"لا تُشارك الصور إلا بموافقة صريحة من الطفل ووليّه. ستظهر هنا الأشياء المشتراة والإيصالات بعد كل حملة.",
+    "gallery.p1":"صور الأطفال<br><span style='opacity:0.7'>بالموافقة فقط</span>","gallery.p2":"الهدايا المشتراة<br><span style='opacity:0.7'>ستظهر هنا</span>","gallery.p3":"إيصالات الشراء<br><span style='opacity:0.7'>ستظهر هنا</span>","gallery.p4":"لحظات خاصة<br><span style='opacity:0.7'>تُشارك بعد كل حملة</span>",
+    "trans.tag":"شفافية كاملة","trans.title":"ثقتكم تهمّنا","trans.sub":"نلتزم بالمساءلة الكاملة. إليك كيف يُتتبع كل دولار من يدك إلى الأطفال.",
+    "trans.c1t":"نشر الإيصالات","trans.c1d":"كل عملية شراء في المغرب موثقة. تُصوَّر الإيصالات وتُشارك مع جميع المتبرعين بعد كل حملة.",
+    "trans.c2t":"تقارير مفصلة","trans.c2d":"يُشارك ملخص كامل بما تم شراؤه ولمن وبأي تكلفة بعد كل دورة.",
+    "trans.c3t":"منسق محلي موثوق","trans.c3d":"الشخص المستلم والمنفق للأموال في المغرب معروف شخصياً ومعتمد من مجتمعنا.",
+    "trans.c4t":"صفر تكاليف إدارية","trans.c4d":"100% من كل تبرع يصل للأطفال. لا رسوم إدارية، لا عمولات، لا رواتب.",
+    "trans.rp_title":"الإيصالات وتقارير الحملات","trans.rp_text":"ستُنشر هنا إيصالات الشراء وملخصات الإنفاق بعد كل حملة.",
+    "dua.translation":"«من نفّس عن مؤمن كربةً من كرب الدنيا، نفّس الله عنه كربةً من كرب يوم القيامة»",
+    "dua.source":"صحيح مسلم · جزاكم الله خيراً وأهلكم. آمين. 🤲",
+    "footer.tagline":"مساعدة الأطفال في المغرب","footer.sub":"مبادرة مجتمعية من مغاربة المهجر"
+  },
+  es:{
+    "nav.mission":"Misión","nav.needs":"Necesidades","nav.team":"Equipo","nav.gallery":"Galería","nav.receipts":"Recibos","nav.donate":"Donar ahora",
+    "hero.badge":"🇲🇦 Dar a tu yo de la infancia","hero.h1":"Sé la bendición<br>que una vez <em>necesitaste.</em>",
+    "hero.tagline":"Todo niño merece vivir la alegría — ayúdanos a hacerlo realidad.",
+    "hero.sub":"Arraigado en el espíritu de la sadaqah, Sponsor Kids 212 canaliza la generosidad de nuestra comunidad para brindar apoyo esencial y alegría sincera a los niños huérfanos, discapacitados y empobrecidos de Marruecos.",
+    "hero.btn1":"Donar ahora","hero.btn2":"Nuestra historia",
+    "stats.s1":"va directamente a los niños","stats.s2":"patrocina a un niño","stats.s3":"días al año recaudamos","stats.s4":"nuestras raíces, nuestra causa",
+    "mission.tag":"Nuestra Misión","mission.title":"Llevando dignidad y alegría a los niños vulnerables",
+    "mission.p1":"Somos un grupo de amigos marroquíes viviendo en el extranjero que creen en devolver algo al país y a las comunidades que nos formaron.",
+    "mission.p2":"Hemos identificado niños en Marruecos que son huérfanos, viven con discapacidades, tienen padres ausentes o discapacitados, o viven en extrema pobreza. Los apoyamos durante todo el año con ropa, regalos y artículos esenciales.",
+    "mission.p3":"Nuestra visión a largo plazo es expandir nuestro apoyo para cubrir gastos escolares, tutoría, atención médica, excursiones, alimentos y más. Cada campaña es totalmente transparente.",
+    "mission.p4":"Los niños han sido identificados. La persona que recibe fondos en Marruecos es de confianza. Tu donación va exactamente donde debe ir.",
+    "mission.quote1":"«La sombra del creyente el Día de la Resurrección será su caridad.»","mission.attr1":"— Profeta Muhammad ﷺ",
+    "mission.quote2":"«Quien alivie la angustia de un creyente en este mundo, Allah le aliviará una dificultad en el Día del Juicio.»","mission.attr2":"— Sahih Muslim",
+    "who.tag":"A quién ayudamos","who.title":"Los niños que más nos necesitan","who.sub":"Cada niño en nuestro programa ha sido identificado individualmente por un coordinador local de confianza en Marruecos.",
+    "who.t1":"🌿 Niños huérfanos","who.t2":"♿ Niños con discapacidad","who.t3":"👤 Niños con padres ausentes","who.t4":"🤲 Niños con padres discapacitados","who.t5":"🏚️ Niños en extrema pobreza",
+    "who.privacy_title":"La privacidad primero.","who.privacy_text":" Las identidades de los niños están protegidas. Las fotos solo se comparten con permiso explícito del niño y su tutor. Ningún niño será reducido a un caso de caridad — son vistos, respetados y celebrados.",
+    "needs.tag":"Dónde va tu donación","needs.title":"Necesidades que financiamos","needs.sub":"Comenzamos con donaciones estacionales y crecemos durante todo el año:",
+    "needs.n1t":"Ropa","needs.n1d":"Ropa nueva para celebraciones y uso diario",
+    "needs.n2t":"Zapatos","needs.n2d":"Zapatos nuevos para que cada niño esté bien vestido",
+    "needs.n3t":"Juguetes y Regalos","needs.n3d":"Llevar alegría y juego al mundo de un niño",
+    "needs.n4t":"Útiles escolares","needs.n4d":"Mochilas, libros, papelería y uniformes escolares",
+    "needs.n5t":"Tutoría","needs.n5d":"Apoyo académico para niños que van rezagados",
+    "needs.n6t":"Medicina y Salud","needs.n6d":"Medicamentos, visitas médicas y suministros de salud",
+    "needs.n7t":"Alimentación","needs.n7d":"Comidas nutritivas para niños y familias en dificultades",
+    "needs.n8t":"Excursiones","needs.n8d":"Salidas y experiencias que muchos niños nunca han tenido",
+    "needs.n9t":"Apoyo a discapacitados","needs.n9d":"Equipos, terapia y cuidados especializados",
+    "needs.active":"Activo","needs.coming":"Próximamente",
+    "donate.tag":"Marca la diferencia","donate.title":"Elige tu contribución","donate.sub":"1 $ ≈ 10 Dírhams marroquíes. Recaudamos durante todo el año y distribuimos cuando más importa — Eid al-Fitr, Eid al-Adha, vuelta al cole, o necesidades urgentes como gastos médicos. Da lo que puedas — ninguna cantidad es demasiado pequeña.",
+    "donate.c1sub":"≈ 500 MAD · Patrocinio completo de un niño","donate.c1i1":"Un conjunto nuevo completo ~250–300 MAD","donate.c1i2":"Un par de zapatos nuevos ~100–150 MAD","donate.c1i3":"Un juguete o regalo pequeño ~50–100 MAD","donate.c1btn":"Donar 50 $",
+    "donate.featured":"Más generoso","donate.c2sub":"≈ 1.000 MAD · Patrocinio premium","donate.c2i1":"Un conjunto de celebración de calidad ~400–500 MAD","donate.c2i2":"Zapatos de calidad ~150–200 MAD","donate.c2i3":"Un juguete o mochila especial ~150–200 MAD","donate.c2i4":"Golosinas y dulces estacionales ~100 MAD","donate.c2btn":"Donar 100 $",
+    "donate.c3title":"Dar más","donate.c3sub":"150 $+ · Patrocinar varios niños","donate.c3i1":"150 $ patrocina 3 niños a 50 $ cada uno","donate.c3i2":"200 $ cubre premium + útiles escolares","donate.c3i3":"Cualquier cantidad es bienvenida","donate.c3i4":"Los donantes anuales son especialmente valorados","donate.c3btn":"Donar más",
+    "donate.how_tag":"Cómo enviar","donate.how_title":"Contáctanos para obtener los datos de pago","donate.how_text":"Escríbenos para recibir nuestros datos de Zelle, Venmo o PayPal — o da en efectivo cuando nos veamos.",
+    "payment.tag":"Opciones de pago","payment.title":"Formas fáciles de donar","payment.sub":"Envía tu donación a través de cualquiera de estos métodos. Contáctanos directamente para los detalles.",
+    "payment.zelle":"Transferencia bancaria instantánea — sin comisiones","payment.venmo":"Pago móvil rápido y fácil","payment.paypal":"Pago seguro en línea","payment.cash_name":"Efectivo","payment.cash_note":"En persona cuando nos veamos",
+    "payment.cta_bold":"¿Listo para donar?","payment.cta_text":" Contáctanos para obtener nuestros datos. Confirmaremos cada donación y compartiremos un informe completo después de cada campaña.",
+    "team.tag":"Sobre el terreno","team.title":"Conoce a nuestros coordinadores","team.sub":"Nuestros coordinadores son el corazón de Sponsor Kids 212 — personas de confianza integradas en sus comunidades que identifican a los niños y garantizan que cada donación llegue a las manos correctas.",
+    "team.role":"Coordinadora local","team.fz_bio":"Fatima Zahra es esposa, madre de una niña de tres años y una trabajadora comunitaria profundamente compasiva con base en Casablanca. Trabaja directamente con familias y niños vulnerables, conectándolos con la ropa, alimentos, apoyo médico, recursos escolares y asistencia para discapacitados que necesitan.",
+    "team.tag1":"👨‍👩‍👧 Familias","team.tag2":"🧒 Niños","team.tag3":"💊 Médico","team.tag4":"📚 Escuela","team.tag5":"♿ Discapacidad",
+    "team.expand":"Buscamos expandirnos a otras ciudades de Marruecos. Si conoces a alguien de confianza que desee ser coordinador local voluntario, contáctanos.",
+    "gallery.tag":"Galería","gallery.title":"Sonrisas posibles gracias a tu generosidad","gallery.note":"Las fotos se comparten solo con el consentimiento explícito del niño y su tutor.",
+    "gallery.p1":"Fotos de los niños<br><span style='opacity:0.7'>solo con consentimiento</span>","gallery.p2":"Regalos comprados<br><span style='opacity:0.7'>aparecerán aquí</span>","gallery.p3":"Recibos de compra<br><span style='opacity:0.7'>aparecerán aquí</span>","gallery.p4":"Momentos especiales<br><span style='opacity:0.7'>compartidos tras cada campaña</span>",
+    "trans.tag":"Transparencia total","trans.title":"Tu confianza nos importa","trans.sub":"Estamos comprometidos con la responsabilidad total. Así es como se rastrea cada dólar.",
+    "trans.c1t":"Recibos publicados","trans.c1d":"Cada compra en Marruecos está documentada. Los recibos se fotografían y comparten con todos los donantes.",
+    "trans.c2t":"Informes detallados","trans.c2d":"Un desglose completo de lo comprado, para quién y a qué costo se comparte después de cada ciclo.",
+    "trans.c3t":"Coordinador local de confianza","trans.c3d":"La persona que recibe y gasta los fondos en Marruecos es personalmente conocida y de confianza para nuestra comunidad.",
+    "trans.c4t":"Cero gastos generales","trans.c4d":"El 100% de cada donación llega a los niños. Sin gastos administrativos, sin comisiones, sin salarios.",
+    "trans.rp_title":"Recibos e informes de campaña","trans.rp_text":"Los recibos y resúmenes de gastos se publicarán aquí después de cada campaña.",
+    "dua.translation":"«Quien alivie la angustia de un creyente en este mundo, Allah le aliviará una dificultad en el Día del Juicio.»",
+    "dua.source":"Sahih Muslim · Que Allah os recompense a vosotros y a vuestros seres queridos. Ameen. 🤲",
+    "footer.tagline":"Ayudando a los niños en Marruecos","footer.sub":"Una iniciativa comunitaria de marroquíes en el extranjero"
+  }
+};
+
+const pageTitles = {
+  en:"Sponsor Kids 212 — Helping Children in Morocco",
+  fr:"Sponsor Kids 212 — Aider les enfants au Maroc",
+  ar:"Sponsor Kids 212 — مساعدة الأطفال في المغرب",
+  es:"Sponsor Kids 212 — Ayudando a los niños en Marruecos"
+};
+
+function setLang(lang) {
+  const t = T[lang];
+  if (!t) return;
+  document.documentElement.lang = lang;
+  document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    if (t[key] !== undefined) el.innerHTML = t[key];
+  });
+  document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+  document.querySelector(`.lang-btn[onclick="setLang('${lang}')"]`).classList.add('active');
+  document.title = pageTitles[lang] || pageTitles.en;
+  try { localStorage.setItem('sk212-lang', lang); } catch(e){}
+}
+
+window.addEventListener('DOMContentLoaded', () => {
+  let lang = 'en';
+  try { lang = localStorage.getItem('sk212-lang') || navigator.language.slice(0,2); } catch(e){}
+  if (!T[lang]) lang = 'en';
+  setLang(lang);
+});
+</script>
 </body>
 </html>

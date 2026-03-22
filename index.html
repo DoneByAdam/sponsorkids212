@@ -201,7 +201,18 @@
   .archive-year.future .archive-year-header{cursor:default;}
   @media(max-width:600px){.archive-folders{grid-template-columns:1fr;}}
 
-  /* MEDIA VIEWER */
+  /* DRIVE LINK CARDS */
+  .drive-link-card{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:22px 24px;border-radius:14px;text-decoration:none;color:var(--text);border:2px solid var(--border);background:var(--white);transition:transform 0.2s,box-shadow 0.2s,border-color 0.2s;margin-top:4px;}
+  .drive-link-card:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,0.09);}
+  .drive-link-card.photos{border-color:#b2dfb4;}
+  .drive-link-card.photos:hover{border-color:var(--green);box-shadow:0 8px 24px rgba(46,125,79,0.12);}
+  .drive-link-card.receipts{border-color:#fac775;}
+  .drive-link-card.receipts:hover{border-color:var(--gold);box-shadow:0 8px 24px rgba(212,160,23,0.14);}
+  .drive-card-left{display:flex;align-items:center;gap:16px;}
+  .drive-card-icon{font-size:36px;flex-shrink:0;}
+  .drive-card-title{font-weight:500;font-size:16px;color:var(--dark);margin-bottom:4px;}
+  .drive-card-desc{font-size:13px;color:var(--muted);}
+  .drive-card-arrow{font-size:22px;color:var(--muted);flex-shrink:0;}
   .media-tabs{display:flex;gap:8px;margin:16px 0 20px;}
   .media-tab{background:transparent;border:1.5px solid var(--border);color:var(--muted);font-size:13px;font-weight:500;padding:7px 18px;border-radius:20px;cursor:pointer;transition:all 0.2s;font-family:inherit;}
   .media-tab.active{background:var(--green);border-color:var(--green);color:white;}
@@ -535,67 +546,30 @@
 
               <!-- Photos panel -->
               <div class="media-panel active" id="photos-eid2026">
-                <div class="photo-grid">
-                  <div class="photo-item" onclick="openLightbox('media/2026/eid-el-fitr/photos/IMG-20260316-WA0023.jpg')"><img src="media/2026/eid-el-fitr/photos/IMG-20260316-WA0023.jpg" alt="Eid El-Fitr 2026" loading="lazy"></div>
-                  <div class="photo-item" onclick="openLightbox('media/2026/eid-el-fitr/photos/IMG-20260318-WA0002.jpg')"><img src="media/2026/eid-el-fitr/photos/IMG-20260318-WA0002.jpg" alt="Eid El-Fitr 2026" loading="lazy"></div>
-                  <div class="photo-item" onclick="openLightbox('media/2026/eid-el-fitr/photos/IMG-20260318-WA0003.jpg')"><img src="media/2026/eid-el-fitr/photos/IMG-20260318-WA0003.jpg" alt="Eid El-Fitr 2026" loading="lazy"></div>
-                  <div class="photo-item" onclick="openLightbox('media/2026/eid-el-fitr/photos/IMG-20260318-WA0004.jpg')"><img src="media/2026/eid-el-fitr/photos/IMG-20260318-WA0004.jpg" alt="Eid El-Fitr 2026" loading="lazy"></div>
-                  <div class="photo-item" onclick="openLightbox('media/2026/eid-el-fitr/photos/IMG-20260318-WA0005.jpg')"><img src="media/2026/eid-el-fitr/photos/IMG-20260318-WA0005.jpg" alt="Eid El-Fitr 2026" loading="lazy"></div>
-                  <div class="photo-item" onclick="openLightbox('media/2026/eid-el-fitr/photos/IMG-20260318-WA0006.jpg')"><img src="media/2026/eid-el-fitr/photos/IMG-20260318-WA0006.jpg" alt="Eid El-Fitr 2026" loading="lazy"></div>
-                  <div class="photo-item" onclick="openLightbox('media/2026/eid-el-fitr/photos/IMG-20260318-WA0007.jpg')"><img src="media/2026/eid-el-fitr/photos/IMG-20260318-WA0007.jpg" alt="Eid El-Fitr 2026" loading="lazy"></div>
-                  <div class="photo-item" onclick="openLightbox('media/2026/eid-el-fitr/photos/IMG-20260318-WA0008.jpg')"><img src="media/2026/eid-el-fitr/photos/IMG-20260318-WA0008.jpg" alt="Eid El-Fitr 2026" loading="lazy"></div>
-                  <div class="photo-item" onclick="openLightbox('media/2026/eid-el-fitr/photos/IMG-20260318-WA0009.jpg')"><img src="media/2026/eid-el-fitr/photos/IMG-20260318-WA0009.jpg" alt="Eid El-Fitr 2026" loading="lazy"></div>
-                  <div class="photo-item" onclick="openLightbox('media/2026/eid-el-fitr/photos/IMG-20260318-WA0010.jpg')"><img src="media/2026/eid-el-fitr/photos/IMG-20260318-WA0010.jpg" alt="Eid El-Fitr 2026" loading="lazy"></div>
-                  <div class="photo-item" onclick="openLightbox('media/2026/eid-el-fitr/photos/IMG-20260318-WA0031.jpg')"><img src="media/2026/eid-el-fitr/photos/IMG-20260318-WA0031.jpg" alt="Eid El-Fitr 2026" loading="lazy"></div>
-                  <div class="photo-item" onclick="openLightbox('media/2026/eid-el-fitr/photos/IMG-20260318-WA0032.jpg')"><img src="media/2026/eid-el-fitr/photos/IMG-20260318-WA0032.jpg" alt="Eid El-Fitr 2026" loading="lazy"></div>
-                  <div class="photo-item" onclick="openLightbox('media/2026/eid-el-fitr/photos/IMG-20260319-WA0017.jpg')"><img src="media/2026/eid-el-fitr/photos/IMG-20260319-WA0017.jpg" alt="Eid El-Fitr 2026" loading="lazy"></div>
-                  <div class="photo-item" onclick="openLightbox('media/2026/eid-el-fitr/photos/IMG-20260319-WA0018.jpg')"><img src="media/2026/eid-el-fitr/photos/IMG-20260319-WA0018.jpg" alt="Eid El-Fitr 2026" loading="lazy"></div>
-                  <div class="photo-item" onclick="openLightbox('media/2026/eid-el-fitr/photos/IMG-20260319-WA0019.jpg')"><img src="media/2026/eid-el-fitr/photos/IMG-20260319-WA0019.jpg" alt="Eid El-Fitr 2026" loading="lazy"></div>
-                  <div class="photo-item" onclick="openLightbox('media/2026/eid-el-fitr/photos/IMG-20260319-WA0020.jpg')"><img src="media/2026/eid-el-fitr/photos/IMG-20260319-WA0020.jpg" alt="Eid El-Fitr 2026" loading="lazy"></div>
-                  <div class="photo-item" onclick="openLightbox('media/2026/eid-el-fitr/photos/IMG-20260321-WA0001.jpg')"><img src="media/2026/eid-el-fitr/photos/IMG-20260321-WA0001.jpg" alt="Eid El-Fitr 2026" loading="lazy"></div>
-                  <div class="photo-item" onclick="openLightbox('media/2026/eid-el-fitr/photos/IMG-20260321-WA0002.jpg')"><img src="media/2026/eid-el-fitr/photos/IMG-20260321-WA0002.jpg" alt="Eid El-Fitr 2026" loading="lazy"></div>
-                  <div class="photo-item" onclick="openLightbox('media/2026/eid-el-fitr/photos/IMG-20260321-WA0003.jpg')"><img src="media/2026/eid-el-fitr/photos/IMG-20260321-WA0003.jpg" alt="Eid El-Fitr 2026" loading="lazy"></div>
-                  <div class="photo-item" onclick="openLightbox('media/2026/eid-el-fitr/photos/IMG-20260321-WA0004.jpg')"><img src="media/2026/eid-el-fitr/photos/IMG-20260321-WA0004.jpg" alt="Eid El-Fitr 2026" loading="lazy"></div>
-                  <div class="photo-item" onclick="openLightbox('media/2026/eid-el-fitr/photos/IMG-20260321-WA0005.jpg')"><img src="media/2026/eid-el-fitr/photos/IMG-20260321-WA0005.jpg" alt="Eid El-Fitr 2026" loading="lazy"></div>
-                  <div class="photo-item" onclick="openLightbox('media/2026/eid-el-fitr/photos/IMG-20260321-WA0006.jpg')"><img src="media/2026/eid-el-fitr/photos/IMG-20260321-WA0006.jpg" alt="Eid El-Fitr 2026" loading="lazy"></div>
-                  <div class="photo-item" onclick="openLightbox('media/2026/eid-el-fitr/photos/IMG-20260321-WA0007.jpg')"><img src="media/2026/eid-el-fitr/photos/IMG-20260321-WA0007.jpg" alt="Eid El-Fitr 2026" loading="lazy"></div>
-                  <div class="photo-item" onclick="openLightbox('media/2026/eid-el-fitr/photos/IMG-20260321-WA0008.jpg')"><img src="media/2026/eid-el-fitr/photos/IMG-20260321-WA0008.jpg" alt="Eid El-Fitr 2026" loading="lazy"></div>
-                  <div class="photo-item" onclick="openLightbox('media/2026/eid-el-fitr/photos/IMG-20260321-WA0009.jpg')"><img src="media/2026/eid-el-fitr/photos/IMG-20260321-WA0009.jpg" alt="Eid El-Fitr 2026" loading="lazy"></div>
-                </div>
+                <a href="https://drive.google.com/drive/folders/1PlKTmiLVbeK_TKKVjdJ7HC-6X4YIx1ln?usp=drive_link" target="_blank" rel="noopener" class="drive-link-card photos">
+                  <div class="drive-card-left">
+                    <div class="drive-card-icon">📷</div>
+                    <div>
+                      <div class="drive-card-title" data-i18n="gallery.drive.photos_title">Eid El-Fitr 2026 — Photos</div>
+                      <div class="drive-card-desc" data-i18n="gallery.drive.photos_desc">25 photos · Shared on Google Drive · Opens in new tab</div>
+                    </div>
+                  </div>
+                  <div class="drive-card-arrow">↗</div>
+                </a>
               </div>
 
               <!-- Receipts panel -->
               <div class="media-panel" id="receipts-eid2026">
-                <div class="receipt-grid">
-                  <div class="receipt-item">
-                    <img src="media/2026/eid-el-fitr/receipts/IMG-20260317-WA0000.jpg" alt="Receipt" loading="lazy" onclick="openLightbox('media/2026/eid-el-fitr/receipts/IMG-20260317-WA0000.jpg')" style="cursor:pointer;">
-                    <div class="receipt-item-footer">
-                      <span class="receipt-item-name">IMG-20260317-WA0000.jpg</span>
-                      <a href="media/2026/eid-el-fitr/receipts/IMG-20260317-WA0000.jpg" download class="receipt-download">⬇ Download</a>
+                <a href="https://drive.google.com/drive/folders/1qsE8RDa3nasy_cJ15RIn7aDD6Yta8Phk?usp=sharing" target="_blank" rel="noopener" class="drive-link-card receipts">
+                  <div class="drive-card-left">
+                    <div class="drive-card-icon">🧾</div>
+                    <div>
+                      <div class="drive-card-title" data-i18n="gallery.drive.receipts_title">Eid El-Fitr 2026 — Receipts</div>
+                      <div class="drive-card-desc" data-i18n="gallery.drive.receipts_desc">4 receipts · Shared on Google Drive · Opens in new tab</div>
                     </div>
                   </div>
-                  <div class="receipt-item">
-                    <img src="media/2026/eid-el-fitr/receipts/IMG-20260317-WA0001.jpg" alt="Receipt" loading="lazy" onclick="openLightbox('media/2026/eid-el-fitr/receipts/IMG-20260317-WA0001.jpg')" style="cursor:pointer;">
-                    <div class="receipt-item-footer">
-                      <span class="receipt-item-name">IMG-20260317-WA0001.jpg</span>
-                      <a href="media/2026/eid-el-fitr/receipts/IMG-20260317-WA0001.jpg" download class="receipt-download">⬇ Download</a>
-                    </div>
-                  </div>
-                  <div class="receipt-item">
-                    <img src="media/2026/eid-el-fitr/receipts/IMG-20260318-WA0001.jpg" alt="Receipt" loading="lazy" onclick="openLightbox('media/2026/eid-el-fitr/receipts/IMG-20260318-WA0001.jpg')" style="cursor:pointer;">
-                    <div class="receipt-item-footer">
-                      <span class="receipt-item-name">IMG-20260318-WA0001.jpg</span>
-                      <a href="media/2026/eid-el-fitr/receipts/IMG-20260318-WA0001.jpg" download class="receipt-download">⬇ Download</a>
-                    </div>
-                  </div>
-                  <div class="receipt-item">
-                    <img src="media/2026/eid-el-fitr/receipts/IMG-20260319-WA0024.jpg" alt="Receipt" loading="lazy" onclick="openLightbox('media/2026/eid-el-fitr/receipts/IMG-20260319-WA0024.jpg')" style="cursor:pointer;">
-                    <div class="receipt-item-footer">
-                      <span class="receipt-item-name">IMG-20260319-WA0024.jpg</span>
-                      <a href="media/2026/eid-el-fitr/receipts/IMG-20260319-WA0024.jpg" download class="receipt-download">⬇ Download</a>
-                    </div>
-                  </div>
-                </div>
+                  <div class="drive-card-arrow">↗</div>
+                </a>
               </div>
 
             </div>
@@ -718,6 +692,8 @@ const T = {
     "gallery.tag":"Gallery & Records","gallery.title":"Smiles made possible by your generosity","gallery.note":"Photos are shared only with the explicit consent of the child and their guardian. All purchases are documented with receipts for full transparency.",
     "gallery.folder.photos":"Photos","gallery.folder.photos_desc":"Children & gifts — with consent",
     "gallery.folder.receipts":"Receipts","gallery.folder.receipts_desc":"All purchase documentation",
+    "gallery.drive.photos_title":"Eid El-Fitr 2026 — Photos","gallery.drive.photos_desc":"25 photos · Shared on Google Drive · Opens in new tab",
+    "gallery.drive.receipts_title":"Eid El-Fitr 2026 — Receipts","gallery.drive.receipts_desc":"4 receipts · Shared on Google Drive · Opens in new tab",
     "gallery.future":"Future campaigns","gallery.coming":"will appear here",
     "trans.tag":"Full Transparency","trans.title":"Your trust matters to us","trans.sub":"We are committed to total accountability. Here is how every dollar is tracked from your hands to the children.",
     "trans.c1t":"Receipts Published","trans.c1d":"Every purchase in Morocco is documented. Receipts are photographed and shared with all donors after each campaign.",
@@ -772,6 +748,8 @@ const T = {
     "gallery.tag":"Galerie & Archives","gallery.title":"Des sourires rendus possibles par votre générosité","gallery.note":"Les photos ne sont partagées qu'avec le consentement explicite de l'enfant et de son tuteur. Tous les achats sont documentés avec des reçus.",
     "gallery.folder.photos":"Photos","gallery.folder.photos_desc":"Enfants & cadeaux — avec consentement",
     "gallery.folder.receipts":"Reçus","gallery.folder.receipts_desc":"Toute la documentation d'achat",
+    "gallery.drive.photos_title":"Aïd El-Fitr 2026 — Photos","gallery.drive.photos_desc":"25 photos · Partagé sur Google Drive · Ouvre dans un nouvel onglet",
+    "gallery.drive.receipts_title":"Aïd El-Fitr 2026 — Reçus","gallery.drive.receipts_desc":"4 reçus · Partagé sur Google Drive · Ouvre dans un nouvel onglet",
     "gallery.future":"Campagnes futures","gallery.coming":"apparaîtront ici",
     "trans.tag":"Transparence totale","trans.title":"Votre confiance nous tient à cœur","trans.sub":"Nous nous engageons à une responsabilité totale. Voici comment chaque dollar est suivi.",
     "trans.c1t":"Reçus publiés","trans.c1d":"Chaque achat au Maroc est documenté. Les reçus sont photographiés et partagés avec tous les donateurs.",
@@ -826,6 +804,8 @@ const T = {
     "gallery.tag":"معرض الصور والسجلات","gallery.title":"ابتسامات أتاحتها كرمكم","gallery.note":"لا تُشارك الصور إلا بموافقة صريحة من الطفل ووليّه. جميع المشتريات موثقة بإيصالات لضمان الشفافية الكاملة.",
     "gallery.folder.photos":"الصور","gallery.folder.photos_desc":"الأطفال والهدايا — بالموافقة",
     "gallery.folder.receipts":"الإيصالات","gallery.folder.receipts_desc":"وثائق جميع المشتريات",
+    "gallery.drive.photos_title":"عيد الفطر 2026 — الصور","gallery.drive.photos_desc":"25 صورة · مشترك على Google Drive · يفتح في تبويب جديد",
+    "gallery.drive.receipts_title":"عيد الفطر 2026 — الإيصالات","gallery.drive.receipts_desc":"4 إيصالات · مشترك على Google Drive · يفتح في تبويب جديد",
     "gallery.future":"الحملات القادمة","gallery.coming":"ستظهر هنا",
     "trans.tag":"شفافية كاملة","trans.title":"ثقتكم تهمّنا","trans.sub":"نلتزم بالمساءلة الكاملة. إليك كيف يُتتبع كل دولار من يدك إلى الأطفال.",
     "trans.c1t":"نشر الإيصالات","trans.c1d":"كل عملية شراء في المغرب موثقة. تُصوَّر الإيصالات وتُشارك مع جميع المتبرعين بعد كل حملة.",
@@ -880,6 +860,8 @@ const T = {
     "gallery.tag":"Galería y Archivos","gallery.title":"Sonrisas posibles gracias a tu generosidad","gallery.note":"Las fotos se comparten solo con el consentimiento explícito del niño y su tutor. Todas las compras están documentadas con recibos.",
     "gallery.folder.photos":"Fotos","gallery.folder.photos_desc":"Niños y regalos — con consentimiento",
     "gallery.folder.receipts":"Recibos","gallery.folder.receipts_desc":"Toda la documentación de compras",
+    "gallery.drive.photos_title":"Eid El-Fitr 2026 — Fotos","gallery.drive.photos_desc":"25 fotos · Compartido en Google Drive · Abre en nueva pestaña",
+    "gallery.drive.receipts_title":"Eid El-Fitr 2026 — Recibos","gallery.drive.receipts_desc":"4 recibos · Compartido en Google Drive · Abre en nueva pestaña",
     "gallery.future":"Campañas futuras","gallery.coming":"aparecerán aquí",
     "trans.tag":"Transparencia total","trans.title":"Tu confianza nos importa","trans.sub":"Estamos comprometidos con la responsabilidad total. Así es como se rastrea cada dólar.",
     "trans.c1t":"Recibos publicados","trans.c1d":"Cada compra en Marruecos está documentada. Los recibos se fotografían y comparten con todos los donantes.",

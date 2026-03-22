@@ -159,11 +159,47 @@
 
   /* GALLERY */
   .gallery{background:var(--sand);}
-  .gallery-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px;}
-  .gallery-placeholder{aspect-ratio:4/3;background:var(--white);border:2px dashed var(--border);border-radius:14px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;color:var(--muted);font-size:13px;text-align:center;padding:20px;transition:border-color 0.2s;}
-  .gallery-placeholder:hover{border-color:var(--green-mid);}
-  .gallery-ph-icon{font-size:28px;opacity:0.4;}
   .gallery-note{background:var(--gold-light);border:1px solid #f0d07a;border-radius:10px;padding:14px 20px;font-size:14px;color:#6b4f00;margin-bottom:28px;display:flex;align-items:flex-start;gap:10px;}
+
+  /* ARCHIVE NAVIGATOR */
+  .archive-nav{display:flex;flex-direction:column;gap:12px;}
+  .archive-year{background:var(--white);border:1px solid var(--border);border-radius:16px;overflow:hidden;}
+  .archive-year-header{display:flex;align-items:center;justify-content:space-between;padding:18px 24px;cursor:pointer;transition:background 0.2s;user-select:none;}
+  .archive-year-header:hover{background:var(--green-light);}
+  .archive-year-label{display:flex;align-items:center;gap:12px;}
+  .archive-year-icon{font-size:20px;}
+  .archive-year-num{font-family:'Playfair Display',serif;font-size:22px;font-weight:600;color:var(--dark);}
+  .archive-chevron{font-size:16px;color:var(--muted);transition:transform 0.25s;}
+  .archive-chevron.rotated{transform:rotate(-90deg);}
+  .archive-year-body{padding:0 16px 16px;}
+  .archive-year-body.hidden{display:none;}
+
+  .archive-event{background:var(--sand);border:1px solid var(--border);border-radius:12px;overflow:hidden;margin-bottom:10px;}
+  .archive-event:last-child{margin-bottom:0;}
+  .archive-event-header{display:flex;align-items:center;justify-content:space-between;padding:14px 18px;cursor:pointer;transition:background 0.2s;user-select:none;}
+  .archive-event-header:hover{background:var(--green-light);}
+  .archive-event-label{display:flex;align-items:center;gap:12px;}
+  .archive-event-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0;}
+  .archive-event-name{font-weight:500;font-size:15px;color:var(--dark);}
+  .archive-event-meta{font-size:12px;color:var(--muted);margin-top:2px;}
+  .archive-chevron.small{font-size:13px;color:var(--muted);transition:transform 0.25s;}
+  .archive-event-body{padding:0 16px 16px;}
+  .archive-event-body.hidden{display:none;}
+
+  .archive-folders{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding-top:4px;}
+  .archive-folder{display:flex;align-items:center;gap:14px;background:var(--white);border:1.5px solid var(--border);border-radius:12px;padding:16px 18px;text-decoration:none;transition:border-color 0.2s,transform 0.15s,box-shadow 0.2s;color:var(--text);}
+  .archive-folder:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(0,0,0,0.08);}
+  .archive-folder.photos{border-color:#b2dfb4;}
+  .archive-folder.photos:hover{border-color:var(--green);box-shadow:0 6px 20px rgba(46,125,79,0.12);}
+  .archive-folder.receipts{border-color:#fac775;}
+  .archive-folder.receipts:hover{border-color:var(--gold);box-shadow:0 6px 20px rgba(212,160,23,0.12);}
+  .archive-folder-icon{font-size:28px;flex-shrink:0;}
+  .archive-folder-info{flex:1;}
+  .archive-folder-name{font-weight:500;font-size:14px;color:var(--dark);}
+  .archive-folder-desc{font-size:12px;color:var(--muted);margin-top:2px;}
+  .archive-folder-arrow{font-size:18px;color:var(--muted);flex-shrink:0;}
+  .archive-year.future .archive-year-header{cursor:default;}
+  @media(max-width:600px){.archive-folders{grid-template-columns:1fr;}}
 
   /* TRANSPARENCY */
   .transparency{background:var(--white);}
@@ -408,7 +444,7 @@
         </div>
         <div class="team-info">
           <div class="team-role" data-i18n="team.role">Local Coordinator</div>
-          <h3 class="team-name">Fatima Zahra</h3>
+          <h3 class="team-name">Fatima Zahra <span style="font-family:'Noto Sans Arabic',sans-serif;font-size:0.75em;color:var(--muted);font-weight:400;display:inline-block;margin-right:6px;">فاطمة الزهراء</span></h3>
           <p class="team-bio" data-i18n="team.fz_bio">Fatima Zahra is a wife, mother of a three-year-old girl, and a deeply compassionate community worker based in Casablanca. She works directly with vulnerable families and children, connecting them with the clothing, food, medical support, school resources, and disability assistance they need. Her hands-on presence and genuine care for those around her make her an invaluable bridge between our donors and the children we serve.</p>
           <div class="team-tags">
             <span class="team-tag" data-i18n="team.tag1">👨‍👩‍👧 Families</span>
@@ -429,15 +465,80 @@
 <!-- GALLERY -->
 <section class="gallery" id="gallery">
   <div class="section-inner">
-    <div class="section-tag" data-i18n="gallery.tag">Gallery</div>
+    <div class="section-tag" data-i18n="gallery.tag">Gallery &amp; Records</div>
     <h2 class="section-title" data-i18n="gallery.title">Smiles made possible by your generosity</h2>
-    <div class="gallery-note"><span>ℹ️</span><span data-i18n="gallery.note">Photos are shared only with the explicit consent of the child and their guardian. Items purchased and campaign receipts will also appear here after each campaign.</span></div>
-    <div class="gallery-grid">
-      <div class="gallery-placeholder"><div class="gallery-ph-icon">📷</div><div data-i18n="gallery.p1">Children's photos<br><span style="opacity:0.7">with consent only</span></div></div>
-      <div class="gallery-placeholder"><div class="gallery-ph-icon">🎁</div><div data-i18n="gallery.p2">Gifts purchased<br><span style="opacity:0.7">will appear here</span></div></div>
-      <div class="gallery-placeholder"><div class="gallery-ph-icon">🛍️</div><div data-i18n="gallery.p3">Shopping receipts<br><span style="opacity:0.7">will appear here</span></div></div>
-      <div class="gallery-placeholder"><div class="gallery-ph-icon">✨</div><div data-i18n="gallery.p4">Special moments<br><span style="opacity:0.7">shared after each campaign</span></div></div>
+    <div class="gallery-note"><span>ℹ️</span><span data-i18n="gallery.note">Photos are shared only with the explicit consent of the child and their guardian. All purchases are documented with receipts for full transparency.</span></div>
+
+    <!-- YEAR/EVENT NAVIGATOR -->
+    <div class="archive-nav">
+
+      <!-- 2026 -->
+      <div class="archive-year">
+        <div class="archive-year-header" onclick="toggleYear(this)">
+          <div class="archive-year-label">
+            <span class="archive-year-icon">📅</span>
+            <span class="archive-year-num">2026</span>
+          </div>
+          <span class="archive-chevron">▾</span>
+        </div>
+        <div class="archive-year-body open">
+
+          <!-- Eid El-Fitr 2026 -->
+          <div class="archive-event">
+            <div class="archive-event-header" onclick="toggleEvent(this)">
+              <div class="archive-event-label">
+                <span class="archive-event-dot" style="background:var(--green)"></span>
+                <div>
+                  <div class="archive-event-name">🌙 Eid El-Fitr 2026</div>
+                  <div class="archive-event-meta">Casablanca · March 2026</div>
+                </div>
+              </div>
+              <span class="archive-chevron small">▾</span>
+            </div>
+            <div class="archive-event-body open">
+              <div class="archive-folders">
+
+                <a href="https://drive.google.com/drive/folders/1uCRW-7TAunr0G02Ft9RFs4VdxTJIP_wD" target="_blank" rel="noopener" class="archive-folder photos">
+                  <div class="archive-folder-icon">📷</div>
+                  <div class="archive-folder-info">
+                    <div class="archive-folder-name" data-i18n="gallery.folder.photos">Photos</div>
+                    <div class="archive-folder-desc" data-i18n="gallery.folder.photos_desc">Children &amp; gifts — with consent</div>
+                  </div>
+                  <div class="archive-folder-arrow">→</div>
+                </a>
+
+                <a href="https://drive.google.com/drive/folders/1uCRW-7TAunr0G02Ft9RFs4VdxTJIP_wD" target="_blank" rel="noopener" class="archive-folder receipts">
+                  <div class="archive-folder-icon">🧾</div>
+                  <div class="archive-folder-info">
+                    <div class="archive-folder-name" data-i18n="gallery.folder.receipts">Receipts</div>
+                    <div class="archive-folder-desc" data-i18n="gallery.folder.receipts_desc">All purchase documentation</div>
+                  </div>
+                  <div class="archive-folder-arrow">→</div>
+                </a>
+
+              </div>
+            </div>
+          </div>
+          <!-- /Eid El-Fitr 2026 -->
+
+        </div>
+      </div>
+      <!-- /2026 -->
+
+      <!-- Future years placeholder -->
+      <div class="archive-year future">
+        <div class="archive-year-header" style="opacity:0.45;cursor:default;">
+          <div class="archive-year-label">
+            <span class="archive-year-icon">📅</span>
+            <span class="archive-year-num" data-i18n="gallery.future">Future campaigns</span>
+          </div>
+          <span style="font-size:12px;color:var(--muted);" data-i18n="gallery.coming">will appear here</span>
+        </div>
+      </div>
+
     </div>
+    <!-- /ARCHIVE NAV -->
+
   </div>
 </section>
 
@@ -527,8 +628,10 @@ const T = {
     "team.role":"Local Coordinator","team.fz_bio":"Fatima Zahra is a wife, mother of a three-year-old girl, and a deeply compassionate community worker based in Casablanca. She works directly with vulnerable families and children, connecting them with the clothing, food, medical support, school resources, and disability assistance they need. Her hands-on presence and genuine care for those around her make her an invaluable bridge between our donors and the children we serve.",
     "team.tag1":"👨‍👩‍👧 Families","team.tag2":"🧒 Children","team.tag3":"💊 Medical","team.tag4":"📚 School","team.tag5":"♿ Disability",
     "team.expand":"We are looking to expand to other cities across Morocco. If you know a trusted individual who shares our values and would like to volunteer as a local coordinator, please reach out.",
-    "gallery.tag":"Gallery","gallery.title":"Smiles made possible by your generosity","gallery.note":"Photos are shared only with the explicit consent of the child and their guardian. Items purchased and campaign receipts will also appear here after each campaign.",
-    "gallery.p1":"Children's photos<br><span style='opacity:0.7'>with consent only</span>","gallery.p2":"Gifts purchased<br><span style='opacity:0.7'>will appear here</span>","gallery.p3":"Shopping receipts<br><span style='opacity:0.7'>will appear here</span>","gallery.p4":"Special moments<br><span style='opacity:0.7'>shared after each campaign</span>",
+    "gallery.tag":"Gallery & Records","gallery.title":"Smiles made possible by your generosity","gallery.note":"Photos are shared only with the explicit consent of the child and their guardian. All purchases are documented with receipts for full transparency.",
+    "gallery.folder.photos":"Photos","gallery.folder.photos_desc":"Children & gifts — with consent",
+    "gallery.folder.receipts":"Receipts","gallery.folder.receipts_desc":"All purchase documentation",
+    "gallery.future":"Future campaigns","gallery.coming":"will appear here",
     "trans.tag":"Full Transparency","trans.title":"Your trust matters to us","trans.sub":"We are committed to total accountability. Here is how every dollar is tracked from your hands to the children.",
     "trans.c1t":"Receipts Published","trans.c1d":"Every purchase in Morocco is documented. Receipts are photographed and shared with all donors after each campaign.",
     "trans.c2t":"Itemized Reports","trans.c2d":"A full breakdown of what was bought, for whom, and at what cost is shared after every collection cycle.",
@@ -579,8 +682,10 @@ const T = {
     "team.role":"Coordinatrice locale","team.fz_bio":"Fatima Zahra est une épouse, mère d'une petite fille de trois ans, et une travailleuse communautaire profondément dévouée basée à Casablanca. Elle travaille directement avec les familles et les enfants vulnérables, les aidant à accéder aux vêtements, à la nourriture, au soutien médical, aux ressources scolaires et à l'aide aux personnes handicapées.",
     "team.tag1":"👨‍👩‍👧 Familles","team.tag2":"🧒 Enfants","team.tag3":"💊 Médical","team.tag4":"📚 École","team.tag5":"♿ Handicap",
     "team.expand":"Nous cherchons à nous étendre à d'autres villes du Maroc. Si vous connaissez une personne de confiance souhaitant se porter volontaire, contactez-nous.",
-    "gallery.tag":"Galerie","gallery.title":"Des sourires rendus possibles par votre générosité","gallery.note":"Les photos ne sont partagées qu'avec le consentement explicite de l'enfant et de son tuteur.",
-    "gallery.p1":"Photos des enfants<br><span style='opacity:0.7'>avec consentement uniquement</span>","gallery.p2":"Cadeaux achetés<br><span style='opacity:0.7'>apparaîtront ici</span>","gallery.p3":"Reçus d'achat<br><span style='opacity:0.7'>apparaîtront ici</span>","gallery.p4":"Moments spéciaux<br><span style='opacity:0.7'>partagés après chaque campagne</span>",
+    "gallery.tag":"Galerie & Archives","gallery.title":"Des sourires rendus possibles par votre générosité","gallery.note":"Les photos ne sont partagées qu'avec le consentement explicite de l'enfant et de son tuteur. Tous les achats sont documentés avec des reçus.",
+    "gallery.folder.photos":"Photos","gallery.folder.photos_desc":"Enfants & cadeaux — avec consentement",
+    "gallery.folder.receipts":"Reçus","gallery.folder.receipts_desc":"Toute la documentation d'achat",
+    "gallery.future":"Campagnes futures","gallery.coming":"apparaîtront ici",
     "trans.tag":"Transparence totale","trans.title":"Votre confiance nous tient à cœur","trans.sub":"Nous nous engageons à une responsabilité totale. Voici comment chaque dollar est suivi.",
     "trans.c1t":"Reçus publiés","trans.c1d":"Chaque achat au Maroc est documenté. Les reçus sont photographiés et partagés avec tous les donateurs.",
     "trans.c2t":"Rapports détaillés","trans.c2d":"Un bilan complet de ce qui a été acheté, pour qui et à quel coût est partagé après chaque cycle.",
@@ -631,8 +736,10 @@ const T = {
     "team.role":"منسقة محلية","team.fz_bio":"فاطمة الزهراء زوجة وأم لطفلة تبلغ ثلاث سنوات، وعاملة اجتماعية متفانية في الدار البيضاء. تعمل مباشرة مع الأسر والأطفال الضعفاء، وتربطهم بالملابس والغذاء والدعم الطبي والموارد التعليمية ومساعدات ذوي الإعاقة التي يحتاجونها.",
     "team.tag1":"👨‍👩‍👧 الأسر","team.tag2":"🧒 الأطفال","team.tag3":"💊 طبي","team.tag4":"📚 مدرسي","team.tag5":"♿ إعاقة",
     "team.expand":"نسعى للتوسع إلى مدن أخرى في المغرب. إن كنت تعرف شخصاً موثوقاً يشاركنا قيمنا ويرغب في التطوع كمنسق محلي، فتواصل معنا.",
-    "gallery.tag":"معرض الصور","gallery.title":"ابتسامات أتاحتها كرمكم","gallery.note":"لا تُشارك الصور إلا بموافقة صريحة من الطفل ووليّه. ستظهر هنا الأشياء المشتراة والإيصالات بعد كل حملة.",
-    "gallery.p1":"صور الأطفال<br><span style='opacity:0.7'>بالموافقة فقط</span>","gallery.p2":"الهدايا المشتراة<br><span style='opacity:0.7'>ستظهر هنا</span>","gallery.p3":"إيصالات الشراء<br><span style='opacity:0.7'>ستظهر هنا</span>","gallery.p4":"لحظات خاصة<br><span style='opacity:0.7'>تُشارك بعد كل حملة</span>",
+    "gallery.tag":"معرض الصور والسجلات","gallery.title":"ابتسامات أتاحتها كرمكم","gallery.note":"لا تُشارك الصور إلا بموافقة صريحة من الطفل ووليّه. جميع المشتريات موثقة بإيصالات لضمان الشفافية الكاملة.",
+    "gallery.folder.photos":"الصور","gallery.folder.photos_desc":"الأطفال والهدايا — بالموافقة",
+    "gallery.folder.receipts":"الإيصالات","gallery.folder.receipts_desc":"وثائق جميع المشتريات",
+    "gallery.future":"الحملات القادمة","gallery.coming":"ستظهر هنا",
     "trans.tag":"شفافية كاملة","trans.title":"ثقتكم تهمّنا","trans.sub":"نلتزم بالمساءلة الكاملة. إليك كيف يُتتبع كل دولار من يدك إلى الأطفال.",
     "trans.c1t":"نشر الإيصالات","trans.c1d":"كل عملية شراء في المغرب موثقة. تُصوَّر الإيصالات وتُشارك مع جميع المتبرعين بعد كل حملة.",
     "trans.c2t":"تقارير مفصلة","trans.c2d":"يُشارك ملخص كامل بما تم شراؤه ولمن وبأي تكلفة بعد كل دورة.",
@@ -683,8 +790,10 @@ const T = {
     "team.role":"Coordinadora local","team.fz_bio":"Fatima Zahra es esposa, madre de una niña de tres años y una trabajadora comunitaria profundamente compasiva con base en Casablanca. Trabaja directamente con familias y niños vulnerables, conectándolos con la ropa, alimentos, apoyo médico, recursos escolares y asistencia para discapacitados que necesitan.",
     "team.tag1":"👨‍👩‍👧 Familias","team.tag2":"🧒 Niños","team.tag3":"💊 Médico","team.tag4":"📚 Escuela","team.tag5":"♿ Discapacidad",
     "team.expand":"Buscamos expandirnos a otras ciudades de Marruecos. Si conoces a alguien de confianza que desee ser coordinador local voluntario, contáctanos.",
-    "gallery.tag":"Galería","gallery.title":"Sonrisas posibles gracias a tu generosidad","gallery.note":"Las fotos se comparten solo con el consentimiento explícito del niño y su tutor.",
-    "gallery.p1":"Fotos de los niños<br><span style='opacity:0.7'>solo con consentimiento</span>","gallery.p2":"Regalos comprados<br><span style='opacity:0.7'>aparecerán aquí</span>","gallery.p3":"Recibos de compra<br><span style='opacity:0.7'>aparecerán aquí</span>","gallery.p4":"Momentos especiales<br><span style='opacity:0.7'>compartidos tras cada campaña</span>",
+    "gallery.tag":"Galería y Archivos","gallery.title":"Sonrisas posibles gracias a tu generosidad","gallery.note":"Las fotos se comparten solo con el consentimiento explícito del niño y su tutor. Todas las compras están documentadas con recibos.",
+    "gallery.folder.photos":"Fotos","gallery.folder.photos_desc":"Niños y regalos — con consentimiento",
+    "gallery.folder.receipts":"Recibos","gallery.folder.receipts_desc":"Toda la documentación de compras",
+    "gallery.future":"Campañas futuras","gallery.coming":"aparecerán aquí",
     "trans.tag":"Transparencia total","trans.title":"Tu confianza nos importa","trans.sub":"Estamos comprometidos con la responsabilidad total. Así es como se rastrea cada dólar.",
     "trans.c1t":"Recibos publicados","trans.c1d":"Cada compra en Marruecos está documentada. Los recibos se fotografían y comparten con todos los donantes.",
     "trans.c2t":"Informes detallados","trans.c2d":"Un desglose completo de lo comprado, para quién y a qué costo se comparte después de cada ciclo.",
@@ -697,7 +806,20 @@ const T = {
   }
 };
 
-const pageTitles = {
+function toggleYear(el){
+  const body=el.nextElementSibling;
+  const chevron=el.querySelector('.archive-chevron');
+  body.classList.toggle('hidden');
+  chevron.classList.toggle('rotated');
+}
+function toggleEvent(el){
+  const body=el.nextElementSibling;
+  const chevron=el.querySelector('.archive-chevron.small');
+  body.classList.toggle('hidden');
+  if(chevron)chevron.classList.toggle('rotated');
+}
+
+
   en:"Sponsor Kids 212 — Helping Children in Morocco",
   fr:"Sponsor Kids 212 — Aider les enfants au Maroc",
   ar:"Sponsor Kids 212 — مساعدة الأطفال في المغرب",

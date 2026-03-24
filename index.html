@@ -540,8 +540,18 @@
 
               <!-- Tabs -->
               <div class="media-tabs">
-                <button class="media-tab active" onclick="switchTab(this,'photos-eid2026')">📷 <span data-i18n="gallery.folder.photos">Photos</span></button>
-                <button class="media-tab" onclick="switchTab(this,'receipts-eid2026')">🧾 <span data-i18n="gallery.folder.receipts">Receipts</span></button>
+                <button class="media-tab active" id="tab-photos-eid2026" onclick="
+                  document.getElementById('photos-eid2026').style.display='block';
+                  document.getElementById('receipts-eid2026').style.display='none';
+                  document.getElementById('tab-photos-eid2026').classList.add('active');
+                  document.getElementById('tab-receipts-eid2026').classList.remove('active');
+                ">📷 <span data-i18n="gallery.folder.photos">Photos</span></button>
+                <button class="media-tab" id="tab-receipts-eid2026" onclick="
+                  document.getElementById('receipts-eid2026').style.display='block';
+                  document.getElementById('photos-eid2026').style.display='none';
+                  document.getElementById('tab-receipts-eid2026').classList.add('active');
+                  document.getElementById('tab-photos-eid2026').classList.remove('active');
+                ">🧾 <span data-i18n="gallery.folder.receipts">Receipts</span></button>
               </div>
 
               <!-- Photos panel -->

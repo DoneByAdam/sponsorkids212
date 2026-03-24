@@ -545,7 +545,7 @@
               </div>
 
               <!-- Photos panel -->
-              <div class="media-panel active" id="photos-eid2026">
+              <div class="media-panel active" id="photos-eid2026" style="display:block;">
                 <a href="https://drive.google.com/drive/folders/1PlKTmiLVbeK_TKKVjdJ7HC-6X4YIx1ln?usp=drive_link" target="_blank" rel="noopener" class="drive-link-card photos">
                   <div class="drive-card-left">
                     <div class="drive-card-icon">📷</div>
@@ -559,7 +559,7 @@
               </div>
 
               <!-- Receipts panel -->
-              <div class="media-panel" id="receipts-eid2026">
+              <div class="media-panel" id="receipts-eid2026" style="display:none;">
                 <a href="https://drive.google.com/drive/folders/1qsE8RDa3nasy_cJ15RIn7aDD6Yta8Phk?usp=sharing" target="_blank" rel="noopener" class="drive-link-card receipts">
                   <div class="drive-card-left">
                     <div class="drive-card-icon">🧾</div>
@@ -888,11 +888,16 @@ function toggleEvent(el){
   if(chevron)chevron.classList.toggle('rotated');
 }
 function switchTab(btn, panelId){
-  const event = btn.closest('.archive-event-body');
-  event.querySelectorAll('.media-tab').forEach(b=>b.classList.remove('active'));
-  event.querySelectorAll('.media-panel').forEach(p=>p.classList.remove('active'));
+  // Find the parent event body
+  const body = btn.closest('.archive-event-body');
+  if(!body) return;
+  // Deactivate all tabs and panels within this event
+  body.querySelectorAll('.media-tab').forEach(b => b.classList.remove('active'));
+  body.querySelectorAll('.media-panel').forEach(p => { p.classList.remove('active'); p.style.display='none'; });
+  // Activate clicked tab and target panel
   btn.classList.add('active');
-  document.getElementById(panelId).classList.add('active');
+  const panel = document.getElementById(panelId);
+  if(panel){ panel.classList.add('active'); panel.style.display='block'; }
 }
 function openLightbox(src){
   document.getElementById('lightbox-img').src=src;

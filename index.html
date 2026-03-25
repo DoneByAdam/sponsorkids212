@@ -159,11 +159,88 @@
 
   /* GALLERY */
   .gallery{background:var(--sand);}
-  .gallery-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px;}
-  .gallery-placeholder{aspect-ratio:4/3;background:var(--white);border:2px dashed var(--border);border-radius:14px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;color:var(--muted);font-size:13px;text-align:center;padding:20px;transition:border-color 0.2s;}
-  .gallery-placeholder:hover{border-color:var(--green-mid);}
-  .gallery-ph-icon{font-size:28px;opacity:0.4;}
   .gallery-note{background:var(--gold-light);border:1px solid #f0d07a;border-radius:10px;padding:14px 20px;font-size:14px;color:#6b4f00;margin-bottom:28px;display:flex;align-items:flex-start;gap:10px;}
+
+  /* ARCHIVE NAVIGATOR */
+  .archive-nav{display:flex;flex-direction:column;gap:12px;}
+  .archive-year{background:var(--white);border:1px solid var(--border);border-radius:16px;overflow:hidden;}
+  .archive-year-header{display:flex;align-items:center;justify-content:space-between;padding:18px 24px;cursor:pointer;transition:background 0.2s;user-select:none;}
+  .archive-year-header:hover{background:var(--green-light);}
+  .archive-year-label{display:flex;align-items:center;gap:12px;}
+  .archive-year-icon{font-size:20px;}
+  .archive-year-num{font-family:'Playfair Display',serif;font-size:22px;font-weight:600;color:var(--dark);}
+  .archive-chevron{font-size:16px;color:var(--muted);transition:transform 0.25s;}
+  .archive-chevron.rotated{transform:rotate(-90deg);}
+  .archive-year-body{padding:0 16px 16px;}
+  .archive-year-body.hidden{display:none;}
+
+  .archive-event{background:var(--sand);border:1px solid var(--border);border-radius:12px;overflow:hidden;margin-bottom:10px;}
+  .archive-event:last-child{margin-bottom:0;}
+  .archive-event-header{display:flex;align-items:center;justify-content:space-between;padding:14px 18px;cursor:pointer;transition:background 0.2s;user-select:none;}
+  .archive-event-header:hover{background:var(--green-light);}
+  .archive-event-label{display:flex;align-items:center;gap:12px;}
+  .archive-event-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0;}
+  .archive-event-name{font-weight:500;font-size:15px;color:var(--dark);}
+  .archive-event-meta{font-size:12px;color:var(--muted);margin-top:2px;}
+  .archive-chevron.small{font-size:13px;color:var(--muted);transition:transform 0.25s;}
+  .archive-event-body{padding:0 16px 16px;}
+  .archive-event-body.hidden{display:none;}
+
+  .archive-folders{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding-top:4px;}
+  .archive-folder{display:flex;align-items:center;gap:14px;background:var(--white);border:1.5px solid var(--border);border-radius:12px;padding:16px 18px;text-decoration:none;transition:border-color 0.2s,transform 0.15s,box-shadow 0.2s;color:var(--text);}
+  .archive-folder:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(0,0,0,0.08);}
+  .archive-folder.photos{border-color:#b2dfb4;}
+  .archive-folder.photos:hover{border-color:var(--green);box-shadow:0 6px 20px rgba(46,125,79,0.12);}
+  .archive-folder.receipts{border-color:#fac775;}
+  .archive-folder.receipts:hover{border-color:var(--gold);box-shadow:0 6px 20px rgba(212,160,23,0.12);}
+  .archive-folder-icon{font-size:28px;flex-shrink:0;}
+  .archive-folder-info{flex:1;}
+  .archive-folder-name{font-weight:500;font-size:14px;color:var(--dark);}
+  .archive-folder-desc{font-size:12px;color:var(--muted);margin-top:2px;}
+  .archive-folder-arrow{font-size:18px;color:var(--muted);flex-shrink:0;}
+  .archive-year.future .archive-year-header{cursor:default;}
+  @media(max-width:600px){.archive-folders{grid-template-columns:1fr;}}
+
+  /* DRIVE LINK CARDS */
+  .drive-link-card{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:22px 24px;border-radius:14px;text-decoration:none;color:var(--text);border:2px solid var(--border);background:var(--white);transition:transform 0.2s,box-shadow 0.2s,border-color 0.2s;margin-top:4px;}
+  .drive-link-card:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,0.09);}
+  .drive-link-card.photos{border-color:#b2dfb4;}
+  .drive-link-card.photos:hover{border-color:var(--green);box-shadow:0 8px 24px rgba(46,125,79,0.12);}
+  .drive-link-card.receipts{border-color:#fac775;}
+  .drive-link-card.receipts:hover{border-color:var(--gold);box-shadow:0 8px 24px rgba(212,160,23,0.14);}
+  .drive-card-left{display:flex;align-items:center;gap:16px;}
+  .drive-card-icon{font-size:36px;flex-shrink:0;}
+  .drive-card-title{font-weight:500;font-size:16px;color:var(--dark);margin-bottom:4px;}
+  .drive-card-desc{font-size:13px;color:var(--muted);}
+  .drive-card-arrow{font-size:22px;color:var(--muted);flex-shrink:0;}
+  .media-tabs{display:flex;gap:8px;margin:16px 0 20px;}
+  .media-tab{background:transparent;border:1.5px solid var(--border);color:var(--muted);font-size:13px;font-weight:500;padding:7px 18px;border-radius:20px;cursor:pointer;transition:all 0.2s;font-family:inherit;}
+  .media-tab.active{background:var(--green);border-color:var(--green);color:white;}
+  .media-tab:hover:not(.active){border-color:var(--green);color:var(--green);}
+  .media-panel{display:none;}
+  .media-panel.active{display:block;}
+  .photo-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px;}
+  .photo-item{border-radius:12px;overflow:hidden;border:1px solid var(--border);background:var(--white);cursor:pointer;transition:transform 0.2s,box-shadow 0.2s;aspect-ratio:4/3;}
+  .photo-item:hover{transform:translateY(-3px);box-shadow:0 8px 24px rgba(0,0,0,0.12);}
+  .photo-item img{width:100%;height:100%;object-fit:cover;display:block;}
+  .receipt-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px;}
+  .receipt-item{border-radius:12px;overflow:hidden;border:1.5px solid #fac775;background:var(--white);transition:transform 0.2s,box-shadow 0.2s;}
+  .receipt-item:hover{transform:translateY(-3px);box-shadow:0 8px 24px rgba(212,160,23,0.15);}
+  .receipt-item img{width:100%;aspect-ratio:3/4;object-fit:cover;display:block;}
+  .receipt-item-footer{padding:10px 14px;display:flex;align-items:center;justify-content:space-between;border-top:1px solid var(--border);}
+  .receipt-item-name{font-size:12px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:140px;}
+  .receipt-download{font-size:11px;font-weight:500;color:var(--gold);text-decoration:none;white-space:nowrap;}
+  .receipt-download:hover{color:#8a6500;}
+  .receipt-pdf{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;padding:28px 20px;aspect-ratio:3/4;}
+  .receipt-pdf-icon{font-size:36px;opacity:0.6;}
+  .receipt-pdf-name{font-size:12px;color:var(--muted);text-align:center;}
+
+  /* LIGHTBOX */
+  .lightbox{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.9);z-index:1000;align-items:center;justify-content:center;padding:20px;}
+  .lightbox.open{display:flex;}
+  .lightbox img{max-width:90vw;max-height:90vh;border-radius:8px;object-fit:contain;}
+  .lightbox-close{position:fixed;top:20px;right:24px;color:white;font-size:32px;cursor:pointer;line-height:1;background:none;border:none;opacity:0.8;}
+  .lightbox-close:hover{opacity:1;}
 
   /* TRANSPARENCY */
   .transparency{background:var(--white);}
@@ -328,8 +405,22 @@
   <div class="section-inner">
     <div class="section-tag" data-i18n="donate.tag">Make a Difference</div>
     <h2 class="section-title" data-i18n="donate.title">Choose your contribution</h2>
-    <p class="section-sub" data-i18n="donate.sub">$1 ≈ 10 Moroccan Dirhams (MAD). Every dollar is maximized at the source. Give what you can — no amount is too small.</p>
-    <div class="donate-cards">
+    <p class="section-sub" data-i18n="donate.sub">$1 ≈ 10 Moroccan Dirhams (MAD). We collect year-round and distribute when it matters most — Eid al-Fitr, Eid al-Adha, back to school, or urgent needs like medical expenses. Give what you can — no amount is too small.</p>
+    <div class="donate-cards" style="grid-template-columns:repeat(auto-fill,minmax(220px,1fr));">
+
+      <!-- $25 -->
+      <div class="donate-card">
+        <div class="donate-amount"><sup>$</sup>25</div>
+        <div class="donate-mad" data-i18n="donate.c0sub">≈ 250 MAD · Partial sponsorship</div>
+        <ul class="donate-items">
+          <li><span class="check">✓</span><span data-i18n="donate.c0i1">A new outfit or shoes for one child</span></li>
+          <li><span class="check">✓</span><span data-i18n="donate.c0i2">Combined with others to fully sponsor a child</span></li>
+          <li><span class="check">✓</span><span data-i18n="donate.c0i3">Every contribution makes a real difference</span></li>
+        </ul>
+        <a href="#payment-methods" class="donate-link" data-i18n="donate.c0btn">Donate $25</a>
+      </div>
+
+      <!-- $50 -->
       <div class="donate-card">
         <div class="donate-amount"><sup>$</sup>50</div>
         <div class="donate-mad" data-i18n="donate.c1sub">≈ 500 MAD · One full child sponsorship</div>
@@ -340,6 +431,8 @@
         </ul>
         <a href="#payment-methods" class="donate-link" data-i18n="donate.c1btn">Donate $50</a>
       </div>
+
+      <!-- $100 -->
       <div class="donate-card featured">
         <div class="featured-badge" data-i18n="donate.featured">Most Generous</div>
         <div class="donate-amount"><sup>$</sup>100</div>
@@ -352,6 +445,8 @@
         </ul>
         <a href="#payment-methods" class="donate-link" data-i18n="donate.c2btn">Donate $100</a>
       </div>
+
+      <!-- Give More -->
       <div class="donate-card">
         <div class="donate-amount" style="font-size:36px;padding-top:10px;" data-i18n="donate.c3title">Give More</div>
         <div class="donate-mad" data-i18n="donate.c3sub">$150+ · Sponsor multiple children</div>
@@ -363,6 +458,7 @@
         </ul>
         <a href="#payment-methods" class="donate-link" data-i18n="donate.c3btn">Donate More</a>
       </div>
+
     </div>
     <div style="background:var(--green-light);border:1px solid #b2dfb4;border-radius:16px;padding:28px 36px;">
       <div style="font-size:11px;letter-spacing:3px;font-weight:500;text-transform:uppercase;color:var(--red);margin-bottom:6px;" data-i18n="donate.how_tag">How to Send</div>
@@ -389,6 +485,14 @@
       <div class="payment-contact-text">
         <strong data-i18n="payment.cta_bold">Ready to donate?</strong>
         <span data-i18n="payment.cta_text"> Reach out to get our payment details. We'll confirm receipt of every donation and share a full report — including photos (where permitted) and receipts — after each campaign.</span>
+        <div style="margin-top:14px;display:flex;flex-wrap:wrap;gap:12px;">
+          <a href="mailto:sponsorkids212@gmail.com" style="display:inline-flex;align-items:center;gap:7px;background:rgba(255,255,255,0.15);border:1px solid rgba(255,255,255,0.3);color:white;text-decoration:none;padding:8px 16px;border-radius:30px;font-size:13px;font-weight:500;transition:background 0.2s;" onmouseover="this.style.background='rgba(255,255,255,0.25)'" onmouseout="this.style.background='rgba(255,255,255,0.15)'">
+            ✉️ sponsorkids212@gmail.com
+          </a>
+          <a href="https://wa.me/212675305650" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:7px;background:rgba(255,255,255,0.15);border:1px solid rgba(255,255,255,0.3);color:white;text-decoration:none;padding:8px 16px;border-radius:30px;font-size:13px;font-weight:500;transition:background 0.2s;" onmouseover="this.style.background='rgba(255,255,255,0.25)'" onmouseout="this.style.background='rgba(255,255,255,0.15)'">
+            💬 WhatsApp +212 675-305-650
+          </a>
+        </div>
       </div>
     </div>
   </div>
@@ -408,8 +512,8 @@
         </div>
         <div class="team-info">
           <div class="team-role" data-i18n="team.role">Local Coordinator</div>
-          <h3 class="team-name">Fatima Zahra</h3>
-          <p class="team-bio" data-i18n="team.fz_bio">Fatima Zahra is a wife, mother of a three-year-old girl, and a deeply compassionate community worker based in Casablanca. She works directly with vulnerable families and children, connecting them with the clothing, food, medical support, school resources, and disability assistance they need. Her hands-on presence and genuine care for those around her make her an invaluable bridge between our donors and the children we serve.</p>
+          <h3 class="team-name">Fatima Zahra <span style="font-family:'Noto Sans Arabic',sans-serif;font-size:0.75em;color:var(--muted);font-weight:400;display:inline-block;margin-right:6px;">فاطمة الزهراء</span></h3>
+          <p class="team-bio" data-i18n="team.fz_bio">Fatima Zahra is a wife, mother, full-time worker, and student pursuing her degree in Human Resources — all while dedicating her heart to community service in Casablanca. She works directly with vulnerable families and children, connecting them with the clothing, food, medical support, school resources, and disability assistance they need. Her hands-on presence and genuine care for those around her make her an invaluable bridge between our donors and the children we serve.</p>
           <div class="team-tags">
             <span class="team-tag" data-i18n="team.tag1">👨‍👩‍👧 Families</span>
             <span class="team-tag" data-i18n="team.tag2">🧒 Children</span>
@@ -429,17 +533,112 @@
 <!-- GALLERY -->
 <section class="gallery" id="gallery">
   <div class="section-inner">
-    <div class="section-tag" data-i18n="gallery.tag">Gallery</div>
+    <div class="section-tag" data-i18n="gallery.tag">Gallery &amp; Records</div>
     <h2 class="section-title" data-i18n="gallery.title">Smiles made possible by your generosity</h2>
-    <div class="gallery-note"><span>ℹ️</span><span data-i18n="gallery.note">Photos are shared only with the explicit consent of the child and their guardian. Items purchased and campaign receipts will also appear here after each campaign.</span></div>
-    <div class="gallery-grid">
-      <div class="gallery-placeholder"><div class="gallery-ph-icon">📷</div><div data-i18n="gallery.p1">Children's photos<br><span style="opacity:0.7">with consent only</span></div></div>
-      <div class="gallery-placeholder"><div class="gallery-ph-icon">🎁</div><div data-i18n="gallery.p2">Gifts purchased<br><span style="opacity:0.7">will appear here</span></div></div>
-      <div class="gallery-placeholder"><div class="gallery-ph-icon">🛍️</div><div data-i18n="gallery.p3">Shopping receipts<br><span style="opacity:0.7">will appear here</span></div></div>
-      <div class="gallery-placeholder"><div class="gallery-ph-icon">✨</div><div data-i18n="gallery.p4">Special moments<br><span style="opacity:0.7">shared after each campaign</span></div></div>
+    <div class="gallery-note"><span>ℹ️</span><span data-i18n="gallery.note">Photos are shared only with the explicit consent of the child and their guardian. All purchases are documented with receipts for full transparency.</span></div>
+
+    <!-- ARCHIVE NAVIGATOR -->
+    <div class="archive-nav">
+
+      <!-- 2026 -->
+      <div class="archive-year">
+        <div class="archive-year-header" onclick="toggleYear(this)">
+          <div class="archive-year-label">
+            <span class="archive-year-icon">📅</span>
+            <span class="archive-year-num">2026</span>
+          </div>
+          <span class="archive-chevron">▾</span>
+        </div>
+        <div class="archive-year-body open">
+
+          <!-- Eid El-Fitr 2026 -->
+          <div class="archive-event">
+            <div class="archive-event-header" onclick="toggleEvent(this)">
+              <div class="archive-event-label">
+                <span class="archive-event-dot" style="background:var(--green)"></span>
+                <div>
+                  <div class="archive-event-name">🌙 Eid El-Fitr 2026</div>
+                  <div class="archive-event-meta">Casablanca · March 2026 · 25 photos · 4 receipts</div>
+                </div>
+              </div>
+              <span class="archive-chevron small">▾</span>
+            </div>
+            <div class="archive-event-body open">
+
+              <!-- Tabs -->
+              <div class="media-tabs">
+                <button class="media-tab active" id="tab-photos-eid2026" onclick="
+                  document.getElementById('photos-eid2026').style.display='block';
+                  document.getElementById('receipts-eid2026').style.display='none';
+                  document.getElementById('tab-photos-eid2026').classList.add('active');
+                  document.getElementById('tab-receipts-eid2026').classList.remove('active');
+                ">📷 <span data-i18n="gallery.folder.photos">Photos</span></button>
+                <button class="media-tab" id="tab-receipts-eid2026" onclick="
+                  document.getElementById('receipts-eid2026').style.display='block';
+                  document.getElementById('photos-eid2026').style.display='none';
+                  document.getElementById('tab-receipts-eid2026').classList.add('active');
+                  document.getElementById('tab-photos-eid2026').classList.remove('active');
+                ">🧾 <span data-i18n="gallery.folder.receipts">Receipts</span></button>
+              </div>
+
+              <!-- Photos panel -->
+              <div class="media-panel active" id="photos-eid2026" style="display:block;">
+                <a href="https://drive.google.com/drive/folders/1PlKTmiLVbeK_TKKVjdJ7HC-6X4YIx1ln?usp=drive_link" target="_blank" rel="noopener" class="drive-link-card photos">
+                  <div class="drive-card-left">
+                    <div class="drive-card-icon">📷</div>
+                    <div>
+                      <div class="drive-card-title" data-i18n="gallery.drive.photos_title">Eid El-Fitr 2026 — Photos</div>
+                      <div class="drive-card-desc" data-i18n="gallery.drive.photos_desc">25 photos · Shared on Google Drive · Opens in new tab</div>
+                    </div>
+                  </div>
+                  <div class="drive-card-arrow">↗</div>
+                </a>
+              </div>
+
+              <!-- Receipts panel -->
+              <div class="media-panel" id="receipts-eid2026" style="display:none;">
+                <a href="https://drive.google.com/drive/folders/1qsE8RDa3nasy_cJ15RIn7aDD6Yta8Phk?usp=sharing" target="_blank" rel="noopener" class="drive-link-card receipts">
+                  <div class="drive-card-left">
+                    <div class="drive-card-icon">🧾</div>
+                    <div>
+                      <div class="drive-card-title" data-i18n="gallery.drive.receipts_title">Eid El-Fitr 2026 — Receipts</div>
+                      <div class="drive-card-desc" data-i18n="gallery.drive.receipts_desc">4 receipts · Shared on Google Drive · Opens in new tab</div>
+                    </div>
+                  </div>
+                  <div class="drive-card-arrow">↗</div>
+                </a>
+              </div>
+
+            </div>
+          </div>
+          <!-- /Eid El-Fitr 2026 -->
+
+        </div>
+      </div>
+      <!-- /2026 -->
+
+      <!-- Future years placeholder -->
+      <div class="archive-year future">
+        <div class="archive-year-header" style="opacity:0.45;cursor:default;">
+          <div class="archive-year-label">
+            <span class="archive-year-icon">📅</span>
+            <span class="archive-year-num" data-i18n="gallery.future">Future campaigns</span>
+          </div>
+          <span style="font-size:12px;color:var(--muted);" data-i18n="gallery.coming">will appear here</span>
+        </div>
+      </div>
+
     </div>
+    <!-- /ARCHIVE NAV -->
+
   </div>
 </section>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" onclick="closeLightbox()">
+  <button class="lightbox-close" onclick="closeLightbox()">✕</button>
+  <img id="lightbox-img" src="" alt="">
+</div>
 
 <!-- TRANSPARENCY -->
 <section class="transparency" id="transparency">
@@ -489,21 +688,21 @@
 const T = {
   en:{
     "nav.mission":"Mission","nav.needs":"Needs","nav.team":"Team","nav.gallery":"Gallery","nav.receipts":"Receipts","nav.donate":"Donate Now",
-    "hero.badge":"🇲🇦 Giving to Your Younger Self","hero.h1":"Be the blessing<br>you once <em>needed.</em>",
-    "hero.tagline":"Every child deserves to experience joy — help us make it happen.",
+    "hero.badge":"\u{1F1F2}\u{1F1E6} Giving to Your Younger Self","hero.h1":"Be the blessing<br>you once <em>needed.</em>",
+    "hero.tagline":"Every child deserves to experience joy \u2014 help us make it happen.",
     "hero.sub":"Rooted in the spirit of sadaqah, Sponsor Kids 212 channels the generosity of our community to bring essential support and heartfelt joy to orphaned, disabled, and impoverished children across Morocco.",
     "hero.btn1":"Donate Now","hero.btn2":"Our Story",
     "stats.s1":"goes directly to children","stats.s2":"sponsors one child fully","stats.s3":"days a year we collect","stats.s4":"our roots, our cause",
     "mission.tag":"Our Mission","mission.title":"Bringing dignity and joy to vulnerable children",
     "mission.p1":"We are a group of Moroccan friends living abroad who believe in giving back to the country and communities that shaped us.",
-    "mission.p2":"We have identified children in Morocco who are orphaned, living with disabilities, have absent or disabled parents, or are in extreme poverty. We support them throughout the year with clothing, gifts, and essential items — starting with seasonal celebrations as an example of the joy we strive to bring them every chance we get.",
-    "mission.p3":"Our long-term vision is to grow our support to cover school expenses, tutoring, medical care, field trips, food, and more. Each campaign is fully transparent: every dirham spent is documented with receipts.",
+    "mission.p2":"We have identified children in Morocco who are orphaned, living with disabilities, have absent or disabled parents, or are in extreme poverty. We support them throughout the year with clothing, gifts, and essential items.",
+    "mission.p3":"Our long-term vision is to grow our support to cover school expenses, tutoring, medical care, field trips, food, and more. Each campaign is fully transparent.",
     "mission.p4":"The children have been identified. The person receiving funds in Morocco is trusted. Your donation goes exactly where it should.",
-    "mission.quote1":"\"The believer's shade on the Day of Resurrection will be their charity.\"","mission.attr1":"— Prophet Muhammad ﷺ",
-    "mission.quote2":"\"Whoever relieves a believer's distress of the distressful aspects of this world, Allah will rescue him from a difficulty of the difficulties of the Hereafter.\"","mission.attr2":"— Sahih Muslim",
+    "mission.quote1":"\"The believer's shade on the Day of Resurrection will be their charity.\"","mission.attr1":"\u2014 Prophet Muhammad \uFDFA",
+    "mission.quote2":"\"Whoever relieves a believer's distress of the distressful aspects of this world, Allah will rescue him from a difficulty of the difficulties of the Hereafter.\"","mission.attr2":"\u2014 Sahih Muslim",
     "who.tag":"Who We Help","who.title":"Children who need us most","who.sub":"Every child in our program has been individually identified by a trusted local coordinator in Morocco.",
-    "who.t1":"🌿 Orphaned children","who.t2":"♿ Children with disabilities","who.t3":"👤 Children with absent parents","who.t4":"🤲 Children with disabled parents","who.t5":"🏚️ Children in extreme poverty",
-    "who.privacy_title":"Privacy first.","who.privacy_text":" Children's identities are protected. Photos are only shared with explicit permission from the child and their guardian. No child will ever feel reduced to a charity case — they are seen, respected, and celebrated.",
+    "who.t1":"\u{1F33F} Orphaned children","who.t2":"\u267F Children with disabilities","who.t3":"\u{1F464} Children with absent parents","who.t4":"\u{1F932} Children with disabled parents","who.t5":"\u{1F3DA}\uFE0F Children in extreme poverty",
+    "who.privacy_title":"Privacy first.","who.privacy_text":" Children's identities are protected. Photos are only shared with explicit permission from the child and their guardian. No child will ever feel reduced to a charity case.",
     "needs.tag":"Where Your Donation Goes","needs.title":"Children's needs we fund","needs.sub":"We began with seasonal giving and are growing year-round. Here's everything your donation can support:",
     "needs.n1t":"Clothing","needs.n1d":"New outfits for seasonal celebrations and everyday wear",
     "needs.n2t":"Shoes","needs.n2d":"New shoes so every child is fully and properly dressed",
@@ -515,20 +714,26 @@ const T = {
     "needs.n8t":"Excursions","needs.n8d":"Field trips and experiences many kids have never had",
     "needs.n9t":"Disability Support","needs.n9d":"Equipment, therapy, and specialized care",
     "needs.active":"Active","needs.coming":"Coming Soon",
-    "donate.tag":"Make a Difference","donate.title":"Choose your contribution","donate.sub":"$1 ≈ 10 Moroccan Dirhams (MAD). We collect year-round and distribute when it matters most — Eid al-Fitr, Eid al-Adha, back to school, or urgent needs like medical expenses. Give what you can — no amount is too small.",
-    "donate.c1sub":"≈ 500 MAD · One full child sponsorship","donate.c1i1":"A complete new outfit ~250–300 MAD","donate.c1i2":"A new pair of shoes ~100–150 MAD","donate.c1i3":"A toy or small gift ~50–100 MAD","donate.c1btn":"Donate $50",
-    "donate.featured":"Most Generous","donate.c2sub":"≈ 1,000 MAD · Premium sponsorship","donate.c2i1":"A high-quality celebration outfit ~400–500 MAD","donate.c2i2":"Quality shoes ~150–200 MAD","donate.c2i3":"A meaningful toy or backpack ~150–200 MAD","donate.c2i4":"Treats and seasonal sweets ~100 MAD","donate.c2btn":"Donate $100",
-    "donate.c3title":"Give More","donate.c3sub":"$150+ · Sponsor multiple children","donate.c3i1":"$150 sponsors 3 children at $50","donate.c3i2":"$200 covers premium + school supplies","donate.c3i3":"Any amount is welcome","donate.c3i4":"Annual recurring donors especially valued","donate.c3btn":"Donate More",
-    "donate.how_tag":"How to Send","donate.how_title":"Contact us to get payment details","donate.how_text":"Reach out to receive our Zelle, Venmo, or PayPal details — or give cash when we meet. Every donation is acknowledged and every purchase documented with a receipt.",
+    "donate.tag":"Make a Difference","donate.title":"Choose your contribution","donate.sub":"$1 \u2248 10 Moroccan Dirhams (MAD). We collect year-round and distribute when it matters most \u2014 Eid al-Fitr, Eid al-Adha, back to school, or urgent needs like medical expenses. Give what you can.",
+    "donate.c0sub":"\u2248 250 MAD \u00B7 Partial sponsorship","donate.c0i1":"A new outfit or shoes for one child","donate.c0i2":"Combined with others to fully sponsor a child","donate.c0i3":"Every contribution makes a real difference","donate.c0btn":"Donate $25",
+    "donate.c1sub":"\u2248 500 MAD \u00B7 One full child sponsorship","donate.c1i1":"A complete new outfit ~250\u2013300 MAD","donate.c1i2":"A new pair of shoes ~100\u2013150 MAD","donate.c1i3":"A toy or small gift ~50\u2013100 MAD","donate.c1btn":"Donate $50",
+    "donate.featured":"Most Generous","donate.c2sub":"\u2248 1,000 MAD \u00B7 Premium sponsorship","donate.c2i1":"A high-quality celebration outfit ~400\u2013500 MAD","donate.c2i2":"Quality shoes ~150\u2013200 MAD","donate.c2i3":"A meaningful toy or backpack ~150\u2013200 MAD","donate.c2i4":"Treats and seasonal sweets ~100 MAD","donate.c2btn":"Donate $100",
+    "donate.c3title":"Give More","donate.c3sub":"$150+ \u00B7 Sponsor multiple children","donate.c3i1":"$150 sponsors 3 children at $50","donate.c3i2":"$200 covers premium + school supplies","donate.c3i3":"Any amount is welcome","donate.c3i4":"Annual recurring donors especially valued","donate.c3btn":"Donate More",
+    "donate.how_tag":"How to Send","donate.how_title":"Contact us to get payment details","donate.how_text":"Reach out to receive our Zelle, Venmo, or PayPal details \u2014 or give cash when we meet. Every donation is acknowledged and every purchase documented with a receipt.",
     "payment.tag":"Payment Options","payment.title":"Easy ways to donate","payment.sub":"Send your donation through any of these convenient methods. Contact us directly for account details.",
-    "payment.zelle":"Instant bank transfer — no fees","payment.venmo":"Quick & easy mobile payment","payment.paypal":"Secure online payment","payment.cash_name":"Cash","payment.cash_note":"In person when we meet",
+    "payment.zelle":"Instant bank transfer \u2014 no fees","payment.venmo":"Quick & easy mobile payment","payment.paypal":"Secure online payment","payment.cash_name":"Cash","payment.cash_note":"In person when we meet",
     "payment.cta_bold":"Ready to donate?","payment.cta_text":" Reach out to get our payment details. We'll confirm receipt of every donation and share a full report after each campaign.",
-    "team.tag":"On the Ground","team.title":"Meet our coordinators","team.sub":"Our coordinators are the heart of Sponsor Kids 212 — trusted individuals embedded in their communities who identify the children and ensure every donation reaches the right hands.",
-    "team.role":"Local Coordinator","team.fz_bio":"Fatima Zahra is a wife, mother of a three-year-old girl, and a deeply compassionate community worker based in Casablanca. She works directly with vulnerable families and children, connecting them with the clothing, food, medical support, school resources, and disability assistance they need. Her hands-on presence and genuine care for those around her make her an invaluable bridge between our donors and the children we serve.",
-    "team.tag1":"👨‍👩‍👧 Families","team.tag2":"🧒 Children","team.tag3":"💊 Medical","team.tag4":"📚 School","team.tag5":"♿ Disability",
+    "team.tag":"On the Ground","team.title":"Meet our coordinators","team.sub":"Our coordinators are the heart of Sponsor Kids 212 \u2014 trusted individuals embedded in their communities who identify the children and ensure every donation reaches the right hands.",
+    "team.role":"Local Coordinator",
+    "team.fz_bio":"Fatima Zahra is a wife, mother, full-time worker, and student pursuing her degree in Human Resources \u2014 all while dedicating her heart to community service in Casablanca. She works directly with vulnerable families and children, connecting them with the clothing, food, medical support, school resources, and disability assistance they need.",
+    "team.tag1":"\u{1F46A} Families","team.tag2":"\u{1F476} Children","team.tag3":"\u{1F48A} Medical","team.tag4":"\u{1F4DA} School","team.tag5":"\u267F Disability",
     "team.expand":"We are looking to expand to other cities across Morocco. If you know a trusted individual who shares our values and would like to volunteer as a local coordinator, please reach out.",
-    "gallery.tag":"Gallery","gallery.title":"Smiles made possible by your generosity","gallery.note":"Photos are shared only with the explicit consent of the child and their guardian. Items purchased and campaign receipts will also appear here after each campaign.",
-    "gallery.p1":"Children's photos<br><span style='opacity:0.7'>with consent only</span>","gallery.p2":"Gifts purchased<br><span style='opacity:0.7'>will appear here</span>","gallery.p3":"Shopping receipts<br><span style='opacity:0.7'>will appear here</span>","gallery.p4":"Special moments<br><span style='opacity:0.7'>shared after each campaign</span>",
+    "gallery.tag":"Gallery & Records","gallery.title":"Smiles made possible by your generosity",
+    "gallery.note":"Photos are shared only with the explicit consent of the child and their guardian. All purchases are documented with receipts for full transparency.",
+    "gallery.folder.photos":"Photos","gallery.folder.receipts":"Receipts",
+    "gallery.drive.photos_title":"Eid El-Fitr 2026 \u2014 Photos","gallery.drive.photos_desc":"25 photos \u00B7 Shared on Google Drive \u00B7 Opens in new tab",
+    "gallery.drive.receipts_title":"Eid El-Fitr 2026 \u2014 Receipts","gallery.drive.receipts_desc":"4 receipts \u00B7 Shared on Google Drive \u00B7 Opens in new tab",
+    "gallery.future":"Future campaigns","gallery.coming":"will appear here",
     "trans.tag":"Full Transparency","trans.title":"Your trust matters to us","trans.sub":"We are committed to total accountability. Here is how every dollar is tracked from your hands to the children.",
     "trans.c1t":"Receipts Published","trans.c1d":"Every purchase in Morocco is documented. Receipts are photographed and shared with all donors after each campaign.",
     "trans.c2t":"Itemized Reports","trans.c2d":"A full breakdown of what was bought, for whom, and at what cost is shared after every collection cycle.",
@@ -536,166 +741,209 @@ const T = {
     "trans.c4t":"Zero Overhead","trans.c4d":"100% of every donation reaches the children. No admin fees, no platform cuts, no salaries.",
     "trans.rp_title":"Receipts & Campaign Reports","trans.rp_text":"Purchase receipts and spending summaries will be posted here after each campaign.",
     "dua.translation":"\"Whoever relieves a believer's distress of the distressful aspects of this world, Allah will rescue him from a difficulty of the difficulties of the Hereafter.\"",
-    "dua.source":"Sahih Muslim · May Allah reward you and your loved ones. Ameen. 🤲",
+    "dua.source":"Sahih Muslim \u00B7 May Allah reward you and your loved ones. Ameen. \u{1F932}",
     "footer.tagline":"Helping Children in Morocco","footer.sub":"A community initiative by Moroccans abroad"
   },
   fr:{
-    "nav.mission":"Mission","nav.needs":"Besoins","nav.team":"Équipe","nav.gallery":"Galerie","nav.receipts":"Reçus","nav.donate":"Faire un don",
-    "hero.badge":"🇲🇦 Donner à votre enfant intérieur","hero.h1":"Soyez la bénédiction<br>dont vous aviez <em>besoin.</em>",
-    "hero.tagline":"Chaque enfant mérite de vivre la joie — aidez-nous à y contribuer.",
-    "hero.sub":"Ancré dans l'esprit de la sadaqah, Sponsor Kids 212 canalise la générosité de notre communauté pour apporter soutien essentiel et joie sincère aux enfants orphelins, handicapés et démunis du Maroc.",
+    "nav.mission":"Mission","nav.needs":"Besoins","nav.team":"\u00C9quipe","nav.gallery":"Galerie","nav.receipts":"Re\u00E7us","nav.donate":"Faire un don",
+    "hero.badge":"\u{1F1F2}\u{1F1E6} Donner \u00E0 votre enfant int\u00E9rieur","hero.h1":"Soyez la b\u00E9n\u00E9diction<br>dont vous aviez <em>besoin.</em>",
+    "hero.tagline":"Chaque enfant m\u00E9rite de vivre la joie \u2014 aidez-nous \u00E0 y contribuer.",
+    "hero.sub":"Ancr\u00E9 dans l'esprit de la sadaqah, Sponsor Kids 212 canalise la g\u00E9n\u00E9rosit\u00E9 de notre communaut\u00E9 pour apporter soutien essentiel et joie sinc\u00E8re aux enfants orphelins, handicap\u00E9s et d\u00E9munis du Maroc.",
     "hero.btn1":"Faire un don","hero.btn2":"Notre histoire",
     "stats.s1":"va directement aux enfants","stats.s2":"parraine un enfant","stats.s3":"jours par an, nous collectons","stats.s4":"nos racines, notre cause",
-    "mission.tag":"Notre Mission","mission.title":"Apporter dignité et joie aux enfants vulnérables",
-    "mission.p1":"Nous sommes un groupe d'amis marocains vivant à l'étranger qui croient au devoir de redonner au pays et aux communautés qui nous ont façonnés.",
-    "mission.p2":"Nous avons identifié des enfants au Maroc qui sont orphelins, vivent avec un handicap, ont des parents absents ou handicapés, ou vivent dans une extrême pauvreté. Nous les soutenons tout au long de l'année avec des vêtements, des cadeaux et des articles essentiels.",
-    "mission.p3":"Notre vision à long terme est d'étendre notre soutien aux frais scolaires, au tutorat, aux soins médicaux, aux sorties, à la nourriture, et plus encore. Chaque campagne est entièrement transparente.",
-    "mission.p4":"Les enfants ont été identifiés. La personne qui reçoit les fonds au Maroc est de confiance. Votre don va exactement là où il le faut.",
-    "mission.quote1":"« L'ombre du croyant au Jour de la Résurrection sera sa charité. »","mission.attr1":"— Prophète Muhammad ﷺ",
-    "mission.quote2":"« Quiconque soulage la détresse d'un croyant dans ce monde, Allah le soulagera d'une difficulté au Jour du Jugement. »","mission.attr2":"— Sahih Muslim",
-    "who.tag":"Qui nous aidons","who.title":"Les enfants qui ont le plus besoin de nous","who.sub":"Chaque enfant dans notre programme a été individuellement identifié par un coordinateur local de confiance au Maroc.",
-    "who.t1":"🌿 Enfants orphelins","who.t2":"♿ Enfants handicapés","who.t3":"👤 Enfants avec parents absents","who.t4":"🤲 Enfants avec parents handicapés","who.t5":"🏚️ Enfants en extrême pauvreté",
-    "who.privacy_title":"La vie privée avant tout.","who.privacy_text":" Les identités des enfants sont protégées. Les photos ne sont partagées qu'avec la permission explicite de l'enfant et de son tuteur. Aucun enfant ne sera jamais réduit à un cas de charité — ils sont vus, respectés et célébrés.",
-    "needs.tag":"Où va votre don","needs.title":"Les besoins que nous finançons","needs.sub":"Nous avons commencé avec des dons saisonniers et grandissons toute l'année :",
-    "needs.n1t":"Vêtements","needs.n1d":"Nouvelles tenues pour les célébrations et le quotidien",
-    "needs.n2t":"Chaussures","needs.n2d":"De nouvelles chaussures pour que chaque enfant soit bien habillé",
+    "mission.tag":"Notre Mission","mission.title":"Apporter dignit\u00E9 et joie aux enfants vuln\u00E9rables",
+    "mission.p1":"Nous sommes un groupe d'amis marocains vivant \u00E0 l'\u00E9tranger qui croient au devoir de redonner au pays et aux communaut\u00E9s qui nous ont fa\u00E7onn\u00E9s.",
+    "mission.p2":"Nous avons identifi\u00E9 des enfants au Maroc qui sont orphelins, vivent avec un handicap, ont des parents absents ou handicap\u00E9s, ou vivent dans une extr\u00EAme pauvret\u00E9.",
+    "mission.p3":"Notre vision \u00E0 long terme est d'\u00E9tendre notre soutien aux frais scolaires, au tutorat, aux soins m\u00E9dicaux, aux sorties, \u00E0 la nourriture, et plus encore.",
+    "mission.p4":"Les enfants ont \u00E9t\u00E9 identifi\u00E9s. La personne qui re\u00E7oit les fonds au Maroc est de confiance. Votre don va exactement l\u00E0 o\u00F9 il le faut.",
+    "mission.quote1":"\u00AB L'ombre du croyant au Jour de la R\u00E9surrection sera sa charit\u00E9. \u00BB","mission.attr1":"\u2014 Proph\u00E8te Muhammad \uFDFA",
+    "mission.quote2":"\u00AB Quiconque soulage la d\u00E9tresse d'un croyant dans ce monde, Allah le soulagera d'une difficult\u00E9 au Jour du Jugement. \u00BB","mission.attr2":"\u2014 Sahih Muslim",
+    "who.tag":"Qui nous aidons","who.title":"Les enfants qui ont le plus besoin de nous","who.sub":"Chaque enfant dans notre programme a \u00E9t\u00E9 individuellement identifi\u00E9 par un coordinateur local de confiance au Maroc.",
+    "who.t1":"\u{1F33F} Enfants orphelins","who.t2":"\u267F Enfants handicap\u00E9s","who.t3":"\u{1F464} Enfants avec parents absents","who.t4":"\u{1F932} Enfants avec parents handicap\u00E9s","who.t5":"\u{1F3DA}\uFE0F Enfants en extr\u00EAme pauvret\u00E9",
+    "who.privacy_title":"La vie priv\u00E9e avant tout.","who.privacy_text":" Les identit\u00E9s des enfants sont prot\u00E9g\u00E9es. Les photos ne sont partag\u00E9es qu'avec la permission explicite de l'enfant et de son tuteur.",
+    "needs.tag":"O\u00F9 va votre don","needs.title":"Les besoins que nous finançons","needs.sub":"Nous avons commenc\u00E9 avec des dons saisonniers et grandissons toute l'ann\u00E9e :",
+    "needs.n1t":"V\u00EAtements","needs.n1d":"Nouvelles tenues pour les c\u00E9l\u00E9brations et le quotidien",
+    "needs.n2t":"Chaussures","needs.n2d":"De nouvelles chaussures pour que chaque enfant soit bien habill\u00E9",
     "needs.n3t":"Jouets & Cadeaux","needs.n3d":"Apporter de la vraie joie et du jeu dans la vie d'un enfant",
     "needs.n4t":"Fournitures scolaires","needs.n4d":"Sacs, livres, papeterie et uniformes scolaires",
-    "needs.n5t":"Tutorat","needs.n5d":"Soutien scolaire pour les enfants en difficulté",
-    "needs.n6t":"Médicaments & Santé","needs.n6d":"Médicaments, visites médicales et fournitures de santé",
+    "needs.n5t":"Tutorat","needs.n5d":"Soutien scolaire pour les enfants en difficult\u00E9",
+    "needs.n6t":"M\u00E9dicaments & Sant\u00E9","needs.n6d":"M\u00E9dicaments, visites m\u00E9dicales et fournitures de sant\u00E9",
     "needs.n7t":"Alimentation","needs.n7d":"Repas nutritifs pour les enfants et familles dans le besoin",
-    "needs.n8t":"Excursions","needs.n8d":"Sorties et expériences que beaucoup d'enfants n'ont jamais vécues",
-    "needs.n9t":"Soutien handicap","needs.n9d":"Équipements, thérapie et soins spécialisés",
-    "needs.active":"Actif","needs.coming":"Bientôt disponible",
-    "donate.tag":"Faites la différence","donate.title":"Choisissez votre contribution","donate.sub":"1 $ ≈ 10 Dirhams marocains. Nous collectons toute l'année et distribuons au bon moment — Aïd el-Fitr, Aïd el-Adha, rentrée scolaire, ou besoins urgents comme les frais médicaux. Donnez ce que vous pouvez — aucun montant n'est trop petit.",
-    "donate.c1sub":"≈ 500 MAD · Parrainage complet d'un enfant","donate.c1i1":"Une tenue complète neuve ~250–300 MAD","donate.c1i2":"Une nouvelle paire de chaussures ~100–150 MAD","donate.c1i3":"Un jouet ou un petit cadeau ~50–100 MAD","donate.c1btn":"Donner 50 $",
-    "donate.featured":"Le plus généreux","donate.c2sub":"≈ 1 000 MAD · Parrainage premium","donate.c2i1":"Une tenue de fête de qualité ~400–500 MAD","donate.c2i2":"Chaussures de qualité ~150–200 MAD","donate.c2i3":"Un jouet ou sac à dos ~150–200 MAD","donate.c2i4":"Friandises et douceurs ~100 MAD","donate.c2btn":"Donner 100 $",
-    "donate.c3title":"Donner plus","donate.c3sub":"150 $+ · Parrainer plusieurs enfants","donate.c3i1":"150 $ parraine 3 enfants à 50 $ chacun","donate.c3i2":"200 $ couvre premium + fournitures scolaires","donate.c3i3":"Tout montant est le bienvenu","donate.c3i4":"Les donateurs réguliers sont particulièrement précieux","donate.c3btn":"Donner plus",
-    "donate.how_tag":"Comment envoyer","donate.how_title":"Contactez-nous pour obtenir les coordonnées de paiement","donate.how_text":"Contactez-nous pour recevoir nos coordonnées Zelle, Venmo ou PayPal — ou donnez en espèces lors de nos rencontres.",
-    "payment.tag":"Options de paiement","payment.title":"Moyens simples de faire un don","payment.sub":"Envoyez votre don via l'un de ces moyens pratiques. Contactez-nous directement pour les coordonnées.",
-    "payment.zelle":"Virement bancaire instantané — sans frais","payment.venmo":"Paiement mobile rapide et facile","payment.paypal":"Paiement en ligne sécurisé","payment.cash_name":"Espèces","payment.cash_note":"En personne lors de nos rencontres",
-    "payment.cta_bold":"Prêt à faire un don ?","payment.cta_text":" Contactez-nous pour obtenir nos coordonnées. Nous confirmerons chaque don et partagerons un rapport complet après chaque campagne.",
-    "team.tag":"Sur le terrain","team.title":"Rencontrez nos coordinateurs","team.sub":"Nos coordinateurs sont le cœur de Sponsor Kids 212 — des personnes de confiance intégrées dans leurs communautés qui identifient les enfants et s'assurent que chaque don arrive à bon port.",
-    "team.role":"Coordinatrice locale","team.fz_bio":"Fatima Zahra est une épouse, mère d'une petite fille de trois ans, et une travailleuse communautaire profondément dévouée basée à Casablanca. Elle travaille directement avec les familles et les enfants vulnérables, les aidant à accéder aux vêtements, à la nourriture, au soutien médical, aux ressources scolaires et à l'aide aux personnes handicapées.",
-    "team.tag1":"👨‍👩‍👧 Familles","team.tag2":"🧒 Enfants","team.tag3":"💊 Médical","team.tag4":"📚 École","team.tag5":"♿ Handicap",
-    "team.expand":"Nous cherchons à nous étendre à d'autres villes du Maroc. Si vous connaissez une personne de confiance souhaitant se porter volontaire, contactez-nous.",
-    "gallery.tag":"Galerie","gallery.title":"Des sourires rendus possibles par votre générosité","gallery.note":"Les photos ne sont partagées qu'avec le consentement explicite de l'enfant et de son tuteur.",
-    "gallery.p1":"Photos des enfants<br><span style='opacity:0.7'>avec consentement uniquement</span>","gallery.p2":"Cadeaux achetés<br><span style='opacity:0.7'>apparaîtront ici</span>","gallery.p3":"Reçus d'achat<br><span style='opacity:0.7'>apparaîtront ici</span>","gallery.p4":"Moments spéciaux<br><span style='opacity:0.7'>partagés après chaque campagne</span>",
-    "trans.tag":"Transparence totale","trans.title":"Votre confiance nous tient à cœur","trans.sub":"Nous nous engageons à une responsabilité totale. Voici comment chaque dollar est suivi.",
-    "trans.c1t":"Reçus publiés","trans.c1d":"Chaque achat au Maroc est documenté. Les reçus sont photographiés et partagés avec tous les donateurs.",
-    "trans.c2t":"Rapports détaillés","trans.c2d":"Un bilan complet de ce qui a été acheté, pour qui et à quel coût est partagé après chaque cycle.",
-    "trans.c3t":"Coordinateur local de confiance","trans.c3d":"La personne recevant et dépensant les fonds au Maroc est personnellement connue et approuvée par notre communauté.",
-    "trans.c4t":"Zéro frais généraux","trans.c4d":"100 % de chaque don parvient aux enfants. Aucun frais administratif, aucune commission.",
-    "trans.rp_title":"Reçus et rapports de campagne","trans.rp_text":"Les reçus et résumés de dépenses seront publiés ici après chaque campagne.",
-    "dua.translation":"« Quiconque soulage la détresse d'un croyant dans ce monde, Allah le soulagera d'une difficulté au Jour du Jugement. »",
-    "dua.source":"Sahih Muslim · Qu'Allah vous récompense, vous et vos proches. Ameen. 🤲",
-    "footer.tagline":"Aider les enfants au Maroc","footer.sub":"Une initiative communautaire de Marocains de l'étranger"
+    "needs.n8t":"Excursions","needs.n8d":"Sorties et exp\u00E9riences que beaucoup d'enfants n'ont jamais v\u00E9cues",
+    "needs.n9t":"Soutien handicap","needs.n9d":"\u00C9quipements, th\u00E9rapie et soins sp\u00E9cialis\u00E9s",
+    "needs.active":"Actif","needs.coming":"Bient\u00F4t disponible",
+    "donate.tag":"Faites la diff\u00E9rence","donate.title":"Choisissez votre contribution","donate.sub":"1 $ \u2248 10 Dirhams marocains. Nous collectons toute l'ann\u00E9e et distribuons au bon moment. Donnez ce que vous pouvez.",
+    "donate.c0sub":"\u2248 250 MAD \u00B7 Parrainage partiel","donate.c0i1":"Une nouvelle tenue ou chaussures pour un enfant","donate.c0i2":"Combin\u00E9 avec d'autres pour parrainer un enfant complet","donate.c0i3":"Chaque contribution fait une vraie diff\u00E9rence","donate.c0btn":"Donner 25 $",
+    "donate.c1sub":"\u2248 500 MAD \u00B7 Parrainage complet d'un enfant","donate.c1i1":"Une tenue compl\u00E8te neuve ~250\u2013300 MAD","donate.c1i2":"Une nouvelle paire de chaussures ~100\u2013150 MAD","donate.c1i3":"Un jouet ou un petit cadeau ~50\u2013100 MAD","donate.c1btn":"Donner 50 $",
+    "donate.featured":"Le plus g\u00E9n\u00E9reux","donate.c2sub":"\u2248 1 000 MAD \u00B7 Parrainage premium","donate.c2i1":"Une tenue de f\u00EAte de qualit\u00E9 ~400\u2013500 MAD","donate.c2i2":"Chaussures de qualit\u00E9 ~150\u2013200 MAD","donate.c2i3":"Un jouet ou sac \u00E0 dos ~150\u2013200 MAD","donate.c2i4":"Friandises et douceurs ~100 MAD","donate.c2btn":"Donner 100 $",
+    "donate.c3title":"Donner plus","donate.c3sub":"150 $+ \u00B7 Parrainer plusieurs enfants","donate.c3i1":"150 $ parraine 3 enfants \u00E0 50 $ chacun","donate.c3i2":"200 $ couvre premium + fournitures scolaires","donate.c3i3":"Tout montant est le bienvenu","donate.c3i4":"Les donateurs r\u00E9guliers sont particuli\u00E8rement pr\u00E9cieux","donate.c3btn":"Donner plus",
+    "donate.how_tag":"Comment envoyer","donate.how_title":"Contactez-nous pour obtenir les coordonn\u00E9es","donate.how_text":"Contactez-nous pour recevoir nos coordonn\u00E9es Zelle, Venmo ou PayPal.",
+    "payment.tag":"Options de paiement","payment.title":"Moyens simples de faire un don","payment.sub":"Envoyez votre don via l'un de ces moyens pratiques.",
+    "payment.zelle":"Virement bancaire instantan\u00E9 \u2014 sans frais","payment.venmo":"Paiement mobile rapide et facile","payment.paypal":"Paiement en ligne s\u00E9curis\u00E9","payment.cash_name":"Esp\u00E8ces","payment.cash_note":"En personne lors de nos rencontres",
+    "payment.cta_bold":"Pr\u00EAt \u00E0 faire un don ?","payment.cta_text":" Contactez-nous pour obtenir nos coordonn\u00E9es. Nous confirmerons chaque don et partagerons un rapport complet.",
+    "team.tag":"Sur le terrain","team.title":"Rencontrez nos coordinateurs","team.sub":"Nos coordinateurs sont le c\u0153ur de Sponsor Kids 212 \u2014 des personnes de confiance int\u00E9gr\u00E9es dans leurs communaut\u00E9s.",
+    "team.role":"Coordinatrice locale",
+    "team.fz_bio":"Fatima Zahra est une \u00E9pouse, une m\u00E8re, une professionnelle \u00E0 temps plein et une \u00E9tudiante en cours de formation en Ressources Humaines \u2014 tout en consacrant son c\u0153ur au service communautaire \u00E0 Casablanca. Elle travaille directement avec les familles et les enfants vuln\u00E9rables.",
+    "team.tag1":"\u{1F46A} Familles","team.tag2":"\u{1F476} Enfants","team.tag3":"\u{1F48A} M\u00E9dical","team.tag4":"\u{1F4DA} \u00C9cole","team.tag5":"\u267F Handicap",
+    "team.expand":"Nous cherchons \u00E0 nous \u00E9tendre \u00E0 d'autres villes du Maroc. Contactez-nous si vous connaissez un volontaire de confiance.",
+    "gallery.tag":"Galerie & Archives","gallery.title":"Des sourires rendus possibles par votre g\u00E9n\u00E9rosit\u00E9",
+    "gallery.note":"Les photos ne sont partag\u00E9es qu'avec le consentement explicite de l'enfant et de son tuteur.",
+    "gallery.folder.photos":"Photos","gallery.folder.receipts":"Re\u00E7us",
+    "gallery.drive.photos_title":"A\u00EFd El-Fitr 2026 \u2014 Photos","gallery.drive.photos_desc":"25 photos \u00B7 Partag\u00E9 sur Google Drive \u00B7 Ouvre dans un nouvel onglet",
+    "gallery.drive.receipts_title":"A\u00EFd El-Fitr 2026 \u2014 Re\u00E7us","gallery.drive.receipts_desc":"4 re\u00E7us \u00B7 Partag\u00E9 sur Google Drive \u00B7 Ouvre dans un nouvel onglet",
+    "gallery.future":"Campagnes futures","gallery.coming":"appara\u00EEtront ici",
+    "trans.tag":"Transparence totale","trans.title":"Votre confiance nous tient \u00E0 c\u0153ur","trans.sub":"Nous nous engageons \u00E0 une responsabilit\u00E9 totale.",
+    "trans.c1t":"Re\u00E7us publi\u00E9s","trans.c1d":"Chaque achat au Maroc est document\u00E9 et partag\u00E9 avec tous les donateurs.",
+    "trans.c2t":"Rapports d\u00E9taill\u00E9s","trans.c2d":"Un bilan complet de ce qui a \u00E9t\u00E9 achet\u00E9, pour qui et \u00E0 quel co\u00FBt.",
+    "trans.c3t":"Coordinateur local de confiance","trans.c3d":"La personne recevant et d\u00E9pensant les fonds au Maroc est connue et approuv\u00E9e par notre communaut\u00E9.",
+    "trans.c4t":"Z\u00E9ro frais g\u00E9n\u00E9raux","trans.c4d":"100 % de chaque don parvient aux enfants. Aucun frais administratif.",
+    "trans.rp_title":"Re\u00E7us et rapports de campagne","trans.rp_text":"Les re\u00E7us et r\u00E9sum\u00E9s de d\u00E9penses seront publi\u00E9s ici apr\u00E8s chaque campagne.",
+    "dua.translation":"\u00AB Quiconque soulage la d\u00E9tresse d'un croyant dans ce monde, Allah le soulagera d'une difficult\u00E9 au Jour du Jugement. \u00BB",
+    "dua.source":"Sahih Muslim \u00B7 Qu'Allah vous r\u00E9compense, vous et vos proches. Ameen. \u{1F932}",
+    "footer.tagline":"Aider les enfants au Maroc","footer.sub":"Une initiative communautaire de Marocains de l'\u00E9tranger"
   },
   ar:{
-    "nav.mission":"مهمتنا","nav.needs":"الاحتياجات","nav.team":"الفريق","nav.gallery":"معرض","nav.receipts":"الإيصالات","nav.donate":"تبرع الآن",
-    "hero.badge":"🇲🇦 أعطِ لطفلك الذي كنتَه","hero.h1":"كن البركة<br>التي كنتَ <em>بحاجة إليها.</em>",
-    "hero.tagline":"كل طفل يستحق أن يعيش الفرح — ساعدنا على تحقيق ذلك.",
-    "hero.sub":"انطلاقاً من روح الصدقة، يوجّه Sponsor Kids 212 كرم مجتمعنا لتقديم الدعم الأساسي والفرح الحقيقي للأطفال اليتامى والمعاقين والمحرومين في المغرب.",
-    "hero.btn1":"تبرع الآن","hero.btn2":"قصتنا",
-    "stats.s1":"تذهب مباشرة للأطفال","stats.s2":"يكفل طفلاً واحداً","stats.s3":"يوماً في السنة نجمع التبرعات","stats.s4":"جذورنا وقضيتنا",
-    "mission.tag":"مهمتنا","mission.title":"إحضار الكرامة والفرح للأطفال الضعفاء",
-    "mission.p1":"نحن مجموعة من الأصدقاء المغاربة المقيمين في الخارج، نؤمن بضرورة رد الجميل للبلد والمجتمعات التي شكّلتنا.",
-    "mission.p2":"تعرّفنا على أطفال في المغرب يتامى أو يعانون من إعاقات أو لديهم آباء غائبون أو معاقون أو يعيشون في فقر مدقع. ندعمهم طوال العام بالملابس والهدايا والمستلزمات الأساسية.",
-    "mission.p3":"رؤيتنا على المدى البعيد هي توسيع دعمنا ليشمل المصاريف الدراسية والدروس الخصوصية والرعاية الطبية والرحلات والغذاء والمزيد.",
-    "mission.p4":"تم تحديد الأطفال. الشخص المستلم للأموال في المغرب موثوق به. تبرعك يصل بالضبط إلى حيث ينبغي.",
-    "mission.quote1":"«ظِلُّ المؤمن يوم القيامة صدقتُه»","mission.attr1":"— النبي محمد ﷺ",
-    "mission.quote2":"«من نفّس عن مؤمن كربةً من كرب الدنيا، نفّس الله عنه كربةً من كرب يوم القيامة»","mission.attr2":"— صحيح مسلم",
-    "who.tag":"من نساعد","who.title":"الأطفال الأكثر احتياجاً","who.sub":"تم تحديد كل طفل في برنامجنا بشكل فردي من قبل منسق محلي موثوق في المغرب.",
-    "who.t1":"🌿 الأطفال الأيتام","who.t2":"♿ الأطفال ذوو الإعاقة","who.t3":"👤 أطفال بآباء غائبين","who.t4":"🤲 أطفال بآباء معاقين","who.t5":"🏚️ أطفال في فقر مدقع",
-    "who.privacy_title":"الخصوصية أولاً.","who.privacy_text":" هويات الأطفال محمية. لا تُشارك الصور إلا بإذن صريح من الطفل ووليّه. لن يُختزل أي طفل في كونه حالة إعانة — إنهم مرئيون ومحترمون ومحتفى بهم.",
-    "needs.tag":"أين يذهب تبرعك","needs.title":"احتياجات الأطفال التي نموّلها","needs.sub":"بدأنا بالعطاء الموسمي ونتوسع طوال العام:",
-    "needs.n1t":"الملابس","needs.n1d":"أزياء جديدة للاحتفالات والاستخدام اليومي",
-    "needs.n2t":"الأحذية","needs.n2d":"أحذية جديدة لكل طفل يستحق اللباس الكامل",
-    "needs.n3t":"الألعاب والهدايا","needs.n3d":"إدخال الفرح الحقيقي واللعب إلى عالم الطفل",
-    "needs.n4t":"اللوازم المدرسية","needs.n4d":"حقائب وكتب وقرطاسية وزي مدرسي",
-    "needs.n5t":"الدروس الخصوصية","needs.n5d":"دعم أكاديمي للأطفال المتأخرين دراسياً",
-    "needs.n6t":"الدواء والرعاية الصحية","needs.n6d":"أدوية وزيارات طبية ومستلزمات صحية",
-    "needs.n7t":"الغذاء","needs.n7d":"وجبات مغذية للأطفال والأسر المحتاجة",
-    "needs.n8t":"الرحلات","needs.n8d":"تجارب وخبرات لم يحظَ بها كثير من الأطفال",
-    "needs.n9t":"دعم ذوي الإعاقة","needs.n9d":"معدات وعلاج ورعاية متخصصة",
-    "needs.active":"نشط","needs.coming":"قريباً",
-    "donate.tag":"أحدث فرقاً","donate.title":"اختر مساهمتك","donate.sub":"1 دولار ≈ 10 دراهم مغربية. نجمع التبرعات طوال العام ونوزعها في الوقت المناسب — عيد الفطر، عيد الأضحى، الدخول المدرسي، أو الاحتياجات العاجلة كالمصاريف الطبية. تبرع بما تستطيع — لا يوجد مبلغ صغير.",
-    "donate.c1sub":"≈ 500 درهم · كفالة كاملة لطفل واحد","donate.c1i1":"زي جديد كامل ~250-300 درهم","donate.c1i2":"زوج جديد من الأحذية ~100-150 درهم","donate.c1i3":"لعبة أو هدية صغيرة ~50-100 درهم","donate.c1btn":"تبرع بـ 50 $",
-    "donate.featured":"الأكثر سخاءً","donate.c2sub":"≈ 1,000 درهم · كفالة مميزة","donate.c2i1":"زي احتفالي راقي ~400-500 درهم","donate.c2i2":"أحذية جودة عالية ~150-200 درهم","donate.c2i3":"لعبة أو حقيبة مميزة ~150-200 درهم","donate.c2i4":"حلوى وأشياء موسمية ~100 درهم","donate.c2btn":"تبرع بـ 100 $",
-    "donate.c3title":"تبرع أكثر","donate.c3sub":"150 $+ · اكفل أطفالاً متعددين","donate.c3i1":"150 $ تكفل 3 أطفال بـ 50 $ لكل منهم","donate.c3i2":"200 $ تغطي الكفالة المميزة + اللوازم المدرسية","donate.c3i3":"أي مبلغ مرحب به","donate.c3i4":"المتبرعون المنتظمون ذوو قيمة خاصة","donate.c3btn":"تبرع بأكثر",
-    "donate.how_tag":"كيفية الإرسال","donate.how_title":"تواصل معنا للحصول على تفاصيل الدفع","donate.how_text":"تواصل معنا للحصول على بياناتنا عبر Zelle أو Venmo أو PayPal — أو أعطِ نقداً عند اللقاء.",
-    "payment.tag":"خيارات الدفع","payment.title":"طرق سهلة للتبرع","payment.sub":"أرسل تبرعك عبر أي من هذه الطرق المريحة. تواصل معنا مباشرة للحصول على التفاصيل.",
-    "payment.zelle":"تحويل بنكي فوري — بدون رسوم","payment.venmo":"دفع سريع وسهل عبر الهاتف","payment.paypal":"دفع آمن عبر الإنترنت","payment.cash_name":"نقداً","payment.cash_note":"شخصياً عند اللقاء",
-    "payment.cta_bold":"مستعد للتبرع؟","payment.cta_text":" تواصل معنا للحصول على بيانات الدفع. سنؤكد استلام كل تبرع ونشارك تقريراً كاملاً بعد كل حملة.",
-    "team.tag":"على أرض الواقع","team.title":"تعرّف على منسقينا","team.sub":"منسقونا هم قلب Sponsor Kids 212 — أشخاص موثوقون متجذّرون في مجتمعاتهم يتعرفون على الأطفال ويضمنون وصول كل تبرع إلى مكانه الصحيح.",
-    "team.role":"منسقة محلية","team.fz_bio":"فاطمة الزهراء زوجة وأم لطفلة تبلغ ثلاث سنوات، وعاملة اجتماعية متفانية في الدار البيضاء. تعمل مباشرة مع الأسر والأطفال الضعفاء، وتربطهم بالملابس والغذاء والدعم الطبي والموارد التعليمية ومساعدات ذوي الإعاقة التي يحتاجونها.",
-    "team.tag1":"👨‍👩‍👧 الأسر","team.tag2":"🧒 الأطفال","team.tag3":"💊 طبي","team.tag4":"📚 مدرسي","team.tag5":"♿ إعاقة",
-    "team.expand":"نسعى للتوسع إلى مدن أخرى في المغرب. إن كنت تعرف شخصاً موثوقاً يشاركنا قيمنا ويرغب في التطوع كمنسق محلي، فتواصل معنا.",
-    "gallery.tag":"معرض الصور","gallery.title":"ابتسامات أتاحتها كرمكم","gallery.note":"لا تُشارك الصور إلا بموافقة صريحة من الطفل ووليّه. ستظهر هنا الأشياء المشتراة والإيصالات بعد كل حملة.",
-    "gallery.p1":"صور الأطفال<br><span style='opacity:0.7'>بالموافقة فقط</span>","gallery.p2":"الهدايا المشتراة<br><span style='opacity:0.7'>ستظهر هنا</span>","gallery.p3":"إيصالات الشراء<br><span style='opacity:0.7'>ستظهر هنا</span>","gallery.p4":"لحظات خاصة<br><span style='opacity:0.7'>تُشارك بعد كل حملة</span>",
-    "trans.tag":"شفافية كاملة","trans.title":"ثقتكم تهمّنا","trans.sub":"نلتزم بالمساءلة الكاملة. إليك كيف يُتتبع كل دولار من يدك إلى الأطفال.",
-    "trans.c1t":"نشر الإيصالات","trans.c1d":"كل عملية شراء في المغرب موثقة. تُصوَّر الإيصالات وتُشارك مع جميع المتبرعين بعد كل حملة.",
-    "trans.c2t":"تقارير مفصلة","trans.c2d":"يُشارك ملخص كامل بما تم شراؤه ولمن وبأي تكلفة بعد كل دورة.",
-    "trans.c3t":"منسق محلي موثوق","trans.c3d":"الشخص المستلم والمنفق للأموال في المغرب معروف شخصياً ومعتمد من مجتمعنا.",
-    "trans.c4t":"صفر تكاليف إدارية","trans.c4d":"100% من كل تبرع يصل للأطفال. لا رسوم إدارية، لا عمولات، لا رواتب.",
-    "trans.rp_title":"الإيصالات وتقارير الحملات","trans.rp_text":"ستُنشر هنا إيصالات الشراء وملخصات الإنفاق بعد كل حملة.",
-    "dua.translation":"«من نفّس عن مؤمن كربةً من كرب الدنيا، نفّس الله عنه كربةً من كرب يوم القيامة»",
-    "dua.source":"صحيح مسلم · جزاكم الله خيراً وأهلكم. آمين. 🤲",
-    "footer.tagline":"مساعدة الأطفال في المغرب","footer.sub":"مبادرة مجتمعية من مغاربة المهجر"
+    "nav.mission":"\u0645\u0647\u0645\u062A\u0646\u0627","nav.needs":"\u0627\u0644\u0627\u062D\u062A\u064A\u0627\u062C\u0627\u062A","nav.team":"\u0627\u0644\u0641\u0631\u064A\u0642","nav.gallery":"\u0645\u0639\u0631\u0636","nav.receipts":"\u0627\u0644\u0625\u064A\u0635\u0627\u0644\u0627\u062A","nav.donate":"\u062A\u0628\u0631\u0639 \u0627\u0644\u0622\u0646",
+    "hero.badge":"\u{1F1F2}\u{1F1E6} \u0623\u0639\u0637\u0650 \u0644\u0637\u0641\u0644\u0643 \u0627\u0644\u0630\u064A \u0643\u0646\u062A\u064E\u0647","hero.h1":"\u0643\u0646 \u0627\u0644\u0628\u0631\u0643\u0629<br>\u0627\u0644\u062A\u064A \u0643\u0646\u062A\u064E <em>\u0628\u062D\u0627\u062C\u0629 \u0625\u0644\u064A\u0647\u0627.</em>",
+    "hero.tagline":"\u0643\u0644 \u0637\u0641\u0644 \u064A\u0633\u062A\u062D\u0642 \u0623\u0646 \u064A\u0639\u064A\u0634 \u0627\u0644\u0641\u0631\u062D \u2014 \u0633\u0627\u0639\u062F\u0646\u0627 \u0639\u0644\u0649 \u062A\u062D\u0642\u064A\u0642 \u0630\u0644\u0643.",
+    "hero.sub":"\u0627\u0646\u0637\u0644\u0627\u0642\u0627\u064B \u0645\u0646 \u0631\u0648\u062D \u0627\u0644\u0635\u062F\u0642\u0629\u060C \u064A\u0648\u062C\u0651\u0647 Sponsor Kids 212 \u0643\u0631\u0645 \u0645\u062C\u062A\u0645\u0639\u0646\u0627 \u0644\u062A\u0642\u062F\u064A\u0645 \u0627\u0644\u062F\u0639\u0645 \u0627\u0644\u0623\u0633\u0627\u0633\u064A \u0648\u0627\u0644\u0641\u0631\u062D \u0627\u0644\u062D\u0642\u064A\u0642\u064A \u0644\u0644\u0623\u0637\u0641\u0627\u0644 \u0627\u0644\u064A\u062A\u0627\u0645\u0649 \u0648\u0627\u0644\u0645\u0639\u0627\u0642\u064A\u0646 \u0648\u0627\u0644\u0645\u062D\u0631\u0648\u0645\u064A\u0646 \u0641\u064A \u0627\u0644\u0645\u063A\u0631\u0628.",
+    "hero.btn1":"\u062A\u0628\u0631\u0639 \u0627\u0644\u0622\u0646","hero.btn2":"\u0642\u0635\u062A\u0646\u0627",
+    "stats.s1":"\u062A\u0630\u0647\u0628 \u0645\u0628\u0627\u0634\u0631\u0629 \u0644\u0644\u0623\u0637\u0641\u0627\u0644","stats.s2":"\u064A\u0643\u0641\u0644 \u0637\u0641\u0644\u0627\u064B \u0648\u0627\u062D\u062F\u0627\u064B","stats.s3":"\u064A\u0648\u0645\u0627\u064B \u0641\u064A \u0627\u0644\u0633\u0646\u0629 \u0646\u062C\u0645\u0639 \u0627\u0644\u062A\u0628\u0631\u0639\u0627\u062A","stats.s4":"\u062C\u0630\u0648\u0631\u0646\u0627 \u0648\u0642\u0636\u064A\u062A\u0646\u0627",
+    "mission.tag":"\u0645\u0647\u0645\u062A\u0646\u0627","mission.title":"\u0625\u062D\u0636\u0627\u0631 \u0627\u0644\u0643\u0631\u0627\u0645\u0629 \u0648\u0627\u0644\u0641\u0631\u062D \u0644\u0644\u0623\u0637\u0641\u0627\u0644 \u0627\u0644\u0636\u0639\u0641\u0627\u0621",
+    "mission.p1":"\u0646\u062D\u0646 \u0645\u062C\u0645\u0648\u0639\u0629 \u0645\u0646 \u0627\u0644\u0623\u0635\u062F\u0642\u0627\u0621 \u0627\u0644\u0645\u063A\u0627\u0631\u0628\u0629 \u0627\u0644\u0645\u0642\u064A\u0645\u064A\u0646 \u0641\u064A \u0627\u0644\u062E\u0627\u0631\u062C\u060C \u0646\u0624\u0645\u0646 \u0628\u0636\u0631\u0648\u0631\u0629 \u0631\u062F \u0627\u0644\u062C\u0645\u064A\u0644 \u0644\u0644\u0628\u0644\u062F \u0648\u0627\u0644\u0645\u062C\u062A\u0645\u0639\u0627\u062A \u0627\u0644\u062A\u064A \u0634\u0643\u0651\u0644\u062A\u0646\u0627.",
+    "mission.p2":"\u062A\u0639\u0631\u0651\u0641\u0646\u0627 \u0639\u0644\u0649 \u0623\u0637\u0641\u0627\u0644 \u0641\u064A \u0627\u0644\u0645\u063A\u0631\u0628 \u064A\u062A\u0627\u0645\u0649 \u0623\u0648 \u064A\u0639\u0627\u0646\u0648\u0646 \u0645\u0646 \u0625\u0639\u0627\u0642\u0627\u062A \u0623\u0648 \u0644\u062F\u064A\u0647\u0645 \u0622\u0628\u0627\u0621 \u063A\u0627\u0626\u0628\u0648\u0646 \u0623\u0648 \u0645\u0639\u0627\u0642\u0648\u0646 \u0623\u0648 \u064A\u0639\u064A\u0634\u0648\u0646 \u0641\u064A \u0641\u0642\u0631 \u0645\u062F\u0642\u0639.",
+    "mission.p3":"\u0631\u0624\u064A\u062A\u0646\u0627 \u0639\u0644\u0649 \u0627\u0644\u0645\u062F\u0649 \u0627\u0644\u0628\u0639\u064A\u062F \u0647\u064A \u062A\u0648\u0633\u064A\u0639 \u062F\u0639\u0645\u0646\u0627 \u0644\u064A\u0634\u0645\u0644 \u0627\u0644\u0645\u0635\u0627\u0631\u064A\u0641 \u0627\u0644\u062F\u0631\u0627\u0633\u064A\u0629 \u0648\u0627\u0644\u062F\u0631\u0648\u0633 \u0627\u0644\u062E\u0635\u0648\u0635\u064A\u0629 \u0648\u0627\u0644\u0631\u0639\u0627\u064A\u0629 \u0627\u0644\u0637\u0628\u064A\u0629 \u0648\u0627\u0644\u063A\u0630\u0627\u0621.",
+    "mission.p4":"\u062A\u0645 \u062A\u062D\u062F\u064A\u062F \u0627\u0644\u0623\u0637\u0641\u0627\u0644. \u0627\u0644\u0634\u062E\u0635 \u0627\u0644\u0645\u0633\u062A\u0644\u0645 \u0644\u0644\u0623\u0645\u0648\u0627\u0644 \u0641\u064A \u0627\u0644\u0645\u063A\u0631\u0628 \u0645\u0648\u062B\u0648\u0642 \u0628\u0647. \u062A\u0628\u0631\u0639\u0643 \u064A\u0635\u0644 \u0628\u0627\u0644\u0636\u0628\u0637 \u0625\u0644\u0649 \u062D\u064A\u062B \u064A\u0646\u0628\u063A\u064A.",
+    "mission.quote1":"\u00AB\u0638\u0650\u0644\u064F\u0651 \u0627\u0644\u0645\u0624\u0645\u0646 \u064A\u0648\u0645 \u0627\u0644\u0642\u064A\u0627\u0645\u0629 \u0635\u062F\u0642\u062A\u064F\u0647\u00BB","mission.attr1":"\u2014 \u0627\u0644\u0646\u0628\u064A \u0645\u062D\u0645\u062F \uFDFA",
+    "mission.quote2":"\u00AB\u0645\u0646 \u0646\u0641\u0651\u0633 \u0639\u0646 \u0645\u0624\u0645\u0646 \u0643\u0631\u0628\u0629\u064B \u0645\u0646 \u0643\u0631\u0628 \u0627\u0644\u062F\u0646\u064A\u0627\u060C \u0646\u0641\u0651\u0633 \u0627\u0644\u0644\u0647 \u0639\u0646\u0647 \u0643\u0631\u0628\u0629\u064B \u0645\u0646 \u0643\u0631\u0628 \u064A\u0648\u0645 \u0627\u0644\u0642\u064A\u0627\u0645\u0629\u00BB","mission.attr2":"\u2014 \u0635\u062D\u064A\u062D \u0645\u0633\u0644\u0645",
+    "who.tag":"\u0645\u0646 \u0646\u0633\u0627\u0639\u062F","who.title":"\u0627\u0644\u0623\u0637\u0641\u0627\u0644 \u0627\u0644\u0623\u0643\u062B\u0631 \u0627\u062D\u062A\u064A\u0627\u062C\u0627\u064B","who.sub":"\u062A\u0645 \u062A\u062D\u062F\u064A\u062F \u0643\u0644 \u0637\u0641\u0644 \u0641\u064A \u0628\u0631\u0646\u0627\u0645\u062C\u0646\u0627 \u0628\u0634\u0643\u0644 \u0641\u0631\u062F\u064A \u0645\u0646 \u0642\u0628\u0644 \u0645\u0646\u0633\u0642 \u0645\u062D\u0644\u064A \u0645\u0648\u062B\u0648\u0642 \u0641\u064A \u0627\u0644\u0645\u063A\u0631\u0628.",
+    "who.t1":"\u{1F33F} \u0627\u0644\u0623\u0637\u0641\u0627\u0644 \u0627\u0644\u0623\u064A\u062A\u0627\u0645","who.t2":"\u267F \u0627\u0644\u0623\u0637\u0641\u0627\u0644 \u0630\u0648\u0648 \u0627\u0644\u0625\u0639\u0627\u0642\u0629","who.t3":"\u{1F464} \u0623\u0637\u0641\u0627\u0644 \u0628\u0622\u0628\u0627\u0621 \u063A\u0627\u0626\u0628\u064A\u0646","who.t4":"\u{1F932} \u0623\u0637\u0641\u0627\u0644 \u0628\u0622\u0628\u0627\u0621 \u0645\u0639\u0627\u0642\u064A\u0646","who.t5":"\u{1F3DA}\uFE0F \u0623\u0637\u0641\u0627\u0644 \u0641\u064A \u0641\u0642\u0631 \u0645\u062F\u0642\u0639",
+    "who.privacy_title":"\u0627\u0644\u062E\u0635\u0648\u0635\u064A\u0629 \u0623\u0648\u0644\u0627\u064B.","who.privacy_text":" \u0647\u0648\u064A\u0627\u062A \u0627\u0644\u0623\u0637\u0641\u0627\u0644 \u0645\u062D\u0645\u064A\u0629. \u0644\u0627 \u062A\u064F\u0634\u0627\u0631\u0643 \u0627\u0644\u0635\u0648\u0631 \u0625\u0644\u0627 \u0628\u0625\u0630\u0646 \u0635\u0631\u064A\u062D \u0645\u0646 \u0627\u0644\u0637\u0641\u0644 \u0648\u0648\u0644\u064A\u0651\u0647.",
+    "needs.tag":"\u0623\u064A\u0646 \u064A\u0630\u0647\u0628 \u062A\u0628\u0631\u0639\u0643","needs.title":"\u0627\u062D\u062A\u064A\u0627\u062C\u0627\u062A \u0627\u0644\u0623\u0637\u0641\u0627\u0644 \u0627\u0644\u062A\u064A \u0646\u0645\u0648\u0651\u0644\u0647\u0627","needs.sub":"\u0628\u062F\u0623\u0646\u0627 \u0628\u0627\u0644\u0639\u0637\u0627\u0621 \u0627\u0644\u0645\u0648\u0633\u0645\u064A \u0648\u0646\u062A\u0648\u0633\u0639 \u0637\u0648\u0627\u0644 \u0627\u0644\u0639\u0627\u0645:",
+    "needs.n1t":"\u0627\u0644\u0645\u0644\u0627\u0628\u0633","needs.n1d":"\u0623\u0632\u064A\u0627\u0621 \u062C\u062F\u064A\u062F\u0629 \u0644\u0644\u0627\u062D\u062A\u0641\u0627\u0644\u0627\u062A \u0648\u0627\u0644\u0627\u0633\u062A\u062E\u062F\u0627\u0645 \u0627\u0644\u064A\u0648\u0645\u064A",
+    "needs.n2t":"\u0627\u0644\u0623\u062D\u0630\u064A\u0629","needs.n2d":"\u0623\u062D\u0630\u064A\u0629 \u062C\u062F\u064A\u062F\u0629 \u0644\u0643\u0644 \u0637\u0641\u0644 \u064A\u0633\u062A\u062D\u0642 \u0627\u0644\u0644\u0628\u0627\u0633 \u0627\u0644\u0643\u0627\u0645\u0644",
+    "needs.n3t":"\u0627\u0644\u0623\u0644\u0639\u0627\u0628 \u0648\u0627\u0644\u0647\u062F\u0627\u064A\u0627","needs.n3d":"\u0625\u062F\u062E\u0627\u0644 \u0627\u0644\u0641\u0631\u062D \u0627\u0644\u062D\u0642\u064A\u0642\u064A \u0648\u0627\u0644\u0644\u0639\u0628 \u0625\u0644\u0649 \u0639\u0627\u0644\u0645 \u0627\u0644\u0637\u0641\u0644",
+    "needs.n4t":"\u0627\u0644\u0644\u0648\u0627\u0632\u0645 \u0627\u0644\u0645\u062F\u0631\u0633\u064A\u0629","needs.n4d":"\u062D\u0642\u0627\u0626\u0628 \u0648\u0643\u062A\u0628 \u0648\u0642\u0631\u0637\u0627\u0633\u064A\u0629 \u0648\u0632\u064A \u0645\u062F\u0631\u0633\u064A",
+    "needs.n5t":"\u0627\u0644\u062F\u0631\u0648\u0633 \u0627\u0644\u062E\u0635\u0648\u0635\u064A\u0629","needs.n5d":"\u062F\u0639\u0645 \u0623\u0643\u0627\u062F\u064A\u0645\u064A \u0644\u0644\u0623\u0637\u0641\u0627\u0644 \u0627\u0644\u0645\u062A\u0623\u062E\u0631\u064A\u0646 \u062F\u0631\u0627\u0633\u064A\u0627\u064B",
+    "needs.n6t":"\u0627\u0644\u062F\u0648\u0627\u0621 \u0648\u0627\u0644\u0631\u0639\u0627\u064A\u0629 \u0627\u0644\u0635\u062D\u064A\u0629","needs.n6d":"\u0623\u062F\u0648\u064A\u0629 \u0648\u0632\u064A\u0627\u0631\u0627\u062A \u0637\u0628\u064A\u0629 \u0648\u0645\u0633\u062A\u0644\u0632\u0645\u0627\u062A \u0635\u062D\u064A\u0629",
+    "needs.n7t":"\u0627\u0644\u063A\u0630\u0627\u0621","needs.n7d":"\u0648\u062C\u0628\u0627\u062A \u0645\u063A\u0630\u064A\u0629 \u0644\u0644\u0623\u0637\u0641\u0627\u0644 \u0648\u0627\u0644\u0623\u0633\u0631 \u0627\u0644\u0645\u062D\u062A\u0627\u062C\u0629",
+    "needs.n8t":"\u0627\u0644\u0631\u062D\u0644\u0627\u062A","needs.n8d":"\u062A\u062C\u0627\u0631\u0628 \u0648\u062E\u0628\u0631\u0627\u062A \u0644\u0645 \u064A\u062D\u0638\u064E \u0628\u0647\u0627 \u0643\u062B\u064A\u0631 \u0645\u0646 \u0627\u0644\u0623\u0637\u0641\u0627\u0644",
+    "needs.n9t":"\u062F\u0639\u0645 \u0630\u0648\u064A \u0627\u0644\u0625\u0639\u0627\u0642\u0629","needs.n9d":"\u0645\u0639\u062F\u0627\u062A \u0648\u0639\u0644\u0627\u062C \u0648\u0631\u0639\u0627\u064A\u0629 \u0645\u062A\u062E\u0635\u0635\u0629",
+    "needs.active":"\u0646\u0634\u0637","needs.coming":"\u0642\u0631\u064A\u0628\u0627\u064B",
+    "donate.tag":"\u0623\u062D\u062F\u062B \u0641\u0631\u0642\u0627\u064B","donate.title":"\u0627\u062E\u062A\u0631 \u0645\u0633\u0627\u0647\u0645\u062A\u0643","donate.sub":"1 \u062F\u0648\u0644\u0627\u0631 \u2248 10 \u062F\u0631\u0627\u0647\u0645 \u0645\u063A\u0631\u0628\u064A\u0629. \u0646\u062C\u0645\u0639 \u0627\u0644\u062A\u0628\u0631\u0639\u0627\u062A \u0637\u0648\u0627\u0644 \u0627\u0644\u0639\u0627\u0645 \u0648\u0646\u0648\u0632\u0639\u0647\u0627 \u0641\u064A \u0627\u0644\u0648\u0642\u062A \u0627\u0644\u0645\u0646\u0627\u0633\u0628.",
+    "donate.c0sub":"\u2248 250 \u062F\u0631\u0647\u0645 \u00B7 \u0643\u0641\u0627\u0644\u0629 \u062C\u0632\u0626\u064A\u0629","donate.c0i1":"\u0632\u064A \u062C\u062F\u064A\u062F \u0623\u0648 \u0623\u062D\u0630\u064A\u0629 \u0644\u0637\u0641\u0644 \u0648\u0627\u062D\u062F","donate.c0i2":"\u064A\u064F\u062C\u0645\u0639 \u0645\u0639 \u062A\u0628\u0631\u0639\u0627\u062A \u0623\u062E\u0631\u0649 \u0644\u0643\u0641\u0627\u0644\u0629 \u0637\u0641\u0644 \u0643\u0627\u0645\u0644","donate.c0i3":"\u0643\u0644 \u0645\u0633\u0627\u0647\u0645\u0629 \u062A\u0635\u0646\u0639 \u0641\u0631\u0642\u0627\u064B \u062D\u0642\u064A\u0642\u064A\u0627\u064B","donate.c0btn":"\u062A\u0628\u0631\u0639 \u0628\u0640 25 $",
+    "donate.c1sub":"\u2248 500 \u062F\u0631\u0647\u0645 \u00B7 \u0643\u0641\u0627\u0644\u0629 \u0643\u0627\u0645\u0644\u0629 \u0644\u0637\u0641\u0644 \u0648\u0627\u062D\u062F","donate.c1i1":"\u0632\u064A \u062C\u062F\u064A\u062F \u0643\u0627\u0645\u0644 ~250-300 \u062F\u0631\u0647\u0645","donate.c1i2":"\u0632\u0648\u062C \u062C\u062F\u064A\u062F \u0645\u0646 \u0627\u0644\u0623\u062D\u0630\u064A\u0629 ~100-150 \u062F\u0631\u0647\u0645","donate.c1i3":"\u0644\u0639\u0628\u0629 \u0623\u0648 \u0647\u062F\u064A\u0629 \u0635\u063A\u064A\u0631\u0629 ~50-100 \u062F\u0631\u0647\u0645","donate.c1btn":"\u062A\u0628\u0631\u0639 \u0628\u0640 50 $",
+    "donate.featured":"\u0627\u0644\u0623\u0643\u062B\u0631 \u0633\u062E\u0627\u0621\u064B","donate.c2sub":"\u2248 1,000 \u062F\u0631\u0647\u0645 \u00B7 \u0643\u0641\u0627\u0644\u0629 \u0645\u0645\u064A\u0632\u0629","donate.c2i1":"\u0632\u064A \u0627\u062D\u062A\u0641\u0627\u0644\u064A \u0631\u0627\u0642\u064A ~400-500 \u062F\u0631\u0647\u0645","donate.c2i2":"\u0623\u062D\u0630\u064A\u0629 \u062C\u0648\u062F\u0629 \u0639\u0627\u0644\u064A\u0629 ~150-200 \u062F\u0631\u0647\u0645","donate.c2i3":"\u0644\u0639\u0628\u0629 \u0623\u0648 \u062D\u0642\u064A\u0628\u0629 \u0645\u0645\u064A\u0632\u0629 ~150-200 \u062F\u0631\u0647\u0645","donate.c2i4":"\u062D\u0644\u0648\u0649 \u0648\u0623\u0634\u064A\u0627\u0621 \u0645\u0648\u0633\u0645\u064A\u0629 ~100 \u062F\u0631\u0647\u0645","donate.c2btn":"\u062A\u0628\u0631\u0639 \u0628\u0640 100 $",
+    "donate.c3title":"\u062A\u0628\u0631\u0639 \u0623\u0643\u062B\u0631","donate.c3sub":"150 $+ \u00B7 \u0627\u0643\u0641\u0644 \u0623\u0637\u0641\u0627\u0644\u0627\u064B \u0645\u062A\u0639\u062F\u062F\u064A\u0646","donate.c3i1":"150 $ \u062A\u0643\u0641\u0644 3 \u0623\u0637\u0641\u0627\u0644 \u0628\u0640 50 $ \u0644\u0643\u0644 \u0645\u0646\u0647\u0645","donate.c3i2":"200 $ \u062A\u063A\u0637\u064A \u0627\u0644\u0643\u0641\u0627\u0644\u0629 \u0627\u0644\u0645\u0645\u064A\u0632\u0629 + \u0627\u0644\u0644\u0648\u0627\u0632\u0645 \u0627\u0644\u0645\u062F\u0631\u0633\u064A\u0629","donate.c3i3":"\u0623\u064A \u0645\u0628\u0644\u063A \u0645\u0631\u062D\u0628 \u0628\u0647","donate.c3i4":"\u0627\u0644\u0645\u062A\u0628\u0631\u0639\u0648\u0646 \u0627\u0644\u0645\u0646\u062A\u0638\u0645\u0648\u0646 \u0630\u0648\u0648 \u0642\u064A\u0645\u0629 \u062E\u0627\u0635\u0629","donate.c3btn":"\u062A\u0628\u0631\u0639 \u0628\u0623\u0643\u062B\u0631",
+    "donate.how_tag":"\u0643\u064A\u0641\u064A\u0629 \u0627\u0644\u0625\u0631\u0633\u0627\u0644","donate.how_title":"\u062A\u0648\u0627\u0635\u0644 \u0645\u0639\u0646\u0627 \u0644\u0644\u062D\u0635\u0648\u0644 \u0639\u0644\u0649 \u062A\u0641\u0627\u0635\u064A\u0644 \u0627\u0644\u062F\u0641\u0639","donate.how_text":"\u062A\u0648\u0627\u0635\u0644 \u0645\u0639\u0646\u0627 \u0644\u0644\u062D\u0635\u0648\u0644 \u0639\u0644\u0649 \u0628\u064A\u0627\u0646\u0627\u062A\u0646\u0627 \u0639\u0628\u0631 Zelle \u0623\u0648 Venmo \u0623\u0648 PayPal.",
+    "payment.tag":"\u062E\u064A\u0627\u0631\u0627\u062A \u0627\u0644\u062F\u0641\u0639","payment.title":"\u0637\u0631\u0642 \u0633\u0647\u0644\u0629 \u0644\u0644\u062A\u0628\u0631\u0639","payment.sub":"\u0623\u0631\u0633\u0644 \u062A\u0628\u0631\u0639\u0643 \u0639\u0628\u0631 \u0623\u064A \u0645\u0646 \u0647\u0630\u0647 \u0627\u0644\u0637\u0631\u0642 \u0627\u0644\u0645\u0631\u064A\u062D\u0629.",
+    "payment.zelle":"\u062A\u062D\u0648\u064A\u0644 \u0628\u0646\u0643\u064A \u0641\u0648\u0631\u064A \u2014 \u0628\u062F\u0648\u0646 \u0631\u0633\u0648\u0645","payment.venmo":"\u062F\u0641\u0639 \u0633\u0631\u064A\u0639 \u0648\u0633\u0647\u0644 \u0639\u0628\u0631 \u0627\u0644\u0647\u0627\u062A\u0641","payment.paypal":"\u062F\u0641\u0639 \u0622\u0645\u0646 \u0639\u0628\u0631 \u0627\u0644\u0625\u0646\u062A\u0631\u0646\u062A","payment.cash_name":"\u0646\u0642\u062F\u0627\u064B","payment.cash_note":"\u0634\u062E\u0635\u064A\u0627\u064B \u0639\u0646\u062F \u0627\u0644\u0644\u0642\u0627\u0621",
+    "payment.cta_bold":"\u0645\u0633\u062A\u0639\u062F \u0644\u0644\u062A\u0628\u0631\u0639\u061F","payment.cta_text":" \u062A\u0648\u0627\u0635\u0644 \u0645\u0639\u0646\u0627 \u0644\u0644\u062D\u0635\u0648\u0644 \u0639\u0644\u0649 \u0628\u064A\u0627\u0646\u0627\u062A \u0627\u0644\u062F\u0641\u0639. \u0633\u0646\u0624\u0643\u062F \u0627\u0633\u062A\u0644\u0627\u0645 \u0643\u0644 \u062A\u0628\u0631\u0639 \u0648\u0646\u0634\u0627\u0631\u0643 \u062A\u0642\u0631\u064A\u0631\u0627\u064B \u0643\u0627\u0645\u0644\u0627\u064B \u0628\u0639\u062F \u0643\u0644 \u062D\u0645\u0644\u0629.",
+    "team.tag":"\u0639\u0644\u0649 \u0623\u0631\u0636 \u0627\u0644\u0648\u0627\u0642\u0639","team.title":"\u062A\u0639\u0631\u0651\u0641 \u0639\u0644\u0649 \u0645\u0646\u0633\u0642\u064A\u0646\u0627","team.sub":"\u0645\u0646\u0633\u0642\u0648\u0646\u0627 \u0647\u0645 \u0642\u0644\u0628 Sponsor Kids 212 \u2014 \u0623\u0634\u062E\u0627\u0635 \u0645\u0648\u062B\u0648\u0642\u0648\u0646 \u064A\u0636\u0645\u0646\u0648\u0646 \u0648\u0635\u0648\u0644 \u0643\u0644 \u062A\u0628\u0631\u0639 \u0625\u0644\u0649 \u0645\u0643\u0627\u0646\u0647 \u0627\u0644\u0635\u062D\u064A\u062D.",
+    "team.role":"\u0645\u0646\u0633\u0642\u0629 \u0645\u062D\u0644\u064A\u0629",
+    "team.fz_bio":"\u0641\u0627\u0637\u0645\u0629 \u0627\u0644\u0632\u0647\u0631\u0627\u0621 \u0632\u0648\u062C\u0629 \u0648\u0623\u0645\u060C \u0648\u0645\u0648\u0638\u0641\u0629 \u0628\u062F\u0648\u0627\u0645 \u0643\u0627\u0645\u0644\u060C \u0648\u0637\u0627\u0644\u0628\u0629 \u062A\u0633\u0639\u0649 \u0644\u0644\u062D\u0635\u0648\u0644 \u0639\u0644\u0649 \u0634\u0647\u0627\u062F\u062A\u0647\u0627 \u0641\u064A \u0627\u0644\u0645\u0648\u0627\u0631\u062F \u0627\u0644\u0628\u0634\u0631\u064A\u0629 \u2014 \u0643\u0644 \u0630\u0644\u0643 \u0628\u064A\u0646\u0645\u0627 \u062A\u0643\u0631\u0651\u0633 \u0642\u0644\u0628\u0647\u0627 \u0644\u0644\u0639\u0645\u0644 \u0627\u0644\u0627\u062C\u062A\u0645\u0627\u0639\u064A \u0641\u064A \u0627\u0644\u062F\u0627\u0631 \u0627\u0644\u0628\u064A\u0636\u0627\u0621. \u062A\u0639\u0645\u0644 \u0645\u0628\u0627\u0634\u0631\u0629\u064B \u0645\u0639 \u0627\u0644\u0623\u0633\u0631 \u0648\u0627\u0644\u0623\u0637\u0641\u0627\u0644 \u0627\u0644\u0636\u0639\u0641\u0627\u0621.",
+    "team.tag1":"\u{1F46A} \u0627\u0644\u0623\u0633\u0631","team.tag2":"\u{1F476} \u0627\u0644\u0623\u0637\u0641\u0627\u0644","team.tag3":"\u{1F48A} \u0637\u0628\u064A","team.tag4":"\u{1F4DA} \u0645\u062F\u0631\u0633\u064A","team.tag5":"\u267F \u0625\u0639\u0627\u0642\u0629",
+    "team.expand":"\u0646\u0633\u0639\u0649 \u0644\u0644\u062A\u0648\u0633\u0639 \u0625\u0644\u0649 \u0645\u062F\u0646 \u0623\u062E\u0631\u0649 \u0641\u064A \u0627\u0644\u0645\u063A\u0631\u0628. \u062A\u0648\u0627\u0635\u0644 \u0645\u0639\u0646\u0627 \u0625\u0646 \u0643\u0646\u062A \u062A\u0639\u0631\u0641 \u0634\u062E\u0635\u0627\u064B \u0645\u0648\u062B\u0648\u0642\u0627\u064B.",
+    "gallery.tag":"\u0645\u0639\u0631\u0636 \u0627\u0644\u0635\u0648\u0631 \u0648\u0627\u0644\u0633\u062C\u0644\u0627\u062A","gallery.title":"\u0627\u0628\u062A\u0633\u0627\u0645\u0627\u062A \u0623\u062A\u0627\u062D\u062A\u0647\u0627 \u0643\u0631\u0645\u0643\u0645",
+    "gallery.note":"\u0644\u0627 \u062A\u064F\u0634\u0627\u0631\u0643 \u0627\u0644\u0635\u0648\u0631 \u0625\u0644\u0627 \u0628\u0645\u0648\u0627\u0641\u0642\u0629 \u0635\u0631\u064A\u062D\u0629 \u0645\u0646 \u0627\u0644\u0637\u0641\u0644 \u0648\u0648\u0644\u064A\u0651\u0647.",
+    "gallery.folder.photos":"\u0627\u0644\u0635\u0648\u0631","gallery.folder.receipts":"\u0627\u0644\u0625\u064A\u0635\u0627\u0644\u0627\u062A",
+    "gallery.drive.photos_title":"\u0639\u064A\u062F \u0627\u0644\u0641\u0637\u0631 2026 \u2014 \u0627\u0644\u0635\u0648\u0631","gallery.drive.photos_desc":"25 \u0635\u0648\u0631\u0629 \u00B7 \u0645\u0634\u062A\u0631\u0643 \u0639\u0644\u0649 Google Drive",
+    "gallery.drive.receipts_title":"\u0639\u064A\u062F \u0627\u0644\u0641\u0637\u0631 2026 \u2014 \u0627\u0644\u0625\u064A\u0635\u0627\u0644\u0627\u062A","gallery.drive.receipts_desc":"4 \u0625\u064A\u0635\u0627\u0644\u0627\u062A \u00B7 \u0645\u0634\u062A\u0631\u0643 \u0639\u0644\u0649 Google Drive",
+    "gallery.future":"\u0627\u0644\u062D\u0645\u0644\u0627\u062A \u0627\u0644\u0642\u0627\u062F\u0645\u0629","gallery.coming":"\u0633\u062A\u0638\u0647\u0631 \u0647\u0646\u0627",
+    "trans.tag":"\u0634\u0641\u0627\u0641\u064A\u0629 \u0643\u0627\u0645\u0644\u0629","trans.title":"\u062B\u0642\u062A\u0643\u0645 \u062A\u0647\u0645\u0651\u0646\u0627","trans.sub":"\u0646\u0644\u062A\u0632\u0645 \u0628\u0627\u0644\u0645\u0633\u0627\u0621\u0644\u0629 \u0627\u0644\u0643\u0627\u0645\u0644\u0629.",
+    "trans.c1t":"\u0646\u0634\u0631 \u0627\u0644\u0625\u064A\u0635\u0627\u0644\u0627\u062A","trans.c1d":"\u0643\u0644 \u0639\u0645\u0644\u064A\u0629 \u0634\u0631\u0627\u0621 \u0641\u064A \u0627\u0644\u0645\u063A\u0631\u0628 \u0645\u0648\u062B\u0642\u0629 \u0648\u062A\u064F\u0634\u0627\u0631\u0643 \u0645\u0639 \u062C\u0645\u064A\u0639 \u0627\u0644\u0645\u062A\u0628\u0631\u0639\u064A\u0646.",
+    "trans.c2t":"\u062A\u0642\u0627\u0631\u064A\u0631 \u0645\u0641\u0635\u0644\u0629","trans.c2d":"\u064A\u064F\u0634\u0627\u0631\u0643 \u0645\u0644\u062E\u0635 \u0643\u0627\u0645\u0644 \u0628\u0645\u0627 \u062A\u0645 \u0634\u0631\u0627\u0624\u0647 \u0648\u0644\u0645\u0646 \u0648\u0628\u0623\u064A \u062A\u0643\u0644\u0641\u0629.",
+    "trans.c3t":"\u0645\u0646\u0633\u0642 \u0645\u062D\u0644\u064A \u0645\u0648\u062B\u0648\u0642","trans.c3d":"\u0627\u0644\u0634\u062E\u0635 \u0627\u0644\u0645\u0633\u062A\u0644\u0645 \u0648\u0627\u0644\u0645\u0646\u0641\u0642 \u0644\u0644\u0623\u0645\u0648\u0627\u0644 \u0641\u064A \u0627\u0644\u0645\u063A\u0631\u0628 \u0645\u0639\u0631\u0648\u0641 \u0634\u062E\u0635\u064A\u0627\u064B \u0648\u0645\u0639\u062A\u0645\u062F \u0645\u0646 \u0645\u062C\u062A\u0645\u0639\u0646\u0627.",
+    "trans.c4t":"\u0635\u0641\u0631 \u062A\u0643\u0627\u0644\u064A\u0641 \u0625\u062F\u0627\u0631\u064A\u0629","trans.c4d":"100% \u0645\u0646 \u0643\u0644 \u062A\u0628\u0631\u0639 \u064A\u0635\u0644 \u0644\u0644\u0623\u0637\u0641\u0627\u0644. \u0644\u0627 \u0631\u0633\u0648\u0645 \u0625\u062F\u0627\u0631\u064A\u0629\u060C \u0644\u0627 \u0639\u0645\u0648\u0644\u0627\u062A\u060C \u0644\u0627 \u0631\u0648\u0627\u062A\u0628.",
+    "trans.rp_title":"\u0627\u0644\u0625\u064A\u0635\u0627\u0644\u0627\u062A \u0648\u062A\u0642\u0627\u0631\u064A\u0631 \u0627\u0644\u062D\u0645\u0644\u0627\u062A","trans.rp_text":"\u0633\u062A\u064F\u0646\u0634\u0631 \u0647\u0646\u0627 \u0625\u064A\u0635\u0627\u0644\u0627\u062A \u0627\u0644\u0634\u0631\u0627\u0621 \u0648\u0645\u0644\u062E\u0635\u0627\u062A \u0627\u0644\u0625\u0646\u0641\u0627\u0642 \u0628\u0639\u062F \u0643\u0644 \u062D\u0645\u0644\u0629.",
+    "dua.translation":"\u00AB\u0645\u0646 \u0646\u0641\u0651\u0633 \u0639\u0646 \u0645\u0624\u0645\u0646 \u0643\u0631\u0628\u0629\u064B \u0645\u0646 \u0643\u0631\u0628 \u0627\u0644\u062F\u0646\u064A\u0627\u060C \u0646\u0641\u0651\u0633 \u0627\u0644\u0644\u0647 \u0639\u0646\u0647 \u0643\u0631\u0628\u0629\u064B \u0645\u0646 \u0643\u0631\u0628 \u064A\u0648\u0645 \u0627\u0644\u0642\u064A\u0627\u0645\u0629\u00BB",
+    "dua.source":"\u0635\u062D\u064A\u062D \u0645\u0633\u0644\u0645 \u00B7 \u062C\u0632\u0627\u0643\u0645 \u0627\u0644\u0644\u0647 \u062E\u064A\u0631\u0627\u064B \u0648\u0623\u0647\u0644\u0643\u0645. \u0622\u0645\u064A\u0646. \u{1F932}",
+    "footer.tagline":"\u0645\u0633\u0627\u0639\u062F\u0629 \u0627\u0644\u0623\u0637\u0641\u0627\u0644 \u0641\u064A \u0627\u0644\u0645\u063A\u0631\u0628","footer.sub":"\u0645\u0628\u0627\u062F\u0631\u0629 \u0645\u062C\u062A\u0645\u0639\u064A\u0629 \u0645\u0646 \u0645\u063A\u0627\u0631\u0628\u0629 \u0627\u0644\u0645\u0647\u062C\u0631"
   },
   es:{
-    "nav.mission":"Misión","nav.needs":"Necesidades","nav.team":"Equipo","nav.gallery":"Galería","nav.receipts":"Recibos","nav.donate":"Donar ahora",
-    "hero.badge":"🇲🇦 Dar a tu yo de la infancia","hero.h1":"Sé la bendición<br>que una vez <em>necesitaste.</em>",
-    "hero.tagline":"Todo niño merece vivir la alegría — ayúdanos a hacerlo realidad.",
-    "hero.sub":"Arraigado en el espíritu de la sadaqah, Sponsor Kids 212 canaliza la generosidad de nuestra comunidad para brindar apoyo esencial y alegría sincera a los niños huérfanos, discapacitados y empobrecidos de Marruecos.",
+    "nav.mission":"Misi\u00F3n","nav.needs":"Necesidades","nav.team":"Equipo","nav.gallery":"Galer\u00EDa","nav.receipts":"Recibos","nav.donate":"Donar ahora",
+    "hero.badge":"\u{1F1F2}\u{1F1E6} Dar a tu yo de la infancia","hero.h1":"S\u00E9 la bendici\u00F3n<br>que una vez <em>necesitaste.</em>",
+    "hero.tagline":"Todo ni\u00F1o merece vivir la alegr\u00EDa \u2014 ay\u00FAdanos a hacerlo realidad.",
+    "hero.sub":"Arraigado en el esp\u00EDritu de la sadaqah, Sponsor Kids 212 canaliza la generosidad de nuestra comunidad para brindar apoyo esencial y alegr\u00EDa sincera a los ni\u00F1os hu\u00E9rfanos, discapacitados y empobrecidos de Marruecos.",
     "hero.btn1":"Donar ahora","hero.btn2":"Nuestra historia",
-    "stats.s1":"va directamente a los niños","stats.s2":"patrocina a un niño","stats.s3":"días al año recaudamos","stats.s4":"nuestras raíces, nuestra causa",
-    "mission.tag":"Nuestra Misión","mission.title":"Llevando dignidad y alegría a los niños vulnerables",
-    "mission.p1":"Somos un grupo de amigos marroquíes viviendo en el extranjero que creen en devolver algo al país y a las comunidades que nos formaron.",
-    "mission.p2":"Hemos identificado niños en Marruecos que son huérfanos, viven con discapacidades, tienen padres ausentes o discapacitados, o viven en extrema pobreza. Los apoyamos durante todo el año con ropa, regalos y artículos esenciales.",
-    "mission.p3":"Nuestra visión a largo plazo es expandir nuestro apoyo para cubrir gastos escolares, tutoría, atención médica, excursiones, alimentos y más. Cada campaña es totalmente transparente.",
-    "mission.p4":"Los niños han sido identificados. La persona que recibe fondos en Marruecos es de confianza. Tu donación va exactamente donde debe ir.",
-    "mission.quote1":"«La sombra del creyente el Día de la Resurrección será su caridad.»","mission.attr1":"— Profeta Muhammad ﷺ",
-    "mission.quote2":"«Quien alivie la angustia de un creyente en este mundo, Allah le aliviará una dificultad en el Día del Juicio.»","mission.attr2":"— Sahih Muslim",
-    "who.tag":"A quién ayudamos","who.title":"Los niños que más nos necesitan","who.sub":"Cada niño en nuestro programa ha sido identificado individualmente por un coordinador local de confianza en Marruecos.",
-    "who.t1":"🌿 Niños huérfanos","who.t2":"♿ Niños con discapacidad","who.t3":"👤 Niños con padres ausentes","who.t4":"🤲 Niños con padres discapacitados","who.t5":"🏚️ Niños en extrema pobreza",
-    "who.privacy_title":"La privacidad primero.","who.privacy_text":" Las identidades de los niños están protegidas. Las fotos solo se comparten con permiso explícito del niño y su tutor. Ningún niño será reducido a un caso de caridad — son vistos, respetados y celebrados.",
-    "needs.tag":"Dónde va tu donación","needs.title":"Necesidades que financiamos","needs.sub":"Comenzamos con donaciones estacionales y crecemos durante todo el año:",
+    "stats.s1":"va directamente a los ni\u00F1os","stats.s2":"patrocina a un ni\u00F1o","stats.s3":"d\u00EDas al a\u00F1o recaudamos","stats.s4":"nuestras ra\u00EDces, nuestra causa",
+    "mission.tag":"Nuestra Misi\u00F3n","mission.title":"Llevando dignidad y alegr\u00EDa a los ni\u00F1os vulnerables",
+    "mission.p1":"Somos un grupo de amigos marroqu\u00EDes viviendo en el extranjero que creen en devolver algo al pa\u00EDs y a las comunidades que nos formaron.",
+    "mission.p2":"Hemos identificado ni\u00F1os en Marruecos que son hu\u00E9rfanos, viven con discapacidades, tienen padres ausentes o discapacitados, o viven en extrema pobreza.",
+    "mission.p3":"Nuestra visi\u00F3n es expandir nuestro apoyo para cubrir gastos escolares, tutor\u00EDa, atenci\u00F3n m\u00E9dica, excursiones, alimentos y m\u00E1s.",
+    "mission.p4":"Los ni\u00F1os han sido identificados. La persona que recibe fondos en Marruecos es de confianza. Tu donaci\u00F3n va exactamente donde debe ir.",
+    "mission.quote1":"\u00ABLa sombra del creyente el D\u00EDa de la Resurrecci\u00F3n ser\u00E1 su caridad.\u00BB","mission.attr1":"\u2014 Profeta Muhammad \uFDFA",
+    "mission.quote2":"\u00ABQuien alivie la angustia de un creyente en este mundo, Allah le aliviar\u00E1 una dificultad en el D\u00EDa del Juicio.\u00BB","mission.attr2":"\u2014 Sahih Muslim",
+    "who.tag":"A qui\u00E9n ayudamos","who.title":"Los ni\u00F1os que m\u00E1s nos necesitan","who.sub":"Cada ni\u00F1o en nuestro programa ha sido identificado individualmente por un coordinador local de confianza en Marruecos.",
+    "who.t1":"\u{1F33F} Ni\u00F1os hu\u00E9rfanos","who.t2":"\u267F Ni\u00F1os con discapacidad","who.t3":"\u{1F464} Ni\u00F1os con padres ausentes","who.t4":"\u{1F932} Ni\u00F1os con padres discapacitados","who.t5":"\u{1F3DA}\uFE0F Ni\u00F1os en extrema pobreza",
+    "who.privacy_title":"La privacidad primero.","who.privacy_text":" Las identidades de los ni\u00F1os est\u00E1n protegidas. Las fotos solo se comparten con permiso expl\u00EDcito del ni\u00F1o y su tutor.",
+    "needs.tag":"D\u00F3nde va tu donaci\u00F3n","needs.title":"Necesidades que financiamos","needs.sub":"Comenzamos con donaciones estacionales y crecemos durante todo el a\u00F1o:",
     "needs.n1t":"Ropa","needs.n1d":"Ropa nueva para celebraciones y uso diario",
-    "needs.n2t":"Zapatos","needs.n2d":"Zapatos nuevos para que cada niño esté bien vestido",
-    "needs.n3t":"Juguetes y Regalos","needs.n3d":"Llevar alegría y juego al mundo de un niño",
-    "needs.n4t":"Útiles escolares","needs.n4d":"Mochilas, libros, papelería y uniformes escolares",
-    "needs.n5t":"Tutoría","needs.n5d":"Apoyo académico para niños que van rezagados",
-    "needs.n6t":"Medicina y Salud","needs.n6d":"Medicamentos, visitas médicas y suministros de salud",
-    "needs.n7t":"Alimentación","needs.n7d":"Comidas nutritivas para niños y familias en dificultades",
-    "needs.n8t":"Excursiones","needs.n8d":"Salidas y experiencias que muchos niños nunca han tenido",
+    "needs.n2t":"Zapatos","needs.n2d":"Zapatos nuevos para que cada ni\u00F1o est\u00E9 bien vestido",
+    "needs.n3t":"Juguetes y Regalos","needs.n3d":"Llevar alegr\u00EDa y juego al mundo de un ni\u00F1o",
+    "needs.n4t":"\u00DAtiles escolares","needs.n4d":"Mochilas, libros, papeler\u00EDa y uniformes escolares",
+    "needs.n5t":"Tutor\u00EDa","needs.n5d":"Apoyo acad\u00E9mico para ni\u00F1os que van rezagados",
+    "needs.n6t":"Medicina y Salud","needs.n6d":"Medicamentos, visitas m\u00E9dicas y suministros de salud",
+    "needs.n7t":"Alimentaci\u00F3n","needs.n7d":"Comidas nutritivas para ni\u00F1os y familias en dificultades",
+    "needs.n8t":"Excursiones","needs.n8d":"Salidas y experiencias que muchos ni\u00F1os nunca han tenido",
     "needs.n9t":"Apoyo a discapacitados","needs.n9d":"Equipos, terapia y cuidados especializados",
-    "needs.active":"Activo","needs.coming":"Próximamente",
-    "donate.tag":"Marca la diferencia","donate.title":"Elige tu contribución","donate.sub":"1 $ ≈ 10 Dírhams marroquíes. Recaudamos durante todo el año y distribuimos cuando más importa — Eid al-Fitr, Eid al-Adha, vuelta al cole, o necesidades urgentes como gastos médicos. Da lo que puedas — ninguna cantidad es demasiado pequeña.",
-    "donate.c1sub":"≈ 500 MAD · Patrocinio completo de un niño","donate.c1i1":"Un conjunto nuevo completo ~250–300 MAD","donate.c1i2":"Un par de zapatos nuevos ~100–150 MAD","donate.c1i3":"Un juguete o regalo pequeño ~50–100 MAD","donate.c1btn":"Donar 50 $",
-    "donate.featured":"Más generoso","donate.c2sub":"≈ 1.000 MAD · Patrocinio premium","donate.c2i1":"Un conjunto de celebración de calidad ~400–500 MAD","donate.c2i2":"Zapatos de calidad ~150–200 MAD","donate.c2i3":"Un juguete o mochila especial ~150–200 MAD","donate.c2i4":"Golosinas y dulces estacionales ~100 MAD","donate.c2btn":"Donar 100 $",
-    "donate.c3title":"Dar más","donate.c3sub":"150 $+ · Patrocinar varios niños","donate.c3i1":"150 $ patrocina 3 niños a 50 $ cada uno","donate.c3i2":"200 $ cubre premium + útiles escolares","donate.c3i3":"Cualquier cantidad es bienvenida","donate.c3i4":"Los donantes anuales son especialmente valorados","donate.c3btn":"Donar más",
-    "donate.how_tag":"Cómo enviar","donate.how_title":"Contáctanos para obtener los datos de pago","donate.how_text":"Escríbenos para recibir nuestros datos de Zelle, Venmo o PayPal — o da en efectivo cuando nos veamos.",
-    "payment.tag":"Opciones de pago","payment.title":"Formas fáciles de donar","payment.sub":"Envía tu donación a través de cualquiera de estos métodos. Contáctanos directamente para los detalles.",
-    "payment.zelle":"Transferencia bancaria instantánea — sin comisiones","payment.venmo":"Pago móvil rápido y fácil","payment.paypal":"Pago seguro en línea","payment.cash_name":"Efectivo","payment.cash_note":"En persona cuando nos veamos",
-    "payment.cta_bold":"¿Listo para donar?","payment.cta_text":" Contáctanos para obtener nuestros datos. Confirmaremos cada donación y compartiremos un informe completo después de cada campaña.",
-    "team.tag":"Sobre el terreno","team.title":"Conoce a nuestros coordinadores","team.sub":"Nuestros coordinadores son el corazón de Sponsor Kids 212 — personas de confianza integradas en sus comunidades que identifican a los niños y garantizan que cada donación llegue a las manos correctas.",
-    "team.role":"Coordinadora local","team.fz_bio":"Fatima Zahra es esposa, madre de una niña de tres años y una trabajadora comunitaria profundamente compasiva con base en Casablanca. Trabaja directamente con familias y niños vulnerables, conectándolos con la ropa, alimentos, apoyo médico, recursos escolares y asistencia para discapacitados que necesitan.",
-    "team.tag1":"👨‍👩‍👧 Familias","team.tag2":"🧒 Niños","team.tag3":"💊 Médico","team.tag4":"📚 Escuela","team.tag5":"♿ Discapacidad",
-    "team.expand":"Buscamos expandirnos a otras ciudades de Marruecos. Si conoces a alguien de confianza que desee ser coordinador local voluntario, contáctanos.",
-    "gallery.tag":"Galería","gallery.title":"Sonrisas posibles gracias a tu generosidad","gallery.note":"Las fotos se comparten solo con el consentimiento explícito del niño y su tutor.",
-    "gallery.p1":"Fotos de los niños<br><span style='opacity:0.7'>solo con consentimiento</span>","gallery.p2":"Regalos comprados<br><span style='opacity:0.7'>aparecerán aquí</span>","gallery.p3":"Recibos de compra<br><span style='opacity:0.7'>aparecerán aquí</span>","gallery.p4":"Momentos especiales<br><span style='opacity:0.7'>compartidos tras cada campaña</span>",
-    "trans.tag":"Transparencia total","trans.title":"Tu confianza nos importa","trans.sub":"Estamos comprometidos con la responsabilidad total. Así es como se rastrea cada dólar.",
-    "trans.c1t":"Recibos publicados","trans.c1d":"Cada compra en Marruecos está documentada. Los recibos se fotografían y comparten con todos los donantes.",
-    "trans.c2t":"Informes detallados","trans.c2d":"Un desglose completo de lo comprado, para quién y a qué costo se comparte después de cada ciclo.",
-    "trans.c3t":"Coordinador local de confianza","trans.c3d":"La persona que recibe y gasta los fondos en Marruecos es personalmente conocida y de confianza para nuestra comunidad.",
-    "trans.c4t":"Cero gastos generales","trans.c4d":"El 100% de cada donación llega a los niños. Sin gastos administrativos, sin comisiones, sin salarios.",
-    "trans.rp_title":"Recibos e informes de campaña","trans.rp_text":"Los recibos y resúmenes de gastos se publicarán aquí después de cada campaña.",
-    "dua.translation":"«Quien alivie la angustia de un creyente en este mundo, Allah le aliviará una dificultad en el Día del Juicio.»",
-    "dua.source":"Sahih Muslim · Que Allah os recompense a vosotros y a vuestros seres queridos. Ameen. 🤲",
-    "footer.tagline":"Ayudando a los niños en Marruecos","footer.sub":"Una iniciativa comunitaria de marroquíes en el extranjero"
+    "needs.active":"Activo","needs.coming":"Pr\u00F3ximamente",
+    "donate.tag":"Marca la diferencia","donate.title":"Elige tu contribuci\u00F3n","donate.sub":"1 $ \u2248 10 D\u00EDrhams marroqu\u00EDes. Recaudamos todo el a\u00F1o y distribuimos cuando m\u00E1s importa. Da lo que puedas.",
+    "donate.c0sub":"\u2248 250 MAD \u00B7 Patrocinio parcial","donate.c0i1":"Ropa nueva o zapatos para un ni\u00F1o","donate.c0i2":"Combinado con otros para patrocinar a un ni\u00F1o","donate.c0i3":"Cada contribuci\u00F3n marca una diferencia real","donate.c0btn":"Donar 25 $",
+    "donate.c1sub":"\u2248 500 MAD \u00B7 Patrocinio completo de un ni\u00F1o","donate.c1i1":"Un conjunto nuevo completo ~250\u2013300 MAD","donate.c1i2":"Un par de zapatos nuevos ~100\u2013150 MAD","donate.c1i3":"Un juguete o regalo peque\u00F1o ~50\u2013100 MAD","donate.c1btn":"Donar 50 $",
+    "donate.featured":"M\u00E1s generoso","donate.c2sub":"\u2248 1.000 MAD \u00B7 Patrocinio premium","donate.c2i1":"Un conjunto de celebraci\u00F3n de calidad ~400\u2013500 MAD","donate.c2i2":"Zapatos de calidad ~150\u2013200 MAD","donate.c2i3":"Un juguete o mochila especial ~150\u2013200 MAD","donate.c2i4":"Golosinas y dulces estacionales ~100 MAD","donate.c2btn":"Donar 100 $",
+    "donate.c3title":"Dar m\u00E1s","donate.c3sub":"150 $+ \u00B7 Patrocinar varios ni\u00F1os","donate.c3i1":"150 $ patrocina 3 ni\u00F1os a 50 $ cada uno","donate.c3i2":"200 $ cubre premium + \u00FAtiles escolares","donate.c3i3":"Cualquier cantidad es bienvenida","donate.c3i4":"Los donantes anuales son especialmente valorados","donate.c3btn":"Donar m\u00E1s",
+    "donate.how_tag":"C\u00F3mo enviar","donate.how_title":"Cont\u00E1ctanos para obtener los datos de pago","donate.how_text":"Escr\u00EDbenos para recibir nuestros datos de Zelle, Venmo o PayPal.",
+    "payment.tag":"Opciones de pago","payment.title":"Formas f\u00E1ciles de donar","payment.sub":"Env\u00EDa tu donaci\u00F3n a trav\u00E9s de cualquiera de estos m\u00E9todos.",
+    "payment.zelle":"Transferencia bancaria instant\u00E1nea \u2014 sin comisiones","payment.venmo":"Pago m\u00F3vil r\u00E1pido y f\u00E1cil","payment.paypal":"Pago seguro en l\u00EDnea","payment.cash_name":"Efectivo","payment.cash_note":"En persona cuando nos veamos",
+    "payment.cta_bold":"\u00BFListo para donar?","payment.cta_text":" Cont\u00E1ctanos para obtener nuestros datos. Confirmaremos cada donaci\u00F3n y compartiremos un informe completo.",
+    "team.tag":"Sobre el terreno","team.title":"Conoce a nuestros coordinadores","team.sub":"Nuestros coordinadores son el coraz\u00F3n de Sponsor Kids 212 \u2014 personas de confianza que garantizan que cada donaci\u00F3n llegue a las manos correctas.",
+    "team.role":"Coordinadora local",
+    "team.fz_bio":"Fatima Zahra es esposa, madre, profesional a tiempo completo y estudiante que cursa su licenciatura en Recursos Humanos \u2014 todo mientras dedica su coraz\u00F3n al servicio comunitario en Casablanca. Trabaja directamente con familias y ni\u00F1os vulnerables.",
+    "team.tag1":"\u{1F46A} Familias","team.tag2":"\u{1F476} Ni\u00F1os","team.tag3":"\u{1F48A} M\u00E9dico","team.tag4":"\u{1F4DA} Escuela","team.tag5":"\u267F Discapacidad",
+    "team.expand":"Buscamos expandirnos a otras ciudades de Marruecos. Si conoces a alguien de confianza, cont\u00E1ctanos.",
+    "gallery.tag":"Galer\u00EDa y Archivos","gallery.title":"Sonrisas posibles gracias a tu generosidad",
+    "gallery.note":"Las fotos se comparten solo con el consentimiento expl\u00EDcito del ni\u00F1o y su tutor.",
+    "gallery.folder.photos":"Fotos","gallery.folder.receipts":"Recibos",
+    "gallery.drive.photos_title":"Eid El-Fitr 2026 \u2014 Fotos","gallery.drive.photos_desc":"25 fotos \u00B7 Compartido en Google Drive \u00B7 Abre en nueva pesta\u00F1a",
+    "gallery.drive.receipts_title":"Eid El-Fitr 2026 \u2014 Recibos","gallery.drive.receipts_desc":"4 recibos \u00B7 Compartido en Google Drive \u00B7 Abre en nueva pesta\u00F1a",
+    "gallery.future":"Campa\u00F1as futuras","gallery.coming":"aparecer\u00E1n aqu\u00ED",
+    "trans.tag":"Transparencia total","trans.title":"Tu confianza nos importa","trans.sub":"Estamos comprometidos con la responsabilidad total.",
+    "trans.c1t":"Recibos publicados","trans.c1d":"Cada compra en Marruecos est\u00E1 documentada y compartida con todos los donantes.",
+    "trans.c2t":"Informes detallados","trans.c2d":"Un desglose completo de lo comprado, para qui\u00E9n y a qu\u00E9 costo.",
+    "trans.c3t":"Coordinador local de confianza","trans.c3d":"La persona que recibe y gasta los fondos en Marruecos es de confianza para nuestra comunidad.",
+    "trans.c4t":"Cero gastos generales","trans.c4d":"El 100% de cada donaci\u00F3n llega a los ni\u00F1os. Sin gastos administrativos ni comisiones.",
+    "trans.rp_title":"Recibos e informes de campa\u00F1a","trans.rp_text":"Los recibos y res\u00FAmenes de gastos se publicar\u00E1n aqu\u00ED despu\u00E9s de cada campa\u00F1a.",
+    "dua.translation":"\u00ABQuien alivie la angustia de un creyente en este mundo, Allah le aliviar\u00E1 una dificultad en el D\u00EDa del Juicio.\u00BB",
+    "dua.source":"Sahih Muslim \u00B7 Que Allah os recompense a vosotros y a vuestros seres queridos. Ameen. \u{1F932}",
+    "footer.tagline":"Ayudando a los ni\u00F1os en Marruecos","footer.sub":"Una iniciativa comunitaria de marroqu\u00EDes en el extranjero"
   }
 };
+
+
+function toggleYear(el){
+  const body=el.nextElementSibling;
+  const chevron=el.querySelector('.archive-chevron');
+  body.classList.toggle('hidden');
+  chevron.classList.toggle('rotated');
+}
+function toggleEvent(el){
+  const body=el.nextElementSibling;
+  const chevron=el.querySelector('.archive-chevron.small');
+  body.classList.toggle('hidden');
+  if(chevron)chevron.classList.toggle('rotated');
+}
+function openLightbox(src){
+  document.getElementById('lightbox-img').src=src;
+  document.getElementById('lightbox').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closeLightbox(){
+  document.getElementById('lightbox').classList.remove('open');
+  document.getElementById('lightbox-img').src='';
+  document.body.style.overflow='';
+}
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeLightbox();});
 
 const pageTitles = {
   en:"Sponsor Kids 212 — Helping Children in Morocco",
@@ -710,6 +958,7 @@ function setLang(lang) {
   document.documentElement.lang = lang;
   document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
   document.querySelectorAll('[data-i18n]').forEach(el => {
+    if (el.closest('.media-tabs')) return;
     const key = el.getAttribute('data-i18n');
     if (t[key] !== undefined) el.innerHTML = t[key];
   });

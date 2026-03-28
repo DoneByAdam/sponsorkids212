@@ -133,12 +133,6 @@
   .payment-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:16px;}
   .payment-card{background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);border-radius:14px;padding:28px 20px;text-align:center;transition:background 0.2s,transform 0.2s;}
   .payment-card:hover{background:rgba(255,255,255,0.18);transform:translateY(-2px);}
-  .payment-card-link{text-decoration:none;cursor:pointer;display:block;}
-  .payment-card-link:hover{background:rgba(255,255,255,0.22);transform:translateY(-3px);box-shadow:0 8px 24px rgba(0,0,0,0.15);}
-  .payment-card-pending{opacity:0.7;cursor:default;}
-  .payment-card-pending:hover{background:rgba(255,255,255,0.1);transform:none;}
-  .payment-badge-go{display:inline-block;margin-top:12px;background:var(--red);color:white;font-size:12px;font-weight:500;padding:5px 14px;border-radius:20px;letter-spacing:0.3px;}
-  .payment-badge-soon{display:inline-block;margin-top:12px;background:rgba(255,255,255,0.15);color:rgba(255,255,255,0.7);font-size:12px;font-weight:500;padding:5px 14px;border-radius:20px;border:1px dashed rgba(255,255,255,0.3);letter-spacing:0.3px;}
   .payment-icon{font-size:32px;margin-bottom:12px;line-height:1;}
   .payment-name{font-weight:500;font-size:18px;color:white;margin-bottom:4px;}
   .payment-note{font-size:13px;color:rgba(255,255,255,0.6);}
@@ -427,7 +421,7 @@
           <li><span class="check">✓</span><span data-i18n="donate.c0i2">Combined with others to fully sponsor a child</span></li>
           <li><span class="check">✓</span><span data-i18n="donate.c0i3">Every contribution makes a real difference</span></li>
         </ul>
-        <a href="https://www.paypal.com/donate/?hosted_button_id=8RAXLSWV7EJQ4" target="_blank" rel="noopener" class="donate-link" data-i18n="donate.c0btn">Donate $25</a>
+        <a href="#payment-methods" class="donate-link" data-i18n="donate.c0btn">Donate $25</a>
       </div>
 
       <!-- $50 -->
@@ -439,7 +433,7 @@
           <li><span class="check">✓</span><span data-i18n="donate.c1i2">A new pair of shoes ~100–150 MAD</span></li>
           <li><span class="check">✓</span><span data-i18n="donate.c1i3">A toy or small gift ~50–100 MAD</span></li>
         </ul>
-        <a href="https://www.paypal.com/donate/?hosted_button_id=8RAXLSWV7EJQ4" target="_blank" rel="noopener" class="donate-link" data-i18n="donate.c1btn">Donate $50</a>
+        <a href="#payment-methods" class="donate-link" data-i18n="donate.c1btn">Donate $50</a>
       </div>
 
       <!-- $100 -->
@@ -453,7 +447,7 @@
           <li><span class="check">✓</span><span data-i18n="donate.c2i3">A meaningful toy or backpack ~150–200 MAD</span></li>
           <li><span class="check">✓</span><span data-i18n="donate.c2i4">Treats and seasonal sweets ~100 MAD</span></li>
         </ul>
-        <a href="https://www.paypal.com/donate/?hosted_button_id=8RAXLSWV7EJQ4" target="_blank" rel="noopener" class="donate-link" data-i18n="donate.c2btn">Donate $100</a>
+        <a href="#payment-methods" class="donate-link" data-i18n="donate.c2btn">Donate $100</a>
       </div>
 
       <!-- Give More -->
@@ -466,14 +460,14 @@
           <li><span class="check">✓</span><span data-i18n="donate.c3i3">Any amount is welcome</span></li>
           <li><span class="check">✓</span><span data-i18n="donate.c3i4">Annual recurring donors especially valued</span></li>
         </ul>
-        <a href="https://www.paypal.com/donate/?hosted_button_id=8RAXLSWV7EJQ4" target="_blank" rel="noopener" class="donate-link" data-i18n="donate.c3btn">Donate More</a>
+        <a href="#payment-methods" class="donate-link" data-i18n="donate.c3btn">Donate More</a>
       </div>
 
     </div>
     <div style="background:var(--green-light);border:1px solid #b2dfb4;border-radius:16px;padding:28px 36px;">
       <div style="font-size:11px;letter-spacing:3px;font-weight:500;text-transform:uppercase;color:var(--red);margin-bottom:6px;" data-i18n="donate.how_tag">How to Send</div>
-      <h3 style="font-family:'Playfair Display',serif;font-size:20px;font-weight:400;color:var(--dark);margin-bottom:8px;" data-i18n="donate.how_title">Donate securely online — or contact us for Zelle</h3>
-      <p style="color:var(--muted);font-size:14.5px;" data-i18n="donate.how_text">You can donate instantly using the buttons above via PayPal, Venmo, or credit/debit card. For Zelle, details are coming soon — contact us at sponsorkids212@gmail.com and we'll follow up. Every donation is acknowledged and every purchase documented.</p>
+      <h3 style="font-family:'Playfair Display',serif;font-size:20px;font-weight:400;color:var(--dark);margin-bottom:8px;" data-i18n="donate.how_title">Contact us to get payment details</h3>
+      <p style="color:var(--muted);font-size:14.5px;" data-i18n="donate.how_text">Reach out to receive our Zelle, Venmo, or PayPal details — or give cash when we meet. Every donation is acknowledged and every purchase documented with a receipt.</p>
     </div>
   </div>
 </section>
@@ -483,31 +477,18 @@
   <div class="section-inner">
     <div class="section-tag" data-i18n="payment.tag">Payment Options</div>
     <h2 class="section-title" data-i18n="payment.title">Easy ways to donate</h2>
-    <p class="section-sub" data-i18n="payment.sub">Donate instantly online, or contact us for Zelle details coming soon.</p>
+    <p class="section-sub" data-i18n="payment.sub">Send your donation through any of these convenient methods. Contact us directly for account details.</p>
     <div class="payment-grid">
-
-      <!-- PayPal / Venmo / Card — combined -->
-      <a href="https://www.paypal.com/donate/?hosted_button_id=8RAXLSWV7EJQ4" target="_blank" rel="noopener" class="payment-card payment-card-link">
-        <div class="payment-icon">💳</div>
-        <div class="payment-name" data-i18n="payment.online_name">PayPal, Venmo &amp; Card</div>
-        <div class="payment-note" data-i18n="payment.online_note">Donate instantly — opens PayPal</div>
-        <div class="payment-badge-go" data-i18n="payment.online_cta">Donate Now ↗</div>
-      </a>
-
-      <!-- Zelle — coming soon -->
-      <div class="payment-card payment-card-pending">
-        <div class="payment-icon">🏦</div>
-        <div class="payment-name">Zelle</div>
-        <div class="payment-note" data-i18n="payment.zelle">Instant bank transfer — no fees</div>
-        <div class="payment-badge-soon" data-i18n="payment.zelle_soon">Details coming soon</div>
-      </div>
-
+      <div class="payment-card"><div class="payment-icon">💳</div><div class="payment-name">Zelle</div><div class="payment-note" data-i18n="payment.zelle">Instant bank transfer — no fees</div></div>
+      <div class="payment-card"><div class="payment-icon">📱</div><div class="payment-name">Venmo</div><div class="payment-note" data-i18n="payment.venmo">Quick &amp; easy mobile payment</div></div>
+      <div class="payment-card"><div class="payment-icon">🌐</div><div class="payment-name">PayPal</div><div class="payment-note" data-i18n="payment.paypal">Secure online payment</div></div>
+      <div class="payment-card"><div class="payment-icon">🤝</div><div class="payment-name" data-i18n="payment.cash_name">Cash</div><div class="payment-note" data-i18n="payment.cash_note">In person when we meet</div></div>
     </div>
     <div class="payment-contact">
       <div class="payment-contact-icon">📬</div>
       <div class="payment-contact-text">
-        <strong data-i18n="payment.cta_bold">Questions about donating?</strong>
-        <span data-i18n="payment.cta_text"> For PayPal, Venmo, and credit/debit card, use the button above — it works instantly. For Zelle, details are coming soon. Email us at sponsorkids212@gmail.com and we'll get back to you promptly.</span>
+        <strong data-i18n="payment.cta_bold">Ready to donate?</strong>
+        <span data-i18n="payment.cta_text"> Reach out to get our payment details. We'll confirm receipt of every donation and share a full report — including photos (where permitted) and receipts — after each campaign.</span>
         <div style="margin-top:14px;display:flex;flex-wrap:wrap;gap:12px;">
           <a href="mailto:sponsorkids212@gmail.com" style="display:inline-flex;align-items:center;gap:7px;background:rgba(255,255,255,0.15);border:1px solid rgba(255,255,255,0.3);color:white;text-decoration:none;padding:8px 16px;border-radius:30px;font-size:13px;font-weight:500;transition:background 0.2s;" onmouseover="this.style.background='rgba(255,255,255,0.25)'" onmouseout="this.style.background='rgba(255,255,255,0.15)'">
             ✉️ sponsorkids212@gmail.com
@@ -746,11 +727,10 @@ const T = {
     "donate.c1sub":"\u2248 500 MAD \u00B7 One full child sponsorship","donate.c1i1":"A complete new outfit ~250\u2013300 MAD","donate.c1i2":"A new pair of shoes ~100\u2013150 MAD","donate.c1i3":"A toy or small gift ~50\u2013100 MAD","donate.c1btn":"Donate $50",
     "donate.featured":"Most Generous","donate.c2sub":"\u2248 1,000 MAD \u00B7 Premium sponsorship","donate.c2i1":"A high-quality celebration outfit ~400\u2013500 MAD","donate.c2i2":"Quality shoes ~150\u2013200 MAD","donate.c2i3":"A meaningful toy or backpack ~150\u2013200 MAD","donate.c2i4":"Treats and seasonal sweets ~100 MAD","donate.c2btn":"Donate $100",
     "donate.c3title":"Give More","donate.c3sub":"$150+ \u00B7 Sponsor multiple children","donate.c3i1":"$150 sponsors 3 children at $50","donate.c3i2":"$200 covers premium + school supplies","donate.c3i3":"Any amount is welcome","donate.c3i4":"Annual recurring donors especially valued","donate.c3btn":"Donate More",
-    "donate.how_tag":"How to Send","donate.how_title":"Donate securely online \u2014 or contact us for Zelle","donate.how_text":"You can donate instantly using the buttons above via PayPal, Venmo, or credit/debit card. For Zelle, details are coming soon \u2014 email us at sponsorkids212@gmail.com. Every donation is acknowledged and every purchase documented.",
-    "payment.tag":"Payment Options","payment.title":"Easy ways to donate","payment.sub":"Donate instantly online, or contact us for Zelle details coming soon.",
-    "payment.online_name":"PayPal, Venmo & Card","payment.online_note":"Donate instantly \u2014 opens PayPal","payment.online_cta":"Donate Now \u2197",
-    "payment.zelle":"Instant bank transfer \u2014 no fees","payment.zelle_soon":"Details coming soon",
-    "payment.cta_bold":"Questions about donating?","payment.cta_text":" For PayPal, Venmo, and credit/debit card, use the button above \u2014 it works instantly. For Zelle, details are coming soon. Email us at sponsorkids212@gmail.com and we'll get back to you promptly.",
+    "donate.how_tag":"How to Send","donate.how_title":"Contact us to get payment details","donate.how_text":"Reach out to receive our Zelle, Venmo, or PayPal details \u2014 or give cash when we meet. Every donation is acknowledged and every purchase documented with a receipt.",
+    "payment.tag":"Payment Options","payment.title":"Easy ways to donate","payment.sub":"Send your donation through any of these convenient methods. Contact us directly for account details.",
+    "payment.zelle":"Instant bank transfer \u2014 no fees","payment.venmo":"Quick & easy mobile payment","payment.paypal":"Secure online payment","payment.cash_name":"Cash","payment.cash_note":"In person when we meet",
+    "payment.cta_bold":"Ready to donate?","payment.cta_text":" Reach out to get our payment details. We'll confirm receipt of every donation and share a full report after each campaign.",
     "team.tag":"On the Ground","team.title":"Meet our coordinators","team.sub":"Our coordinators are the heart of Sponsor Kids 212 \u2014 trusted individuals embedded in their communities who identify the children and ensure every donation reaches the right hands.",
     "team.role":"Local Coordinator",
     "team.fz_bio":"Fatima Zahra is a wife, mother, full-time worker, and student pursuing her degree in Human Resources \u2014 all while dedicating her heart to community service in Casablanca. She works directly with vulnerable families and children, connecting them with the clothing, food, medical support, school resources, and disability assistance they need.",
@@ -805,11 +785,10 @@ const T = {
     "donate.c1sub":"\u2248 500 MAD \u00B7 Parrainage complet d'un enfant","donate.c1i1":"Une tenue compl\u00E8te neuve ~250\u2013300 MAD","donate.c1i2":"Une nouvelle paire de chaussures ~100\u2013150 MAD","donate.c1i3":"Un jouet ou un petit cadeau ~50\u2013100 MAD","donate.c1btn":"Donner 50 $",
     "donate.featured":"Le plus g\u00E9n\u00E9reux","donate.c2sub":"\u2248 1 000 MAD \u00B7 Parrainage premium","donate.c2i1":"Une tenue de f\u00EAte de qualit\u00E9 ~400\u2013500 MAD","donate.c2i2":"Chaussures de qualit\u00E9 ~150\u2013200 MAD","donate.c2i3":"Un jouet ou sac \u00E0 dos ~150\u2013200 MAD","donate.c2i4":"Friandises et douceurs ~100 MAD","donate.c2btn":"Donner 100 $",
     "donate.c3title":"Donner plus","donate.c3sub":"150 $+ \u00B7 Parrainer plusieurs enfants","donate.c3i1":"150 $ parraine 3 enfants \u00E0 50 $ chacun","donate.c3i2":"200 $ couvre premium + fournitures scolaires","donate.c3i3":"Tout montant est le bienvenu","donate.c3i4":"Les donateurs r\u00E9guliers sont particuli\u00E8rement pr\u00E9cieux","donate.c3btn":"Donner plus",
-    "donate.how_tag":"Comment envoyer","donate.how_title":"Donnez en ligne ou contactez-nous pour Zelle","donate.how_text":"Utilisez les boutons ci-dessus pour PayPal, Venmo ou carte bancaire. Pour Zelle, les d\u00E9tails arrivent bient\u00F4t. \u00C9crivez-nous \u00E0 sponsorkids212@gmail.com.",
-    "payment.tag":"Options de paiement","payment.title":"Moyens simples de faire un don","payment.sub":"Donnez en ligne instantan\u00E9ment, ou contactez-nous pour les d\u00E9tails Zelle \u00E0 venir.",
-    "payment.online_name":"PayPal, Venmo & Carte","payment.online_note":"Don instantan\u00E9 \u2014 ouvre PayPal","payment.online_cta":"Donner maintenant \u2197",
-    "payment.zelle":"Virement bancaire instantan\u00E9 \u2014 sans frais","payment.zelle_soon":"D\u00E9tails bient\u00F4t disponibles",
-    "payment.cta_bold":"Questions sur les dons ?","payment.cta_text":" Pour PayPal, Venmo et carte, utilisez le bouton ci-dessus. Pour Zelle, les d\u00E9tails arrivent bient\u00F4t. \u00C9crivez-nous \u00E0 sponsorkids212@gmail.com.",
+    "donate.how_tag":"Comment envoyer","donate.how_title":"Contactez-nous pour obtenir les coordonn\u00E9es","donate.how_text":"Contactez-nous pour recevoir nos coordonn\u00E9es Zelle, Venmo ou PayPal.",
+    "payment.tag":"Options de paiement","payment.title":"Moyens simples de faire un don","payment.sub":"Envoyez votre don via l'un de ces moyens pratiques.",
+    "payment.zelle":"Virement bancaire instantan\u00E9 \u2014 sans frais","payment.venmo":"Paiement mobile rapide et facile","payment.paypal":"Paiement en ligne s\u00E9curis\u00E9","payment.cash_name":"Esp\u00E8ces","payment.cash_note":"En personne lors de nos rencontres",
+    "payment.cta_bold":"Pr\u00EAt \u00E0 faire un don ?","payment.cta_text":" Contactez-nous pour obtenir nos coordonn\u00E9es. Nous confirmerons chaque don et partagerons un rapport complet.",
     "team.tag":"Sur le terrain","team.title":"Rencontrez nos coordinateurs","team.sub":"Nos coordinateurs sont le c\u0153ur de Sponsor Kids 212 \u2014 des personnes de confiance int\u00E9gr\u00E9es dans leurs communaut\u00E9s.",
     "team.role":"Coordinatrice locale",
     "team.fz_bio":"Fatima Zahra est une \u00E9pouse, une m\u00E8re, une professionnelle \u00E0 temps plein et une \u00E9tudiante en cours de formation en Ressources Humaines \u2014 tout en consacrant son c\u0153ur au service communautaire \u00E0 Casablanca. Elle travaille directement avec les familles et les enfants vuln\u00E9rables.",
@@ -864,11 +843,10 @@ const T = {
     "donate.c1sub":"\u2248 500 \u062F\u0631\u0647\u0645 \u00B7 \u0643\u0641\u0627\u0644\u0629 \u0643\u0627\u0645\u0644\u0629 \u0644\u0637\u0641\u0644 \u0648\u0627\u062D\u062F","donate.c1i1":"\u0632\u064A \u062C\u062F\u064A\u062F \u0643\u0627\u0645\u0644 ~250-300 \u062F\u0631\u0647\u0645","donate.c1i2":"\u0632\u0648\u062C \u062C\u062F\u064A\u062F \u0645\u0646 \u0627\u0644\u0623\u062D\u0630\u064A\u0629 ~100-150 \u062F\u0631\u0647\u0645","donate.c1i3":"\u0644\u0639\u0628\u0629 \u0623\u0648 \u0647\u062F\u064A\u0629 \u0635\u063A\u064A\u0631\u0629 ~50-100 \u062F\u0631\u0647\u0645","donate.c1btn":"\u062A\u0628\u0631\u0639 \u0628\u0640 50 $",
     "donate.featured":"\u0627\u0644\u0623\u0643\u062B\u0631 \u0633\u062E\u0627\u0621\u064B","donate.c2sub":"\u2248 1,000 \u062F\u0631\u0647\u0645 \u00B7 \u0643\u0641\u0627\u0644\u0629 \u0645\u0645\u064A\u0632\u0629","donate.c2i1":"\u0632\u064A \u0627\u062D\u062A\u0641\u0627\u0644\u064A \u0631\u0627\u0642\u064A ~400-500 \u062F\u0631\u0647\u0645","donate.c2i2":"\u0623\u062D\u0630\u064A\u0629 \u062C\u0648\u062F\u0629 \u0639\u0627\u0644\u064A\u0629 ~150-200 \u062F\u0631\u0647\u0645","donate.c2i3":"\u0644\u0639\u0628\u0629 \u0623\u0648 \u062D\u0642\u064A\u0628\u0629 \u0645\u0645\u064A\u0632\u0629 ~150-200 \u062F\u0631\u0647\u0645","donate.c2i4":"\u062D\u0644\u0648\u0649 \u0648\u0623\u0634\u064A\u0627\u0621 \u0645\u0648\u0633\u0645\u064A\u0629 ~100 \u062F\u0631\u0647\u0645","donate.c2btn":"\u062A\u0628\u0631\u0639 \u0628\u0640 100 $",
     "donate.c3title":"\u062A\u0628\u0631\u0639 \u0623\u0643\u062B\u0631","donate.c3sub":"150 $+ \u00B7 \u0627\u0643\u0641\u0644 \u0623\u0637\u0641\u0627\u0644\u0627\u064B \u0645\u062A\u0639\u062F\u062F\u064A\u0646","donate.c3i1":"150 $ \u062A\u0643\u0641\u0644 3 \u0623\u0637\u0641\u0627\u0644 \u0628\u0640 50 $ \u0644\u0643\u0644 \u0645\u0646\u0647\u0645","donate.c3i2":"200 $ \u062A\u063A\u0637\u064A \u0627\u0644\u0643\u0641\u0627\u0644\u0629 \u0627\u0644\u0645\u0645\u064A\u0632\u0629 + \u0627\u0644\u0644\u0648\u0627\u0632\u0645 \u0627\u0644\u0645\u062F\u0631\u0633\u064A\u0629","donate.c3i3":"\u0623\u064A \u0645\u0628\u0644\u063A \u0645\u0631\u062D\u0628 \u0628\u0647","donate.c3i4":"\u0627\u0644\u0645\u062A\u0628\u0631\u0639\u0648\u0646 \u0627\u0644\u0645\u0646\u062A\u0638\u0645\u0648\u0646 \u0630\u0648\u0648 \u0642\u064A\u0645\u0629 \u062E\u0627\u0635\u0629","donate.c3btn":"\u062A\u0628\u0631\u0639 \u0628\u0623\u0643\u062B\u0631",
-    "donate.how_tag":"\u0643\u064A\u0641\u064A\u0629 \u0627\u0644\u062A\u0628\u0631\u0639","donate.how_title":"\u062A\u0628\u0631\u0639 \u0625\u0644\u0643\u062A\u0631\u0648\u0646\u064A\u0627\u064B \u0623\u0648 \u0627\u062A\u0635\u0644 \u0628\u0646\u0627 \u0644Zelle","donate.how_text":"\u064A\u0645\u0643\u0646\u0643 \u0627\u0644\u062A\u0628\u0631\u0639 \u0641\u0648\u0631\u0627\u064B \u0639\u0628\u0631 \u0627\u0644\u0623\u0632\u0631\u0627\u0631 \u0623\u0639\u0644\u0627\u0647 \u0639\u0628\u0631 PayPal \u0623\u0648 Venmo \u0623\u0648 \u0627\u0644\u0628\u0637\u0627\u0642\u0629. \u0644Zelle\u060C \u0627\u0644\u062A\u0641\u0627\u0635\u064A\u0644 \u0642\u0627\u062F\u0645\u0629 \u0642\u0631\u064A\u0628\u0627\u064B.",
-    "payment.tag":"\u062E\u064A\u0627\u0631\u0627\u062A \u0627\u0644\u062F\u0641\u0639","payment.title":"\u0637\u0631\u0642 \u0633\u0647\u0644\u0629 \u0644\u0644\u062A\u0628\u0631\u0639","payment.sub":"\u062A\u0628\u0631\u0639 \u0641\u0648\u0631\u0627\u064B \u0639\u0628\u0631 \u0627\u0644\u0625\u0646\u062A\u0631\u0646\u062A\u060C \u0623\u0648 \u062A\u0648\u0627\u0635\u0644 \u0645\u0639\u0646\u0627 \u0644\u062A\u0641\u0627\u0635\u064A\u0644 Zelle.",
-    "payment.online_name":"PayPal \u0648Venmo \u0648\u0627\u0644\u0628\u0637\u0627\u0642\u0629","payment.online_note":"\u062A\u0628\u0631\u0639 \u0641\u0648\u0631\u064A \u2014 \u064A\u0641\u062A\u062D PayPal","payment.online_cta":"\u062A\u0628\u0631\u0639 \u0627\u0644\u0622\u0646 \u2197",
-    "payment.zelle":"\u062A\u062D\u0648\u064A\u0644 \u0628\u0646\u0643\u064A \u0641\u0648\u0631\u064A \u2014 \u0628\u062F\u0648\u0646 \u0631\u0633\u0648\u0645","payment.zelle_soon":"\u0627\u0644\u062A\u0641\u0627\u0635\u064A\u0644 \u0642\u0631\u064A\u0628\u0627\u064B",
-    "payment.cta_bold":"\u0644\u062F\u064A\u0643 \u0633\u0624\u0627\u0644 \u062D\u0648\u0644 \u0627\u0644\u062A\u0628\u0631\u0639\u061F","payment.cta_text":" \u0644\u0644\u062F\u0641\u0639 \u0639\u0628\u0631 PayPal \u0623\u0648 Venmo \u0623\u0648 \u0627\u0644\u0628\u0637\u0627\u0642\u0629\u060C \u0627\u0633\u062A\u062E\u062F\u0645 \u0627\u0644\u0632\u0631 \u0623\u0639\u0644\u0627\u0647. \u0644\u0644\u062F\u0641\u0639 \u0639\u0628\u0631 Zelle\u060C \u0627\u0644\u062A\u0641\u0627\u0635\u064A\u0644 \u0642\u0627\u062F\u0645\u0629. \u0631\u0627\u0633\u0644\u0646\u0627 \u0639\u0644\u0649 sponsorkids212@gmail.com.",
+    "donate.how_tag":"\u0643\u064A\u0641\u064A\u0629 \u0627\u0644\u0625\u0631\u0633\u0627\u0644","donate.how_title":"\u062A\u0648\u0627\u0635\u0644 \u0645\u0639\u0646\u0627 \u0644\u0644\u062D\u0635\u0648\u0644 \u0639\u0644\u0649 \u062A\u0641\u0627\u0635\u064A\u0644 \u0627\u0644\u062F\u0641\u0639","donate.how_text":"\u062A\u0648\u0627\u0635\u0644 \u0645\u0639\u0646\u0627 \u0644\u0644\u062D\u0635\u0648\u0644 \u0639\u0644\u0649 \u0628\u064A\u0627\u0646\u0627\u062A\u0646\u0627 \u0639\u0628\u0631 Zelle \u0623\u0648 Venmo \u0623\u0648 PayPal.",
+    "payment.tag":"\u062E\u064A\u0627\u0631\u0627\u062A \u0627\u0644\u062F\u0641\u0639","payment.title":"\u0637\u0631\u0642 \u0633\u0647\u0644\u0629 \u0644\u0644\u062A\u0628\u0631\u0639","payment.sub":"\u0623\u0631\u0633\u0644 \u062A\u0628\u0631\u0639\u0643 \u0639\u0628\u0631 \u0623\u064A \u0645\u0646 \u0647\u0630\u0647 \u0627\u0644\u0637\u0631\u0642 \u0627\u0644\u0645\u0631\u064A\u062D\u0629.",
+    "payment.zelle":"\u062A\u062D\u0648\u064A\u0644 \u0628\u0646\u0643\u064A \u0641\u0648\u0631\u064A \u2014 \u0628\u062F\u0648\u0646 \u0631\u0633\u0648\u0645","payment.venmo":"\u062F\u0641\u0639 \u0633\u0631\u064A\u0639 \u0648\u0633\u0647\u0644 \u0639\u0628\u0631 \u0627\u0644\u0647\u0627\u062A\u0641","payment.paypal":"\u062F\u0641\u0639 \u0622\u0645\u0646 \u0639\u0628\u0631 \u0627\u0644\u0625\u0646\u062A\u0631\u0646\u062A","payment.cash_name":"\u0646\u0642\u062F\u0627\u064B","payment.cash_note":"\u0634\u062E\u0635\u064A\u0627\u064B \u0639\u0646\u062F \u0627\u0644\u0644\u0642\u0627\u0621",
+    "payment.cta_bold":"\u0645\u0633\u062A\u0639\u062F \u0644\u0644\u062A\u0628\u0631\u0639\u061F","payment.cta_text":" \u062A\u0648\u0627\u0635\u0644 \u0645\u0639\u0646\u0627 \u0644\u0644\u062D\u0635\u0648\u0644 \u0639\u0644\u0649 \u0628\u064A\u0627\u0646\u0627\u062A \u0627\u0644\u062F\u0641\u0639. \u0633\u0646\u0624\u0643\u062F \u0627\u0633\u062A\u0644\u0627\u0645 \u0643\u0644 \u062A\u0628\u0631\u0639 \u0648\u0646\u0634\u0627\u0631\u0643 \u062A\u0642\u0631\u064A\u0631\u0627\u064B \u0643\u0627\u0645\u0644\u0627\u064B \u0628\u0639\u062F \u0643\u0644 \u062D\u0645\u0644\u0629.",
     "team.tag":"\u0639\u0644\u0649 \u0623\u0631\u0636 \u0627\u0644\u0648\u0627\u0642\u0639","team.title":"\u062A\u0639\u0631\u0651\u0641 \u0639\u0644\u0649 \u0645\u0646\u0633\u0642\u064A\u0646\u0627","team.sub":"\u0645\u0646\u0633\u0642\u0648\u0646\u0627 \u0647\u0645 \u0642\u0644\u0628 Sponsor Kids 212 \u2014 \u0623\u0634\u062E\u0627\u0635 \u0645\u0648\u062B\u0648\u0642\u0648\u0646 \u064A\u0636\u0645\u0646\u0648\u0646 \u0648\u0635\u0648\u0644 \u0643\u0644 \u062A\u0628\u0631\u0639 \u0625\u0644\u0649 \u0645\u0643\u0627\u0646\u0647 \u0627\u0644\u0635\u062D\u064A\u062D.",
     "team.role":"\u0645\u0646\u0633\u0642\u0629 \u0645\u062D\u0644\u064A\u0629",
     "team.fz_bio":"\u0641\u0627\u0637\u0645\u0629 \u0627\u0644\u0632\u0647\u0631\u0627\u0621 \u0632\u0648\u062C\u0629 \u0648\u0623\u0645\u060C \u0648\u0645\u0648\u0638\u0641\u0629 \u0628\u062F\u0648\u0627\u0645 \u0643\u0627\u0645\u0644\u060C \u0648\u0637\u0627\u0644\u0628\u0629 \u062A\u0633\u0639\u0649 \u0644\u0644\u062D\u0635\u0648\u0644 \u0639\u0644\u0649 \u0634\u0647\u0627\u062F\u062A\u0647\u0627 \u0641\u064A \u0627\u0644\u0645\u0648\u0627\u0631\u062F \u0627\u0644\u0628\u0634\u0631\u064A\u0629 \u2014 \u0643\u0644 \u0630\u0644\u0643 \u0628\u064A\u0646\u0645\u0627 \u062A\u0643\u0631\u0651\u0633 \u0642\u0644\u0628\u0647\u0627 \u0644\u0644\u0639\u0645\u0644 \u0627\u0644\u0627\u062C\u062A\u0645\u0627\u0639\u064A \u0641\u064A \u0627\u0644\u062F\u0627\u0631 \u0627\u0644\u0628\u064A\u0636\u0627\u0621. \u062A\u0639\u0645\u0644 \u0645\u0628\u0627\u0634\u0631\u0629\u064B \u0645\u0639 \u0627\u0644\u0623\u0633\u0631 \u0648\u0627\u0644\u0623\u0637\u0641\u0627\u0644 \u0627\u0644\u0636\u0639\u0641\u0627\u0621.",
@@ -923,11 +901,10 @@ const T = {
     "donate.c1sub":"\u2248 500 MAD \u00B7 Patrocinio completo de un ni\u00F1o","donate.c1i1":"Un conjunto nuevo completo ~250\u2013300 MAD","donate.c1i2":"Un par de zapatos nuevos ~100\u2013150 MAD","donate.c1i3":"Un juguete o regalo peque\u00F1o ~50\u2013100 MAD","donate.c1btn":"Donar 50 $",
     "donate.featured":"M\u00E1s generoso","donate.c2sub":"\u2248 1.000 MAD \u00B7 Patrocinio premium","donate.c2i1":"Un conjunto de celebraci\u00F3n de calidad ~400\u2013500 MAD","donate.c2i2":"Zapatos de calidad ~150\u2013200 MAD","donate.c2i3":"Un juguete o mochila especial ~150\u2013200 MAD","donate.c2i4":"Golosinas y dulces estacionales ~100 MAD","donate.c2btn":"Donar 100 $",
     "donate.c3title":"Dar m\u00E1s","donate.c3sub":"150 $+ \u00B7 Patrocinar varios ni\u00F1os","donate.c3i1":"150 $ patrocina 3 ni\u00F1os a 50 $ cada uno","donate.c3i2":"200 $ cubre premium + \u00FAtiles escolares","donate.c3i3":"Cualquier cantidad es bienvenida","donate.c3i4":"Los donantes anuales son especialmente valorados","donate.c3btn":"Donar m\u00E1s",
-    "donate.how_tag":"C\u00F3mo enviar","donate.how_title":"Dona en l\u00EDnea o cont\u00E1ctanos para Zelle","donate.how_text":"Usa los botones de arriba para PayPal, Venmo o tarjeta. Para Zelle, los detalles llegan pronto. Esc\u00EDbenos a sponsorkids212@gmail.com.",
-    "payment.tag":"Opciones de pago","payment.title":"Formas f\u00E1ciles de donar","payment.sub":"Dona instant\u00E1neamente en l\u00EDnea, o cont\u00E1ctanos para los detalles de Zelle.",
-    "payment.online_name":"PayPal, Venmo y Tarjeta","payment.online_note":"Dona al instante \u2014 abre PayPal","payment.online_cta":"Donar ahora \u2197",
-    "payment.zelle":"Transferencia bancaria instant\u00E1nea \u2014 sin comisiones","payment.zelle_soon":"Detalles pr\u00F3ximamente",
-    "payment.cta_bold":"\u00BFPreguntas sobre tu donaci\u00F3n?","payment.cta_text":" Para PayPal, Venmo y tarjeta, usa el bot\u00F3n de arriba. Para Zelle, los detalles llegan pronto. Esc\u00EDbenos a sponsorkids212@gmail.com.",
+    "donate.how_tag":"C\u00F3mo enviar","donate.how_title":"Cont\u00E1ctanos para obtener los datos de pago","donate.how_text":"Escr\u00EDbenos para recibir nuestros datos de Zelle, Venmo o PayPal.",
+    "payment.tag":"Opciones de pago","payment.title":"Formas f\u00E1ciles de donar","payment.sub":"Env\u00EDa tu donaci\u00F3n a trav\u00E9s de cualquiera de estos m\u00E9todos.",
+    "payment.zelle":"Transferencia bancaria instant\u00E1nea \u2014 sin comisiones","payment.venmo":"Pago m\u00F3vil r\u00E1pido y f\u00E1cil","payment.paypal":"Pago seguro en l\u00EDnea","payment.cash_name":"Efectivo","payment.cash_note":"En persona cuando nos veamos",
+    "payment.cta_bold":"\u00BFListo para donar?","payment.cta_text":" Cont\u00E1ctanos para obtener nuestros datos. Confirmaremos cada donaci\u00F3n y compartiremos un informe completo.",
     "team.tag":"Sobre el terreno","team.title":"Conoce a nuestros coordinadores","team.sub":"Nuestros coordinadores son el coraz\u00F3n de Sponsor Kids 212 \u2014 personas de confianza que garantizan que cada donaci\u00F3n llegue a las manos correctas.",
     "team.role":"Coordinadora local",
     "team.fz_bio":"Fatima Zahra es esposa, madre, profesional a tiempo completo y estudiante que cursa su licenciatura en Recursos Humanos \u2014 todo mientras dedica su coraz\u00F3n al servicio comunitario en Casablanca. Trabaja directamente con familias y ni\u00F1os vulnerables.",

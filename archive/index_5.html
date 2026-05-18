@@ -142,9 +142,6 @@
   .payment-badge-go{display:inline-block;margin-top:12px;background:var(--red);color:white;font-size:12px;font-weight:500;padding:5px 14px;border-radius:20px;letter-spacing:0.3px;}
   .payment-badge-soon{display:inline-block;margin-top:12px;background:rgba(255,255,255,0.15);color:rgba(255,255,255,0.7);font-size:12px;font-weight:500;padding:5px 14px;border-radius:20px;border:1px dashed rgba(255,255,255,0.3);letter-spacing:0.3px;}
   .payment-zelle-email{margin-top:10px;font-size:11.5px;color:rgba(255,255,255,0.75);font-weight:500;word-break:break-all;}
-  .zelle-copy-hint{display:block;margin-top:6px;font-size:11px;color:rgba(255,255,255,0.45);font-weight:400;letter-spacing:0.3px;}
-  .payment-card-zelle:hover .zelle-copy-hint{color:rgba(255,255,255,0.75);}
-  .payment-card-zelle:hover{background:rgba(255,255,255,0.22);transform:translateY(-2px);}
   .payment-icon{font-size:32px;margin-bottom:12px;line-height:1;}
   .payment-name{font-weight:500;font-size:18px;color:white;margin-bottom:4px;}
   .payment-note{font-size:13px;color:rgba(255,255,255,0.6);}
@@ -332,8 +329,6 @@
   <button class="lang-btn" onclick="setLang('fr')">FR</button>
   <button class="lang-btn" onclick="setLang('ar')">عر</button>
   <button class="lang-btn" onclick="setLang('es')">ES</button>
-  <button class="lang-btn" onclick="setLang('it')">IT</button>
-  <button class="lang-btn" onclick="setLang('de')">DE</button>
 </div>
 
 <!-- NAV -->
@@ -520,7 +515,7 @@
             <span class="community-interest-tag" data-i18n="donate.int4">📊 Impact Reports</span>
             <span class="community-interest-tag" data-i18n="donate.int5">🤝 Volunteering</span>
           </div>
-          <a href="https://forms.gle/BAhRcZtLDPq83Hib9" target="_blank" rel="noopener" class="community-btn" data-i18n="donate.community_btn">Sign Up Now ↗</a>
+          <a href="https://forms.gle/zH6n2UFc2S7ZoCqX6" target="_blank" rel="noopener" class="community-btn" data-i18n="donate.community_btn">Sign Up Now ↗</a>
         </div>
       </div>
     </div>
@@ -558,15 +553,11 @@
       </a>
 
       <!-- Zelle -->
-      <div class="payment-card payment-card-zelle" onclick="copyZelle()" title="Click to copy" style="cursor:pointer;">
+      <div class="payment-card">
         <div class="payment-icon">🏦</div>
         <div class="payment-name">Zelle</div>
         <div class="payment-note" data-i18n="payment.zelle_note">Send to donate@sponsorkids212.org</div>
-        <div class="payment-zelle-email" id="zelle-email-display">
-          donate@sponsorkids212.org
-          <span class="zelle-copy-hint" data-i18n="payment.zelle_copy">📋 click to copy</span>
-        </div>
-        <div id="zelle-copied" style="display:none;margin-top:8px;font-size:12px;color:#25D366;font-weight:600;" data-i18n="payment.zelle_copied">✓ Copied!</div>
+        <div class="payment-zelle-email">donate@sponsorkids212.org</div>
       </div>
 
     </div>
@@ -677,7 +668,7 @@
 
               <!-- Photos panel -->
               <div class="media-panel active" id="photos-eid2026" style="display:block;">
-                <a href="https://drive.google.com/drive/folders/1DZ25IOjQol6BUUB1V15eHt-tXgmY7ndI?usp=sharing" target="_blank" rel="noopener" class="drive-link-card photos">
+                <a href="https://drive.google.com/drive/folders/1PlKTmiLVbeK_TKKVjdJ7HC-6X4YIx1ln?usp=drive_link" target="_blank" rel="noopener" class="drive-link-card photos">
                   <div class="drive-card-left">
                     <div class="drive-card-icon">📷</div>
                     <div>
@@ -691,7 +682,7 @@
 
               <!-- Receipts panel -->
               <div class="media-panel" id="receipts-eid2026" style="display:none;">
-                <a href="https://drive.google.com/drive/folders/1tbLPgNy2u4UD-Rh9ZAQzt8OVZTvr_mra?usp=sharing" target="_blank" rel="noopener" class="drive-link-card receipts">
+                <a href="https://drive.google.com/drive/folders/1qsE8RDa3nasy_cJ15RIn7aDD6Yta8Phk?usp=sharing" target="_blank" rel="noopener" class="drive-link-card receipts">
                   <div class="drive-card-left">
                     <div class="drive-card-icon">🧾</div>
                     <div>
@@ -1021,164 +1012,9 @@ const T = {
     "dua.source":"Sahih Muslim \u00B7 Que Allah os recompense a vosotros y a vuestros seres queridos. Ameen. \u{1F932}",
     "footer.tagline":"Ayudando a los ni\u00F1os en Marruecos","footer.nonprofit":"Organizaci\u00F3n sin fines de lucro 501(c)(3) \u00B7 EIN: 41-5257784 \u00B7 Organizaci\u00F3n ben\u00E9fica de Ohio","footer.sub":"Una iniciativa comunitaria de marroqu\u00EDes en el extranjero"
   }
-  ,
-  it:{
-    "nav.mission":"Missione","nav.needs":"Bisogni","nav.team":"Team","nav.gallery":"Galleria","nav.receipts":"Ricevute","nav.donate":"Dona ora",
-    "hero.badge":"🇲🇦 Dai al tuo io bambino","hero.h1":"Sii la benedizione<br>di cui una volta <em>avevi bisogno.</em>",
-    "hero.tagline":"Ogni bambino merita di vivere la gioia — aiutaci a renderlo possibile.",
-    "hero.sub":"Radicato nello spirito della sadaqah, Sponsor Kids 212 convoglia la generosità della nostra comunità per portare supporto essenziale e gioia sincera ai bambini orfani, disabili e poveri in Marocco.",
-    "hero.btn1":"Dona ora","hero.btn2":"La nostra storia",
-    "hero.nonprofit":"Sponsor Kids 212, Inc. è un’organizzazione nonprofit 501(c)(3) · EIN: 41-5257784 · La donazione è deducibile dalle tasse",
-    "stats.s1":"va direttamente ai bambini","stats.s2":"sponsorizza un bambino","stats.s3":"giorni all’anno raccogliamo","stats.s4":"le nostre radici, la nostra causa",
-    "mission.tag":"La Nostra Missione","mission.title":"Portare dignità e gioia ai bambini vulnerabili",
-    "mission.p1":"Siamo un gruppo di amici marocchini che vivono all’estero e credono nel restituire qualcosa al paese e alle comunità che ci hanno formato.",
-    "mission.p2":"Abbiamo identificato bambini in Marocco che sono orfani, vivono con disabilità, hanno genitori assenti o disabili, o vivono in estrema povertà. Li sosteniamo tutto l’anno.",
-    "mission.p3":"La nostra visione è espandere il supporto per coprire spese scolastiche, tutoraggio, cure mediche, gite, cibo e altro. Ogni campagna è completamente trasparente.",
-    "mission.p4":"I bambini sono stati identificati. La persona che riceve i fondi è fidata. La tua donazione va esattamente dove deve andare.",
-    "mission.quote1":"\"L’ombra del credente nel Giorno della Resurrezione sarà la sua carità.\"","mission.attr1":"— Profeta Muhammad ﷺ",
-    "mission.quote2":"\"Chi allevia l’angoscia di un credente, Allah lo allevierà nel Giorno del Giudizio.\"","mission.attr2":"— Sahih Muslim",
-    "who.tag":"Chi Aiutiamo","who.title":"I bambini che hanno più bisogno di noi","who.sub":"Ogni bambino è stato identificato individualmente da un coordinatore locale fidato in Marocco.",
-    "who.t1":"🌿 Bambini orfani","who.t2":"♿ Bambini con disabilità","who.t3":"👤 Bambini con genitori assenti","who.t4":"🤲 Bambini con genitori disabili","who.t5":"🏚️ Bambini in estrema povertà",
-    "who.privacy_title":"Prima la privacy.","who.privacy_text":" Le identità dei bambini sono protette. Le foto sono condivise solo con il consenso esplicito.",
-    "needs.tag":"Dove Va la Tua Donazione","needs.title":"I bisogni dei bambini che finanziamo","needs.sub":"Abbiamo iniziato con donazioni stagionali e stiamo crescendo tutto l’anno:",
-    "needs.n1t":"Abbigliamento","needs.n1d":"Abiti nuovi per celebrazioni e uso quotidiano",
-    "needs.n2t":"Scarpe","needs.n2d":"Scarpe nuove perché ogni bambino sia ben vestito",
-    "needs.n3t":"Giocattoli e Regali","needs.n3d":"Portare vera gioia nella vita di un bambino",
-    "needs.n4t":"Materiale scolastico","needs.n4d":"Zaini, libri, cartoleria e uniformi",
-    "needs.n5t":"Tutoraggio","needs.n5d":"Supporto accademico per i bambini in difficoltà",
-    "needs.n6t":"Medicina e Salute","needs.n6d":"Farmaci, visite mediche e forniture sanitarie",
-    "needs.n7t":"Cibo","needs.n7d":"Pasti nutrienti per bambini e famiglie in difficoltà",
-    "needs.n8t":"Escursioni","needs.n8d":"Gite ed esperienze che molti bambini non hanno mai fatto",
-    "needs.n9t":"Supporto disabilità","needs.n9d":"Attrezzature, terapia e cure specializzate",
-    "needs.active":"Attivo","needs.coming":"Prossimamente",
-    "donate.tag":"Fai la Differenza","donate.title":"Scegli il tuo contributo","donate.sub":"1 $ ≈ 10 Dirham. Raccogliamo tutto l’anno e distribuiamo quando serve di più. Dona quello che puoi.",
-    "donate.c0sub":"≈ 250 MAD · Sponsorizzazione parziale","donate.c0i1":"Un abito nuovo o scarpe per un bambino","donate.c0i2":"Combinato con altri per sponsorizzare un bambino","donate.c0i3":"Ogni contributo fa una vera differenza","donate.c0btn":"Dona 25 $",
-    "donate.c1sub":"≈ 500 MAD · Sponsorizzazione completa","donate.c1i1":"Un completo nuovo ~250–300 MAD","donate.c1i2":"Un paio di scarpe ~100–150 MAD","donate.c1i3":"Un giocattolo o regalo ~50–100 MAD","donate.c1btn":"Dona 50 $",
-    "donate.featured":"Più Generoso","donate.c2sub":"≈ 1.000 MAD · Premium","donate.c2i1":"Abito di qualità ~400–500 MAD","donate.c2i2":"Scarpe di qualità ~150–200 MAD","donate.c2i3":"Giocattolo o zaino ~150–200 MAD","donate.c2i4":"Dolci ~100 MAD","donate.c2btn":"Dona 100 $",
-    "donate.c3title":"Dona di Più","donate.c3sub":"150 $+ · Più bambini","donate.c3i1":"150 $ sponsorizza 3 bambini","donate.c3i2":"200 $ copre premium + materiale scolastico","donate.c3i3":"Qualsiasi importo è benvenuto","donate.c3i4":"I donatori annuali sono particolarmente preziosi","donate.c3btn":"Dona di più",
-    "donate.community_tag":"Resta Connesso","donate.community_title":"Unisciti alla nostra comunità","donate.community_text":"Iscriviti per campagne, eventi e notizie sui bambini. Niente spam.",
-    "donate.int1":"📢 Comunicazioni","donate.int2":"🎉 Eventi","donate.int3":"🌙 Campagne","donate.int4":"📊 Impatto","donate.int5":"🤝 Volontariato","donate.community_btn":"Iscriviti ↗",
-    "donate.receipt_note":"Come organizzazione nonprofit 501(c)(3) in Ohio, tutte le donazioni sono deducibili. Includi la tua email quando doni per ricevere la ricevuta fiscale.",
-    "donate.receipt_tag":"","donate.receipt_title":"","donate.receipt_text":"","donate.receipt_placeholder":"","donate.receipt_btn":"","donate.receipt_confirm":"",
-    "donate.how_tag":"Come Donare","donate.how_title":"Dona online","donate.how_text":"PayPal, Venmo o carta con i pulsanti sopra. Zelle: donate@sponsorkids212.org.",
-    "payment.tag":"Pagamenti","payment.title":"Modi semplici per donare","payment.sub":"PayPal, Venmo o Zelle — senza commissioni. Deducibile.",
-    "payment.paypal_note":"PayPal o carta di credito","payment.venmo_note":"Invia a @sponsorkids212","payment.zelle_note":"Invia a donate@sponsorkids212.org","payment.donate_cta":"Dona ora ↗",
-    "payment.zelle_copy":"📋 clicca per copiare","payment.zelle_copied":"✓ Copiato!",
-    "payment.cta_bold":"Domande?","payment.cta_text":" Donazioni deducibili. PayPal: pulsante. Venmo: @sponsorkids212. Zelle: donate@sponsorkids212.org.",
-    "team.tag":"Sul Campo","team.title":"I nostri coordinatori","team.sub":"I nostri coordinatori sono il cuore di Sponsor Kids 212.",
-    "team.role":"Coordinatrice locale","team.whatsapp":"Chatta su WhatsApp",
-    "team.fz_bio":"Fatima Zahra è moglie, madre, lavoratrice a tempo pieno e studentessa in Risorse Umane — tutto dedicando il cuore al servizio della comunità a Casablanca.",
-    "team.tag1":"👪 Famiglie","team.tag2":"👶 Bambini","team.tag3":"💊 Medico","team.tag4":"📚 Scuola","team.tag5":"♿ Disabilità",
-    "team.expand":"Stiamo espandendo ad altre città. Contattaci se conosci un volontario di fiducia.",
-    "gallery.tag":"Galleria","gallery.title":"Sorrisi resi possibili dalla tua generosità",
-    "gallery.note":"Foto condivise solo con consenso esplicito.",
-    "gallery.folder.photos":"Foto","gallery.folder.receipts":"Ricevute",
-    "gallery.drive.photos_title":"Eid El-Fitr 2026 — Foto","gallery.drive.photos_desc":"Foto · Google Drive · Nuova scheda",
-    "gallery.drive.receipts_title":"Eid El-Fitr 2026 — Ricevute","gallery.drive.receipts_desc":"Ricevute · Google Drive · Nuova scheda",
-    "gallery.future":"Campagne future","gallery.coming":"appariranno qui",
-    "trans.nonprofit_title":"Organizzazione Nonprofit 501(c)(3)","trans.nonprofit_sub":"Sponsor Kids 212, Inc. · EIN: 41-5257784 · Ohio · Donazione deducibile.",
-    "trans.nonprofit_verify":"Verifica IRS ↗",
-    "trans.tag":"Piena Trasparenza","trans.title":"La tua fiducia conta","trans.sub":"Ogni centesimo raggiunge i bambini.",
-    "trans.c1t":"Ricevute","trans.c1d":"Ogni acquisto è documentato e condiviso.",
-    "trans.c2t":"Report","trans.c2d":"Quadro completo di acquisti e costi.",
-    "trans.c3t":"Coordinatore fidato","trans.c3d":"Persona conosciuta e fidata dalla nostra comunità.",
-    "trans.c4t":"Zero spese","trans.c4d":"100% ai bambini. Nessuna commissione.",
-    "trans.rp_title":"Ricevute","trans.rp_text":"Pubblicati dopo ogni campagna.",
-    "dua.translation":"\"Chi allevia l’angoscia di un credente, Allah lo allevierà nel Giorno del Giudizio.\"",
-    "dua.source":"Sahih Muslim · Che Allah vi ricompensi. Ameen. 🤲",
-    "footer.tagline":"Aiutare i bambini in Marocco","footer.sub":"Un’iniziativa comunitaria","footer.nonprofit":"Nonprofit 501(c)(3) · EIN: 41-5257784 · Ohio"
-  },
-  de:{
-    "nav.mission":"Mission","nav.needs":"Bedürfnisse","nav.team":"Team","nav.gallery":"Galerie","nav.receipts":"Belege","nav.donate":"Jetzt spenden",
-    "hero.badge":"🇲🇦 Gib deinem jüngeren Ich","hero.h1":"Sei der Segen,<br>den du einmal <em>gebraucht hättest.</em>",
-    "hero.tagline":"Jedes Kind verdient Freude — hilf uns, sie möglich zu machen.",
-    "hero.sub":"Im Geiste der Sadaqah bündelt Sponsor Kids 212 die Großzügigkeit unserer Gemeinschaft für verwaiste, behinderte und arme Kinder in Marokko.",
-    "hero.btn1":"Jetzt spenden","hero.btn2":"Unsere Geschichte",
-    "hero.nonprofit":"Sponsor Kids 212, Inc. ist eine gemeinnützige Organisation 501(c)(3) · EIN: 41-5257784 · Spende steuerlich absetzbar",
-    "stats.s1":"geht direkt an Kinder","stats.s2":"sponsert ein Kind","stats.s3":"Tage im Jahr sammeln wir","stats.s4":"unsere Wurzeln, unser Ziel",
-    "mission.tag":"Unsere Mission","mission.title":"Würde und Freude für gefährdete Kinder",
-    "mission.p1":"Wir sind marokkanische Freunde im Ausland, die dem Land zurückgeben möchten, das uns geprägt hat.",
-    "mission.p2":"Wir unterstützen verwaiste, behinderte Kinder und solche mit abwesenden Eltern oder in extremer Armut das ganze Jahr über.",
-    "mission.p3":"Unsere Vision: Schulkosten, Nachhilfe, medizinische Versorgung, Ausflüge und mehr abzudecken.",
-    "mission.p4":"Die Kinder wurden identifiziert. Die Person vor Ort ist vertrauenswürdig. Ihre Spende geht genau dorthin.",
-    "mission.quote1":"\"Der Schatten des Gläubigen am Tag der Auferstehung wird seine Wohltätigkeit sein.\"","mission.attr1":"— Prophet Muhammad ﷺ",
-    "mission.quote2":"\"Wer die Not eines Gläubigen lindert, dem wird Allah eine Schwierigkeit am Gerichtstag erleichtern.\"","mission.attr2":"— Sahih Muslim",
-    "who.tag":"Wen Wir Helfen","who.title":"Kinder, die uns am meisten brauchen","who.sub":"Jedes Kind wurde individuell von einem vertrauenswürdigen Koordinator identifiziert.",
-    "who.t1":"🌿 Verwaiste Kinder","who.t2":"♿ Kinder mit Behinderungen","who.t3":"👤 Kinder mit abwesenden Eltern","who.t4":"🤲 Kinder mit behinderten Eltern","who.t5":"🏚️ Kinder in extremer Armut",
-    "who.privacy_title":"Datenschutz zuerst.","who.privacy_text":" Identitäten geschützt. Fotos nur mit ausdrücklicher Genehmigung.",
-    "needs.tag":"Wohin Ihre Spende Geht","needs.title":"Bedürfnisse der Kinder","needs.sub":"Wir wachsen von saisonalen Spenden zu ganzjähriger Unterstützung:",
-    "needs.n1t":"Kleidung","needs.n1d":"Neue Outfits für Feiern und den Alltag",
-    "needs.n2t":"Schuhe","needs.n2d":"Neue Schuhe für jedes Kind",
-    "needs.n3t":"Spielzeug & Geschenke","needs.n3d":"Echte Freude in das Leben eines Kindes bringen",
-    "needs.n4t":"Schulmaterial","needs.n4d":"Ranzen, Bücher, Schreibwaren und Uniformen",
-    "needs.n5t":"Nachhilfe","needs.n5d":"Akademische Unterstützung",
-    "needs.n6t":"Medizin & Gesundheit","needs.n6d":"Medikamente und Arztbesuche",
-    "needs.n7t":"Essen","needs.n7d":"Nährende Mahlzeiten für Kinder in Not",
-    "needs.n8t":"Ausflüge","needs.n8d":"Erfahrungen, die viele Kinder nie gemacht haben",
-    "needs.n9t":"Behinderungsunterstützung","needs.n9d":"Ausrüstung, Therapie und Pflege",
-    "needs.active":"Aktiv","needs.coming":"Demnächst",
-    "donate.tag":"Mach den Unterschied","donate.title":"Wähle deinen Beitrag","donate.sub":"1 $ ≈ 10 Dirham. Wir sammeln das ganze Jahr. Spende was du kannst.",
-    "donate.c0sub":"≈ 250 MAD · Teilsponsoring","donate.c0i1":"Ein Outfit oder Schuhe für ein Kind","donate.c0i2":"Mit anderen ein Kind vollständig sponsern","donate.c0i3":"Jeder Beitrag macht einen Unterschied","donate.c0btn":"25 $ spenden",
-    "donate.c1sub":"≈ 500 MAD · Vollständiges Sponsoring","donate.c1i1":"Ein komplettes Outfit ~250–300 MAD","donate.c1i2":"Ein Paar Schuhe ~100–150 MAD","donate.c1i3":"Ein Spielzeug ~50–100 MAD","donate.c1btn":"50 $ spenden",
-    "donate.featured":"Am Großzügigsten","donate.c2sub":"≈ 1.000 MAD · Premium","donate.c2i1":"Hochwertiges Outfit ~400–500 MAD","donate.c2i2":"Qualitätsschuhe ~150–200 MAD","donate.c2i3":"Spielzeug oder Rucksack ~150–200 MAD","donate.c2i4":"Süßigkeiten ~100 MAD","donate.c2btn":"100 $ spenden",
-    "donate.c3title":"Mehr Spenden","donate.c3sub":"150 $+ · Mehrere Kinder","donate.c3i1":"150 $ sponsert 3 Kinder","donate.c3i2":"200 $ deckt Premium + Schulmaterial","donate.c3i3":"Jeder Betrag willkommen","donate.c3i4":"Jährliche Spender besonders wertvoll","donate.c3btn":"Mehr spenden",
-    "donate.community_tag":"Verbunden bleiben","donate.community_title":"Werde Teil unserer Gemeinschaft","donate.community_text":"Updates zu Kampagnen, Einladungen und Neuigkeiten. Kein Spam.",
-    "donate.int1":"📢 Kommunikation","donate.int2":"🎉 Veranstaltungen","donate.int3":"🌙 Kampagnen","donate.int4":"📊 Berichte","donate.int5":"🤝 Freiwillige","donate.community_btn":"Jetzt anmelden ↗",
-    "donate.receipt_note":"Als gemeinnützige Organisation 501(c)(3) in Ohio sind alle Spenden steuerlich absetzbar. Bitte gib deine E-Mail an, damit wir dir eine Quittung senden können.",
-    "donate.receipt_tag":"","donate.receipt_title":"","donate.receipt_text":"","donate.receipt_placeholder":"","donate.receipt_btn":"","donate.receipt_confirm":"",
-    "donate.how_tag":"Wie Spenden","donate.how_title":"Online sicher spenden","donate.how_text":"PayPal, Venmo oder Karte oben. Zelle: donate@sponsorkids212.org.",
-    "payment.tag":"Zahlungsoptionen","payment.title":"Einfach spenden","payment.sub":"PayPal, Venmo oder Zelle — gebührenfrei. Steuerlich absetzbar.",
-    "payment.paypal_note":"Sichere Zahlung per PayPal oder Karte","payment.venmo_note":"Senden an @sponsorkids212","payment.zelle_note":"Senden an donate@sponsorkids212.org","payment.donate_cta":"Jetzt spenden ↗",
-    "payment.zelle_copy":"📋 zum Kopieren klicken","payment.zelle_copied":"✓ Kopiert!",
-    "payment.cta_bold":"Fragen?","payment.cta_text":" Alle Spenden absetzbar. PayPal: oben. Venmo: @sponsorkids212. Zelle: donate@sponsorkids212.org.",
-    "team.tag":"Vor Ort","team.title":"Unsere Koordinatoren","team.sub":"Unsere Koordinatoren sind das Herz von Sponsor Kids 212.",
-    "team.role":"Lokale Koordinatorin","team.whatsapp":"Auf WhatsApp chatten",
-    "team.fz_bio":"Fatima Zahra ist Ehefrau, Mutter, Vollzeit-Berufstätige und Studentin im Personalwesen — alles während sie ihren Gemeinschaftsdienst in Casablanca leistet.",
-    "team.tag1":"👪 Familien","team.tag2":"👶 Kinder","team.tag3":"💊 Medizin","team.tag4":"📚 Schule","team.tag5":"♿ Behinderung",
-    "team.expand":"Wir möchten uns ausweiten. Kontaktieren Sie uns, wenn Sie jemanden kennen.",
-    "gallery.tag":"Galerie","gallery.title":"Lächeln durch Ihre Großzügigkeit",
-    "gallery.note":"Fotos nur mit ausdrücklicher Zustimmung.",
-    "gallery.folder.photos":"Fotos","gallery.folder.receipts":"Belege",
-    "gallery.drive.photos_title":"Eid El-Fitr 2026 — Fotos","gallery.drive.photos_desc":"Fotos · Google Drive · Neuer Tab",
-    "gallery.drive.receipts_title":"Eid El-Fitr 2026 — Belege","gallery.drive.receipts_desc":"Belege · Google Drive · Neuer Tab",
-    "gallery.future":"Zukünftige Kampagnen","gallery.coming":"erscheinen hier",
-    "trans.nonprofit_title":"Gemeinnützige Organisation 501(c)(3)","trans.nonprofit_sub":"Sponsor Kids 212, Inc. · EIN: 41-5257784 · Ohio · Vollständig steuerlich absetzbar.",
-    "trans.nonprofit_verify":"Beim IRS prüfen ↗",
-    "trans.tag":"Volle Transparenz","trans.title":"Ihr Vertrauen ist uns wichtig","trans.sub":"Jeder gespendete Cent erreicht die Kinder.",
-    "trans.c1t":"Belege","trans.c1d":"Jeder Kauf dokumentiert und geteilt.",
-    "trans.c2t":"Berichte","trans.c2d":"Vollständige Aufstellung aller Käufe.",
-    "trans.c3t":"Vertrauenswürdiger Koordinator","trans.c3d":"Person vor Ort ist persönlich bekannt und vertraut.",
-    "trans.c4t":"Null Gemeinkosten","trans.c4d":"100 % erreicht die Kinder.",
-    "trans.rp_title":"Belege und Berichte","trans.rp_text":"Nach jeder Kampagne veröffentlicht.",
-    "dua.translation":"\"Wer die Not eines Gläubigen lindert, dem wird Allah eine Schwierigkeit am Gerichtstag erleichtern.\"",
-    "dua.source":"Sahih Muslim · Möge Allah Sie belohnen. Ameen. 🤲",
-    "footer.tagline":"Kindern in Marokko helfen","footer.sub":"Gemeinschaftsinitiative von Marokkanern im Ausland","footer.nonprofit":"Gemeinnützige Org. 501(c)(3) · EIN: 41-5257784 · Ohio"
-  }
 };
 
 
-
-function copyZelle(){
-  const email = 'donate@sponsorkids212.org';
-  navigator.clipboard.writeText(email).then(()=>{
-    document.getElementById('zelle-copied').style.display='block';
-    document.getElementById('zelle-email-display').style.color='rgba(255,255,255,0.45)';
-    setTimeout(()=>{
-      document.getElementById('zelle-copied').style.display='none';
-      document.getElementById('zelle-email-display').style.color='rgba(255,255,255,0.75)';
-    }, 2500);
-  }).catch(()=>{
-    // Fallback for older browsers
-    const el = document.createElement('textarea');
-    el.value = email;
-    document.body.appendChild(el);
-    el.select();
-    document.execCommand('copy');
-    document.body.removeChild(el);
-    document.getElementById('zelle-copied').style.display='block';
-    setTimeout(()=>{ document.getElementById('zelle-copied').style.display='none'; }, 2500);
-  });
-}
 
 function toggleYear(el){
   const body=el.nextElementSibling;
@@ -1208,9 +1044,7 @@ const pageTitles = {
   en:"Sponsor Kids 212 — Helping Children in Morocco",
   fr:"Sponsor Kids 212 — Aider les enfants au Maroc",
   ar:"Sponsor Kids 212 — مساعدة الأطفال في المغرب",
-  es:"Sponsor Kids 212 — Ayudando a los niños en Marruecos",
-  it:"Sponsor Kids 212 — Aiutare i bambini in Marocco",
-  de:"Sponsor Kids 212 — Kindern in Marokko helfen"
+  es:"Sponsor Kids 212 — Ayudando a los niños en Marruecos"
 };
 
 function setLang(lang) {

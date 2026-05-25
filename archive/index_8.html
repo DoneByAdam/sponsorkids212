@@ -226,11 +226,6 @@
   .payment-card-link:hover{background:rgba(255,255,255,0.22);transform:translateY(-3px);box-shadow:0 8px 24px rgba(0,0,0,0.15);}
   .payment-card-pending{opacity:0.7;cursor:default;}
   .payment-card-pending:hover{background:rgba(255,255,255,0.1);transform:none;}
-  .payment-card-preferred{background:rgba(212,160,23,0.18);border:2px solid var(--gold);position:relative;}
-  .payment-card-preferred:hover{background:rgba(212,160,23,0.28);transform:translateY(-3px);box-shadow:0 8px 28px rgba(212,160,23,0.25);}
-  .payment-preferred-badge{position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--gold);color:var(--dark);font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:3px 14px;border-radius:20px;white-space:nowrap;}
-  .payment-fee-note{display:inline-block;margin-top:8px;font-size:11px;color:rgba(255,255,255,0.55);font-style:italic;}
-  .payment-fee-warning{display:inline-block;margin-top:8px;font-size:11px;color:#FF8A80;font-style:italic;}
   .payment-badge-go{display:inline-block;margin-top:12px;background:var(--red);color:white;font-size:12px;font-weight:500;padding:5px 14px;border-radius:20px;letter-spacing:0.3px;}
   .payment-badge-soon{display:inline-block;margin-top:12px;background:rgba(255,255,255,0.15);color:rgba(255,255,255,0.7);font-size:12px;font-weight:500;padding:5px 14px;border-radius:20px;border:1px dashed rgba(255,255,255,0.3);letter-spacing:0.3px;}
   .payment-zelle-email{margin-top:10px;font-size:11.5px;color:rgba(255,255,255,0.75);font-weight:500;word-break:break-all;}
@@ -429,7 +424,7 @@
       </div>
     </div>
     <div class="eid-banner-actions">
-      <a href="https://givebutter.com/sponsorkids212-eid-al-adha-2026" target="_blank" rel="noopener" class="eid-banner-btn">Donate via Givebutter 🎁</a>
+      <a href="#donate" class="eid-banner-btn">Donate Now 🎁</a>
       <button class="eid-banner-close" onclick="document.getElementById('eid-banner').style.display='none'" aria-label="Close">✕</button>
     </div>
   </div>
@@ -520,8 +515,8 @@
             </div>
             <p class="adha-desc" style="font-size:13.5px;color:rgba(255,255,255,0.65);margin-bottom:20px;">Give any amount — every dollar goes to a family in need. There is no minimum and no maximum. Donate what is in your heart.</p>
             <div class="adha-btns">
-              <a href="https://givebutter.com/sponsorkids212-eid-al-adha-2026" target="_blank" rel="noopener" class="adha-btn-primary">Donate via Givebutter 🤲</a>
-              <a href="#payment-methods" class="adha-btn-secondary">See All Payment Options</a>
+              <a href="#payment-methods" class="adha-btn-primary">Donate Before May 26 🤲</a>
+              <a href="#payment-methods" class="adha-btn-secondary">See Payment Options</a>
             </div>
           </div>
         </div>
@@ -700,38 +695,14 @@
   <div class="section-inner">
     <div class="section-tag" data-i18n="payment.tag">Payment Options</div>
     <h2 class="section-title" data-i18n="payment.title">Easy ways to donate</h2>
-    <p class="section-sub" data-i18n="payment.sub">Use <strong style="color:var(--gold);">Givebutter</strong> or <strong style="color:var(--gold);">Zelle</strong> for zero fees — 100% goes to the children. PayPal &amp; Venmo also accepted (≈2% platform fee applies). All donations are tax-deductible.</p>
+    <p class="section-sub" data-i18n="payment.sub">Donate instantly online, or contact us for Zelle details coming soon.</p>
     <div class="payment-grid">
-
-      <!-- Givebutter — PREFERRED -->
-      <a href="https://givebutter.com/sponsorkids212-eid-al-adha-2026" target="_blank" rel="noopener" class="payment-card payment-card-link payment-card-preferred">
-        <div class="payment-preferred-badge">⭐ Fee-Free · Preferred</div>
-        <div class="payment-icon">🧡</div>
-        <div class="payment-name">Givebutter</div>
-        <div class="payment-note">Eid al-Adha 2026 Campaign</div>
-        <div class="payment-fee-note">100% goes to the children — no fees</div>
-        <div class="payment-badge-go" style="background:var(--gold);color:var(--dark);">Donate Now ↗</div>
-      </a>
-
-      <!-- Zelle — also preferred -->
-      <div class="payment-card payment-card-zelle" onclick="copyZelle()" title="Click to copy" style="cursor:pointer;">
-        <div class="payment-icon">🏦</div>
-        <div class="payment-name">Zelle</div>
-        <div class="payment-note" data-i18n="payment.zelle_note">Send to donate@sponsorkids212.org</div>
-        <div class="payment-fee-note">No fees — all of your gift reaches the kids</div>
-        <div class="payment-zelle-email" id="zelle-email-display">
-          donate@sponsorkids212.org
-          <span class="zelle-copy-hint" data-i18n="payment.zelle_copy">📋 click to copy</span>
-        </div>
-        <div id="zelle-copied" style="display:none;margin-top:8px;font-size:12px;color:#25D366;font-weight:600;" data-i18n="payment.zelle_copied">✓ Copied!</div>
-      </div>
 
       <!-- PayPal -->
       <a href="https://www.paypal.com/donate/?hosted_button_id=3339EY86BCW9L" target="_blank" rel="noopener" class="payment-card payment-card-link">
         <div class="payment-icon">🌐</div>
         <div class="payment-name">PayPal</div>
         <div class="payment-note" data-i18n="payment.paypal_note">Donate securely with PayPal or credit/debit card</div>
-        <div class="payment-fee-warning">~2% platform fee applies</div>
         <div class="payment-badge-go" data-i18n="payment.donate_cta">Donate Now ↗</div>
       </a>
 
@@ -740,16 +711,27 @@
         <div class="payment-icon">📱</div>
         <div class="payment-name">Venmo</div>
         <div class="payment-note">@sponsorkids212</div>
-        <div class="payment-fee-warning">~2% platform fee applies</div>
         <div class="payment-badge-go" data-i18n="payment.donate_cta">Donate Now ↗</div>
       </a>
+
+      <!-- Zelle -->
+      <div class="payment-card payment-card-zelle" onclick="copyZelle()" title="Click to copy" style="cursor:pointer;">
+        <div class="payment-icon">🏦</div>
+        <div class="payment-name">Zelle</div>
+        <div class="payment-note" data-i18n="payment.zelle_note">Send to donate@sponsorkids212.org</div>
+        <div class="payment-zelle-email" id="zelle-email-display">
+          donate@sponsorkids212.org
+          <span class="zelle-copy-hint" data-i18n="payment.zelle_copy">📋 click to copy</span>
+        </div>
+        <div id="zelle-copied" style="display:none;margin-top:8px;font-size:12px;color:#25D366;font-weight:600;" data-i18n="payment.zelle_copied">✓ Copied!</div>
+      </div>
 
     </div>
     <div class="payment-contact">
       <div class="payment-contact-icon">📬</div>
       <div class="payment-contact-text">
         <strong data-i18n="payment.cta_bold">Questions about donating?</strong>
-        <span data-i18n="payment.cta_text"> <strong style="color:white;">Givebutter and Zelle are preferred</strong> — they charge no fees, meaning 100% of your gift reaches the children. Use the Givebutter button above for the Eid al-Adha 2026 campaign, or Zelle to donate@sponsorkids212.org. PayPal and Venmo are also accepted but charge approximately 2% in platform fees. All donations are tax-deductible.</span>
+        <span data-i18n="payment.cta_text"> All donations are tax-deductible. For PayPal or credit/debit card, click the PayPal button. For Venmo, send to @sponsorkids212. For Zelle, send to donate@sponsorkids212.org. Every donation is acknowledged and documented with receipts.</span>
         <div style="margin-top:14px;display:flex;flex-wrap:wrap;gap:12px;">
           <a href="mailto:info@sponsorkids212.org" style="display:inline-flex;align-items:center;gap:7px;background:rgba(255,255,255,0.15);border:1px solid rgba(255,255,255,0.3);color:white;text-decoration:none;padding:8px 16px;border-radius:30px;font-size:13px;font-weight:500;transition:background 0.2s;" onmouseover="this.style.background='rgba(255,255,255,0.25)'" onmouseout="this.style.background='rgba(255,255,255,0.15)'">
             ✉️ info@sponsorkids212.org
@@ -881,68 +863,6 @@
             </div>
           </div>
           <!-- /Eid El-Fitr 2026 -->
-
-          <!-- Eid al-Adha 2026 -->
-          <div class="archive-event">
-            <div class="archive-event-header" onclick="toggleEvent(this)">
-              <div class="archive-event-label">
-                <span class="archive-event-dot" style="background:var(--gold)"></span>
-                <div>
-                  <div class="archive-event-name">🐑 Eid al-Adha 2026 <span style="font-size:11px;background:var(--gold);color:var(--dark);padding:2px 10px;border-radius:20px;font-weight:600;margin-left:6px;">New</span></div>
-                  <div class="archive-event-meta">Casablanca · May 2026</div>
-                </div>
-              </div>
-              <span class="archive-chevron small">▾</span>
-            </div>
-            <div class="archive-event-body open">
-
-              <!-- Tabs -->
-              <div class="media-tabs">
-                <button class="media-tab active" id="tab-photos-adha2026" onclick="
-                  document.getElementById('photos-adha2026').style.display='block';
-                  document.getElementById('receipts-adha2026').style.display='none';
-                  document.getElementById('tab-photos-adha2026').classList.add('active');
-                  document.getElementById('tab-receipts-adha2026').classList.remove('active');
-                ">📷 <span>Photos</span></button>
-                <button class="media-tab" id="tab-receipts-adha2026" onclick="
-                  document.getElementById('receipts-adha2026').style.display='block';
-                  document.getElementById('photos-adha2026').style.display='none';
-                  document.getElementById('tab-receipts-adha2026').classList.add('active');
-                  document.getElementById('tab-photos-adha2026').classList.remove('active');
-                ">🧾 <span>Receipts</span></button>
-              </div>
-
-              <!-- Photos panel -->
-              <div class="media-panel active" id="photos-adha2026" style="display:block;">
-                <a href="https://drive.google.com/drive/folders/12uLcFd-gSjp9UyhlkCLHOFKVSBLgmjaO?usp=sharing" target="_blank" rel="noopener" class="drive-link-card photos">
-                  <div class="drive-card-left">
-                    <div class="drive-card-icon">📷</div>
-                    <div>
-                      <div class="drive-card-title">Eid al-Adha 2026 — Photos</div>
-                      <div class="drive-card-desc">Shared on Google Drive · Opens in new tab</div>
-                    </div>
-                  </div>
-                  <div class="drive-card-arrow">↗</div>
-                </a>
-              </div>
-
-              <!-- Receipts panel -->
-              <div class="media-panel" id="receipts-adha2026" style="display:none;">
-                <a href="https://drive.google.com/drive/folders/1isAbso2dzQNfTgPE_AOBm_v2oMZIBKtu?usp=sharing" target="_blank" rel="noopener" class="drive-link-card receipts">
-                  <div class="drive-card-left">
-                    <div class="drive-card-icon">🧾</div>
-                    <div>
-                      <div class="drive-card-title">Eid al-Adha 2026 — Receipts</div>
-                      <div class="drive-card-desc">Shared on Google Drive · Opens in new tab</div>
-                    </div>
-                  </div>
-                  <div class="drive-card-arrow">↗</div>
-                </a>
-              </div>
-
-            </div>
-          </div>
-          <!-- /Eid al-Adha 2026 -->
 
         </div>
       </div>

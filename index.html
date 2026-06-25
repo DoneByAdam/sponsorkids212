@@ -251,7 +251,7 @@
   .team-card{background:var(--sand);border:1px solid var(--border);border-radius:20px;overflow:hidden;display:grid;grid-template-columns:280px 1fr;transition:box-shadow 0.2s;}
   .team-card:hover{box-shadow:0 8px 36px rgba(46,125,79,0.1);}
   .team-photo-wrap{position:relative;}
-  .team-photo{width:100%;height:100%;object-fit:cover;object-position:center top;display:block;min-height:280px;}
+  .team-photo{width:100%;height:100%;object-fit:cover;object-position:center top;display:block;min-height:160px;}
   .team-city-badge{position:absolute;bottom:14px;left:50%;transform:translateX(-50%);background:rgba(0,0,0,0.62);color:white;font-size:12px;font-weight:500;padding:5px 14px;border-radius:20px;white-space:nowrap;backdrop-filter:blur(4px);}
   .team-info{padding:36px 40px;display:flex;flex-direction:column;justify-content:center;}
   .team-role{font-size:11px;letter-spacing:3px;font-weight:500;text-transform:uppercase;color:var(--red);margin-bottom:8px;}
@@ -412,7 +412,7 @@
     .mission-grid{grid-template-columns:1fr;gap:36px;}
     .donate-cards{grid-template-columns:1fr;max-width:420px;margin-left:auto;margin-right:auto;}
     .team-card{grid-template-columns:1fr;}
-    .team-photo{min-height:260px;}
+    .team-photo{min-height:140px;}
     .team-info{padding:28px 24px;}
     footer{padding:32px 20px;flex-direction:column;align-items:flex-start;}
   }
@@ -488,7 +488,7 @@
     <div class="stat"><div class="stat-num">100%</div><div class="stat-label" data-i18n="stats.s1">goes directly to children</div></div>
     <div class="stat"><div class="stat-num">$50</div><div class="stat-label" data-i18n="stats.s2">sponsors one child fully</div></div>
     <div class="stat"><div class="stat-num">365</div><div class="stat-label" data-i18n="stats.s3">days a year we collect</div></div>
-    <div class="stat"><div class="stat-num" style="font-size:22px;padding-top:8px;line-height:1.4;">+212</div><div class="stat-label" data-i18n="stats.s4">our roots, our cause</div></div>
+    <div class="stat"><div class="stat-num" style="font-size:22px;padding-top:8px;line-height:1.4;">+212</div><div class="stat-label" data-i18n="stats.s4">Morocco's international dialing code — the heart of our mission</div></div>
   </div>
 </div>
 
@@ -552,7 +552,7 @@
       <div class="mission-text">
         <div class="section-tag" data-i18n="mission.tag">Our Mission</div>
         <h2 class="section-title" data-i18n="mission.title">Bringing dignity and joy to vulnerable children</h2>
-        <p data-i18n="mission.p1">We are a group of Moroccan friends living abroad who believe in giving back to the country and communities that shaped us.</p>
+        <p data-i18n="mission.p1">We are a group of dedicated professionals with deep ties to Morocco who believe in giving back to the children and communities who need it most.</p>
         <p data-i18n="mission.p2">We have identified children in Morocco who are orphaned, living with disabilities, have absent or disabled parents, or are in extreme poverty. We support them throughout the year with clothing, gifts, and essential items — starting with seasonal celebrations as an example of the joy we strive to bring them every chance we get.</p>
         <p data-i18n="mission.p3">Our long-term vision is to grow our support to cover school expenses, tutoring, medical care, field trips, food, and more. Each campaign is fully transparent: every dirham spent is documented with receipts.</p>
         <p style="color:var(--green);font-weight:500;" data-i18n="mission.p4">The children have been identified. The person receiving funds in Morocco is trusted. Your donation goes exactly where it should.</p>
@@ -616,7 +616,7 @@
   <div class="section-inner">
     <div class="section-tag" data-i18n="donate.tag">Make a Difference</div>
     <h2 class="section-title" data-i18n="donate.title">Choose your contribution</h2>
-    <p class="section-sub" data-i18n="donate.sub">$1 ≈ 10 Moroccan Dirhams (MAD). We collect year-round and distribute when it matters most — Eid al-Fitr, Eid al-Adha, back to school, or urgent needs like medical expenses. Give what you can — no amount is too small.</p>
+    <p class="section-sub" data-i18n="donate.sub">$1 ≈ 10 Moroccan Dirhams (MAD). We collect year-round and distribute when it matters most — Eid al-Fitr, Eid al-Adha, back to school, or urgent needs like medical expenses. Give what you can — <strong>every dollar counts, and any amount is gratefully accepted.</strong> The suggested amounts below are examples only.</p>
     <div class="donate-cards" style="grid-template-columns:repeat(auto-fill,minmax(220px,1fr));">
 
       <!-- $25 -->
@@ -1074,9 +1074,9 @@ const T = {
     "hero.tagline":"Every child deserves to experience joy \u2014 help us make it happen.",
     "hero.sub":"Rooted in the spirit of sadaqah, Sponsor Kids 212 channels the generosity of our community to bring essential support and heartfelt joy to orphaned, disabled, and impoverished children across Morocco.",
     "hero.btn1":"Donate Now","hero.btn2":"Our Story","hero.nonprofit":"Sponsor Kids 212, Inc. is a registered 501(c)(3) nonprofit \u00B7 EIN: 41-5257784 \u00B7 Your donation is tax-deductible",
-    "stats.s1":"goes directly to children","stats.s2":"sponsors one child fully","stats.s3":"days a year we collect","stats.s4":"our roots, our cause",
+    "stats.s1":"goes directly to children","stats.s2":"sponsors one child fully","stats.s3":"days a year we collect","stats.s4":"Morocco's international dialing code — the heart of our mission",
     "mission.tag":"Our Mission","mission.title":"Bringing dignity and joy to vulnerable children",
-    "mission.p1":"We are a group of Moroccan friends living abroad who believe in giving back to the country and communities that shaped us.",
+    "mission.p1":"We are a group of dedicated professionals with deep ties to Morocco who believe in giving back to the children and communities who need it most.",
     "mission.p2":"We have identified children in Morocco who are orphaned, living with disabilities, have absent or disabled parents, or are in extreme poverty. We support them throughout the year with clothing, gifts, and essential items.",
     "mission.p3":"Our long-term vision is to grow our support to cover school expenses, tutoring, medical care, field trips, food, and more. Each campaign is fully transparent.",
     "mission.p4":"The children have been identified. The person receiving funds in Morocco is trusted. Your donation goes exactly where it should.",

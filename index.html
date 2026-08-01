@@ -70,12 +70,13 @@
     .adha-left{flex-direction:column;gap:12px;}
     .adha-icon{font-size:40px;}
   }
-  .campaign-progress-wrap{position:relative;z-index:1;margin-bottom:28px;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.18);border-radius:16px;padding:22px 26px;}
+  .campaign-progress-wrap{position:relative;z-index:1;margin-top:-10px;margin-bottom:28px;background:rgba(255,255,255,0.16);border:2px solid var(--gold);border-radius:16px;padding:20px 26px;box-shadow:0 10px 30px rgba(0,0,0,0.3);backdrop-filter:blur(6px);}
+  .campaign-progress-tag{font-size:12px;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:10px;}
   .campaign-progress-header{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:10px;flex-wrap:wrap;gap:8px;}
-  .campaign-progress-label{font-size:12px;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,0.7);font-weight:600;}
-  .campaign-progress-pct{font-family:'Playfair Display',serif;font-size:22px;color:var(--gold);font-weight:700;}
-  .campaign-progress-track{height:14px;background:rgba(255,255,255,0.15);border-radius:20px;overflow:hidden;}
-  .campaign-progress-fill{height:100%;background:linear-gradient(90deg,#D4A017,#FFD54F);border-radius:20px;transition:width 1.2s ease;}
+  .campaign-progress-label{font-size:12px;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,0.9);font-weight:600;}
+  .campaign-progress-pct{font-family:'Playfair Display',serif;font-size:24px;color:var(--gold);font-weight:700;}
+  .campaign-progress-track{height:16px;background:rgba(0,0,0,0.3);border-radius:20px;overflow:hidden;box-shadow:inset 0 2px 4px rgba(0,0,0,0.25);}
+  .campaign-progress-fill{height:100%;background:linear-gradient(90deg,#D4A017,#FFD54F);border-radius:20px;transition:width 1.2s ease;box-shadow:0 0 14px rgba(255,213,79,0.65);}
   .campaign-progress-numbers{display:flex;align-items:baseline;gap:6px;margin-top:10px;font-size:15px;color:white;flex-wrap:wrap;}
   .campaign-progress-numbers strong{font-size:19px;color:var(--gold);font-family:'Playfair Display',serif;}
   .campaign-progress-encourage{margin-top:8px;font-size:13px;color:rgba(255,255,255,0.75);font-style:italic;}
@@ -535,6 +536,7 @@
 
       <!-- PROGRESS BAR -->
       <div class="campaign-progress-wrap">
+        <div class="campaign-progress-tag" data-i18n="campaign.progress_campaign_tag">🎒 Back-to-School 2026 Campaign</div>
         <div class="campaign-progress-header">
           <span class="campaign-progress-label" data-i18n="campaign.progress_label">Raised So Far</span>
           <span class="campaign-progress-pct" id="campaign-progress-pct">—</span>
@@ -1072,7 +1074,7 @@ const T = {
     "campaign.desc2":"Your donation goes <strong>directly to purchasing school essentials</strong> for the vulnerable children in our program — backpacks, notebooks, pens, uniforms, and anything else they need to start the year with confidence and dignity.",
     "campaign.desc3":"Our trusted local coordinator in Casablanca personally identifies each child's needs, buys the supplies, and delivers them directly — with care and accountability every step of the way.",
     "campaign.urgency1":"backpacks & bags","campaign.urgency2":"notebooks & supplies","campaign.urgency3":"uniforms & clothing",
-    "campaign.progress_label":"Raised So Far","campaign.progress_of":"of","campaign.progress_goal_word":"goal","campaign.progress_encourage":"Every gift moves the bar — help us push it to the finish line!",
+    "campaign.progress_campaign_tag":"🎒 Back-to-School 2026 Campaign","campaign.progress_label":"Raised So Far","campaign.progress_of":"of","campaign.progress_goal_word":"goal","campaign.progress_encourage":"Every gift moves the bar — help us push it to the finish line!",
     "campaign.tier1":"Notebooks, pens & school supplies for one child","campaign.tier2":"A full uniform & backpack for one child","campaign.tier3":"A complete kit — uniform, backpack, shoes & supplies for one child",
     "campaign.btn1":"Donate Now 🎒","campaign.btn2":"See Sponsorship Options",
     "campaign.side_name":"Back to School","campaign.side_date":"New School Year<br>2026","campaign.side_label":"Every Dollar Counts","campaign.side_sub":"100% of your gift goes directly to the children — no fees, no overhead.",
@@ -1136,7 +1138,7 @@ const T = {
     "campaign.desc2":"Votre don sert <strong>directement à l'achat de fournitures scolaires essentielles</strong> pour les enfants vulnérables de notre programme — cartables, cahiers, stylos, uniformes, et tout ce dont ils ont besoin pour commencer l'année avec confiance et dignité.",
     "campaign.desc3":"Notre coordinatrice de confiance à Casablanca identifie personnellement les besoins de chaque enfant, achète les fournitures et les remet directement — avec soin et responsabilité à chaque étape.",
     "campaign.urgency1":"cartables & sacs","campaign.urgency2":"cahiers & fournitures","campaign.urgency3":"uniformes & vêtements",
-    "campaign.progress_label":"Montant collecté","campaign.progress_of":"sur","campaign.progress_goal_word":"objectif","campaign.progress_encourage":"Chaque don fait avancer la barre — aidez-nous à atteindre notre objectif !",
+    "campaign.progress_campaign_tag":"🎒 Campagne Rentrée Scolaire 2026","campaign.progress_label":"Montant collecté","campaign.progress_of":"sur","campaign.progress_goal_word":"objectif","campaign.progress_encourage":"Chaque don fait avancer la barre — aidez-nous à atteindre notre objectif !",
     "campaign.tier1":"Cahiers, stylos et fournitures scolaires pour un enfant","campaign.tier2":"Un uniforme complet et un cartable pour un enfant","campaign.tier3":"Un kit complet — uniforme, cartable, chaussures et fournitures pour un enfant",
     "campaign.btn1":"Faire un don 🎒","campaign.btn2":"Voir les options de parrainage",
     "campaign.side_name":"Rentrée scolaire","campaign.side_date":"Nouvelle année scolaire<br>2026","campaign.side_label":"Chaque dollar compte","campaign.side_sub":"100 % de votre don va directement aux enfants — sans frais, sans frais généraux.",
@@ -1200,7 +1202,7 @@ const T = {
     "campaign.desc2":"يذهب تبرعك <strong>مباشرة لشراء اللوازم المدرسية الأساسية</strong> للأطفال المستضعفين في برنامجنا — حقائب مدرسية، دفاتر، أقلام، زي مدرسي، وكل ما يحتاجونه لبدء العام بثقة وكرامة.",
     "campaign.desc3":"تقوم منسقتنا الموثوقة في الدار البيضاء بتحديد احتياجات كل طفل شخصياً، وشراء اللوازم، وتسليمها مباشرة — بعناية ومسؤولية في كل خطوة.",
     "campaign.urgency1":"حقائب مدرسية","campaign.urgency2":"دفاتر ولوازم","campaign.urgency3":"زي مدرسي وملابس",
-    "campaign.progress_label":"المبلغ المُجمَّع حتى الآن","campaign.progress_of":"من","campaign.progress_goal_word":"الهدف","campaign.progress_encourage":"كل تبرع يحرك المؤشر — ساعدونا على الوصول إلى خط النهاية!",
+    "campaign.progress_campaign_tag":"🎒 حملة العودة إلى المدرسة 2026","campaign.progress_label":"المبلغ المُجمَّع حتى الآن","campaign.progress_of":"من","campaign.progress_goal_word":"الهدف","campaign.progress_encourage":"كل تبرع يحرك المؤشر — ساعدونا على الوصول إلى خط النهاية!",
     "campaign.tier1":"دفاتر وأقلام ولوازم مدرسية لطفل واحد","campaign.tier2":"زي مدرسي كامل وحقيبة لطفل واحد","campaign.tier3":"طقم كامل — زي مدرسي، حقيبة، حذاء ولوازم لطفل واحد",
     "campaign.btn1":"تبرع الآن 🎒","campaign.btn2":"عرض خيارات الكفالة",
     "campaign.side_name":"العودة إلى المدرسة","campaign.side_date":"عام دراسي جديد<br>2026","campaign.side_label":"كل دولار مهم","campaign.side_sub":"100% من تبرعك يذهب مباشرة للأطفال — بدون رسوم وبدون نفقات إدارية.",
@@ -1264,7 +1266,7 @@ const T = {
     "campaign.desc2":"Tu donación se destina <strong>directamente a la compra de materiales escolares esenciales</strong> para los niños vulnerables de nuestro programa — mochilas, cuadernos, lápices, uniformes y todo lo que necesitan para comenzar el año con confianza y dignidad.",
     "campaign.desc3":"Nuestra coordinadora de confianza en Casablanca identifica personalmente las necesidades de cada niño, compra los materiales y los entrega directamente — con cuidado y responsabilidad en cada paso.",
     "campaign.urgency1":"mochilas y bolsos","campaign.urgency2":"cuadernos y materiales","campaign.urgency3":"uniformes y ropa",
-    "campaign.progress_label":"Recaudado hasta ahora","campaign.progress_of":"de","campaign.progress_goal_word":"meta","campaign.progress_encourage":"Cada donación mueve la barra — ¡ayúdanos a llegar a la meta!",
+    "campaign.progress_campaign_tag":"🎒 Campaña de Regreso a Clases 2026","campaign.progress_label":"Recaudado hasta ahora","campaign.progress_of":"de","campaign.progress_goal_word":"meta","campaign.progress_encourage":"Cada donación mueve la barra — ¡ayúdanos a llegar a la meta!",
     "campaign.tier1":"Cuadernos, lápices y materiales escolares para un niño","campaign.tier2":"Un uniforme completo y una mochila para un niño","campaign.tier3":"Un kit completo — uniforme, mochila, zapatos y materiales para un niño",
     "campaign.btn1":"Donar ahora 🎒","campaign.btn2":"Ver opciones de patrocinio",
     "campaign.side_name":"Regreso a clases","campaign.side_date":"Nuevo año escolar<br>2026","campaign.side_label":"Cada dólar cuenta","campaign.side_sub":"El 100% de tu donación va directamente a los niños — sin comisiones, sin gastos generales.",
@@ -1335,7 +1337,7 @@ const T = {
     "campaign.desc2":"La tua donazione va <strong>direttamente all'acquisto di materiale scolastico essenziale</strong> per i bambini vulnerabili del nostro programma — zaini, quaderni, penne, uniformi e tutto ciò di cui hanno bisogno per iniziare l'anno con fiducia e dignità.",
     "campaign.desc3":"La nostra coordinatrice di fiducia a Casablanca individua personalmente le esigenze di ogni bambino, acquista il materiale e lo consegna direttamente — con cura e responsabilità in ogni fase.",
     "campaign.urgency1":"zaini e borse","campaign.urgency2":"quaderni e materiale","campaign.urgency3":"uniformi e abbigliamento",
-    "campaign.progress_label":"Raccolto finora","campaign.progress_of":"su","campaign.progress_goal_word":"obiettivo","campaign.progress_encourage":"Ogni donazione fa avanzare la barra — aiutaci a raggiungere il traguardo!",
+    "campaign.progress_campaign_tag":"🎒 Campagna Ritorno a Scuola 2026","campaign.progress_label":"Raccolto finora","campaign.progress_of":"su","campaign.progress_goal_word":"obiettivo","campaign.progress_encourage":"Ogni donazione fa avanzare la barra — aiutaci a raggiungere il traguardo!",
     "campaign.tier1":"Quaderni, penne e materiale scolastico per un bambino","campaign.tier2":"Un'uniforme completa e uno zaino per un bambino","campaign.tier3":"Un kit completo — uniforme, zaino, scarpe e materiale per un bambino",
     "campaign.btn1":"Dona ora 🎒","campaign.btn2":"Vedi le opzioni di sponsorizzazione",
     "campaign.side_name":"Ritorno a scuola","campaign.side_date":"Nuovo anno scolastico<br>2026","campaign.side_label":"Ogni dollaro conta","campaign.side_sub":"Il 100% della tua donazione va direttamente ai bambini — senza commissioni, senza costi generali.",
@@ -1407,7 +1409,7 @@ const T = {
     "campaign.desc2":"Deine Spende fließt <strong>direkt in den Kauf wichtiger Schulmaterialien</strong> für die schutzbedürftigen Kinder in unserem Programm — Schulranzen, Hefte, Stifte, Uniformen und alles, was sie brauchen, um das Jahr mit Zuversicht und Würde zu beginnen.",
     "campaign.desc3":"Unsere vertrauenswürdige Koordinatorin in Casablanca ermittelt persönlich den Bedarf jedes Kindes, kauft die Materialien und übergibt sie direkt — mit Sorgfalt und Verantwortung bei jedem Schritt.",
     "campaign.urgency1":"Schulranzen & Taschen","campaign.urgency2":"Hefte & Material","campaign.urgency3":"Uniformen & Kleidung",
-    "campaign.progress_label":"Bisher gesammelt","campaign.progress_of":"von","campaign.progress_goal_word":"Ziel","campaign.progress_encourage":"Jede Spende bewegt die Anzeige — hilf uns, das Ziel zu erreichen!",
+    "campaign.progress_campaign_tag":"🎒 Schulstart-Kampagne 2026","campaign.progress_label":"Bisher gesammelt","campaign.progress_of":"von","campaign.progress_goal_word":"Ziel","campaign.progress_encourage":"Jede Spende bewegt die Anzeige — hilf uns, das Ziel zu erreichen!",
     "campaign.tier1":"Hefte, Stifte & Schulmaterial für ein Kind","campaign.tier2":"Eine komplette Schuluniform & ein Schulranzen für ein Kind","campaign.tier3":"Ein komplettes Set — Uniform, Schulranzen, Schuhe & Material für ein Kind",
     "campaign.btn1":"Jetzt spenden 🎒","campaign.btn2":"Patenschaftsoptionen ansehen",
     "campaign.side_name":"Schulstart","campaign.side_date":"Neues Schuljahr<br>2026","campaign.side_label":"Jeder Dollar zählt","campaign.side_sub":"100 % deiner Spende gehen direkt an die Kinder — ohne Gebühren, ohne Gemeinkosten.",

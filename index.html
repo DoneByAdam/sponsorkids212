@@ -70,6 +70,23 @@
     .adha-left{flex-direction:column;gap:12px;}
     .adha-icon{font-size:40px;}
   }
+  .campaign-progress-wrap{position:relative;z-index:1;margin-bottom:28px;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.18);border-radius:16px;padding:22px 26px;}
+  .campaign-progress-header{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:10px;flex-wrap:wrap;gap:8px;}
+  .campaign-progress-label{font-size:12px;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,0.7);font-weight:600;}
+  .campaign-progress-pct{font-family:'Playfair Display',serif;font-size:22px;color:var(--gold);font-weight:700;}
+  .campaign-progress-track{height:14px;background:rgba(255,255,255,0.15);border-radius:20px;overflow:hidden;}
+  .campaign-progress-fill{height:100%;background:linear-gradient(90deg,#D4A017,#FFD54F);border-radius:20px;transition:width 1.2s ease;}
+  .campaign-progress-numbers{display:flex;align-items:baseline;gap:6px;margin-top:10px;font-size:15px;color:white;flex-wrap:wrap;}
+  .campaign-progress-numbers strong{font-size:19px;color:var(--gold);font-family:'Playfair Display',serif;}
+  .campaign-progress-encourage{margin-top:8px;font-size:13px;color:rgba(255,255,255,0.75);font-style:italic;}
+  .campaign-tiers{display:flex;gap:14px;flex-wrap:wrap;margin:18px 0 22px;position:relative;z-index:1;}
+  .campaign-tier{background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.18);border-radius:12px;padding:14px 16px;flex:1;min-width:150px;}
+  .campaign-tier-amt{font-family:'Playfair Display',serif;font-size:22px;color:var(--gold);font-weight:700;margin-bottom:4px;}
+  .campaign-tier-desc{font-size:12.5px;color:rgba(255,255,255,0.8);line-height:1.5;}
+  @media(max-width:900px){
+    .campaign-tiers{flex-direction:column;}
+    .campaign-progress-wrap{padding:18px 20px;}
+  }
   .eid-banner{
     background: linear-gradient(135deg, #7B1FA2 0%, #4A148C 40%, #1A237E 100%);
     position: relative; overflow: hidden;
@@ -483,7 +500,7 @@
     <li><a href="#mission" data-i18n="nav.mission">Mission</a></li>
     <li><a href="#needs" data-i18n="nav.needs">Needs</a></li>
     <li><a href="#team" data-i18n="nav.team">Team</a></li>
-    <li><a href="#gallery" data-i18n="nav.gallery">Gallery</a></li>
+    <li><a href="#impact" data-i18n="nav.gallery">Impact</a></li>
     <li><a href="#transparency" data-i18n="nav.receipts">Receipts</a></li>
     <li><a href="#contact-us" data-i18n="nav.contact">Contact</a></li>
     <li><a href="#payment-methods" class="nav-cta" data-i18n="nav.donate">Donate Now</a></li>
@@ -510,62 +527,86 @@
 </section>
 <div class="wave-btm"><svg viewBox="0 0 1440 52" preserveAspectRatio="none" height="52"><path d="M0,52 C480,0 960,0 1440,52 L1440,0 L0,0 Z" fill="#2E7D32"/></svg></div>
 
-<!-- STATS -->
-<div class="stats-bar">
-  <div class="stats-inner">
-    <div class="stat"><div class="stat-num">100%</div><div class="stat-label" data-i18n="stats.s1">goes directly to children</div></div>
-    <div class="stat"><div class="stat-num">$50</div><div class="stat-label" data-i18n="stats.s2">sponsors one child fully</div></div>
-    <div class="stat"><div class="stat-num">365</div><div class="stat-label" data-i18n="stats.s3">days a year we collect</div></div>
-    <div class="stat"><div class="stat-num" style="font-size:22px;padding-top:8px;line-height:1.4;">+212</div><div class="stat-label" data-i18n="stats.s4">Morocco's international dialing code — the heart of our mission</div></div>
-  </div>
-</div>
-
 <!-- BACK TO SCHOOL IN-PAGE CAMPAIGN -->
 <section class="adha-section">
   <div class="section-inner">
     <div class="adha-card">
       <div class="adha-card-glow"></div>
+
+      <!-- PROGRESS BAR -->
+      <div class="campaign-progress-wrap">
+        <div class="campaign-progress-header">
+          <span class="campaign-progress-label" data-i18n="campaign.progress_label">Raised So Far</span>
+          <span class="campaign-progress-pct" id="campaign-progress-pct">—</span>
+        </div>
+        <div class="campaign-progress-track">
+          <div class="campaign-progress-fill" id="campaign-progress-fill" style="width:0%;"></div>
+        </div>
+        <div class="campaign-progress-numbers">
+          <strong id="campaign-progress-raised">$0</strong>
+          <span data-i18n="campaign.progress_of">of</span>
+          <strong id="campaign-progress-goal">$0</strong>
+          <span data-i18n="campaign.progress_goal_word">goal</span>
+        </div>
+        <div class="campaign-progress-encourage" data-i18n="campaign.progress_encourage">Every gift moves the bar — help us push it to the finish line!</div>
+      </div>
+
       <div class="adha-card-content">
         <div class="adha-left">
           <div class="adha-icon">🎒</div>
           <div>
-            <div class="adha-eyebrow">📚 Back-to-School Campaign — New School Year</div>
-            <h2 class="adha-title">Give a Child the Tools to Succeed</h2>
-            <p class="adha-desc">A new school year is full of hope and possibility — but for many of the children we support, it also means stress. Without the right supplies, uniforms, and backpacks, these kids start at a disadvantage before they even walk through the school door.</p>
-            <p class="adha-desc">Your donation goes <strong>directly to purchasing school essentials</strong> for the vulnerable children in our program — backpacks, notebooks, pens, uniforms, and anything else they need to start the year with confidence and dignity.</p>
-            <p class="adha-desc">Our trusted local coordinator in Casablanca personally identifies each child's needs, buys the supplies, and delivers them — with full receipts documented and shared with donors.</p>
+            <div class="adha-eyebrow" data-i18n="campaign.eyebrow">📚 Back-to-School Campaign — New School Year</div>
+            <h2 class="adha-title" data-i18n="campaign.title">Give a Child the Tools to Succeed</h2>
+            <p class="adha-desc" data-i18n="campaign.desc1">A new school year is full of hope and possibility — but for many of the children we support, it also means stress. Without the right supplies, uniforms, and backpacks, these kids start at a disadvantage before they even walk through the school door.</p>
+            <p class="adha-desc" data-i18n="campaign.desc2">Your donation goes <strong>directly to purchasing school essentials</strong> for the vulnerable children in our program — backpacks, notebooks, pens, uniforms, and anything else they need to start the year with confidence and dignity.</p>
+            <p class="adha-desc" data-i18n="campaign.desc3">Our trusted local coordinator in Casablanca personally identifies each child's needs, buys the supplies, and delivers them directly — with care and accountability every step of the way.</p>
             <div class="adha-urgency">
               <div class="adha-urgency-item">
                 <div class="adha-urgency-num">🎒</div>
-                <div class="adha-urgency-label">backpacks & bags</div>
+                <div class="adha-urgency-label" data-i18n="campaign.urgency1">backpacks & bags</div>
               </div>
               <div class="adha-urgency-divider"></div>
               <div class="adha-urgency-item">
                 <div class="adha-urgency-num">📓</div>
-                <div class="adha-urgency-label">notebooks & supplies</div>
+                <div class="adha-urgency-label" data-i18n="campaign.urgency2">notebooks & supplies</div>
               </div>
               <div class="adha-urgency-divider"></div>
               <div class="adha-urgency-item">
                 <div class="adha-urgency-num">👕</div>
-                <div class="adha-urgency-label">uniforms & clothing</div>
+                <div class="adha-urgency-label" data-i18n="campaign.urgency3">uniforms & clothing</div>
               </div>
             </div>
-            <p class="adha-desc" style="font-size:13.5px;color:rgba(255,255,255,0.65);margin-bottom:20px;">$50 fully equips one child for school. Every dollar goes directly to the children — give what you can.</p>
+
+            <!-- DONATION TIERS -->
+            <div class="campaign-tiers">
+              <div class="campaign-tier">
+                <div class="campaign-tier-amt">$25</div>
+                <div class="campaign-tier-desc" data-i18n="campaign.tier1">Notebooks, pens & school supplies for one child</div>
+              </div>
+              <div class="campaign-tier">
+                <div class="campaign-tier-amt">$50</div>
+                <div class="campaign-tier-desc" data-i18n="campaign.tier2">A full uniform & backpack for one child</div>
+              </div>
+              <div class="campaign-tier">
+                <div class="campaign-tier-amt">$100</div>
+                <div class="campaign-tier-desc" data-i18n="campaign.tier3">A complete kit — uniform, backpack, shoes & supplies for one child</div>
+              </div>
+            </div>
+
             <div class="adha-btns">
-              <a href="#payment-methods" class="adha-btn-primary">Donate Now 🎒</a>
-              <a href="#donate" class="adha-btn-secondary">See Sponsorship Options</a>
+              <a href="#payment-methods" class="adha-btn-primary" data-i18n="campaign.btn1">Donate Now 🎒</a>
+              <a href="#donate" class="adha-btn-secondary" data-i18n="campaign.btn2">See Sponsorship Options</a>
             </div>
           </div>
         </div>
         <div class="adha-right">
           <div class="adha-countdown-box">
             <div class="adha-moon">📚</div>
-            <div class="adha-holiday-name">Back to School</div>
-            <div class="adha-holiday-date">New School Year<br>2026</div>
+            <div class="adha-holiday-name" data-i18n="campaign.side_name">Back to School</div>
+            <div class="adha-holiday-date" data-i18n="campaign.side_date">New School Year<br>2026</div>
             <div class="adha-divider-line"></div>
-            <div class="adha-deadline-label">What $50 Covers</div>
-            <div class="adha-deadline-date" style="color:#A5D6A7;">One child,<br>fully equipped</div>
-            <div class="adha-deadline-sub">backpack · supplies · uniform</div>
+            <div class="adha-deadline-label" data-i18n="campaign.side_label">Every Dollar Counts</div>
+            <div class="adha-deadline-date" style="color:#A5D6A7;font-size:13.5px;line-height:1.5;" data-i18n="campaign.side_sub">100% of your gift goes directly to the children — no fees, no overhead.</div>
           </div>
         </div>
       </div>
@@ -798,180 +839,30 @@
   </div>
 </section>
 
-<!-- DONATE -->
-<section class="gallery" id="gallery">
+<!-- IMPACT -->
+<section class="needs" id="impact">
   <div class="section-inner">
-    <div class="section-tag" data-i18n="gallery.tag">Gallery &amp; Records</div>
-    <h2 class="section-title" data-i18n="gallery.title">Smiles made possible by your generosity</h2>
-    <div class="gallery-note"><span>ℹ️</span><span data-i18n="gallery.note">Photos are shared only with the explicit consent of the child and their guardian. All purchases are documented with receipts for full transparency.</span></div>
+    <div class="section-tag" data-i18n="impact.tag">Our Impact</div>
+    <h2 class="section-title" data-i18n="impact.title">What we've accomplished together</h2>
+    <p class="section-sub" data-i18n="impact.sub">Thanks to this community's generosity, we've already run successful campaigns for Eid El-Fitr and Eid al-Adha in 2026 — bringing new clothes, shoes, toys, and everyday essentials to vulnerable children across Casablanca. Every campaign has grown our reach, and we're looking forward to an even bigger impact with Back-to-School 2026 and the campaigns ahead.</p>
 
-    <!-- ARCHIVE NAVIGATOR -->
-    <div class="archive-nav">
-
-      <!-- 2026 -->
-      <div class="archive-year">
-        <div class="archive-year-header" onclick="toggleYear(this)">
-          <div class="archive-year-label">
-            <span class="archive-year-icon">📅</span>
-            <span class="archive-year-num">2026</span>
-          </div>
-          <span class="archive-chevron">▾</span>
-        </div>
-        <div class="archive-year-body open">
-
-          <!-- Eid El-Fitr 2026 -->
-          <div class="archive-event">
-            <div class="archive-event-header" onclick="toggleEvent(this)">
-              <div class="archive-event-label">
-                <span class="archive-event-dot" style="background:var(--green)"></span>
-                <div>
-                  <div class="archive-event-name">🌙 Eid El-Fitr 2026</div>
-                  <div class="archive-event-meta">Casablanca · March 2026</div>
-                </div>
-              </div>
-              <span class="archive-chevron small">▾</span>
-            </div>
-            <div class="archive-event-body open">
-
-              <!-- Tabs -->
-              <div class="media-tabs">
-                <button class="media-tab active" id="tab-photos-eid2026" onclick="
-                  document.getElementById('photos-eid2026').style.display='block';
-                  document.getElementById('receipts-eid2026').style.display='none';
-                  document.getElementById('tab-photos-eid2026').classList.add('active');
-                  document.getElementById('tab-receipts-eid2026').classList.remove('active');
-                ">📷 <span data-i18n="gallery.folder.photos">Photos</span></button>
-                <button class="media-tab" id="tab-receipts-eid2026" onclick="
-                  document.getElementById('receipts-eid2026').style.display='block';
-                  document.getElementById('photos-eid2026').style.display='none';
-                  document.getElementById('tab-receipts-eid2026').classList.add('active');
-                  document.getElementById('tab-photos-eid2026').classList.remove('active');
-                ">🧾 <span data-i18n="gallery.folder.receipts">Receipts</span></button>
-              </div>
-
-              <!-- Photos panel -->
-              <div class="media-panel active" id="photos-eid2026" style="display:block;">
-                <a href="https://sponsorkids212-my.sharepoint.com/:f:/g/personal/adam_sponsorkids212_org/IgDM-cAXOZfHQoCRIBgZLBC5AXzMFOG0qqVub64Vs3MldFs?e=zSCF6E" target="_blank" rel="noopener" class="drive-link-card photos">
-                  <div class="drive-card-left">
-                    <div class="drive-card-icon">📷</div>
-                    <div>
-                      <div class="drive-card-title" data-i18n="gallery.drive.photos_title">Eid El-Fitr 2026 — Photos</div>
-                      <div class="drive-card-desc" data-i18n="gallery.drive.photos_desc">25 photos · Shared on OneDrive · Opens in new tab</div>
-                    </div>
-                  </div>
-                  <div class="drive-card-arrow">↗</div>
-                </a>
-              </div>
-
-              <!-- Receipts panel -->
-              <div class="media-panel" id="receipts-eid2026" style="display:none;">
-                <a href="https://sponsorkids212-my.sharepoint.com/:f:/g/personal/adam_sponsorkids212_org/IgBq5YBv6doLQLceqKfaD-VQAQoHIjvr69yyO7s9xpsGunM?e=t3Lp9b" target="_blank" rel="noopener" class="drive-link-card receipts">
-                  <div class="drive-card-left">
-                    <div class="drive-card-icon">🧾</div>
-                    <div>
-                      <div class="drive-card-title" data-i18n="gallery.drive.receipts_title">Eid El-Fitr 2026 — Receipts</div>
-                      <div class="drive-card-desc" data-i18n="gallery.drive.receipts_desc">4 receipts · Shared on OneDrive · Opens in new tab</div>
-                    </div>
-                  </div>
-                  <div class="drive-card-arrow">↗</div>
-                </a>
-              </div>
-
-            </div>
-          </div>
-          <!-- /Eid El-Fitr 2026 -->
-
-          <!-- Eid al-Adha 2026 -->
-          <div class="archive-event">
-            <div class="archive-event-header" onclick="toggleEvent(this)">
-              <div class="archive-event-label">
-                <span class="archive-event-dot" style="background:var(--gold)"></span>
-                <div>
-                  <div class="archive-event-name">🐑 Eid al-Adha 2026 <span style="font-size:11px;background:var(--gold);color:var(--dark);padding:2px 10px;border-radius:20px;font-weight:600;margin-left:6px;">New</span></div>
-                  <div class="archive-event-meta">Casablanca · May 2026</div>
-                </div>
-              </div>
-              <span class="archive-chevron small">▾</span>
-            </div>
-            <div class="archive-event-body open">
-
-              <!-- Tabs -->
-              <div class="media-tabs">
-                <button class="media-tab active" id="tab-photos-adha2026" onclick="
-                  document.getElementById('photos-adha2026').style.display='block';
-                  document.getElementById('receipts-adha2026').style.display='none';
-                  document.getElementById('tab-photos-adha2026').classList.add('active');
-                  document.getElementById('tab-receipts-adha2026').classList.remove('active');
-                ">📷 <span>Photos</span></button>
-                <button class="media-tab" id="tab-receipts-adha2026" onclick="
-                  document.getElementById('receipts-adha2026').style.display='block';
-                  document.getElementById('photos-adha2026').style.display='none';
-                  document.getElementById('tab-receipts-adha2026').classList.add('active');
-                  document.getElementById('tab-photos-adha2026').classList.remove('active');
-                ">🧾 <span>Receipts</span></button>
-              </div>
-
-              <!-- Photos panel -->
-              <div class="media-panel active" id="photos-adha2026" style="display:block;">
-                <a href="https://sponsorkids212-my.sharepoint.com/:f:/g/personal/adam_sponsorkids212_org/IgCpiLLR1yEoS44KxTPoF71xAd5NB-lWBlbtJMtlTA-zo_k?e=WSb79h" target="_blank" rel="noopener" class="drive-link-card photos">
-                  <div class="drive-card-left">
-                    <div class="drive-card-icon">📷</div>
-                    <div>
-                      <div class="drive-card-title">Eid al-Adha 2026 — Photos</div>
-                      <div class="drive-card-desc">Shared on OneDrive · Opens in new tab</div>
-                    </div>
-                  </div>
-                  <div class="drive-card-arrow">↗</div>
-                </a>
-              </div>
-
-              <!-- Receipts panel -->
-              <div class="media-panel" id="receipts-adha2026" style="display:none;">
-                <a href="https://sponsorkids212-my.sharepoint.com/:f:/g/personal/adam_sponsorkids212_org/IgCreQ69d_HxT7E21-SeBXDOAV3it96GGwXmcEB4l2MMEP4?e=ktONCb" target="_blank" rel="noopener" class="drive-link-card receipts">
-                  <div class="drive-card-left">
-                    <div class="drive-card-icon">🧾</div>
-                    <div>
-                      <div class="drive-card-title">Eid al-Adha 2026 — Receipts</div>
-                      <div class="drive-card-desc">Shared on OneDrive · Opens in new tab</div>
-                    </div>
-                  </div>
-                  <div class="drive-card-arrow">↗</div>
-                </a>
-              </div>
-
-            </div>
-          </div>
-          <!-- /Eid al-Adha 2026 -->
-
+    <div class="nonprofit-highlight" style="margin-bottom:28px;">
+      <div class="nonprofit-highlight-left">
+        <div class="nonprofit-highlight-icon">📊</div>
+        <div>
+          <div class="nonprofit-highlight-title" data-i18n="trans.rp_title">A Full Yearly Report Is Coming</div>
+          <div class="nonprofit-highlight-sub" data-i18n="trans.rp_text">We're preparing an annual report with detailed finances and impact, so you can see exactly how your generosity is put to work.</div>
         </div>
       </div>
-      <!-- /2026 -->
-
-      <!-- Upcoming: Back-to-School -->
-      <div class="archive-year future">
-        <div class="archive-year-header" style="opacity:0.65;cursor:default;">
-          <div class="archive-year-label">
-            <span class="archive-year-icon">🎒</span>
-            <div>
-              <div class="archive-year-num" style="font-size:17px;font-family:'DM Sans',sans-serif;font-weight:600;color:var(--dark);">Back-to-School 2026</div>
-              <div style="font-size:12px;color:var(--muted);margin-top:2px;">Casablanca · Upcoming — photos &amp; receipts will be posted after the campaign</div>
-            </div>
-          </div>
-          <span style="font-size:11px;font-weight:600;letter-spacing:1px;text-transform:uppercase;background:var(--gold-light);color:#8a6500;padding:3px 12px;border-radius:20px;border:1px solid #f0d07a;">Upcoming</span>
-        </div>
-      </div>
-
     </div>
-    <!-- /ARCHIVE NAV -->
 
+    <div style="text-align:center;">
+      <a href="https://www.facebook.com/profile.php?id=61590336308567" target="_blank" rel="noopener" class="community-btn" style="font-size:15px;">
+        📘 <span data-i18n="impact.fb_btn">Follow our journey on Facebook</span> ↗
+      </a>
+    </div>
   </div>
 </section>
-
-<!-- LIGHTBOX -->
-<div class="lightbox" id="lightbox" onclick="closeLightbox()">
-  <button class="lightbox-close" onclick="closeLightbox()">✕</button>
-  <img id="lightbox-img" src="" alt="">
-</div>
 
 <!-- TRANSPARENCY -->
 
@@ -1116,7 +1007,7 @@
     <a href="#mission" data-i18n="nav.mission">Mission</a>
     <a href="#needs" data-i18n="nav.needs">Needs</a>
     <a href="#team" data-i18n="nav.team">Team</a>
-    <a href="#gallery" data-i18n="nav.gallery">Gallery</a>
+    <a href="#impact" data-i18n="nav.gallery">Impact</a>
     <a href="#transparency" data-i18n="nav.receipts">Receipts</a>
     <a href="#donate" data-i18n="nav.donate">Donate Now</a>
   </div>
@@ -1135,12 +1026,11 @@
 <script>
 const T = {
   en:{
-    "nav.mission":"Mission","nav.needs":"Needs","nav.team":"Team","nav.gallery":"Gallery","nav.receipts":"Receipts","nav.contact":"Contact","nav.donate":"Donate Now",
+    "nav.mission":"Mission","nav.needs":"Needs","nav.team":"Team","nav.gallery":"Impact","nav.receipts":"Transparency","nav.contact":"Contact","nav.donate":"Donate Now",
     "hero.badge":"\u{1F1F2}\u{1F1E6} Because No Child Should Have to Wait","hero.h1":"They didn't choose this.<br>You can choose to <em>help.</em>",
     "hero.tagline":"Every child deserves to experience joy \u2014 help us make it happen.",
     "hero.sub":"Rooted in the spirit of sadaqah, Sponsor Kids 212 channels the generosity of our community to bring essential support and heartfelt joy to orphaned, disabled, and impoverished children across Morocco.",
     "hero.btn1":"Donate Now","hero.btn2":"Our Story","hero.nonprofit":"Sponsor Kids 212, Inc. is a registered 501(c)(3) nonprofit \u00B7 EIN: 41-5257784 \u00B7 Your donation is tax-deductible",
-    "stats.s1":"goes directly to children","stats.s2":"sponsors one child fully","stats.s3":"days a year we collect","stats.s4":"Morocco's international dialing code — the heart of our mission",
     "mission.tag":"Our Mission","mission.title":"Bringing dignity and joy to vulnerable children",
     "mission.p1":"We are a group of dedicated professionals with deep ties to Morocco who believe in giving back to the children and communities who need it most.",
     "mission.p2":"We have identified children in Morocco who are orphaned, living with disabilities, have absent or disabled parents, or are in extreme poverty. We support them throughout the year with clothing, gifts, and essential items.",
@@ -1177,29 +1067,34 @@ const T = {
     "team.achraf_bio":"Achraf is a young professional with a Bachelor\u2019s degree in Economics and Business Administration. His passion for helping families and children, combined with his strong logistical and planning skills, make him an invaluable asset to Sponsor Kids 212. He coordinates on the ground in Casablanca, ensuring every donation is put to work with precision and care.",
     "team.tag1":"\u{1F46A} Families","team.tag2":"\u{1F476} Children","team.tag3":"\u{1F48A} Medical","team.tag4":"\u{1F4DA} School","team.tag5":"\u267F Disability",
     "team.whatsapp":"Chat on WhatsApp","team.expand":"We are looking to expand to other cities across Morocco. If you know a trusted individual who shares our values and would like to volunteer as a local coordinator, please reach out.",
-    "gallery.tag":"Gallery & Records","gallery.title":"Smiles made possible by your generosity",
-    "gallery.note":"Photos are shared only with the explicit consent of the child and their guardian. All purchases are documented with receipts for full transparency.",
-    "gallery.folder.photos":"Photos","gallery.folder.receipts":"Receipts",
-    "gallery.drive.photos_title":"Eid El-Fitr 2026 \u2014 Photos","gallery.drive.photos_desc":"Shared on OneDrive \u00B7 Opens in new tab",
-    "gallery.drive.receipts_title":"Eid El-Fitr 2026 \u2014 Receipts","gallery.drive.receipts_desc":"Shared on OneDrive \u00B7 Opens in new tab",
-    "gallery.future":"Future campaigns","gallery.coming":"will appear here",
+    "campaign.eyebrow":"📚 Back-to-School Campaign — New School Year","campaign.title":"Give a Child the Tools to Succeed",
+    "campaign.desc1":"A new school year is full of hope and possibility — but for many of the children we support, it also means stress. Without the right supplies, uniforms, and backpacks, these kids start at a disadvantage before they even walk through the school door.",
+    "campaign.desc2":"Your donation goes <strong>directly to purchasing school essentials</strong> for the vulnerable children in our program — backpacks, notebooks, pens, uniforms, and anything else they need to start the year with confidence and dignity.",
+    "campaign.desc3":"Our trusted local coordinator in Casablanca personally identifies each child's needs, buys the supplies, and delivers them directly — with care and accountability every step of the way.",
+    "campaign.urgency1":"backpacks & bags","campaign.urgency2":"notebooks & supplies","campaign.urgency3":"uniforms & clothing",
+    "campaign.progress_label":"Raised So Far","campaign.progress_of":"of","campaign.progress_goal_word":"goal","campaign.progress_encourage":"Every gift moves the bar — help us push it to the finish line!",
+    "campaign.tier1":"Notebooks, pens & school supplies for one child","campaign.tier2":"A full uniform & backpack for one child","campaign.tier3":"A complete kit — uniform, backpack, shoes & supplies for one child",
+    "campaign.btn1":"Donate Now 🎒","campaign.btn2":"See Sponsorship Options",
+    "campaign.side_name":"Back to School","campaign.side_date":"New School Year<br>2026","campaign.side_label":"Every Dollar Counts","campaign.side_sub":"100% of your gift goes directly to the children — no fees, no overhead.",
+    "impact.tag":"Our Impact","impact.title":"What we've accomplished together",
+    "impact.sub":"Thanks to this community's generosity, we've already run successful campaigns for Eid El-Fitr and Eid al-Adha in 2026 — bringing new clothes, shoes, toys, and everyday essentials to vulnerable children across Casablanca. Every campaign has grown our reach, and we're looking forward to an even bigger impact with Back-to-School 2026 and the campaigns ahead.",
+    "impact.fb_btn":"Follow our journey on Facebook",
     "trans.nonprofit_title":"Registered 501(c)(3) Nonprofit Organization","trans.nonprofit_sub":"Sponsor Kids 212, Inc. \u00B7 EIN: 41-5257784 \u00B7 Registered charitable organization in Ohio \u00B7 Your donation is fully tax-deductible under U.S. federal law.","trans.nonprofit_verify":"Verify on IRS \u2197","trans.tag":"Full Transparency","trans.title":"Your trust matters to us","trans.sub":"We are committed to total accountability. Every penny donated reaches the children \u2014 here is how we ensure it. Sponsor Kids 212, Inc. is also registered as a charitable organization in Ohio.",
-    "trans.c1t":"Receipts Published","trans.c1d":"Every purchase in Morocco is documented. Receipts are photographed and shared with all donors after each campaign.",
-    "trans.c2t":"Itemized Reports","trans.c2d":"A full breakdown of what was bought, for whom, and at what cost is shared after every collection cycle.",
+    "trans.c1t":"Purchases Documented","trans.c1d":"Every purchase in Morocco is carefully tracked and will be included in our upcoming annual report for full transparency.",
+    "trans.c2t":"Itemized Reports","trans.c2d":"A full breakdown of what was bought, for whom, and at what cost will be shared in our yearly impact report.",
     "trans.c3t":"Trusted Local Coordinator","trans.c3d":"The person receiving and spending funds in Morocco is personally known and trusted by our community.",
     "trans.c4t":"Zero Overhead","trans.c4d":"100% of every donation reaches the children. No admin fees, no platform cuts, no salaries.",
-    "trans.rp_title":"Receipts & Campaign Reports","trans.rp_text":"Purchase receipts and spending summaries will be posted here after each campaign.",
+    "trans.rp_title":"A Full Yearly Report Is Coming","trans.rp_text":"We're preparing an annual report with detailed finances and impact, so you can see exactly how your generosity is put to work.",
     "dua.translation":"\"Whoever relieves a believer's distress of the distressful aspects of this world, Allah will rescue him from a difficulty of the difficulties of the Hereafter.\"",
     "dua.source":"Sahih Muslim \u00B7 May Allah reward you and your loved ones. Ameen. \u{1F932}",
     "footer.tagline":"Helping Children in Morocco","footer.nonprofit":"Registered 501(c)(3) Nonprofit \u00B7 EIN: 41-5257784 \u00B7 Ohio Charitable Organization","footer.sub":"A community initiative by Moroccans abroad","footer.linkedin":"LinkedIn","footer.facebook":"Facebook"
   },
   fr:{
-    "nav.mission":"Mission","nav.needs":"Besoins","nav.team":"\u00C9quipe","nav.gallery":"Galerie","nav.receipts":"Re\u00E7us","nav.contact":"Contact","nav.donate":"Faire un don",
+    "nav.mission":"Mission","nav.needs":"Besoins","nav.team":"Équipe","nav.gallery":"Impact","nav.receipts":"Transparence","nav.contact":"Contact","nav.donate":"Faire un don",
     "hero.badge":"\u{1F1F2}\u{1F1E6} Parce qu\u2019aucun enfant ne devrait attendre","hero.h1":"Ils n\u2019ont pas choisi cela.<br>Vous pouvez choisir d\u2019<em>aider.</em>",
     "hero.tagline":"Chaque enfant m\u00E9rite de vivre la joie \u2014 aidez-nous \u00E0 y contribuer.",
     "hero.sub":"Ancr\u00E9 dans l'esprit de la sadaqah, Sponsor Kids 212 canalise la g\u00E9n\u00E9rosit\u00E9 de notre communaut\u00E9 pour apporter soutien essentiel et joie sinc\u00E8re aux enfants orphelins, handicap\u00E9s et d\u00E9munis du Maroc.",
     "hero.btn1":"Faire un don","hero.btn2":"Notre histoire","hero.nonprofit":"Sponsor Kids 212, Inc. est une organisation \u00E0 but non lucratif 501(c)(3) \u00B7 EIN: 41-5257784 \u00B7 Don d\u00E9ductible des imp\u00F4ts",
-    "stats.s1":"va directement aux enfants","stats.s2":"parraine un enfant","stats.s3":"jours par an, nous collectons","stats.s4":"nos racines, notre cause",
     "mission.tag":"Notre Mission","mission.title":"Apporter dignit\u00E9 et joie aux enfants vuln\u00E9rables",
     "mission.p1":"Nous sommes un groupe d'amis marocains vivant \u00E0 l'\u00E9tranger qui croient au devoir de redonner au pays et aux communaut\u00E9s qui nous ont fa\u00E7onn\u00E9s.",
     "mission.p2":"Nous avons identifi\u00E9 des enfants au Maroc qui sont orphelins, vivent avec un handicap, ont des parents absents ou handicap\u00E9s, ou vivent dans une extr\u00EAme pauvret\u00E9.",
@@ -1236,29 +1131,34 @@ const T = {
     "team.achraf_bio":"Achraf est un jeune professionnel titulaire d\u2019une licence en \u00C9conomie et Gestion des Entreprises. Sa passion pour l\u2019aide aux familles et aux enfants, combin\u00E9e \u00E0 ses solides comp\u00E9tences en logistique et planification, font de lui un atout pr\u00E9cieux pour Sponsor Kids 212.",
     "team.tag1":"\u{1F46A} Familles","team.tag2":"\u{1F476} Enfants","team.tag3":"\u{1F48A} M\u00E9dical","team.tag4":"\u{1F4DA} \u00C9cole","team.tag5":"\u267F Handicap",
     "team.whatsapp":"Contacter sur WhatsApp","team.expand":"Nous cherchons \u00E0 nous \u00E9tendre \u00E0 d'autres villes du Maroc. Contactez-nous si vous connaissez un volontaire de confiance.",
-    "gallery.tag":"Galerie & Archives","gallery.title":"Des sourires rendus possibles par votre g\u00E9n\u00E9rosit\u00E9",
-    "gallery.note":"Les photos ne sont partag\u00E9es qu'avec le consentement explicite de l'enfant et de son tuteur.",
-    "gallery.folder.photos":"Photos","gallery.folder.receipts":"Re\u00E7us",
-    "gallery.drive.photos_title":"A\u00EFd El-Fitr 2026 \u2014 Photos","gallery.drive.photos_desc":"Partag\u00E9 sur OneDrive \u00B7 Ouvre dans un nouvel onglet",
-    "gallery.drive.receipts_title":"A\u00EFd El-Fitr 2026 \u2014 Re\u00E7us","gallery.drive.receipts_desc":"Partag\u00E9 sur OneDrive \u00B7 Ouvre dans un nouvel onglet",
-    "gallery.future":"Campagnes futures","gallery.coming":"appara\u00EEtront ici",
+    "campaign.eyebrow":"📚 Campagne Rentrée Scolaire — Nouvelle Année Scolaire","campaign.title":"Donnez à un enfant les outils pour réussir",
+    "campaign.desc1":"Une nouvelle année scolaire est synonyme d'espoir et de possibilités — mais pour beaucoup des enfants que nous soutenons, elle est aussi source de stress. Sans les bonnes fournitures, uniformes et cartables, ces enfants démarrent désavantagés avant même de franchir la porte de l'école.",
+    "campaign.desc2":"Votre don sert <strong>directement à l'achat de fournitures scolaires essentielles</strong> pour les enfants vulnérables de notre programme — cartables, cahiers, stylos, uniformes, et tout ce dont ils ont besoin pour commencer l'année avec confiance et dignité.",
+    "campaign.desc3":"Notre coordinatrice de confiance à Casablanca identifie personnellement les besoins de chaque enfant, achète les fournitures et les remet directement — avec soin et responsabilité à chaque étape.",
+    "campaign.urgency1":"cartables & sacs","campaign.urgency2":"cahiers & fournitures","campaign.urgency3":"uniformes & vêtements",
+    "campaign.progress_label":"Montant collecté","campaign.progress_of":"sur","campaign.progress_goal_word":"objectif","campaign.progress_encourage":"Chaque don fait avancer la barre — aidez-nous à atteindre notre objectif !",
+    "campaign.tier1":"Cahiers, stylos et fournitures scolaires pour un enfant","campaign.tier2":"Un uniforme complet et un cartable pour un enfant","campaign.tier3":"Un kit complet — uniforme, cartable, chaussures et fournitures pour un enfant",
+    "campaign.btn1":"Faire un don 🎒","campaign.btn2":"Voir les options de parrainage",
+    "campaign.side_name":"Rentrée scolaire","campaign.side_date":"Nouvelle année scolaire<br>2026","campaign.side_label":"Chaque dollar compte","campaign.side_sub":"100 % de votre don va directement aux enfants — sans frais, sans frais généraux.",
+    "impact.tag":"Notre impact","impact.title":"Ce que nous avons accompli ensemble",
+    "impact.sub":"Grâce à la générosité de cette communauté, nous avons déjà mené des campagnes réussies pour l'Aïd el-Fitr et l'Aïd al-Adha en 2026 — apportant vêtements neufs, chaussures, jouets et produits essentiels aux enfants vulnérables de Casablanca. Chaque campagne a élargi notre portée, et nous avons hâte d'avoir un impact encore plus grand avec la campagne Rentrée Scolaire 2026 et les campagnes à venir.",
+    "impact.fb_btn":"Suivez notre parcours sur Facebook",
     "trans.nonprofit_title":"Organisation \u00E0 but non lucratif 501(c)(3)","trans.nonprofit_sub":"Sponsor Kids 212, Inc. \u00B7 EIN: 41-5257784 \u00B7 Organisation caritative enregistr\u00E9e dans l'Ohio \u00B7 Don d\u00E9ductible des imp\u00F4ts am\u00E9ricains.","trans.nonprofit_verify":"V\u00E9rifier sur IRS \u2197","trans.tag":"Transparence totale","trans.title":"Votre confiance nous tient \u00E0 c\u0153ur","trans.sub":"Nous nous engageons \u00E0 une responsabilit\u00E9 totale. Chaque centime donn\u00E9 parvient aux enfants.",
-    "trans.c1t":"Re\u00E7us publi\u00E9s","trans.c1d":"Chaque achat au Maroc est document\u00E9 et partag\u00E9 avec tous les donateurs.",
-    "trans.c2t":"Rapports d\u00E9taill\u00E9s","trans.c2d":"Un bilan complet de ce qui a \u00E9t\u00E9 achet\u00E9, pour qui et \u00E0 quel co\u00FBt.",
+    "trans.c1t":"Achats documentés","trans.c1d":"Chaque achat effectué au Maroc est soigneusement suivi et sera inclus dans notre prochain rapport annuel, en toute transparence.",
+    "trans.c2t":"Rapports détaillés","trans.c2d":"Une répartition complète de ce qui a été acheté, pour qui, et à quel coût sera partagée dans notre rapport d’impact annuel.",
     "trans.c3t":"Coordinateur local de confiance","trans.c3d":"La personne recevant et d\u00E9pensant les fonds au Maroc est connue et approuv\u00E9e par notre communaut\u00E9.",
     "trans.c4t":"Z\u00E9ro frais g\u00E9n\u00E9raux","trans.c4d":"100 % de chaque don parvient aux enfants. Aucun frais administratif.",
-    "trans.rp_title":"Re\u00E7us et rapports de campagne","trans.rp_text":"Les re\u00E7us et r\u00E9sum\u00E9s de d\u00E9penses seront publi\u00E9s ici apr\u00E8s chaque campagne.",
+    "trans.rp_title":"Un rapport annuel complet arrive bientôt","trans.rp_text":"Nous préparons un rapport annuel détaillant les finances et l’impact, afin que vous puissiez voir exactement comment votre générosité est utilisée.",
     "dua.translation":"\u00AB Quiconque soulage la d\u00E9tresse d'un croyant dans ce monde, Allah le soulagera d'une difficult\u00E9 au Jour du Jugement. \u00BB",
     "dua.source":"Sahih Muslim \u00B7 Qu'Allah vous r\u00E9compense, vous et vos proches. Ameen. \u{1F932}",
     "footer.tagline":"Aider les enfants au Maroc","footer.nonprofit":"Organisation \u00E0 but non lucratif 501(c)(3) \u00B7 EIN: 41-5257784 \u00B7 Organisation caritative de l'Ohio","footer.sub":"Une initiative communautaire de Marocains de l'\u00E9tranger","footer.linkedin":"LinkedIn","footer.facebook":"Facebook"
   },
   ar:{
-    "nav.mission":"\u0645\u0647\u0645\u062A\u0646\u0627","nav.needs":"\u0627\u0644\u0627\u062D\u062A\u064A\u0627\u062C\u0627\u062A","nav.team":"\u0627\u0644\u0641\u0631\u064A\u0642","nav.gallery":"\u0645\u0639\u0631\u0636","nav.receipts":"\u0627\u0644\u0625\u064A\u0635\u0627\u0644\u0627\u062A","nav.contact":"\u0627\u062A\u0635\u0644 \u0628\u0646\u0627","nav.donate":"\u062A\u0628\u0631\u0639 \u0627\u0644\u0622\u0646",
+    "nav.mission":"مهمتنا","nav.needs":"الاحتياجات","nav.team":"الفريق","nav.gallery":"الأثر","nav.receipts":"الشفافية","nav.contact":"اتصل بنا","nav.donate":"تبرع الآن",
     "hero.badge":"\u{1F1F2}\u{1F1E6} \u0644\u0623\u0646 \u0644\u0627 \u064A\u0648\u062C\u062F \u0637\u0641\u0644 \u064A\u0646\u0628\u063A\u064A \u0623\u0646 \u064A\u0646\u062A\u0638\u0631","hero.h1":"\u0647\u0645 \u0644\u0645 \u064A\u062E\u062A\u0627\u0631\u0648\u0627 \u0647\u0630\u0627.<br>\u064A\u0645\u0643\u0646\u0643 \u0623\u0646 \u062A\u062E\u062A\u0627\u0631 <em>\u0627\u0644\u0645\u0633\u0627\u0639\u062F\u0629.</em>",
     "hero.tagline":"\u0643\u0644 \u0637\u0641\u0644 \u064A\u0633\u062A\u062D\u0642 \u0623\u0646 \u064A\u0639\u064A\u0634 \u0627\u0644\u0641\u0631\u062D \u2014 \u0633\u0627\u0639\u062F\u0646\u0627 \u0639\u0644\u0649 \u062A\u062D\u0642\u064A\u0642 \u0630\u0644\u0643.",
     "hero.sub":"\u0627\u0646\u0637\u0644\u0627\u0642\u0627\u064B \u0645\u0646 \u0631\u0648\u062D \u0627\u0644\u0635\u062F\u0642\u0629\u060C \u064A\u0648\u062C\u0651\u0647 Sponsor Kids 212 \u0643\u0631\u0645 \u0645\u062C\u062A\u0645\u0639\u0646\u0627 \u0644\u062A\u0642\u062F\u064A\u0645 \u0627\u0644\u062F\u0639\u0645 \u0627\u0644\u0623\u0633\u0627\u0633\u064A \u0648\u0627\u0644\u0641\u0631\u062D \u0627\u0644\u062D\u0642\u064A\u0642\u064A \u0644\u0644\u0623\u0637\u0641\u0627\u0644 \u0627\u0644\u064A\u062A\u0627\u0645\u0649 \u0648\u0627\u0644\u0645\u0639\u0627\u0642\u064A\u0646 \u0648\u0627\u0644\u0645\u062D\u0631\u0648\u0645\u064A\u0646 \u0641\u064A \u0627\u0644\u0645\u063A\u0631\u0628.",
     "hero.btn1":"\u062A\u0628\u0631\u0639 \u0627\u0644\u0622\u0646","hero.btn2":"\u0642\u0635\u062A\u0646\u0627","hero.nonprofit":"Sponsor Kids 212, Inc. \u0645\u0646\u0638\u0645\u0629 \u063A\u064A\u0631 \u0631\u0628\u062D\u064A\u0629 501(c)(3) \u00B7 EIN: 41-5257784 \u00B7 \u062A\u0628\u0631\u0639\u0643 \u0645\u0639\u0641\u0649 \u0645\u0646 \u0627\u0644\u0636\u0631\u0627\u0626\u0628",
-    "stats.s1":"\u062A\u0630\u0647\u0628 \u0645\u0628\u0627\u0634\u0631\u0629 \u0644\u0644\u0623\u0637\u0641\u0627\u0644","stats.s2":"\u064A\u0643\u0641\u0644 \u0637\u0641\u0644\u0627\u064B \u0648\u0627\u062D\u062F\u0627\u064B","stats.s3":"\u064A\u0648\u0645\u0627\u064B \u0641\u064A \u0627\u0644\u0633\u0646\u0629 \u0646\u062C\u0645\u0639 \u0627\u0644\u062A\u0628\u0631\u0639\u0627\u062A","stats.s4":"\u062C\u0630\u0648\u0631\u0646\u0627 \u0648\u0642\u0636\u064A\u062A\u0646\u0627",
     "mission.tag":"\u0645\u0647\u0645\u062A\u0646\u0627","mission.title":"\u0625\u062D\u0636\u0627\u0631 \u0627\u0644\u0643\u0631\u0627\u0645\u0629 \u0648\u0627\u0644\u0641\u0631\u062D \u0644\u0644\u0623\u0637\u0641\u0627\u0644 \u0627\u0644\u0636\u0639\u0641\u0627\u0621",
     "mission.p1":"\u0646\u062D\u0646 \u0645\u062C\u0645\u0648\u0639\u0629 \u0645\u0646 \u0627\u0644\u0623\u0635\u062F\u0642\u0627\u0621 \u0627\u0644\u0645\u063A\u0627\u0631\u0628\u0629 \u0627\u0644\u0645\u0642\u064A\u0645\u064A\u0646 \u0641\u064A \u0627\u0644\u062E\u0627\u0631\u062C\u060C \u0646\u0624\u0645\u0646 \u0628\u0636\u0631\u0648\u0631\u0629 \u0631\u062F \u0627\u0644\u062C\u0645\u064A\u0644 \u0644\u0644\u0628\u0644\u062F \u0648\u0627\u0644\u0645\u062C\u062A\u0645\u0639\u0627\u062A \u0627\u0644\u062A\u064A \u0634\u0643\u0651\u0644\u062A\u0646\u0627.",
     "mission.p2":"\u062A\u0639\u0631\u0651\u0641\u0646\u0627 \u0639\u0644\u0649 \u0623\u0637\u0641\u0627\u0644 \u0641\u064A \u0627\u0644\u0645\u063A\u0631\u0628 \u064A\u062A\u0627\u0645\u0649 \u0623\u0648 \u064A\u0639\u0627\u0646\u0648\u0646 \u0645\u0646 \u0625\u0639\u0627\u0642\u0627\u062A \u0623\u0648 \u0644\u062F\u064A\u0647\u0645 \u0622\u0628\u0627\u0621 \u063A\u0627\u0626\u0628\u0648\u0646 \u0623\u0648 \u0645\u0639\u0627\u0642\u0648\u0646 \u0623\u0648 \u064A\u0639\u064A\u0634\u0648\u0646 \u0641\u064A \u0641\u0642\u0631 \u0645\u062F\u0642\u0639.",
@@ -1295,29 +1195,34 @@ const T = {
     "team.achraf_bio":"\u0623\u0634\u0631\u0641 \u0634\u0627\u0628 \u0645\u062A\u062E\u0635\u0635 \u062D\u0627\u0635\u0644 \u0639\u0644\u0649 \u0644\u064A\u0633\u0627\u0646\u0633 \u0641\u064A \u0627\u0644\u0627\u0642\u062A\u0635\u0627\u062F \u0648\u0625\u062F\u0627\u0631\u0629 \u0627\u0644\u0623\u0639\u0645\u0627\u0644. \u0634\u063A\u0641\u0647 \u0628\u0645\u0633\u0627\u0639\u062F\u0629 \u0627\u0644\u0639\u0627\u0626\u0644\u0627\u062A \u0648\u0627\u0644\u0623\u0637\u0641\u0627\u0644\u060C \u0625\u0644\u0649 \u062C\u0627\u0646\u0628 \u0645\u0647\u0627\u0631\u0627\u062A\u0647 \u0627\u0644\u0644\u0648\u062C\u0633\u062A\u064A\u0629 \u0648\u0627\u0644\u062A\u062E\u0637\u064A\u0637\u064A\u0629\u060C \u062A\u062C\u0639\u0644 \u0645\u0646\u0647 \u0631\u0643\u064A\u0632\u0629 \u0623\u0633\u0627\u0633\u064A\u0629 \u0641\u064A Sponsor Kids 212.",
     "team.tag1":"\u{1F46A} \u0627\u0644\u0623\u0633\u0631","team.tag2":"\u{1F476} \u0627\u0644\u0623\u0637\u0641\u0627\u0644","team.tag3":"\u{1F48A} \u0637\u0628\u064A","team.tag4":"\u{1F4DA} \u0645\u062F\u0631\u0633\u064A","team.tag5":"\u267F \u0625\u0639\u0627\u0642\u0629",
     "team.whatsapp":"\u062A\u0648\u0627\u0635\u0644 \u0639\u0628\u0631 WhatsApp","team.expand":"\u0646\u0633\u0639\u0649 \u0644\u0644\u062A\u0648\u0633\u0639 \u0625\u0644\u0649 \u0645\u062F\u0646 \u0623\u062E\u0631\u0649 \u0641\u064A \u0627\u0644\u0645\u063A\u0631\u0628. \u062A\u0648\u0627\u0635\u0644 \u0645\u0639\u0646\u0627 \u0625\u0646 \u0643\u0646\u062A \u062A\u0639\u0631\u0641 \u0634\u062E\u0635\u0627\u064B \u0645\u0648\u062B\u0648\u0642\u0627\u064B.",
-    "gallery.tag":"\u0645\u0639\u0631\u0636 \u0627\u0644\u0635\u0648\u0631 \u0648\u0627\u0644\u0633\u062C\u0644\u0627\u062A","gallery.title":"\u0627\u0628\u062A\u0633\u0627\u0645\u0627\u062A \u0623\u062A\u0627\u062D\u062A\u0647\u0627 \u0643\u0631\u0645\u0643\u0645",
-    "gallery.note":"\u0644\u0627 \u062A\u064F\u0634\u0627\u0631\u0643 \u0627\u0644\u0635\u0648\u0631 \u0625\u0644\u0627 \u0628\u0645\u0648\u0627\u0641\u0642\u0629 \u0635\u0631\u064A\u062D\u0629 \u0645\u0646 \u0627\u0644\u0637\u0641\u0644 \u0648\u0648\u0644\u064A\u0651\u0647.",
-    "gallery.folder.photos":"\u0627\u0644\u0635\u0648\u0631","gallery.folder.receipts":"\u0627\u0644\u0625\u064A\u0635\u0627\u0644\u0627\u062A",
-    "gallery.drive.photos_title":"\u0639\u064A\u062F \u0627\u0644\u0641\u0637\u0631 2026 \u2014 \u0627\u0644\u0635\u0648\u0631","gallery.drive.photos_desc":"\u0645\u0634\u062A\u0631\u0643 \u0639\u0644\u0649 OneDrive",
-    "gallery.drive.receipts_title":"\u0639\u064A\u062F \u0627\u0644\u0641\u0637\u0631 2026 \u2014 \u0627\u0644\u0625\u064A\u0635\u0627\u0644\u0627\u062A","gallery.drive.receipts_desc":"\u0645\u0634\u062A\u0631\u0643 \u0639\u0644\u0649 OneDrive",
-    "gallery.future":"\u0627\u0644\u062D\u0645\u0644\u0627\u062A \u0627\u0644\u0642\u0627\u062F\u0645\u0629","gallery.coming":"\u0633\u062A\u0638\u0647\u0631 \u0647\u0646\u0627",
+    "campaign.eyebrow":"📚 حملة العودة إلى المدرسة — عام دراسي جديد","campaign.title":"امنح طفلاً أدوات النجاح",
+    "campaign.desc1":"عام دراسي جديد مليء بالأمل والإمكانيات — لكن بالنسبة للعديد من الأطفال الذين ندعمهم، يعني أيضاً توتراً. فبدون اللوازم والزي المدرسي والحقائب المناسبة، يبدأ هؤلاء الأطفال في وضع غير متكافئ حتى قبل دخولهم باب المدرسة.",
+    "campaign.desc2":"يذهب تبرعك <strong>مباشرة لشراء اللوازم المدرسية الأساسية</strong> للأطفال المستضعفين في برنامجنا — حقائب مدرسية، دفاتر، أقلام، زي مدرسي، وكل ما يحتاجونه لبدء العام بثقة وكرامة.",
+    "campaign.desc3":"تقوم منسقتنا الموثوقة في الدار البيضاء بتحديد احتياجات كل طفل شخصياً، وشراء اللوازم، وتسليمها مباشرة — بعناية ومسؤولية في كل خطوة.",
+    "campaign.urgency1":"حقائب مدرسية","campaign.urgency2":"دفاتر ولوازم","campaign.urgency3":"زي مدرسي وملابس",
+    "campaign.progress_label":"المبلغ المُجمَّع حتى الآن","campaign.progress_of":"من","campaign.progress_goal_word":"الهدف","campaign.progress_encourage":"كل تبرع يحرك المؤشر — ساعدونا على الوصول إلى خط النهاية!",
+    "campaign.tier1":"دفاتر وأقلام ولوازم مدرسية لطفل واحد","campaign.tier2":"زي مدرسي كامل وحقيبة لطفل واحد","campaign.tier3":"طقم كامل — زي مدرسي، حقيبة، حذاء ولوازم لطفل واحد",
+    "campaign.btn1":"تبرع الآن 🎒","campaign.btn2":"عرض خيارات الكفالة",
+    "campaign.side_name":"العودة إلى المدرسة","campaign.side_date":"عام دراسي جديد<br>2026","campaign.side_label":"كل دولار مهم","campaign.side_sub":"100% من تبرعك يذهب مباشرة للأطفال — بدون رسوم وبدون نفقات إدارية.",
+    "impact.tag":"أثرنا","impact.title":"ما حققناه معاً",
+    "impact.sub":"بفضل كرم هذا المجتمع، نجحنا بالفعل في تنفيذ حملات لعيد الفطر وعيد الأضحى في عام 2026 — قدّمنا ملابس جديدة وأحذية وألعاباً ومستلزمات أساسية للأطفال المستضعفين في الدار البيضاء. كل حملة وسّعت من مدى تأثيرنا، ونتطلع إلى أثر أكبر مع حملة العودة إلى المدرسة 2026 والحملات القادمة.",
+    "impact.fb_btn":"تابعوا مسيرتنا على فيسبوك",
     "trans.nonprofit_title":"\u0645\u0646\u0638\u0645\u0629 \u063A\u064A\u0631 \u0631\u0628\u062D\u064A\u0629 501(c)(3) \u0645\u0633\u062C\u0644\u0629","trans.nonprofit_sub":"Sponsor Kids 212, Inc. \u00B7 EIN: 41-5257784 \u00B7 \u0645\u0646\u0638\u0645\u0629 \u062E\u064A\u0631\u064A\u0629 \u0645\u0633\u062C\u0644\u0629 \u0641\u064A \u0623\u0648\u0647\u0627\u064A\u0648 \u00B7 \u062A\u0628\u0631\u0639\u0643 \u0645\u0639\u0641\u0649 \u0636\u0631\u064A\u0628\u064A\u0627\u064B \u0628\u0645\u0648\u062C\u0628 \u0627\u0644\u0642\u0627\u0646\u0648\u0646 \u0627\u0644\u0641\u064A\u062F\u0631\u0627\u0644\u064A \u0627\u0644\u0623\u0645\u0631\u064A\u0643\u064A.","trans.nonprofit_verify":"\u062A\u062D\u0642\u0642 \u0639\u0628\u0631 IRS \u2197","trans.tag":"\u0634\u0641\u0627\u0641\u064A\u0629 \u0643\u0627\u0645\u0644\u0629","trans.title":"\u062B\u0642\u062A\u0643\u0645 \u062A\u0647\u0645\u0651\u0646\u0627","trans.sub":"\u0646\u0644\u062A\u0632\u0645 \u0628\u0627\u0644\u0645\u0633\u0627\u0621\u0644\u0629 \u0627\u0644\u0643\u0627\u0645\u0644\u0629. \u0643\u0644 \u0642\u0631\u0634 \u0645\u062A\u0628\u0631\u0651\u0639 \u0628\u0647 \u064A\u0635\u0644 \u0625\u0644\u0649 \u0627\u0644\u0623\u0637\u0641\u0627\u0644.",
-    "trans.c1t":"\u0646\u0634\u0631 \u0627\u0644\u0625\u064A\u0635\u0627\u0644\u0627\u062A","trans.c1d":"\u0643\u0644 \u0639\u0645\u0644\u064A\u0629 \u0634\u0631\u0627\u0621 \u0641\u064A \u0627\u0644\u0645\u063A\u0631\u0628 \u0645\u0648\u062B\u0642\u0629 \u0648\u062A\u064F\u0634\u0627\u0631\u0643 \u0645\u0639 \u062C\u0645\u064A\u0639 \u0627\u0644\u0645\u062A\u0628\u0631\u0639\u064A\u0646.",
-    "trans.c2t":"\u062A\u0642\u0627\u0631\u064A\u0631 \u0645\u0641\u0635\u0644\u0629","trans.c2d":"\u064A\u064F\u0634\u0627\u0631\u0643 \u0645\u0644\u062E\u0635 \u0643\u0627\u0645\u0644 \u0628\u0645\u0627 \u062A\u0645 \u0634\u0631\u0627\u0624\u0647 \u0648\u0644\u0645\u0646 \u0648\u0628\u0623\u064A \u062A\u0643\u0644\u0641\u0629.",
+    "trans.c1t":"توثيق المشتريات","trans.c1d":"يتم تتبّع كل عملية شراء في المغرب بعناية، وستُدرج في تقريرنا السنوي القادم لضمان الشفافية الكاملة.",
+    "trans.c2t":"تقارير مفصلة","trans.c2d":"سيتم مشاركة تفصيل كامل لما تم شراؤه، ولمن، وبأي تكلفة، في تقرير الأثر السنوي.",
     "trans.c3t":"\u0645\u0646\u0633\u0642 \u0645\u062D\u0644\u064A \u0645\u0648\u062B\u0648\u0642","trans.c3d":"\u0627\u0644\u0634\u062E\u0635 \u0627\u0644\u0645\u0633\u062A\u0644\u0645 \u0648\u0627\u0644\u0645\u0646\u0641\u0642 \u0644\u0644\u0623\u0645\u0648\u0627\u0644 \u0641\u064A \u0627\u0644\u0645\u063A\u0631\u0628 \u0645\u0639\u0631\u0648\u0641 \u0634\u062E\u0635\u064A\u0627\u064B \u0648\u0645\u0639\u062A\u0645\u062F \u0645\u0646 \u0645\u062C\u062A\u0645\u0639\u0646\u0627.",
     "trans.c4t":"\u0635\u0641\u0631 \u062A\u0643\u0627\u0644\u064A\u0641 \u0625\u062F\u0627\u0631\u064A\u0629","trans.c4d":"100% \u0645\u0646 \u0643\u0644 \u062A\u0628\u0631\u0639 \u064A\u0635\u0644 \u0644\u0644\u0623\u0637\u0641\u0627\u0644. \u0644\u0627 \u0631\u0633\u0648\u0645 \u0625\u062F\u0627\u0631\u064A\u0629\u060C \u0644\u0627 \u0639\u0645\u0648\u0644\u0627\u062A\u060C \u0644\u0627 \u0631\u0648\u0627\u062A\u0628.",
-    "trans.rp_title":"\u0627\u0644\u0625\u064A\u0635\u0627\u0644\u0627\u062A \u0648\u062A\u0642\u0627\u0631\u064A\u0631 \u0627\u0644\u062D\u0645\u0644\u0627\u062A","trans.rp_text":"\u0633\u062A\u064F\u0646\u0634\u0631 \u0647\u0646\u0627 \u0625\u064A\u0635\u0627\u0644\u0627\u062A \u0627\u0644\u0634\u0631\u0627\u0621 \u0648\u0645\u0644\u062E\u0635\u0627\u062A \u0627\u0644\u0625\u0646\u0641\u0627\u0642 \u0628\u0639\u062F \u0643\u0644 \u062D\u0645\u0644\u0629.",
+    "trans.rp_title":"تقرير سنوي شامل قادم قريباً","trans.rp_text":"نحن بصدد إعداد تقرير سنوي يوضح التفاصيل المالية والأثر، لتتمكنوا من رؤية كيف يُستخدم كرمكم بالضبط.",
     "dua.translation":"\u00AB\u0645\u0646 \u0646\u0641\u0651\u0633 \u0639\u0646 \u0645\u0624\u0645\u0646 \u0643\u0631\u0628\u0629\u064B \u0645\u0646 \u0643\u0631\u0628 \u0627\u0644\u062F\u0646\u064A\u0627\u060C \u0646\u0641\u0651\u0633 \u0627\u0644\u0644\u0647 \u0639\u0646\u0647 \u0643\u0631\u0628\u0629\u064B \u0645\u0646 \u0643\u0631\u0628 \u064A\u0648\u0645 \u0627\u0644\u0642\u064A\u0627\u0645\u0629\u00BB",
     "dua.source":"\u0635\u062D\u064A\u062D \u0645\u0633\u0644\u0645 \u00B7 \u062C\u0632\u0627\u0643\u0645 \u0627\u0644\u0644\u0647 \u062E\u064A\u0631\u0627\u064B \u0648\u0623\u0647\u0644\u0643\u0645. \u0622\u0645\u064A\u0646. \u{1F932}",
     "footer.tagline":"\u0645\u0633\u0627\u0639\u062F\u0629 \u0627\u0644\u0623\u0637\u0641\u0627\u0644 \u0641\u064A \u0627\u0644\u0645\u063A\u0631\u0628","footer.nonprofit":"\u0645\u0646\u0638\u0645\u0629 \u063A\u064A\u0631 \u0631\u0628\u062D\u064A\u0629 501(c)(3) \u00B7 EIN: 41-5257784 \u00B7 \u0645\u0633\u062C\u0644\u0629 \u0641\u064A \u0623\u0648\u0647\u0627\u064A\u0648","footer.sub":"\u0645\u0628\u0627\u062F\u0631\u0629 \u0645\u062C\u062A\u0645\u0639\u064A\u0629 \u0645\u0646 \u0645\u063A\u0627\u0631\u0628\u0629 \u0627\u0644\u0645\u0647\u062C\u0631","footer.linkedin":"\u0644\u064A\u0646\u0643\u062F\u0625\u0646","footer.facebook":"\u0641\u064A\u0633\u0628\u0648\u0643"
   },
   es:{
-    "nav.mission":"Misi\u00F3n","nav.needs":"Necesidades","nav.team":"Equipo","nav.gallery":"Galer\u00EDa","nav.receipts":"Recibos","nav.contact":"Contacto","nav.donate":"Donar ahora",
+    "nav.mission":"Misión","nav.needs":"Necesidades","nav.team":"Equipo","nav.gallery":"Impacto","nav.receipts":"Transparencia","nav.contact":"Contacto","nav.donate":"Donar ahora",
     "hero.badge":"\u{1F1F2}\u{1F1E6} Porque ning\u00FAn ni\u00F1o deber\u00EDa esperar","hero.h1":"Ellos no eligieron esto.<br>T\u00FA puedes elegir <em>ayudar.</em>",
     "hero.tagline":"Todo ni\u00F1o merece vivir la alegr\u00EDa \u2014 ay\u00FAdanos a hacerlo realidad.",
     "hero.sub":"Arraigado en el esp\u00EDritu de la sadaqah, Sponsor Kids 212 canaliza la generosidad de nuestra comunidad para brindar apoyo esencial y alegr\u00EDa sincera a los ni\u00F1os hu\u00E9rfanos, discapacitados y empobrecidos de Marruecos.",
     "hero.btn1":"Donar ahora","hero.btn2":"Nuestra historia","hero.nonprofit":"Sponsor Kids 212, Inc. es una organizaci\u00F3n sin fines de lucro 501(c)(3) \u00B7 EIN: 41-5257784 \u00B7 Tu donaci\u00F3n es deducible de impuestos",
-    "stats.s1":"va directamente a los ni\u00F1os","stats.s2":"patrocina a un ni\u00F1o","stats.s3":"d\u00EDas al a\u00F1o recaudamos","stats.s4":"nuestras ra\u00EDces, nuestra causa",
     "mission.tag":"Nuestra Misi\u00F3n","mission.title":"Llevando dignidad y alegr\u00EDa a los ni\u00F1os vulnerables",
     "mission.p1":"Somos un grupo de amigos marroqu\u00EDes viviendo en el extranjero que creen en devolver algo al pa\u00EDs y a las comunidades que nos formaron.",
     "mission.p2":"Hemos identificado ni\u00F1os en Marruecos que son hu\u00E9rfanos, viven con discapacidades, tienen padres ausentes o discapacitados, o viven en extrema pobreza.",
@@ -1354,31 +1259,36 @@ const T = {
     "team.achraf_bio":"Achraf es un joven profesional con una licenciatura en Econom\u00EDa y Administraci\u00F3n de Empresas. Su pasi\u00F3n por ayudar a familias y ni\u00F1os, combinada con sus habilidades log\u00EDsticas y de planificaci\u00F3n, lo convierten en un activo invaluable para Sponsor Kids 212.",
     "team.tag1":"\u{1F46A} Familias","team.tag2":"\u{1F476} Ni\u00F1os","team.tag3":"\u{1F48A} M\u00E9dico","team.tag4":"\u{1F4DA} Escuela","team.tag5":"\u267F Discapacidad",
     "team.whatsapp":"Chatear en WhatsApp","team.expand":"Buscamos expandirnos a otras ciudades de Marruecos. Si conoces a alguien de confianza, cont\u00E1ctanos.",
-    "gallery.tag":"Galer\u00EDa y Archivos","gallery.title":"Sonrisas posibles gracias a tu generosidad",
-    "gallery.note":"Las fotos se comparten solo con el consentimiento expl\u00EDcito del ni\u00F1o y su tutor.",
-    "gallery.folder.photos":"Fotos","gallery.folder.receipts":"Recibos",
-    "gallery.drive.photos_title":"Eid El-Fitr 2026 \u2014 Fotos","gallery.drive.photos_desc":"Compartido en OneDrive \u00B7 Abre en nueva pesta\u00F1a",
-    "gallery.drive.receipts_title":"Eid El-Fitr 2026 \u2014 Recibos","gallery.drive.receipts_desc":"Compartido en OneDrive \u00B7 Abre en nueva pesta\u00F1a",
-    "gallery.future":"Campa\u00F1as futuras","gallery.coming":"aparecer\u00E1n aqu\u00ED",
+    "campaign.eyebrow":"📚 Campaña de Regreso a Clases — Nuevo Año Escolar","campaign.title":"Dale a un niño las herramientas para triunfar",
+    "campaign.desc1":"Un nuevo año escolar está lleno de esperanza y posibilidades — pero para muchos de los niños que apoyamos, también significa estrés. Sin los materiales, uniformes y mochilas adecuados, estos niños comienzan en desventaja incluso antes de cruzar la puerta de la escuela.",
+    "campaign.desc2":"Tu donación se destina <strong>directamente a la compra de materiales escolares esenciales</strong> para los niños vulnerables de nuestro programa — mochilas, cuadernos, lápices, uniformes y todo lo que necesitan para comenzar el año con confianza y dignidad.",
+    "campaign.desc3":"Nuestra coordinadora de confianza en Casablanca identifica personalmente las necesidades de cada niño, compra los materiales y los entrega directamente — con cuidado y responsabilidad en cada paso.",
+    "campaign.urgency1":"mochilas y bolsos","campaign.urgency2":"cuadernos y materiales","campaign.urgency3":"uniformes y ropa",
+    "campaign.progress_label":"Recaudado hasta ahora","campaign.progress_of":"de","campaign.progress_goal_word":"meta","campaign.progress_encourage":"Cada donación mueve la barra — ¡ayúdanos a llegar a la meta!",
+    "campaign.tier1":"Cuadernos, lápices y materiales escolares para un niño","campaign.tier2":"Un uniforme completo y una mochila para un niño","campaign.tier3":"Un kit completo — uniforme, mochila, zapatos y materiales para un niño",
+    "campaign.btn1":"Donar ahora 🎒","campaign.btn2":"Ver opciones de patrocinio",
+    "campaign.side_name":"Regreso a clases","campaign.side_date":"Nuevo año escolar<br>2026","campaign.side_label":"Cada dólar cuenta","campaign.side_sub":"El 100% de tu donación va directamente a los niños — sin comisiones, sin gastos generales.",
+    "impact.tag":"Nuestro impacto","impact.title":"Lo que hemos logrado juntos",
+    "impact.sub":"Gracias a la generosidad de esta comunidad, ya hemos realizado con éxito campañas para el Eid al-Fitr y el Eid al-Adha en 2026 — llevando ropa nueva, zapatos, juguetes y artículos esenciales a niños vulnerables de Casablanca. Cada campaña ha ampliado nuestro alcance, y esperamos con ilusión un impacto aún mayor con la campaña de Regreso a Clases 2026 y las campañas por venir.",
+    "impact.fb_btn":"Sigue nuestro recorrido en Facebook",
     "trans.nonprofit_title":"Organizaci\u00F3n sin fines de lucro 501(c)(3)","trans.nonprofit_sub":"Sponsor Kids 212, Inc. \u00B7 EIN: 41-5257784 \u00B7 Organizaci\u00F3n ben\u00E9fica registrada en Ohio \u00B7 Tu donaci\u00F3n es totalmente deducible bajo la ley federal de EE.UU.","trans.nonprofit_verify":"Verificar en IRS \u2197","trans.tag":"Transparencia total","trans.title":"Tu confianza nos importa","trans.sub":"Estamos comprometidos con la responsabilidad total. Cada centavo donado llega a los ni\u00F1os.",
-    "trans.c1t":"Recibos publicados","trans.c1d":"Cada compra en Marruecos est\u00E1 documentada y compartida con todos los donantes.",
-    "trans.c2t":"Informes detallados","trans.c2d":"Un desglose completo de lo comprado, para qui\u00E9n y a qu\u00E9 costo.",
+    "trans.c1t":"Compras documentadas","trans.c1d":"Cada compra realizada en Marruecos se registra cuidadosamente y se incluirá en nuestro próximo informe anual para total transparencia.",
+    "trans.c2t":"Informes detallados","trans.c2d":"Un desglose completo de lo comprado, para quién y a qué costo se compartirá en nuestro informe de impacto anual.",
     "trans.c3t":"Coordinador local de confianza","trans.c3d":"La persona que recibe y gasta los fondos en Marruecos es de confianza para nuestra comunidad.",
     "trans.c4t":"Cero gastos generales","trans.c4d":"El 100% de cada donaci\u00F3n llega a los ni\u00F1os. Sin gastos administrativos ni comisiones.",
-    "trans.rp_title":"Recibos e informes de campa\u00F1a","trans.rp_text":"Los recibos y res\u00FAmenes de gastos se publicar\u00E1n aqu\u00ED despu\u00E9s de cada campa\u00F1a.",
+    "trans.rp_title":"Un informe anual completo está en camino","trans.rp_text":"Estamos preparando un informe anual con detalles financieros e impacto, para que puedas ver exactamente cómo se utiliza tu generosidad.",
     "dua.translation":"\u00ABQuien alivie la angustia de un creyente en este mundo, Allah le aliviar\u00E1 una dificultad en el D\u00EDa del Juicio.\u00BB",
     "dua.source":"Sahih Muslim \u00B7 Que Allah os recompense a vosotros y a vuestros seres queridos. Ameen. \u{1F932}",
     "footer.tagline":"Ayudando a los ni\u00F1os en Marruecos","footer.nonprofit":"Organizaci\u00F3n sin fines de lucro 501(c)(3) \u00B7 EIN: 41-5257784 \u00B7 Organizaci\u00F3n ben\u00E9fica de Ohio","footer.sub":"Una iniciativa comunitaria de marroqu\u00EDes en el extranjero","footer.linkedin":"LinkedIn","footer.facebook":"Facebook"
   }
   ,
   it:{
-    "nav.mission":"Missione","nav.needs":"Bisogni","nav.team":"Team","nav.gallery":"Galleria","nav.receipts":"Ricevute","nav.contact":"Contatto","nav.donate":"Dona ora",
+    "nav.mission":"Missione","nav.needs":"Bisogni","nav.team":"Team","nav.gallery":"Impatto","nav.receipts":"Trasparenza","nav.contact":"Contatto","nav.donate":"Dona ora",
     "hero.badge":"🇲🇦 Perché nessun bambino dovrebbe aspettare","hero.h1":"Loro non hanno scelto questo.<br>Tu puoi scegliere di <em>aiutare.</em>",
     "hero.tagline":"Ogni bambino merita di vivere la gioia — aiutaci a renderlo possibile.",
     "hero.sub":"Radicato nello spirito della sadaqah, Sponsor Kids 212 convoglia la generosità della nostra comunità per portare supporto essenziale e gioia sincera ai bambini orfani, disabili e poveri in Marocco.",
     "hero.btn1":"Dona ora","hero.btn2":"La nostra storia",
     "hero.nonprofit":"Sponsor Kids 212, Inc. è un’organizzazione nonprofit 501(c)(3) · EIN: 41-5257784 · La donazione è deducibile dalle tasse",
-    "stats.s1":"va direttamente ai bambini","stats.s2":"sponsorizza un bambino","stats.s3":"giorni all’anno raccogliamo","stats.s4":"le nostre radici, la nostra causa",
     "mission.tag":"La Nostra Missione","mission.title":"Portare dignità e gioia ai bambini vulnerabili",
     "mission.p1":"Siamo un gruppo di amici marocchini che vivono all’estero e credono nel restituire qualcosa al paese e alle comunità che ci hanno formato.",
     "mission.p2":"Abbiamo identificato bambini in Marocco che sono orfani, vivono con disabilità, hanno genitori assenti o disabili, o vivono in estrema povertà. Li sosteniamo tutto l’anno.",
@@ -1420,32 +1330,37 @@ const T = {
     "team.achraf_bio":"Achraf è un giovane professionista con una laurea in Economia e Amministrazione Aziendale. La sua passione per aiutare famiglie e bambini, unita alle sue capacità logistiche e di pianificazione, lo rendono una risorsa preziosa per Sponsor Kids 212.",
     "team.tag1":"👪 Famiglie","team.tag2":"👶 Bambini","team.tag3":"💊 Medico","team.tag4":"📚 Scuola","team.tag5":"♿ Disabilità",
     "team.expand":"Stiamo espandendo ad altre città. Contattaci se conosci un volontario di fiducia.",
-    "gallery.tag":"Galleria","gallery.title":"Sorrisi resi possibili dalla tua generosità",
-    "gallery.note":"Foto condivise solo con consenso esplicito.",
-    "gallery.folder.photos":"Foto","gallery.folder.receipts":"Ricevute",
-    "gallery.drive.photos_title":"Eid El-Fitr 2026 — Foto","gallery.drive.photos_desc":"OneDrive · Nuova scheda",
-    "gallery.drive.receipts_title":"Eid El-Fitr 2026 — Ricevute","gallery.drive.receipts_desc":"OneDrive · Nuova scheda",
-    "gallery.future":"Campagne future","gallery.coming":"appariranno qui",
+    "campaign.eyebrow":"📚 Campagna Ritorno a Scuola — Nuovo Anno Scolastico","campaign.title":"Dai a un bambino gli strumenti per riuscire",
+    "campaign.desc1":"Un nuovo anno scolastico è pieno di speranza e possibilità — ma per molti dei bambini che sosteniamo, significa anche stress. Senza il materiale, le uniformi e gli zaini giusti, questi bambini partono svantaggiati ancor prima di varcare la soglia della scuola.",
+    "campaign.desc2":"La tua donazione va <strong>direttamente all'acquisto di materiale scolastico essenziale</strong> per i bambini vulnerabili del nostro programma — zaini, quaderni, penne, uniformi e tutto ciò di cui hanno bisogno per iniziare l'anno con fiducia e dignità.",
+    "campaign.desc3":"La nostra coordinatrice di fiducia a Casablanca individua personalmente le esigenze di ogni bambino, acquista il materiale e lo consegna direttamente — con cura e responsabilità in ogni fase.",
+    "campaign.urgency1":"zaini e borse","campaign.urgency2":"quaderni e materiale","campaign.urgency3":"uniformi e abbigliamento",
+    "campaign.progress_label":"Raccolto finora","campaign.progress_of":"su","campaign.progress_goal_word":"obiettivo","campaign.progress_encourage":"Ogni donazione fa avanzare la barra — aiutaci a raggiungere il traguardo!",
+    "campaign.tier1":"Quaderni, penne e materiale scolastico per un bambino","campaign.tier2":"Un'uniforme completa e uno zaino per un bambino","campaign.tier3":"Un kit completo — uniforme, zaino, scarpe e materiale per un bambino",
+    "campaign.btn1":"Dona ora 🎒","campaign.btn2":"Vedi le opzioni di sponsorizzazione",
+    "campaign.side_name":"Ritorno a scuola","campaign.side_date":"Nuovo anno scolastico<br>2026","campaign.side_label":"Ogni dollaro conta","campaign.side_sub":"Il 100% della tua donazione va direttamente ai bambini — senza commissioni, senza costi generali.",
+    "impact.tag":"Il nostro impatto","impact.title":"Cosa abbiamo realizzato insieme",
+    "impact.sub":"Grazie alla generosità di questa comunità, abbiamo già portato a termine con successo le campagne per l'Eid al-Fitr e l'Eid al-Adha nel 2026 — portando vestiti nuovi, scarpe, giocattoli ed essenziali quotidiani ai bambini vulnerabili di Casablanca. Ogni campagna ha ampliato la nostra portata, e non vediamo l'ora di avere un impatto ancora maggiore con la campagna Ritorno a Scuola 2026 e le campagne future.",
+    "impact.fb_btn":"Segui il nostro percorso su Facebook",
     "trans.nonprofit_title":"Organizzazione Nonprofit 501(c)(3)","trans.nonprofit_sub":"Sponsor Kids 212, Inc. · EIN: 41-5257784 · Ohio · Donazione deducibile.",
     "trans.nonprofit_verify":"Verifica IRS ↗",
     "trans.tag":"Piena Trasparenza","trans.title":"La tua fiducia conta","trans.sub":"Ogni centesimo raggiunge i bambini.",
-    "trans.c1t":"Ricevute","trans.c1d":"Ogni acquisto è documentato e condiviso.",
-    "trans.c2t":"Report","trans.c2d":"Quadro completo di acquisti e costi.",
+    "trans.c1t":"Acquisti documentati","trans.c1d":"Ogni acquisto effettuato in Marocco viene tracciato con cura e sarà incluso nel nostro prossimo rapporto annuale per la massima trasparenza.",
+    "trans.c2t":"Rapporti dettagliati","trans.c2d":"Una ripartizione completa di cosa è stato acquistato, per chi e a quale costo sarà condivisa nel nostro rapporto d’impatto annuale.",
     "trans.c3t":"Coordinatore fidato","trans.c3d":"Persona conosciuta e fidata dalla nostra comunità.",
     "trans.c4t":"Zero spese","trans.c4d":"100% ai bambini. Nessuna commissione.",
-    "trans.rp_title":"Ricevute","trans.rp_text":"Pubblicati dopo ogni campagna.",
+    "trans.rp_title":"Un rapporto annuale completo è in arrivo","trans.rp_text":"Stiamo preparando un rapporto annuale con dettagli finanziari e d’impatto, così potrai vedere esattamente come viene utilizzata la tua generosità.",
     "dua.translation":"\"Chi allevia l’angoscia di un credente, Allah lo allevierà nel Giorno del Giudizio.\"",
     "dua.source":"Sahih Muslim · Che Allah vi ricompensi. Ameen. 🤲",
     "footer.tagline":"Aiutare i bambini in Marocco","footer.sub":"Un’iniziativa comunitaria","footer.nonprofit":"Nonprofit 501(c)(3) · EIN: 41-5257784 · Ohio","footer.linkedin":"LinkedIn","footer.facebook":"Facebook"
   },
   de:{
-    "nav.mission":"Mission","nav.needs":"Bedürfnisse","nav.team":"Team","nav.gallery":"Galerie","nav.receipts":"Belege","nav.contact":"Kontakt","nav.donate":"Jetzt spenden",
+    "nav.mission":"Mission","nav.needs":"Bedürfnisse","nav.team":"Team","nav.gallery":"Wirkung","nav.receipts":"Transparenz","nav.contact":"Kontakt","nav.donate":"Jetzt spenden",
     "hero.badge":"🇲🇦 Weil kein Kind warten sollte","hero.h1":"Sie haben sich das nicht ausgesucht.<br>Du kannst dich entscheiden zu <em>helfen.</em>",
     "hero.tagline":"Jedes Kind verdient Freude — hilf uns, sie möglich zu machen.",
     "hero.sub":"Im Geiste der Sadaqah bündelt Sponsor Kids 212 die Großzügigkeit unserer Gemeinschaft für verwaiste, behinderte und arme Kinder in Marokko.",
     "hero.btn1":"Jetzt spenden","hero.btn2":"Unsere Geschichte",
     "hero.nonprofit":"Sponsor Kids 212, Inc. ist eine gemeinnützige Organisation 501(c)(3) · EIN: 41-5257784 · Spende steuerlich absetzbar",
-    "stats.s1":"geht direkt an Kinder","stats.s2":"sponsert ein Kind","stats.s3":"Tage im Jahr sammeln wir","stats.s4":"unsere Wurzeln, unser Ziel",
     "mission.tag":"Unsere Mission","mission.title":"Würde und Freude für gefährdete Kinder",
     "mission.p1":"Wir sind marokkanische Freunde im Ausland, die dem Land zurückgeben möchten, das uns geprägt hat.",
     "mission.p2":"Wir unterstützen verwaiste, behinderte Kinder und solche mit abwesenden Eltern oder in extremer Armut das ganze Jahr über.",
@@ -1487,20 +1402,26 @@ const T = {
     "team.achraf_bio":"Achraf ist ein junger Fachmann mit einem Bachelor-Abschluss in Wirtschaftswissenschaften und Betriebswirtschaftslehre. Seine Leidenschaft, Familien und Kindern zu helfen, kombiniert mit seinen logistischen und planerischen Fähigkeiten, machen ihn zu einem unverzichtbaren Teil von Sponsor Kids 212.",
     "team.tag1":"👪 Familien","team.tag2":"👶 Kinder","team.tag3":"💊 Medizin","team.tag4":"📚 Schule","team.tag5":"♿ Behinderung",
     "team.expand":"Wir möchten uns ausweiten. Kontaktieren Sie uns, wenn Sie jemanden kennen.",
-    "gallery.tag":"Galerie","gallery.title":"Lächeln durch Ihre Großzügigkeit",
-    "gallery.note":"Fotos nur mit ausdrücklicher Zustimmung.",
-    "gallery.folder.photos":"Fotos","gallery.folder.receipts":"Belege",
-    "gallery.drive.photos_title":"Eid El-Fitr 2026 — Fotos","gallery.drive.photos_desc":"OneDrive · Neuer Tab",
-    "gallery.drive.receipts_title":"Eid El-Fitr 2026 — Belege","gallery.drive.receipts_desc":"OneDrive · Neuer Tab",
-    "gallery.future":"Zukünftige Kampagnen","gallery.coming":"erscheinen hier",
+    "campaign.eyebrow":"📚 Schulstart-Kampagne — Neues Schuljahr","campaign.title":"Gib einem Kind die Werkzeuge zum Erfolg",
+    "campaign.desc1":"Ein neues Schuljahr steckt voller Hoffnung und Möglichkeiten — für viele der Kinder, die wir unterstützen, bedeutet es aber auch Stress. Ohne die richtigen Materialien, Schuluniformen und Schulranzen starten diese Kinder benachteiligt, noch bevor sie die Schultür durchschreiten.",
+    "campaign.desc2":"Deine Spende fließt <strong>direkt in den Kauf wichtiger Schulmaterialien</strong> für die schutzbedürftigen Kinder in unserem Programm — Schulranzen, Hefte, Stifte, Uniformen und alles, was sie brauchen, um das Jahr mit Zuversicht und Würde zu beginnen.",
+    "campaign.desc3":"Unsere vertrauenswürdige Koordinatorin in Casablanca ermittelt persönlich den Bedarf jedes Kindes, kauft die Materialien und übergibt sie direkt — mit Sorgfalt und Verantwortung bei jedem Schritt.",
+    "campaign.urgency1":"Schulranzen & Taschen","campaign.urgency2":"Hefte & Material","campaign.urgency3":"Uniformen & Kleidung",
+    "campaign.progress_label":"Bisher gesammelt","campaign.progress_of":"von","campaign.progress_goal_word":"Ziel","campaign.progress_encourage":"Jede Spende bewegt die Anzeige — hilf uns, das Ziel zu erreichen!",
+    "campaign.tier1":"Hefte, Stifte & Schulmaterial für ein Kind","campaign.tier2":"Eine komplette Schuluniform & ein Schulranzen für ein Kind","campaign.tier3":"Ein komplettes Set — Uniform, Schulranzen, Schuhe & Material für ein Kind",
+    "campaign.btn1":"Jetzt spenden 🎒","campaign.btn2":"Patenschaftsoptionen ansehen",
+    "campaign.side_name":"Schulstart","campaign.side_date":"Neues Schuljahr<br>2026","campaign.side_label":"Jeder Dollar zählt","campaign.side_sub":"100 % deiner Spende gehen direkt an die Kinder — ohne Gebühren, ohne Gemeinkosten.",
+    "impact.tag":"Unsere Wirkung","impact.title":"Was wir gemeinsam erreicht haben",
+    "impact.sub":"Dank der Großzügigkeit dieser Gemeinschaft haben wir bereits erfolgreiche Kampagnen für Eid al-Fitr und Eid al-Adha 2026 durchgeführt — mit neuer Kleidung, Schuhen, Spielzeug und alltäglichen Notwendigkeiten für schutzbedürftige Kinder in Casablanca. Jede Kampagne hat unsere Reichweite vergrößert, und wir freuen uns auf eine noch größere Wirkung mit der Schulstart-Kampagne 2026 und den kommenden Kampagnen.",
+    "impact.fb_btn":"Folge unserem Weg auf Facebook",
     "trans.nonprofit_title":"Gemeinnützige Organisation 501(c)(3)","trans.nonprofit_sub":"Sponsor Kids 212, Inc. · EIN: 41-5257784 · Ohio · Vollständig steuerlich absetzbar.",
     "trans.nonprofit_verify":"Beim IRS prüfen ↗",
     "trans.tag":"Volle Transparenz","trans.title":"Ihr Vertrauen ist uns wichtig","trans.sub":"Jeder gespendete Cent erreicht die Kinder.",
-    "trans.c1t":"Belege","trans.c1d":"Jeder Kauf dokumentiert und geteilt.",
-    "trans.c2t":"Berichte","trans.c2d":"Vollständige Aufstellung aller Käufe.",
+    "trans.c1t":"Käufe dokumentiert","trans.c1d":"Jeder Kauf in Marokko wird sorgfältig erfasst und in unseren kommenden Jahresbericht aufgenommen — für volle Transparenz.",
+    "trans.c2t":"Detaillierte Berichte","trans.c2d":"Eine vollständige Aufstellung, was gekauft wurde, für wen und zu welchem Preis, wird in unserem jährlichen Wirkungsbericht geteilt.",
     "trans.c3t":"Vertrauenswürdiger Koordinator","trans.c3d":"Person vor Ort ist persönlich bekannt und vertraut.",
     "trans.c4t":"Null Gemeinkosten","trans.c4d":"100 % erreicht die Kinder.",
-    "trans.rp_title":"Belege und Berichte","trans.rp_text":"Nach jeder Kampagne veröffentlicht.",
+    "trans.rp_title":"Ein vollständiger Jahresbericht ist unterwegs","trans.rp_text":"Wir bereiten einen Jahresbericht mit detaillierten Finanzangaben und Wirkung vor, damit du genau sehen kannst, wie deine Großzügigkeit eingesetzt wird.",
     "dua.translation":"\"Wer die Not eines Gläubigen lindert, dem wird Allah eine Schwierigkeit am Gerichtstag erleichtern.\"",
     "dua.source":"Sahih Muslim · Möge Allah Sie belohnen. Ameen. 🤲",
     "footer.tagline":"Kindern in Marokko helfen","footer.sub":"Gemeinschaftsinitiative von Marokkanern im Ausland","footer.nonprofit":"Gemeinnützige Org. 501(c)(3) · EIN: 41-5257784 · Ohio","footer.linkedin":"LinkedIn","footer.facebook":"Facebook"
@@ -1531,29 +1452,27 @@ function copyZelle(){
   });
 }
 
-function toggleYear(el){
-  const body=el.nextElementSibling;
-  const chevron=el.querySelector('.archive-chevron');
-  body.classList.toggle('hidden');
-  chevron.classList.toggle('rotated');
+function formatMoney(n){
+  return '$' + Number(n).toLocaleString('en-US');
 }
-function toggleEvent(el){
-  const body=el.nextElementSibling;
-  const chevron=el.querySelector('.archive-chevron.small');
-  body.classList.toggle('hidden');
-  if(chevron)chevron.classList.toggle('rotated');
+function loadCampaignProgress(){
+  fetch('progress.json?_=' + Date.now())
+    .then(r => r.json())
+    .then(data => {
+      const raised = Number(data.raised) || 0;
+      const goal = Number(data.goal) || 1;
+      const pct = Math.max(0, Math.min(100, (raised / goal) * 100));
+      const fill = document.getElementById('campaign-progress-fill');
+      const pctEl = document.getElementById('campaign-progress-pct');
+      const raisedEl = document.getElementById('campaign-progress-raised');
+      const goalEl = document.getElementById('campaign-progress-goal');
+      if (fill) fill.style.width = pct + '%';
+      if (pctEl) pctEl.textContent = Math.round(pct) + '%';
+      if (raisedEl) raisedEl.textContent = formatMoney(raised);
+      if (goalEl) goalEl.textContent = formatMoney(goal);
+    })
+    .catch(() => {});
 }
-function openLightbox(src){
-  document.getElementById('lightbox-img').src=src;
-  document.getElementById('lightbox').classList.add('open');
-  document.body.style.overflow='hidden';
-}
-function closeLightbox(){
-  document.getElementById('lightbox').classList.remove('open');
-  document.getElementById('lightbox-img').src='';
-  document.body.style.overflow='';
-}
-document.addEventListener('keydown',e=>{if(e.key==='Escape')closeLightbox();});
 
 const pageTitles = {
   en:"Sponsor Kids 212 — Helping Children in Morocco",
@@ -1585,6 +1504,7 @@ window.addEventListener('DOMContentLoaded', () => {
   try { lang = localStorage.getItem('sk212-lang') || navigator.language.slice(0,2); } catch(e){}
   if (!T[lang]) lang = 'en';
   setLang(lang);
+  loadCampaignProgress();
 });
 </script>
 </body>
